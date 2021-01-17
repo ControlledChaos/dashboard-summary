@@ -10,6 +10,9 @@
 
 namespace Dashboard_Summary;
 
+// Alias namespaces.
+use Dashboard_Summary\Classes as Classes;
+
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) {
 	die;
@@ -60,6 +63,8 @@ function dashboard_summary() {
 	 * such as running new instances below.
 	 */
 	require_once DS_PATH . 'includes/autoloader.php';
+
+	new Classes\Replace_Widget;
 }
 
 // Run the plugin.

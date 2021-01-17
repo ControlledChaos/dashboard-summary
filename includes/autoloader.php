@@ -43,22 +43,7 @@ define( 'DS_CLASS', [
  * @var   array Defines an array of class files to register.
  */
 define( 'DS_CLASSES', [
-
-	// Base class.
-	// 'DS_Plugin\Classes\Base' => DS_CLASS['general'] . 'base.php',
-
-	// Core classes.
-	// 'DS_Plugin\Classes\Class' => DS_CLASS['core'] . 'file.php',
-
-	// Settings classes.
-	// 'DS_Plugin\Classes\Class' => DS_CLASS['settings'] . 'file.php',
-
-	// Backend/admin classes,
-	// 'DS_Plugin\Classes\Class' => DS_CLASS['admin'] . 'file.php',
-
-	// General/miscellaneos classes.
-	// 'DS_Plugin\Classes\Class' => DS_CLASS['general'] . 'file.php',
-
+	'Dashboard_Summary\Classes\Replace_Widget' => DS_CLASS['general'] . 'replace-widget.php',
 ] );
 
 /**
