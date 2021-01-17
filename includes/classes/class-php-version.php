@@ -36,15 +36,6 @@ final class PHP_Version {
 	}
 
 	/**
-	 * Constructor method
-	 *
-	 * @since  1.0.0
-	 * @access private
-	 * @return self
-	 */
-	private function __construct() {}
-
-	/**
 	 * Minimum PHP version
 	 *
 	 * @since  1.0.0
