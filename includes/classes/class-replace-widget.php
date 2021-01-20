@@ -1,6 +1,6 @@
 <?php
 /**
- * Add widget
+ * Replace Widget
  *
  * @package    Dashboard_Summary
  * @subpackage Classes
