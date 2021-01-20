@@ -23,14 +23,9 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Defines the class directories and file prefixes.
  *
  * @since 1.0.0
- * @var   array Defines an array of class file paths.
+ * @var   string Defines the class file path.
  */
-define( 'DS_CLASS', [
-	'core'     => DS_PATH . 'includes/classes/core/class-',
-	'settings' => DS_PATH . 'includes/classes/settings/class-',
-	'admin'    => DS_PATH . 'includes/classes/backend/class-',
-	'general'  => DS_PATH . 'includes/classes/class-',
-] );
+define( 'DS_CLASS', DS_PATH . 'includes/classes/class-' );
 
 /**
  * Array of classes to register
@@ -43,8 +38,9 @@ define( 'DS_CLASS', [
  * @var   array Defines an array of class files to register.
  */
 define( 'DS_CLASSES', [
-	'Dashboard_Summary\Classes\Dashboard'      => DS_CLASS['general'] . 'dashboard.php',
-	'Dashboard_Summary\Classes\Replace_Widget' => DS_CLASS['general'] . 'replace-widget.php',
+	'Dashboard_Summary\Classes\Settings'       => DS_CLASS . 'settings.php',
+	'Dashboard_Summary\Classes\Dashboard'      => DS_CLASS . 'dashboard.php',
+	'Dashboard_Summary\Classes\Replace_Widget' => DS_CLASS . 'replace-widget.php',
 ] );
 
 /**
