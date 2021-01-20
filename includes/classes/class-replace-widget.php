@@ -31,7 +31,6 @@ class Replace_Widget {
 
 		// Add the summary widget.
 		add_action( 'wp_dashboard_setup', [ $this, 'add_widget' ] );
-
 	}
 
 	/**
@@ -60,7 +59,6 @@ class Replace_Widget {
 		$heading = apply_filters( 'ds_widget_heading', __( 'Website Summary', DS_DOMAIN ) );
 
 		wp_add_dashboard_widget( 'dashboard_summary', $heading, [ $this, 'output' ] );
-
 	}
 
 	/**
@@ -71,7 +69,8 @@ class Replace_Widget {
 	 * @return mixed
 	 */
 	public function output() {
+		echo '<div id="dashboard_right_now">';
 		wp_dashboard_right_now();
+		echo '</div>';
 	}
-
 }

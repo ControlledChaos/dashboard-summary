@@ -43,6 +43,7 @@ define( 'DS_CLASS', [
  * @var   array Defines an array of class files to register.
  */
 define( 'DS_CLASSES', [
+	'Dashboard_Summary\Classes\Dashboard'      => DS_CLASS['general'] . 'dashboard.php',
 	'Dashboard_Summary\Classes\Replace_Widget' => DS_CLASS['general'] . 'replace-widget.php',
 ] );
 
