@@ -4,7 +4,7 @@
  *
  * @package    Dashboard_Summary
  * @subpackage Classes
- * @category   Widgets
+ * @category   Settings
  * @since      1.0.0
  */
 
