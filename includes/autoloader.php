@@ -39,6 +39,7 @@ define( 'DS_CLASS', DS_PATH . 'includes/classes/class-' );
  */
 define( 'DS_CLASSES', [
 	'Dashboard_Summary\Classes\Settings'       => DS_CLASS . 'settings.php',
+	'Dashboard_Summary\Classes\Site_Summary'   => DS_CLASS . 'site-summary.php',
 	'Dashboard_Summary\Classes\Dashboard'      => DS_CLASS . 'dashboard.php',
 	'Dashboard_Summary\Classes\Replace_Widget' => DS_CLASS . 'replace-widget.php',
 ] );

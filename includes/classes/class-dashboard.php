@@ -41,50 +41,6 @@ class Dashboard {
 	}
 
 	/**
-	 * At a Glance post types
-	 *
-	 * Queries post types to be displayed in the
-	 * At a Glance dashboard widget.
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @return array Returns an array of queried post types.
-	 */
-	public function at_glance_post_types() {
-
-		// Post type query arguments.
-		$query = [
-			'public'   => true,
-			'_builtin' => false
-		];
-
-		// Return post types according to above.
-		return get_post_types( $query, 'object', 'and' );
-	}
-
-	/**
-	 * At a Glance taxonomies
-	 *
-	 * Taxonomies to be displayed in the
-	 * At a Glance dashboard widget.
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @return array Returns an array of queried taxonomies.
-	 */
-	public function at_glance_taxonomies() {
-
-		// Taxonomy query arguments.
-		$query = [
-			'public'  => true,
-			'show_ui' => true
-		];
-
-		// Return taxonomies according to above.
-		return get_taxonomies( $query, 'object', 'and' );
-	}
-
-	/**
 	 * At a Glance SVG colors
 	 *
 	 * Returns CSS hex codes for admin user schemes.
@@ -198,7 +154,7 @@ class Dashboard {
 		 */
 
 		// Get post types.
-		$post_types = $this->at_glance_post_types();
+		$post_types = summary()->post_types();
 
 		// Prepare styles each post type matching the query.
 		$type_count = '';
@@ -211,7 +167,7 @@ class Dashboard {
 		}
 
 		// Get taxonomies.
-		$taxonomies = $this->at_glance_taxonomies();
+		$taxonomies = summary()->taxonomies();
 
 		// Prepare styles each taxonomy matching the query.
 		$tax_count = '';
@@ -250,10 +206,10 @@ class Dashboard {
 	public function at_glance() {
 
 		// Get post types.
-		$post_types = $this->at_glance_post_types();
+		$post_types = summary()->post_types();
 
 		// Get taxonomies.
-		$taxonomies = $this->at_glance_taxonomies();
+		$taxonomies = summary()->taxonomies();
 
 		// Prepare an entry for each post type matching the query.
 		foreach ( $post_types as $post_type ) {

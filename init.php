@@ -65,6 +65,7 @@ function dashboard_summary() {
 	require_once DS_PATH . 'includes/autoloader.php';
 
 	new Classes\Settings;
+	new Classes\Site_Summary;
 	new Classes\Dashboard;
 	new Classes\Replace_Widget;
 }
