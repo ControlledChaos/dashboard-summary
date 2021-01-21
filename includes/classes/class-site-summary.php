@@ -47,7 +47,8 @@ class Site_Summary {
 		];
 
 		// Return post types according to above.
-		return get_post_types( $query, 'object', 'and' );
+		$query = get_post_types( $query, 'object', 'and' );
+		return apply_filters( 'ds_post_types_query', $query );
 	}
 
 	/**
@@ -66,7 +67,8 @@ class Site_Summary {
 		];
 
 		// Return taxonomies according to above.
-		return get_taxonomies( $query, 'object', 'and' );
+		$query = get_taxonomies( $query, 'object', 'and' );
+		return apply_filters( 'ds_taxonomies_query', $query );
 	}
 }
 
