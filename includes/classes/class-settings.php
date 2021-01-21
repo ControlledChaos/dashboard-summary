@@ -83,7 +83,7 @@ final class Settings {
 			]
 		);
 
-		// Disable the "At a Glance" widget.
+		// Disable the At a Glance widget.
 		add_settings_field(
 			'ds_enable_glance',
 			__( 'At a Glance', DS_DOMAIN ),

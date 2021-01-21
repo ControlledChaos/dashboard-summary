@@ -35,7 +35,7 @@ class Dashboard {
 		// Print admin styles to head.
 		add_action( 'admin_print_styles', [ $this, 'admin_print_styles' ], 20 );
 
-		// "At a Glance" dashboard widget.
+		// At a Glance dashboard widget.
 		add_action( 'dashboard_glance_items', [ $this, 'at_glance' ] );
 		add_action( 'rightnow_end', [ $this, 'at_glance_end' ] );
 	}
@@ -44,7 +44,7 @@ class Dashboard {
 	 * At a Glance post types
 	 *
 	 * Queries post types to be displayed in the
-	 * "At a Glance" dashboard widget.
+	 * At a Glance dashboard widget.
 	 *
 	 * @since  1.0.0
 	 * @access public
@@ -66,7 +66,7 @@ class Dashboard {
 	 * At a Glance taxonomies
 	 *
 	 * Taxonomies to be displayed in the
-	 * "At a Glance" dashboard widget.
+	 * At a Glance dashboard widget.
 	 *
 	 * @since  1.0.0
 	 * @access public
@@ -241,7 +241,7 @@ class Dashboard {
 	/**
 	 * At a Glance
 	 *
-	 * Adds custom post types to "At a Glance" dashboard widget.
+	 * Adds custom post types to At a Glance dashboard widget.
 	 *
 	 * @since  1.0.0
 	 * @access public
@@ -346,7 +346,7 @@ class Dashboard {
 	 * At a Glance end
 	 *
 	 * Adds content to the end of the
-	 * "At a Glance" dashboard widget.
+	 * At a Glance dashboard widget.
 	 *
 	 * @since  1.0.0
 	 * @access public

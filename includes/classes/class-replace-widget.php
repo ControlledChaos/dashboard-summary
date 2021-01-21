@@ -26,7 +26,7 @@ class Replace_Widget {
 	 */
 	public function __construct() {
 
-		// Remove the "At a Glance" widget.
+		// Remove the At a Glance widget.
 		add_action( 'wp_dashboard_setup', [ $this, 'remove_widget' ] );
 
 		// Add the summary widget.
@@ -34,7 +34,7 @@ class Replace_Widget {
 	}
 
 	/**
-	 * Remove "At a Glance" widget
+	 * Remove At a Glance widget
 	 *
 	 * @since  1.0.0
 	 * @access public
