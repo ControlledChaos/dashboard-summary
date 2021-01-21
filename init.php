@@ -73,7 +73,6 @@ function dashboard_summary() {
 
 	if ( 'index.php' == $pagenow ) {
 		new Classes\Dashboard;
-		new Classes\Replace_Widget;
 	}
 }
 

@@ -26,6 +26,9 @@ class Dashboard {
 	 */
 	public function __construct() {
 
+		new Replace_Widget;
+		new At_A_Glance;
+
 		// Enqueue admin scripts.
 		add_action( 'admin_enqueue_scripts', [ $this, 'admin_enqueue_scripts' ] );
 
