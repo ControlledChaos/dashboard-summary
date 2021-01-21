@@ -44,7 +44,10 @@ class Replace_Widget {
 	public function remove_widget() {
 
 		global $wp_meta_boxes;
-		unset( $wp_meta_boxes['dashboard']['normal']['core']['dashboard_right_now'] );
+
+		if ( false == settings()->sanitize_glance() ) {
+			unset( $wp_meta_boxes['dashboard']['normal']['core']['dashboard_right_now'] );
+		}
 	}
 
 	/**
@@ -58,11 +61,13 @@ class Replace_Widget {
 
 		$heading = apply_filters( 'ds_widget_heading', __( 'Website Summary', DS_DOMAIN ) );
 
-		wp_add_dashboard_widget( 'dashboard_summary', $heading, [ $this, 'output' ] );
+		if ( true == settings()->sanitize_summary() ) {
+			wp_add_dashboard_widget( 'dashboard_summary', $heading, [ $this, 'output' ] );
+		}
 	}
 
 	/**
-	 * Dashboard widget output.
+	 * Dashboard widget output
 	 *
 	 * @since  1.0.0
 	 * @access public
