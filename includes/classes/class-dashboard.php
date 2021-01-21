@@ -154,20 +154,22 @@ class Dashboard {
 		 */
 
 		// Get post types.
-		$post_types = summary()->post_types();
+		$post_types = summary()->custom_types_query();
 
 		// Prepare styles each post type matching the query.
 		$type_count = '';
 		foreach ( $post_types as $post_type ) {
+
+			$type = get_post_type_object( $post_type );
 			$type_count .= sprintf(
 				'#dashboard_right_now .post-count.%s a:before, #dashboard_right_now .post-count.%s span:before { display: none; }',
-				$post_type->name . '-count',
-				$post_type->name . '-count'
+				$type->name . '-count',
+				$type->name . '-count'
 			);
 		}
 
 		// Get taxonomies.
-		$taxonomies = summary()->taxonomies();
+		$taxonomies = summary()->taxonomies_query();
 
 		// Prepare styles each taxonomy matching the query.
 		$tax_count = '';
@@ -175,8 +177,8 @@ class Dashboard {
 			foreach ( $taxonomies as $taxonomy ) {
 				$type_count .= sprintf(
 					'#dashboard_right_now .post-count.%s a:before, #dashboard_right_now .post-count.%s span:before { display: none; }',
-					$post_type->name . '-count',
-					$post_type->name . '-count'
+					$type->name . '-count',
+					$type->name . '-count'
 				);
 			}
 		}
@@ -206,48 +208,50 @@ class Dashboard {
 	public function at_glance() {
 
 		// Get post types.
-		$post_types = summary()->post_types();
+		$post_types = summary()->custom_types_query();
 
 		// Get taxonomies.
-		$taxonomies = summary()->taxonomies();
+		$taxonomies = summary()->taxonomies_query();
 
 		// Prepare an entry for each post type matching the query.
 		foreach ( $post_types as $post_type ) {
 
+			$type = get_post_type_object( $post_type );
+
 			// Count the number of posts.
-			$count = wp_count_posts( $post_type->name );
+			$count = wp_count_posts( $type->name );
 
 			// Get the number of published posts.
 			$number = number_format_i18n( $count->publish );
 
 			// Get the plural or single name based on the count.
-			$name = _n( $post_type->labels->singular_name, $post_type->labels->name, intval( $count->publish ) );
+			$name = _n( $type->labels->singular_name, $type->labels->name, intval( $count->publish ) );
 
 			// If the icon is data:image/svg+xml.
-			if ( 0 === strpos( $post_type->menu_icon, 'data:image/svg+xml;base64,' ) ) {
+			if ( 0 === strpos( $type->menu_icon, 'data:image/svg+xml;base64,' ) ) {
 				$menu_icon = sprintf(
 					'<span class="at-glance-cpt-icons" style="%s"></span>',
-					esc_attr( 'background-image: url( "' . esc_html( $post_type->menu_icon ) . '" );' )
+					esc_attr( 'background-image: url( "' . esc_html( $type->menu_icon ) . '" );' )
 				);
 
 			// If the icon is a Dashicon class.
-			} elseif ( 0 === strpos( $post_type->menu_icon, 'dashicons-' ) ) {
-				$menu_icon = '<icon class="dashicons ' . $post_type->menu_icon . '"></icon>';
+			} elseif ( 0 === strpos( $type->menu_icon, 'dashicons-' ) ) {
+				$menu_icon = '<icon class="dashicons ' . $type->menu_icon . '"></icon>';
 
 			// If the icon is a URL.
-			} elseif( 0 === strpos( $post_type->menu_icon, 'http' ) ) {
-				$menu_icon = '<span class="at-glance-cpt-icons"><img src="' . esc_url( $post_type->menu_icon ) . '" /></span>';
+			} elseif( 0 === strpos( $type->menu_icon, 'http' ) ) {
+				$menu_icon = '<span class="at-glance-cpt-icons"><img src="' . esc_url( $type->menu_icon ) . '" /></span>';
 
 			} else {
-				$menu_icon = '<icon class="dashicons dashicons-admin-post dashicons-admin-' . $post_type->menu_icon . '"></icon>';
+				$menu_icon = '<icon class="dashicons dashicons-admin-post dashicons-admin-' . $type->menu_icon . '"></icon>';
 			}
 
 			// Supply an edit link if the user can edit posts.
-			if ( current_user_can( $post_type->cap->edit_posts ) ) {
+			if ( current_user_can( $type->cap->edit_posts ) ) {
 				printf(
 					'<li class="post-count %s-count"><a href="edit.php?post_type=%s">%s %s %s</a></li>',
-					$post_type->name,
-					$post_type->name,
+					$type->name,
+					$type->name,
 					$menu_icon,
 					$number,
 					$name
@@ -257,7 +261,7 @@ class Dashboard {
 			} else {
 				printf(
 					'<li class="post-count %s-count">%s %s %s</li>',
-					$post_type->name,
+					$type->name,
 					$menu_icon,
 					$number,
 					$name
@@ -279,18 +283,18 @@ class Dashboard {
 
 				// Set `post_type` URL parameter for menu highlighting.
 				if ( $types && 'post' === $types ) {
-					$post_type = '&post_type=post';
+					$type = '&post_type=post';
 				} elseif ( $types ) {
-					$post_type = '&post_type=' . $types;
+					$type = '&post_type=' . $types;
 				} else {
-					$post_type = '';
+					$type = '';
 				}
 
 				// Print a list item for the taxonomy.
 				echo sprintf(
 					'<li class="at-glance-taxonomy %s"><a href="%s">%s %s</a></li>',
 					$taxonomy->name,
-					admin_url( 'edit-tags.php?taxonomy=' . $taxonomy->name . $post_type ),
+					admin_url( 'edit-tags.php?taxonomy=' . $taxonomy->name . $type ),
 					wp_count_terms( [ $taxonomy->name ] ),
 					$taxonomy->labels->name
 				);
