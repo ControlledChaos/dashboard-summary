@@ -68,7 +68,7 @@ class Site_Summary {
 	public function public_post_types() {
 
 		// Built-in post types.
-		$builtin = [ 'post', 'page' ];
+		$builtin = [ 'post', 'page', 'attachment' ];
 
 		// Custom post types query.
 		$query = $this->custom_types_query();
@@ -112,7 +112,9 @@ class Site_Summary {
 		// Get all public post types.
 		$post_types = $this->public_post_types();
 
-		echo '<ul>';
+		echo '<ul class="ds-post-types-list">';
+
+		// Conditional list items.
 		foreach ( $post_types as $post_type ) {
 
 			$type = get_post_type_object( $post_type );
@@ -169,6 +171,55 @@ class Site_Summary {
 			}
 		}
 		echo '</ul>';
+	}
+
+	/**
+	 * Taxonomies list
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return mixed Returns unordered list markup.
+	 */
+	public function taxonomies_list() {
+
+		// Get taxonomies.
+		$taxonomies = summary()->taxonomies_query();
+
+		// Prepare an entry for each taxonomy matching the query.
+		if ( $taxonomies ) {
+
+			echo '<ul class="ds-taxonomies-list">';
+
+			foreach ( $taxonomies as $taxonomy ) {
+
+				// Get the first supported post type in the array.
+				if ( ! empty( $taxonomy->object_type ) ) {
+					$types = $taxonomy->object_type[0];
+				} else {
+					$types = null;
+				}
+
+				// Set `post_type` URL parameter for menu highlighting.
+				if ( $types && 'post' === $types ) {
+					$type = '&post_type=post';
+				} elseif ( $types ) {
+					$type = '&post_type=' . $types;
+				} else {
+					$type = '';
+				}
+
+				// Print a list item for the taxonomy.
+				echo sprintf(
+					'<li class="at-glance-taxonomy %s"><a href="%s">%s %s</a></li>',
+					$taxonomy->name,
+					admin_url( 'edit-tags.php?taxonomy=' . $taxonomy->name . $type ),
+					wp_count_terms( [ $taxonomy->name ] ),
+					$taxonomy->labels->name
+				);
+			}
+
+			echo '</ul>';
+		}
 	}
 }
 
