@@ -20,5 +20,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 <div id="ds-default-widget" class="ds-default-widget">
-	<?php do_action( 'ds_default_widget' ); ?>
+	<?php Classes\summary()->post_types_list(); ?>
 </div>
