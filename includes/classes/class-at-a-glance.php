@@ -29,14 +29,17 @@ class At_A_Glance {
 		// Remove the widget.
 		add_action( 'wp_dashboard_setup', [ $this, 'remove_widget' ] );
 
-		// Print admin styles to head.
-		add_action( 'admin_print_styles', [ $this, 'admin_print_styles' ], 20 );
+		if ( true == settings()->sanitize_glance() ) {
 
-		// Add custom post types & taxonomies.
-		add_action( 'dashboard_glance_items', [ $this, 'at_glance' ] );
+			// Print admin styles to head.
+			add_action( 'admin_print_styles', [ $this, 'admin_print_styles' ], 20 );
 
-		// Add PHP notice and/or other info.
-		add_action( 'rightnow_end', [ $this, 'at_glance_end' ] );
+			// Add custom post types & taxonomies.
+			add_action( 'dashboard_glance_items', [ $this, 'at_glance' ] );
+
+			// Add PHP notice and/or other info.
+			add_action( 'rightnow_end', [ $this, 'at_glance_end' ] );
+		}
 	}
 
 	/**
