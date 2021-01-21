@@ -108,7 +108,7 @@ deactivate_plugin();
  * @since  1.0.0
  * @return void
  */
-if ( ! Classes\ds_php()->version() ) {
+if ( ! Classes\php()->version() ) {
 	return;
 }
 

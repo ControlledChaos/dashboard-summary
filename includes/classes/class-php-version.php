@@ -70,6 +70,6 @@ final class PHP_Version {
  * @access public
  * @return object PHP_Version Returns an instance of the class.
  */
-function ds_php() {
+function php() {
 	return PHP_Version :: instance();
 }

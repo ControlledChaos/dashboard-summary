@@ -35,7 +35,7 @@ class Activate {
 	public function __construct() {
 
 		// Add notice(s) if the PHP version is insufficient.
-		if ( ! Classes\ds_php()->version() ) {
+		if ( ! Classes\php()->version() ) {
 
 			// Add notice to plugin row.
 			add_action( 'after_plugin_row_' . DS_BASENAME, [ $this, 'php_deactivate_notice_row' ], 5, 3 );
@@ -87,7 +87,7 @@ class Activate {
 					<?php echo sprintf(
 						'<p>%s %s %s %s</p>',
 						__( 'Functionality of this plugin has been disabled because it requires PHP version', DS_DOMAIN ),
-						Classes\ds_php()->minimum(),
+						Classes\php()->minimum(),
 						__( 'or greater. Your system is running PHP version', DS_DOMAIN ),
 						phpversion()
 					); ?>
