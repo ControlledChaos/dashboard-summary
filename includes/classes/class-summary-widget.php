@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die;
 }
 
-class Replace_Widget {
+class Summary_Widget {
 
 	/**
 	 * Constructor method

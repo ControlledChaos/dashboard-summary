@@ -42,7 +42,7 @@ define( 'DS_CLASSES', [
 	'Dashboard_Summary\Classes\Site_Summary'   => DS_CLASS . 'site-summary.php',
 	'Dashboard_Summary\Classes\At_A_Glance'    => DS_CLASS . 'at-a-glance.php',
 	'Dashboard_Summary\Classes\Dashboard'      => DS_CLASS . 'dashboard.php',
-	'Dashboard_Summary\Classes\Replace_Widget' => DS_CLASS . 'replace-widget.php',
+	'Dashboard_Summary\Classes\Summary_Widget' => DS_CLASS . 'summary-widget.php',
 ] );
 
 /**
