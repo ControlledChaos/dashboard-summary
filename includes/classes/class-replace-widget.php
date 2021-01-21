@@ -74,8 +74,6 @@ class Replace_Widget {
 	 * @return mixed
 	 */
 	public function output() {
-		echo '<div id="dashboard_right_now">';
-		wp_dashboard_right_now();
-		echo '</div>';
+		include DS_PATH . 'views/default-widget.php';
 	}
 }

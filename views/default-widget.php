@@ -17,3 +17,8 @@ use Dashboard_Summary\Classes as Classes;
 if ( ! defined( 'ABSPATH' ) ) {
 	die;
 }
+
+?>
+<div id="ds-default-widget" class="ds-default-widget">
+	<?php do_action( 'ds_default_widget' ); ?>
+</div>
