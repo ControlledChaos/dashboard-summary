@@ -18,7 +18,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die;
 }
 
+do_action( 'ds_default_widget_before' );
+
 ?>
-<div id="ds-default-widget" class="ds-default-widget">
-	<?php Classes\summary()->post_types_list(); ?>
+<div id="ds-default-widget" class="ds-widget ds-default-widget">
+
+	<section class="ds-widget-section">
+		<h3><?php _e( 'Content Types', DS_DOMAIN ); ?></h3>
+		<?php Classes\summary()->post_types_list(); ?>
+	</section>
+
+	<section class="ds-widget-section">
+		<h3><?php _e( 'Content Organization', DS_DOMAIN ); ?></h3>
+		<?php Classes\summary()->taxonomies_list(); ?>
+	</section>
+
 </div>
+<?php
+
+do_action( 'ds_default_widget_after' );
