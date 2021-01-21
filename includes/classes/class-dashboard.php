@@ -63,6 +63,28 @@ class Dashboard {
 	}
 
 	/**
+	 * At a Glance taxonomies
+	 *
+	 * Taxonomies to be displayed in the
+	 * "At a Glance" dashboard widget.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return array Returns an array of queried taxonomies.
+	 */
+	public function at_glance_taxonomies() {
+
+		// Taxonomy query arguments.
+		$query = [
+			'public'  => true,
+			'show_ui' => true
+		];
+
+		// Return taxonomies according to above.
+		return get_taxonomies( $query, 'object', 'and' );
+	}
+
+	/**
 	 * At a Glance SVG colors
 	 *
 	 * Returns CSS hex codes for admin user schemes.
@@ -188,12 +210,29 @@ class Dashboard {
 			);
 		}
 
+		// Get taxonomies.
+		$taxonomies = $this->at_glance_taxonomies();
+
+		// Prepare styles each taxonomy matching the query.
+		$tax_count = '';
+		if ( $taxonomies ) {
+			foreach ( $taxonomies as $taxonomy ) {
+				$type_count .= sprintf(
+					'#dashboard_right_now .post-count.%s a:before, #dashboard_right_now .post-count.%s span:before { display: none; }',
+					$post_type->name . '-count',
+					$post_type->name . '-count'
+				);
+			}
+		}
+
 		// At a Glance icons style block.
 		$glance  = '<!-- Begin At a Glance icon styles -->' . '<style>';
 		$glance .= '#dashboard_right_now li a:before, #dashboard_right_now li span:before { color: currentColor; } ';
 		$glance .= '.at-glance-cpt-icons { display: inline-block; width: 20px; height: 20px; vertical-align: middle; background-repeat: no-repeat; background-position: center; background-size: 20px auto; } ';
 		$glance .= '.at-glance-cpt-icons img { display: inline-block; max-width: 20px; } ';
 		$glance .= $type_count;
+		$glance .= '#dashboard_right_now li.at-glance-taxonomy a:before, #dashboard_right_now li.at-glance-taxonomy > span:before { content: "\f323"; }';
+		$glance .= '#dashboard_right_now li.at-glance-taxonomy.category a:before, #dashboard_right_now li.at-glance-taxonomy.category > span:before { content: "\f318"; }';
 		$glance .= '</style>' . '<!-- End At a Glance icon styles -->';
 
 		echo $glance;
@@ -212,6 +251,9 @@ class Dashboard {
 
 		// Get post types.
 		$post_types = $this->at_glance_post_types();
+
+		// Get taxonomies.
+		$taxonomies = $this->at_glance_taxonomies();
 
 		// Prepare an entry for each post type matching the query.
 		foreach ( $post_types as $post_type ) {
@@ -265,6 +307,37 @@ class Dashboard {
 					$name
 				);
 
+			}
+		}
+
+		// Prepare an entry for each taxonomy matching the query.
+		if ( $taxonomies ) {
+			foreach ( $taxonomies as $taxonomy ) {
+
+				// Get the first supported post type in the array.
+				if ( ! empty( $taxonomy->object_type ) ) {
+					$types = $taxonomy->object_type[0];
+				} else {
+					$types = null;
+				}
+
+				// Set `post_type` URL parameter for menu highlighting.
+				if ( $types && 'post' === $types ) {
+					$post_type = '&post_type=post';
+				} elseif ( $types ) {
+					$post_type = '&post_type=' . $types;
+				} else {
+					$post_type = '';
+				}
+
+				// Print a list item for the taxonomy.
+				echo sprintf(
+					'<li class="at-glance-taxonomy %s"><a href="%s">%s %s</a></li>',
+					$taxonomy->name,
+					admin_url( 'edit-tags.php?taxonomy=' . $taxonomy->name . $post_type ),
+					wp_count_terms( [ $taxonomy->name ] ),
+					$taxonomy->labels->name
+				);
 			}
 		}
 	}
