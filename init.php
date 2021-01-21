@@ -49,9 +49,13 @@ function text_domain() {
  *
  * @since  1.0.0
  * @access public
+ * @global $pagenow Get the current admin screen.
  * @return void
  */
 function dashboard_summary() {
+
+	// Access current admin page.
+	global $pagenow;
 
 	// Load text domain. Hook to `init` rather than `plugins_loaded`.
 	add_action( 'init', __NAMESPACE__ . '\text_domain' );
@@ -66,8 +70,11 @@ function dashboard_summary() {
 
 	new Classes\Settings;
 	new Classes\Site_Summary;
-	new Classes\Dashboard;
-	new Classes\Replace_Widget;
+
+	if ( 'index.php' == $pagenow ) {
+		new Classes\Dashboard;
+		new Classes\Replace_Widget;
+	}
 }
 
 // Run the plugin.
