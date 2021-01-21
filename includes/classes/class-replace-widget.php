@@ -71,7 +71,7 @@ class Replace_Widget {
 	 *
 	 * @since  1.0.0
 	 * @access public
-	 * @return mixed
+	 * @return void
 	 */
 	public function output() {
 		include DS_PATH . 'views/default-widget.php';
