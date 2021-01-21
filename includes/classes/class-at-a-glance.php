@@ -112,6 +112,7 @@ class At_A_Glance {
 		$glance .= $type_count;
 		$glance .= '#dashboard_right_now li.at-glance-taxonomy a:before, #dashboard_right_now li.at-glance-taxonomy > span:before { content: "\f318"; }';
 		$glance .= '#dashboard_right_now li.at-glance-taxonomy.post_tag a:before, #dashboard_right_now li.at-glance-taxonomy.post_tag > span:before { content: "\f323"; }';
+		$glance .= '#dashboard_right_now .post-count.attachment-count a::before, #dashboard_right_now .post-count.attachment-count span::before { display: none; }';
 		$glance .= '</style>' . '<!-- End At a Glance icon styles -->';
 
 		echo $glance;
@@ -128,11 +129,14 @@ class At_A_Glance {
 	 */
 	public function at_glance() {
 
-		// Get post types.
-		$post_types = summary()->custom_types_query();
+		// Add attachment post type.
+		$builtin = [ 'attachment' ];
 
-		// Get taxonomies.
-		$taxonomies = summary()->taxonomies_query();
+		// Custom post types query.
+		$query = summary()->custom_types_query();
+
+		// Merge the post types.
+		$post_types = array_merge( $builtin, $query );
 
 		// Prepare an entry for each post type matching the query.
 		foreach ( $post_types as $post_type ) {
@@ -190,6 +194,9 @@ class At_A_Glance {
 
 			}
 		}
+
+		// Get taxonomies.
+		$taxonomies = summary()->taxonomies_query();
 
 		// Prepare an entry for each taxonomy matching the query.
 		if ( $taxonomies ) {
