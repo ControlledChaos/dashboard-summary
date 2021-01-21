@@ -168,7 +168,7 @@ final class Settings {
 	 *
 	 * @since  1.0.0
 	 * @access public
-	 * @return string
+	 * @return boolean Returns true or false.
 	 */
 	public function sanitize_summary() {
 
@@ -187,7 +187,7 @@ final class Settings {
 	 *
 	 * @since  1.0.0
 	 * @access public
-	 * @return string
+	 * @return boolean Returns true or false.
 	 */
 	public function sanitize_glance() {
 
