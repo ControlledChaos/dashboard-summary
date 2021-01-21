@@ -2,7 +2,10 @@
 /**
  * Dashboard Summary
  *
- * Dashboard wisget for ClassicPress & WordPress that replaces the "At a Glance" widget with an improved version.
+ * Improves the At a Glance dashboard widget and offers
+ * a replacement widget with more detailed website information.
+ * The content of the Dashboard Summary widget is extensible and
+ * can be displayed outside the widget with very little code.
  *
  * @package     Dashboard_Summary
  * @version     1.0.0
@@ -10,7 +13,7 @@
  *
  * Plugin Name:  Dashboard Summary
  * Plugin URI:   https://github.com/ControlledChaos/dashboard-summary
- * Description:  Dashboard wisget for ClassicPress & WordPress that replaces the "At a Glance" widget with an improved version.
+ * Description:  Improves the At a Glance dashboard widget and offers a replacement widget with more detailed website information. The content of the Dashboard Summary widget is extensible and can be displayed outside the widget with very little code.
  * Version:      1.0.0
  * Author:       Controlled Chaos Design
  * Author URI:   http://ccdzine.com/
