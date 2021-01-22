@@ -120,13 +120,18 @@ class Site_Summary {
 			$type = get_post_type_object( $post_type );
 
 			// Count the number of posts.
-			$count = wp_count_posts( $type->name );
+			$get_count = wp_count_posts( $type->name );
+			if ( 'attachment' == $post_type ) {
+				$count = $get_count->inherit;
+			} else {
+				$count = $get_count->publish;
+			}
 
 			// Get the number of published posts.
-			$number = number_format_i18n( $count->publish );
+			$number = number_format_i18n( $count );
 
 			// Get the plural or single name based on the count.
-			$name = _n( $type->labels->singular_name, $type->labels->name, intval( $count->publish ) );
+			$name = _n( $type->labels->singular_name, $type->labels->name, intval( $count ) );
 
 			// If the icon is data:image/svg+xml.
 			if ( 0 === strpos( $type->menu_icon, 'data:image/svg+xml;base64,' ) ) {
