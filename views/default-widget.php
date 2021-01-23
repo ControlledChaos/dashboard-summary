@@ -42,7 +42,7 @@ do_action( 'ds_default_widget_before' );
 
 	<section class="ds-widget-section">
 		<h3><?php echo $heading_taxes; ?></h3>
-		<?php Classes\summary()->taxonomies_list(); ?>
+		<?php Classes\summary()->taxonomies_icons_list(); ?>
 	</section>
 
 </div>

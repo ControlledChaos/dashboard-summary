@@ -181,6 +181,9 @@ class Site_Summary {
 	/**
 	 * Taxonomies list
 	 *
+	 * @see `taxonomies_icons_list()` for a taxonomies list
+	 *       that includes icon elements.
+	 *
 	 * @since  1.0.0
 	 * @access public
 	 * @return mixed Returns unordered list markup.
@@ -218,6 +221,69 @@ class Site_Summary {
 					'<li class="at-glance-taxonomy %s"><a href="%s">%s %s</a></li>',
 					$taxonomy->name,
 					admin_url( 'edit-tags.php?taxonomy=' . $taxonomy->name . $type ),
+					wp_count_terms( [ $taxonomy->name ] ),
+					$taxonomy->labels->name
+				);
+			}
+
+			echo '</ul>';
+		}
+	}
+
+	/**
+	 * Taxonomies list with icons
+	 *
+	 * Includes icon elements rather than adding
+	 * icons via CSS.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return mixed Returns unordered list markup.
+	 */
+	public function taxonomies_icons_list() {
+
+		// Get taxonomies.
+		$taxonomies = summary()->taxonomies_query();
+
+		// Prepare an entry for each taxonomy matching the query.
+		if ( $taxonomies ) {
+
+			echo '<ul class="ds-taxonomies-list">';
+
+			foreach ( $taxonomies as $taxonomy ) {
+
+				// Get the first supported post type in the array.
+				if ( ! empty( $taxonomy->object_type ) ) {
+					$types = $taxonomy->object_type[0];
+				} else {
+					$types = null;
+				}
+
+				// Set `post_type` URL parameter for menu highlighting.
+				if ( $types && 'post' === $types ) {
+					$type = '&post_type=post';
+				} elseif ( $types ) {
+					$type = '&post_type=' . $types;
+				} else {
+					$type = '';
+				}
+
+				if ( 'post_tag' == $taxonomy->name ) {
+					$icon = sprintf(
+						'<icon class="dashicons dashicons-tag"></icon>'
+					);
+				} else {
+					$icon = sprintf(
+						'<icon class="dashicons dashicons-category"></icon>'
+					);
+				}
+
+				// Print a list item for the taxonomy.
+				echo sprintf(
+					'<li class="at-glance-taxonomy %s"><a href="%s">%s %s %s</a></li>',
+					$taxonomy->name,
+					admin_url( 'edit-tags.php?taxonomy=' . $taxonomy->name . $type ),
+					$icon,
 					wp_count_terms( [ $taxonomy->name ] ),
 					$taxonomy->labels->name
 				);
