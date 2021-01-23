@@ -5,3 +5,10 @@
 ![WordPress tested on version 5.6](https://img.shields.io/badge/WordPress-5.6-0073aa.svg?style=flat-square)
 
 Improves the At a Glance dashboard widget and offers a replacement widget with more detailed website information. The content of the Dashboard Summary widget is extensible and can be displayed outside the widget with very little code.
+
+## License & Warranty
+
+Dashboard Summary is free software. It can be redistributed and/or modified ad libidum.
+
+Dashboard Summary is distributed WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+

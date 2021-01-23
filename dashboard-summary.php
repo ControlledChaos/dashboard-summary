@@ -33,6 +33,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
+ * License & Warranty
+ *
+ * Dashboard Summary is free software.
+ * It can be redistributed and/or modified ad libidum.
+ *
+ * Dashboard Summary is distributed WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE.
+ */
+
+/**
  * Constant: Plugin base name
  *
  * @since 1.0.0
