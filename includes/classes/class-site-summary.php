@@ -316,6 +316,35 @@ class Site_Summary {
 
 		return apply_filters( 'ds_php_version_statement', $html );
 	}
+
+	/**
+	 * Management system
+	 *
+	 * States the management system and version.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return string Returns a PHP version statement.
+	 */
+	public function management_system() {
+
+		// Check for ClassicPress.
+		if ( function_exists( 'classicpress_version' ) ) {
+			$system = sprintf(
+				'%s %s',
+				__( 'Your website is running ClassicPress version', DS_DOMAIN ),
+				get_bloginfo( 'version' )
+			);
+		} else {
+			$system = sprintf(
+				'%s %s',
+				__( 'Your website is running WordPress version', DS_DOMAIN ),
+				get_bloginfo( 'version' )
+			);
+		}
+
+		return apply_filters( 'ds_system_name', $system );
+	}
 }
 
 /**
