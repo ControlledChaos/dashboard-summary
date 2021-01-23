@@ -357,6 +357,35 @@ class Site_Summary {
 
 		return apply_filters( 'ds_system_name', $system );
 	}
+
+	/**
+	 * Search engine statement
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return mixed Returns a string if search engines discouraged.
+	 *               Returns null if search engines not discouraged.
+	 */
+	public function search_engines() {
+
+		// Check if search engines are asked not to index this site.
+		if (
+			! is_network_admin() &&
+			! is_user_admin() &&
+			current_user_can( 'manage_options' ) &&
+			'0' == get_option( 'blog_public' )
+		) {
+
+		}
+
+		$html = sprintf(
+			'<a class="ds-search-engines" href="%s">%s</a>',
+			admin_url( 'options-reading.php' ),
+			__( 'Search engines are discouraged from indexing this website.', DS_DOMAIN )
+		);
+
+		return apply_filters( 'ds_search_engines', $html );
+	}
 }
 
 /**

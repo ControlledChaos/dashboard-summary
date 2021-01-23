@@ -47,6 +47,7 @@ do_action( 'ds_default_widget_before' );
 		<ul class="ds-widget-system-list">
 			<li><?php echo Classes\summary()->php_version(); ?></li>
 			<li><?php echo Classes\summary()->management_system(); ?></li>
+			<li><?php echo Classes\summary()->search_engines(); ?></li>
 		</ul>
 	</section>
 
