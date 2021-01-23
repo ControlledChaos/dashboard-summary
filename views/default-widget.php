@@ -44,7 +44,7 @@ do_action( 'ds_default_widget_before' );
 	<section id="ds-default-widget-system-details" class="ds-widget-section">
 		<h3><?php echo $heading_system; ?></h3>
 
-		<ul>
+		<ul class="ds-widget-system-list">
 			<li><?php echo Classes\summary()->php_version(); ?></li>
 			<li><?php echo Classes\summary()->management_system(); ?></li>
 		</ul>
