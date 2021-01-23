@@ -226,13 +226,19 @@ class At_A_Glance {
 					$type = '';
 				}
 
+				// Count the terms in the taxonomy.
+				$count = wp_count_terms( $taxonomy->name );
+
+				// Get the plural or singlular name based on the count.
+				$name = _n( $taxonomy->labels->singular_name, $taxonomy->labels->name, intval( $count ) );
+
 				// Print a list item for the taxonomy.
 				echo sprintf(
 					'<li class="at-glance-taxonomy %s"><a href="%s">%s %s</a></li>',
 					$taxonomy->name,
 					admin_url( 'edit-tags.php?taxonomy=' . $taxonomy->name . $type ),
-					wp_count_terms( [ $taxonomy->name ] ),
-					$taxonomy->labels->name
+					$count,
+					$name
 				);
 			}
 		}
@@ -250,11 +256,10 @@ class At_A_Glance {
 	 */
 	public function at_glance_end() {
 
-		// PHP version notice.
+		// PHP version statement.
 		echo sprintf(
-			'<p>%s %s</p>',
-			__( 'Your web server is running PHP version', DS_DOMAIN ),
-			phpversion()
+			'<p>%s</p>',
+			summary()->php_version()
 		);
 	}
 }

@@ -216,13 +216,19 @@ class Site_Summary {
 					$type = '';
 				}
 
+				// Count the terms in the taxonomy.
+				$count = wp_count_terms( $taxonomy->name );
+
+				// Get the plural or singlular name based on the count.
+				$name = _n( $taxonomy->labels->singular_name, $taxonomy->labels->name, intval( $count ) );
+
 				// Print a list item for the taxonomy.
 				echo sprintf(
 					'<li class="at-glance-taxonomy %s"><a href="%s">%s %s</a></li>',
 					$taxonomy->name,
 					admin_url( 'edit-tags.php?taxonomy=' . $taxonomy->name . $type ),
-					wp_count_terms( [ $taxonomy->name ] ),
-					$taxonomy->labels->name
+					$count,
+					$name
 				);
 			}
 
@@ -268,6 +274,12 @@ class Site_Summary {
 					$type = '';
 				}
 
+				// Count the terms in the taxonomy.
+				$count = wp_count_terms( $taxonomy->name );
+
+				// Get the plural or singlular name based on the count.
+				$name = _n( $taxonomy->labels->singular_name, $taxonomy->labels->name, intval( $count ) );
+
 				// Conditional icon markup.
 				if ( 'post_tag' == $taxonomy->name ) {
 					$icon = sprintf(
@@ -287,8 +299,8 @@ class Site_Summary {
 					$taxonomy->name,
 					admin_url( 'edit-tags.php?taxonomy=' . $taxonomy->name . $type ),
 					$icon,
-					wp_count_terms( [ $taxonomy->name ] ),
-					$taxonomy->labels->name
+					$count,
+					$name
 				);
 			}
 
