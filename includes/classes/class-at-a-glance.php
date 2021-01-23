@@ -80,7 +80,7 @@ class At_A_Glance {
 		// Get post types.
 		$post_types = summary()->custom_types_query();
 
-		// Prepare styles each post type matching the query.
+		// Prepare styles for each post type matching the query.
 		$type_count = '';
 		foreach ( $post_types as $post_type ) {
 
@@ -95,7 +95,7 @@ class At_A_Glance {
 		// Get taxonomies.
 		$taxonomies = summary()->taxonomies_query();
 
-		// Prepare styles each taxonomy matching the query.
+		// Prepare styles for each taxonomy matching the query.
 		$tax_count = '';
 		if ( $taxonomies ) {
 			foreach ( $taxonomies as $taxonomy ) {
