@@ -270,11 +270,13 @@ class Site_Summary {
 
 				if ( 'post_tag' == $taxonomy->name ) {
 					$icon = sprintf(
-						'<icon class="dashicons dashicons-tag"></icon>'
+						'<icon class="dashicons dashicons-tag ds-icon-%s"></icon>',
+						$taxonomy->name
 					);
 				} else {
 					$icon = sprintf(
-						'<icon class="dashicons dashicons-category"></icon>'
+						'<icon class="dashicons dashicons-category ds-icon-%s"></icon>',
+						$taxonomy->name
 					);
 				}
 
