@@ -268,6 +268,7 @@ class Site_Summary {
 					$type = '';
 				}
 
+				// Conditional icon markup.
 				if ( 'post_tag' == $taxonomy->name ) {
 					$icon = sprintf(
 						'<icon class="dashicons dashicons-tag ds-icon-%s"></icon>',
