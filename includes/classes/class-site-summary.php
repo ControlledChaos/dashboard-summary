@@ -295,6 +295,27 @@ class Site_Summary {
 			echo '</ul>';
 		}
 	}
+
+	/**
+	 * PHP version
+	 *
+	 * States the version of PHP which is
+	 * running on the current server.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return string Returns a PHP version statement.
+	 */
+	public function php_version() {
+
+		$html = sprintf(
+			'%s %s',
+			__( 'Your web server is running PHP version', DS_DOMAIN ),
+			phpversion()
+		);
+
+		return apply_filters( 'ds_php_version_statement', $html );
+	}
 }
 
 /**

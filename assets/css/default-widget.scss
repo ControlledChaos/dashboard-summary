@@ -5,6 +5,7 @@
 #ds-default-widget {
 
 	.ds-widget-section {
+		margin-top: 1rem;
 
 		h3 {
 			font-size: 1em;
@@ -15,9 +16,15 @@
 		ul {
 			&.ds-content-list {
 				display: grid;
-				grid-template-columns: repeat(2, 1fr);
+				grid-template-columns: repeat( 2, minmax( 10px, 1fr ) );
 				grid-gap: 0 10px;
 			}
+		}
+	}
+
+	#ds-default-widget-system-details {
+		p {
+			margin: 0;
 		}
 	}
 }

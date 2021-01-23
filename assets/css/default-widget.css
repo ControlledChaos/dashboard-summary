@@ -1,3 +1,7 @@
+#ds-default-widget .ds-widget-section {
+  margin-top: 1rem;
+}
+
 #ds-default-widget .ds-widget-section h3 {
   font-size: 1em;
   font-weight: bold;
@@ -7,9 +11,13 @@
 #ds-default-widget .ds-widget-section ul.ds-content-list {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[2];
-      grid-template-columns: repeat(2, 1fr);
+  -ms-grid-columns: (minmax(10px, 1fr))[2];
+      grid-template-columns: repeat(2, minmax(10px, 1fr));
   grid-gap: 0 10px;
+}
+
+#ds-default-widget #ds-default-widget-system-details p {
+  margin: 0;
 }
 
 /* System queries */
