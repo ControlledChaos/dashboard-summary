@@ -112,7 +112,7 @@ class Site_Summary {
 		// Get all public post types.
 		$post_types = $this->public_post_types();
 
-		echo '<ul class="ds-post-types-list">';
+		echo '<ul class="ds-content-list ds-post-types-list">';
 
 		// Conditional list items.
 		foreach ( $post_types as $post_type ) {
@@ -196,7 +196,7 @@ class Site_Summary {
 		// Prepare an entry for each taxonomy matching the query.
 		if ( $taxonomies ) {
 
-			echo '<ul class="ds-taxonomies-list">';
+			echo '<ul class="ds-content-list ds-taxonomies-list">';
 
 			foreach ( $taxonomies as $taxonomy ) {
 
@@ -248,7 +248,7 @@ class Site_Summary {
 		// Prepare an entry for each taxonomy matching the query.
 		if ( $taxonomies ) {
 
-			echo '<ul class="ds-taxonomies-list">';
+			echo '<ul class="ds-content-list ds-taxonomies-list">';
 
 			foreach ( $taxonomies as $taxonomy ) {
 

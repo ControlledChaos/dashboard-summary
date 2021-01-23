@@ -1,0 +1,32 @@
+///
+/// Default dashboard widget styles
+///
+
+#ds-default-widget {
+
+	.ds-widget-section {
+
+		h3 {
+			font-size: 1em;
+			font-weight: bold;
+			font-weight: 600;
+		}
+
+		ul {
+			&.ds-content-list {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				grid-gap: 0 10px;
+			}
+		}
+	}
+}
+
+/* System queries */
+@media screen and (max-width: 782px) {
+	// Styles
+}
+
+@media screen and (max-width: 600px) {
+	// Styles
+}

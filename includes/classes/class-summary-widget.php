@@ -28,6 +28,9 @@ class Summary_Widget {
 
 		// Add the summary widget.
 		add_action( 'wp_dashboard_setup', [ $this, 'add_widget' ] );
+
+		// Enqueue styles.
+		add_action( 'admin_enqueue_scripts', [ $this, 'styles' ] );
 	}
 
 	/**
@@ -55,5 +58,18 @@ class Summary_Widget {
 	 */
 	public function output() {
 		include DS_PATH . 'views/default-widget.php';
+	}
+
+	/**
+	 * Enqueue styles
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function styles() {
+
+		// Widget styles.
+		wp_enqueue_style( 'ds-default-widget', DS_URL . 'assets/css/default-widget.min.css', [], DS_VERSION, 'all' );
 	}
 }
