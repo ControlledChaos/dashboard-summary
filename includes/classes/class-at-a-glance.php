@@ -253,7 +253,7 @@ class At_A_Glance {
 		// PHP version notice.
 		echo sprintf(
 			'<p>%s %s</p>',
-			__( 'Your website is running PHP version', DS_DOMAIN ),
+			__( 'Your web server is running PHP version', DS_DOMAIN ),
 			phpversion()
 		);
 	}
