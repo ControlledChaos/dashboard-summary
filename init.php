@@ -68,6 +68,12 @@ function dashboard_summary() {
 	 */
 	require_once DS_PATH . 'includes/autoloader.php';
 
+	/**
+	 * New instances of plugin classes
+	 *
+	 * The Dashboard class is only run on the system
+	 * administration dashboard (index.php).
+	 */
 	new Classes\Settings;
 	new Classes\Site_Summary;
 
