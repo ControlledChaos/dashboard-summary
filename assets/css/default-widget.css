@@ -12,7 +12,7 @@ ul.tabs {
   padding: 0;
   float: left;
   list-style: none;
-  border-bottom: 1px solid #333;
+  border-bottom: 1px solid #ccd0d4;
 }
 
 ul.tabs li {
@@ -23,9 +23,9 @@ ul.tabs li {
   margin: 0;
   padding: 0px 21px;
   line-height: 31px;
-  border-top: 1px solid #333;
-  border-left: 1px solid #333;
-  border-bottom: 1px solid #333;
+  border-top: 1px solid #ccd0d4;
+  border-left: 1px solid #ccd0d4;
+  border-bottom: 1px solid #ccd0d4;
   background-color: #666;
   color: #ccc;
   cursor: pointer;
@@ -44,7 +44,7 @@ ul.tabs li.active {
 }
 
 .tab-last {
-  border-right: 1px solid #333;
+  border-right: 1px solid #ccd0d4;
 }
 
 .ds-tab-container {
@@ -53,7 +53,7 @@ ul.tabs li.active {
   width: 100%;
   overflow: auto;
   background: #fff;
-  border: 1px solid #333;
+  border: 1px solid #ccd0d4;
   border-top: none;
 }
 
