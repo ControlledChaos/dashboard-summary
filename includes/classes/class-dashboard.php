@@ -115,7 +115,7 @@ class Dashboard {
 	public function admin_enqueue_scripts() {
 
 		// Script to fill base64 background images with current link colors.
-		wp_enqueue_script( 'scp-svg-painter', DS_URL . 'assets/js/at-glance-svg.min.js', [ 'jquery' ], '', true );
+		wp_enqueue_script( 'svg-icon-colors', DS_URL . 'assets/js/svg-icon-colors.min.js', [ 'jquery' ], '', true );
 	}
 
 	/**
