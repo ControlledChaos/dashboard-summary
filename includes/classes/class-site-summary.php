@@ -345,13 +345,13 @@ class Site_Summary {
 			$system = sprintf(
 				'%s %s',
 				__( 'Your website is running ClassicPress version', DS_DOMAIN ),
-				get_bloginfo( 'version' )
+				get_bloginfo( 'version', 'display' )
 			);
 		} else {
 			$system = sprintf(
 				'%s %s',
 				__( 'Your website is running WordPress version', DS_DOMAIN ),
-				get_bloginfo( 'version' )
+				get_bloginfo( 'version', 'display' )
 			);
 		}
 
@@ -375,16 +375,42 @@ class Site_Summary {
 			current_user_can( 'manage_options' ) &&
 			'0' == get_option( 'blog_public' )
 		) {
-
+			$html = sprintf(
+				'<a class="ds-search-engines" href="%s">%s</a>',
+				admin_url( 'options-reading.php' ),
+				__( 'Search engines are discouraged', DS_DOMAIN )
+			);
+		} else {
+			$html = null;
 		}
 
-		$html = sprintf(
-			'<a class="ds-search-engines" href="%s">%s</a>',
-			admin_url( 'options-reading.php' ),
-			__( 'Search engines are discouraged from indexing this website.', DS_DOMAIN )
-		);
-
 		return apply_filters( 'ds_search_engines', $html );
+	}
+
+	/**
+	 * Active theme statement
+	 *
+	 * @return string Returns the text of the active theme statement.
+	 */
+	public function active_theme() {
+
+		$theme_name = wp_get_theme();
+		if ( current_user_can( 'switch_themes' ) ) {
+			$theme_name = sprintf(
+				'%s <a href="%s">%s</a>',
+				__( 'The active theme is', DS_DOMAIN ),
+				admin_url( 'themes.php' ),
+				$theme_name
+			);
+		} else {
+			$theme_name = sprintf(
+				'%s %s',
+				__( 'The active theme is', DS_DOMAIN ),
+				$theme_name
+			);
+		}
+
+		return apply_filters( 'ds_active_theme', $theme_name );
 	}
 }
 
