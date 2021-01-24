@@ -29,8 +29,8 @@ class Summary_Widget {
 		// Add the summary widget.
 		add_action( 'wp_dashboard_setup', [ $this, 'add_widget' ] );
 
-		// Enqueue styles.
-		add_action( 'admin_enqueue_scripts', [ $this, 'styles' ] );
+		// Enqueue assets.
+		add_action( 'admin_enqueue_scripts', [ $this, 'assets' ] );
 	}
 
 	/**
@@ -61,13 +61,16 @@ class Summary_Widget {
 	}
 
 	/**
-	 * Enqueue styles
+	 * Enqueue assets
 	 *
 	 * @since  1.0.0
 	 * @access public
 	 * @return void
 	 */
-	public function styles() {
+	public function assets() {
+
+		// Tabbed/accordion content script.
+		wp_enqueue_script( 'ds-tabs', DS_URL . 'assets/js/tabs.min.js', [ 'jquery' ], DS_VERSION, true );
 
 		// Widget styles.
 		wp_enqueue_style( 'ds-default-widget', DS_URL . 'assets/css/default-widget.min.css', [], DS_VERSION, 'all' );
