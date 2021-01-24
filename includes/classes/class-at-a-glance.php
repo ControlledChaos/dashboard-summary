@@ -31,6 +31,9 @@ class At_A_Glance {
 
 		if ( true == settings()->sanitize_glance() ) {
 
+			// Enqueue assets.
+			add_action( 'admin_enqueue_scripts', [ $this, 'assets' ] );
+
 			// Print admin styles to head.
 			add_action( 'admin_print_styles', [ $this, 'admin_print_styles' ], 20 );
 
@@ -57,6 +60,19 @@ class At_A_Glance {
 		if ( false == settings()->sanitize_glance() ) {
 			unset( $wp_meta_boxes['dashboard']['normal']['core']['dashboard_right_now'] );
 		}
+	}
+
+	/**
+	 * Enqueue assets
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function assets() {
+
+		// Widget styles.
+		wp_enqueue_style( 'ds-at-a-glance', DS_URL . 'assets/css/at-a-glance.min.css', [], DS_VERSION, 'all' );
 	}
 
 	/**

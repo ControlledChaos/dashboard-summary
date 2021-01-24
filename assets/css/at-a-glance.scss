@@ -1,0 +1,26 @@
+/**
+ * At a Glance widget styles
+ *
+ * @package    Dashboard_Summary
+ * @subpackage Assets
+ * @category   CSS
+ */
+
+#dashboard_right_now {
+
+	ul {
+		display: grid;
+		grid-template-columns: repeat( 2, minmax( 10px, 1fr ) );
+		grid-gap: 8px;
+
+		li {
+			width: unset;
+			float: none;
+			margin: 0;
+		}
+	}
+
+	#wp-version-message {
+		margin-top: 1em;
+	}
+}

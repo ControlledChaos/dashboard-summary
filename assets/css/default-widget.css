@@ -105,7 +105,11 @@ ul.tabs li.active {
   display: grid;
   -ms-grid-columns: (minmax(10px, 1fr))[2];
       grid-template-columns: repeat(2, minmax(10px, 1fr));
-  grid-gap: 0 10px;
+  grid-gap: 8px;
+}
+
+#ds-default-widget .ds-widget-section ul.ds-content-list li {
+  margin: 0;
 }
 
 #ds-default-widget .ds-widget-system-list {

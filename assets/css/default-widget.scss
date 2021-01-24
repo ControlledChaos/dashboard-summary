@@ -25,7 +25,11 @@
 			&.ds-content-list {
 				display: grid;
 				grid-template-columns: repeat( 2, minmax( 10px, 1fr ) );
-				grid-gap: 0 10px;
+				grid-gap: 8px;
+
+				li {
+					margin: 0;
+				}
 			}
 		}
 	}
