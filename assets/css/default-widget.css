@@ -1,3 +1,10 @@
+/**
+ * Default dashboard widget styles
+ *
+ * @package    Dashboard_Summary
+ * @subpackage Assets
+ * @category   CSS
+ */
 #ds-default-widget .ds-widget-section {
   margin-top: 1rem;
 }
