@@ -21,7 +21,6 @@ $( 'ul.tabs li' ).click(function() {
 
 	$( '.ds-tab-drawer-heading' ).removeClass( 'd_active' );
 	$( '.ds-tab-drawer-heading[rel^="' + activeTab + '"]' ).addClass( 'd_active' );
-
 });
 
 // If in accordion mode.
@@ -37,7 +36,6 @@ $( '.ds-tab-drawer-heading' ).click(function() {
 	$( 'ul.tabs li' ).removeClass( 'active' );
 	$( 'ul.tabs li[rel^="' + d_activeTab + '"]' ).addClass( 'active' );
 });
-
 
 // Extra class "tab_last" to add border to right side of last tab.
 $( 'ul.tabs li' ).first().addClass( 'tab_first' );
