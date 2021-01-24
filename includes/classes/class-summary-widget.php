@@ -31,6 +31,9 @@ class Summary_Widget {
 
 		// Enqueue assets.
 		add_action( 'admin_enqueue_scripts', [ $this, 'assets' ] );
+
+		// Print admin styles to head.
+		add_action( 'admin_print_styles', [ $this, 'admin_print_styles' ], 20 );
 	}
 
 	/**
@@ -74,5 +77,23 @@ class Summary_Widget {
 
 		// Widget styles.
 		wp_enqueue_style( 'ds-default-widget', DS_URL . 'assets/css/default-widget.min.css', [], DS_VERSION, 'all' );
+	}
+
+	/**
+	 * Print admin styles
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return string
+	 */
+	public function admin_print_styles() {
+
+		// Dashboard Summary icons style block.
+		$style  = '<!-- Begin Dashboard Summary icon styles -->' . '<style>';
+		$style .= '.ds-cpt-icons { display: inline-block; width: 20px; height: 20px; vertical-align: middle; background-repeat: no-repeat; background-position: center; background-size: 20px auto; } ';
+		$style .= '.ds-cpt-icons img { display: inline-block; max-width: 20px; } ';
+		$style .= '</style>' . '<!-- End Dashboard Summary icon styles -->';
+
+		echo $style;
 	}
 }

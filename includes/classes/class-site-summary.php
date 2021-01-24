@@ -136,7 +136,7 @@ class Site_Summary {
 			// If the icon is data:image/svg+xml.
 			if ( 0 === strpos( $type->menu_icon, 'data:image/svg+xml;base64,' ) ) {
 				$menu_icon = sprintf(
-					'<icon class="at-glance-cpt-icons" style="%s"></icon>',
+					'<icon class="ds-cpt-icons" style="%s"></icon>',
 					esc_attr( 'background-image: url( "' . esc_html( $type->menu_icon ) . '" );' )
 				);
 
@@ -146,7 +146,7 @@ class Site_Summary {
 
 			// If the icon is a URL.
 			} elseif( 0 === strpos( $type->menu_icon, 'http' ) ) {
-				$menu_icon = '<icon class="at-glance-cpt-icons"><img src="' . esc_url( $type->menu_icon ) . '" /></icon>';
+				$menu_icon = '<icon class="ds-cpt-icons"><img src="' . esc_url( $type->menu_icon ) . '" /></icon>';
 
 			} else {
 				$menu_icon = '<icon class="dashicons dashicons-admin-post dashicons-admin-' . $type->menu_icon . '"></icon>';

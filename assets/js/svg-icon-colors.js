@@ -24,7 +24,7 @@ scp.atGlanceSVG = ( function( $, window, document, undefined ) {
 	return {
 		init: function() {
 			painter  = this;
-			selector = $( '#dashboard_right_now .at-glance-cpt-icons' );
+			selector = $( '.ds-content-list .ds-cpt-icons, #dashboard_right_now .at-glance-cpt-icons' );
 
 			this.setColors();
 			this.findElements();
