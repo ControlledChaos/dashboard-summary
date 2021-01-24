@@ -6,6 +6,10 @@
  * @category   CSS
  */
 
+// Import partials.
+@import 'modules/_colors';
+@import 'modules/_tabs';
+
 #ds-default-widget {
 
 	.ds-widget-section {
