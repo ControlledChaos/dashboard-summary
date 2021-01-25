@@ -1,0 +1,101 @@
+///
+/// Tabbed & accordion content
+///
+/// @package    Dashboard_Summary
+/// @subpackage Assets
+/// @category   CSS
+///
+
+// Import partials.
+@import '_colors';
+
+ul.tabs {
+	width: 100%;
+	height: 32px;
+	margin: 0;
+	padding: 0;
+	float: left;
+	list-style: none;
+	border-bottom: 1px solid $pale_gray;
+
+	li {
+		position: relative;
+		overflow: hidden;
+		height: 31px;
+		float: left;
+		margin: 0;
+		padding: 0px 21px;
+		line-height: 31px;
+		border-top: 1px solid $pale_gray;
+		border-left: 1px solid $pale_gray;
+		border-bottom: 1px solid $pale_gray;
+		background-color: #666;
+		color: #ccc;
+		cursor: pointer;
+
+		&:hover {
+			background-color: #ccc;
+			color: #333;
+		}
+
+		&.active {
+			display: block;
+			background-color: #fff;
+			border-bottom: 1px solid #fff;
+			color: #333;
+		}
+	}
+}
+
+.tab-last {
+	border-right: 1px solid $pale_gray;
+}
+
+.ds-tab-container {
+	clear: both;
+	float: left;
+	width: 100%;
+	overflow: auto;
+	background: #fff;
+	border: 1px solid $pale_gray;
+	border-top: none;
+}
+
+.ds-tab-content {
+	display: none;
+	padding: 20px;
+}
+
+.ds-tab-drawer-heading {
+	display: none;
+}
+
+@media screen and (max-width: 480px) {
+
+	.tabs {
+		display: none;
+	}
+
+	.ds-tab-drawer-heading {
+		display: block;
+		margin: 0;
+		padding: 5px 20px;
+		background-color: #ccc;
+		border-top: 1px solid #333;
+		color: #fff;
+		cursor: pointer;
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		 -khtml-user-select: none;
+		   -moz-user-select: none;
+		    -ms-user-select: none;
+				user-select: none;
+	}
+
+	.d_active {
+		background-color: #666;
+		color: #fff;
+	}
+}
+
+.no-js {}

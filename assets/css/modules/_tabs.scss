@@ -7,95 +7,112 @@
 ///
 
 // Import partials.
-@import '_colors';
 
-ul.tabs {
-	width: 100%;
-	height: 32px;
-	margin: 0;
-	padding: 0;
-	float: left;
-	list-style: none;
-	border-bottom: 1px solid $pale_gray;
 
-	li {
-		position: relative;
-		overflow: hidden;
-		height: 31px;
-		float: left;
-		margin: 0;
-		padding: 0px 21px;
-		line-height: 31px;
-		border-top: 1px solid $pale_gray;
-		border-left: 1px solid $pale_gray;
-		border-bottom: 1px solid $pale_gray;
-		background-color: #666;
-		color: #ccc;
-		cursor: pointer;
-
-		&:hover {
-			background-color: #ccc;
-			color: #333;
-		}
-
-		&.active {
-			display: block;
-			background-color: #fff;
-			border-bottom: 1px solid #fff;
-			color: #333;
-		}
-	}
+.r-tabs .r-tabs-nav {
+    margin: 0;
+    padding: 0;
 }
 
-.tab-last {
-	border-right: 1px solid $pale_gray;
+.r-tabs .r-tabs-tab {
+    display: inline-block;
+    margin: 0;
+    list-style: none;
 }
 
-.ds-tab-container {
-	clear: both;
-	float: left;
-	width: 100%;
-	overflow: auto;
-	background: #fff;
-	border: 1px solid $pale_gray;
-	border-top: none;
+.r-tabs .r-tabs-panel {
+    padding: 15px;
+    display: none;
 }
 
-.ds-tab-content {
-	display: none;
-	padding: 20px;
+.r-tabs .r-tabs-accordion-title {
+    display: none;
 }
 
-.ds-tab-drawer-heading {
-	display: none;
+.r-tabs .r-tabs-panel.r-tabs-state-active {
+    display: block;
 }
 
-@media screen and (max-width: 480px) {
+/* Accordion responsive breakpoint */
+@media only screen and (max-width: 782px) {
+    .r-tabs .r-tabs-nav {
+        display: none;
+    }
 
-	.tabs {
+    .r-tabs .r-tabs-accordion-title {
+        display: block;
+    }
+}
+
+/* Tabs container */
+.r-tabs {
+	position: relative;
+}
+
+/* Tab element */
+.r-tabs .r-tabs-nav .r-tabs-tab {
+	position: relative;
+}
+
+/* Tab anchor */
+.r-tabs .r-tabs-nav .r-tabs-anchor {
+	display: inline-block;
+	padding: 10px 12px;
+	text-decoration: none;
+}
+
+/* Disabled tab */
+.r-tabs .r-tabs-nav .r-tabs-state-disabled {
+	opacity: 0.5;
+}
+
+/* Active state tab anchor */
+.r-tabs .r-tabs-nav .r-tabs-state-active .r-tabs-anchor {
+	text-shadow: none;
+}
+
+/* Tab panel */
+.r-tabs .r-tabs-panel {}
+
+/* Accordion anchor */
+.r-tabs .r-tabs-accordion-title .r-tabs-anchor {
+	display: block;
+	padding: 10px;
+	font-weight: bold;
+	text-decoration: none;
+	font-size: 14px;
+
+	border-top-right-radius: 4px;
+	border-top-left-radius: 4px;
+}
+
+/* Active accordion anchor */
+.r-tabs .r-tabs-accordion-title.r-tabs-state-active .r-tabs-anchor {
+	text-shadow: none;
+}
+
+/* Disabled accordion button */
+.r-tabs .r-tabs-accordion-title.r-tabs-state-disabled {
+	opacity: 0.5;
+}
+
+/* Info bar */
+.info {
+	display:inline-block;
+	margin-top: 10px;
+	margin-right: 10px;
+	padding: 10px 20px;
+	width: 300px;
+	line-height: 100%;
+	font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+	font-size: 14px;
+	cursor: pointer;
+}
+
+// If JavaScript is disabled.
+.no-js {
+
+	.ds-tabs-nav {
 		display: none;
 	}
-
-	.ds-tab-drawer-heading {
-		display: block;
-		margin: 0;
-		padding: 5px 20px;
-		background-color: #ccc;
-		border-top: 1px solid #333;
-		color: #fff;
-		cursor: pointer;
-		-webkit-touch-callout: none;
-		-webkit-user-select: none;
-		 -khtml-user-select: none;
-		   -moz-user-select: none;
-		    -ms-user-select: none;
-				user-select: none;
-	}
-
-	.d_active {
-		background-color: #666;
-		color: #fff;
-	}
 }
-
-.no-js {}

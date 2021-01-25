@@ -41,6 +41,12 @@ do_action( 'ds_default_widget_before' );
 ?>
 <div id="ds-default-widget" class="ds-widget ds-default-widget">
 
+	<ul class="ds-tabs-nav">
+		<li><a href="#ds-default-widget-system-info"><?php _e( 'System', DS_DOMAIN ); ?></a></li>
+		<li><a href="#ds-default-widget-content-types"><?php _e( 'Content', DS_DOMAIN ); ?></a></li>
+		<li><a href="#ds-default-widget-content-taxes"><?php _e( 'Classification', DS_DOMAIN ); ?></a></li>
+	</ul>
+
 	<section id="ds-default-widget-system-info" class="ds-widget-section">
 		<h3><?php echo $heading_system; ?></h3>
 
