@@ -7,6 +7,7 @@
  * @package    Dashboard_Summary
  * @subpackage Assets
  * @category   JavaScript
+ * @since      1.0.0
  */
 
 window.scp = window.scp || {};
