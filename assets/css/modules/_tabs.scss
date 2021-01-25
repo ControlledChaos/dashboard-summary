@@ -9,73 +9,73 @@
 // Import partials.
 
 
-.r-tabs .r-tabs-nav {
+.ds-tabs .ds-tabs-nav {
     margin: 0;
     padding: 0;
 }
 
-.r-tabs .r-tabs-tab {
+.ds-tabs .ds-tabs-tab {
     display: inline-block;
     margin: 0;
     list-style: none;
 }
 
-.r-tabs .r-tabs-panel {
+.ds-tabs .ds-tabs-panel {
     padding: 15px;
     display: none;
 }
 
-.r-tabs .r-tabs-accordion-title {
+.ds-tabs .ds-tabs-accordion-title {
     display: none;
 }
 
-.r-tabs .r-tabs-panel.r-tabs-state-active {
+.ds-tabs .ds-tabs-panel.ds-tabs-state-active {
     display: block;
 }
 
 /* Accordion responsive breakpoint */
 @media only screen and (max-width: 782px) {
-    .r-tabs .r-tabs-nav {
+    .ds-tabs .ds-tabs-nav {
         display: none;
     }
 
-    .r-tabs .r-tabs-accordion-title {
+    .ds-tabs .ds-tabs-accordion-title {
         display: block;
     }
 }
 
 /* Tabs container */
-.r-tabs {
+.ds-tabs {
 	position: relative;
 }
 
 /* Tab element */
-.r-tabs .r-tabs-nav .r-tabs-tab {
+.ds-tabs .ds-tabs-nav .ds-tabs-tab {
 	position: relative;
 }
 
 /* Tab anchor */
-.r-tabs .r-tabs-nav .r-tabs-anchor {
+.ds-tabs .ds-tabs-nav .ds-tabs-anchor {
 	display: inline-block;
 	padding: 10px 12px;
 	text-decoration: none;
 }
 
 /* Disabled tab */
-.r-tabs .r-tabs-nav .r-tabs-state-disabled {
+.ds-tabs .ds-tabs-nav .ds-tabs-state-disabled {
 	opacity: 0.5;
 }
 
 /* Active state tab anchor */
-.r-tabs .r-tabs-nav .r-tabs-state-active .r-tabs-anchor {
+.ds-tabs .ds-tabs-nav .ds-tabs-state-active .ds-tabs-anchor {
 	text-shadow: none;
 }
 
 /* Tab panel */
-.r-tabs .r-tabs-panel {}
+.ds-tabs .ds-tabs-panel {}
 
 /* Accordion anchor */
-.r-tabs .r-tabs-accordion-title .r-tabs-anchor {
+.ds-tabs .ds-tabs-accordion-title .ds-tabs-anchor {
 	display: block;
 	padding: 10px;
 	font-weight: bold;
@@ -87,12 +87,12 @@
 }
 
 /* Active accordion anchor */
-.r-tabs .r-tabs-accordion-title.r-tabs-state-active .r-tabs-anchor {
+.ds-tabs .ds-tabs-accordion-title.ds-tabs-state-active .ds-tabs-anchor {
 	text-shadow: none;
 }
 
 /* Disabled accordion button */
-.r-tabs .r-tabs-accordion-title.r-tabs-state-disabled {
+.ds-tabs .ds-tabs-accordion-title.ds-tabs-state-disabled {
 	opacity: 0.5;
 }
 

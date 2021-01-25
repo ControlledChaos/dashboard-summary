@@ -24,16 +24,16 @@
         load : function(){},
         activateState : function(){},
         classes : {
-            stateDefault : 'r-tabs-state-default',
-            stateActive : 'r-tabs-state-active',
-            stateDisabled : 'r-tabs-state-disabled',
-            stateExcluded : 'r-tabs-state-excluded',
-            container : 'r-tabs',
-            ul : 'r-tabs-nav',
-            tab : 'r-tabs-tab',
-            anchor : 'r-tabs-anchor',
-            panel : 'r-tabs-panel',
-            accordionTitle : 'r-tabs-accordion-title'
+            stateDefault : 'ds-tabs-state-default',
+            stateActive : 'ds-tabs-state-active',
+            stateDisabled : 'ds-tabs-state-disabled',
+            stateExcluded : 'ds-tabs-state-excluded',
+            container : 'ds-tabs',
+            ul : 'ds-tabs-nav',
+            tab : 'ds-tabs-tab',
+            anchor : 'ds-tabs-anchor',
+            panel : 'ds-tabs-panel',
+            accordionTitle : 'ds-tabs-accordion-title'
         }
     };
 
