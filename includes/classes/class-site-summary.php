@@ -321,9 +321,10 @@ class Site_Summary {
 	public function php_version() {
 
 		$html = sprintf(
-			'%s %s',
-			__( 'Your web server is running PHP version', DS_DOMAIN ),
-			phpversion()
+			'%s <a href="%s">%s</a>',
+			__( 'Your web server is running', DS_DOMAIN ),
+			esc_url( 'https://www.php.net/releases/index.php' ),
+			'PHP ' . phpversion()
 		);
 
 		return apply_filters( 'ds_php_version_statement', $html );
@@ -343,15 +344,17 @@ class Site_Summary {
 		// Check for ClassicPress.
 		if ( function_exists( 'classicpress_version' ) ) {
 			$system = sprintf(
-				'%s %s',
-				__( 'Your website is running ClassicPress version', DS_DOMAIN ),
-				get_bloginfo( 'version', 'display' )
+				'%s <a href="%s">%s</a>',
+				__( 'Your website is running', DS_DOMAIN ),
+				esc_url( 'https://github.com/ClassicPress/ClassicPress-release/releases' ),
+				'ClassicPress ' . get_bloginfo( 'version', 'display' )
 			);
 		} else {
 			$system = sprintf(
-				'%s %s',
-				__( 'Your website is running WordPress version', DS_DOMAIN ),
-				get_bloginfo( 'version', 'display' )
+				'%s <a href="%s">%s</a>',
+				__( 'Your website is running', DS_DOMAIN ),
+				esc_url( 'https://wordpress.org/download/releases/' ),
+				'WordPress ' . get_bloginfo( 'version', 'display' )
 			);
 		}
 

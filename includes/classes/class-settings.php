@@ -117,7 +117,7 @@ final class Settings {
 
 		echo sprintf(
 			'<p>%s</p>',
-			__( 'Choose which content summary widgets to display on the dashboard.', DS_DOMAIN )
+			__( 'Choose which website summary widgets to display on the dashboard.', DS_DOMAIN )
 		);
 	}
 
