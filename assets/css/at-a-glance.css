@@ -4,6 +4,7 @@
  * @package    Dashboard_Summary
  * @subpackage Assets
  * @category   CSS
+ * @since      1.0.0
  */
 #dashboard_right_now ul {
   display: -ms-grid;
