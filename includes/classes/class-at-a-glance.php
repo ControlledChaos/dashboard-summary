@@ -108,21 +108,6 @@ class At_A_Glance {
 			);
 		}
 
-		// Get taxonomies.
-		$taxonomies = summary()->taxonomies_query();
-
-		// Prepare styles for each taxonomy matching the query.
-		$tax_count = '';
-		if ( $taxonomies ) {
-			foreach ( $taxonomies as $taxonomy ) {
-				$type_count .= sprintf(
-					'#dashboard_right_now .post-count.%s a:before, #dashboard_right_now .post-count.%s span:before { display: none; }',
-					$type->name . '-count',
-					$type->name . '-count'
-				);
-			}
-		}
-
 		// At a Glance icons style block.
 		$glance  = '<!-- Begin At a Glance icon styles -->' . '<style>';
 		$glance .= '#dashboard_right_now li a:before, #dashboard_right_now li span:before { color: currentColor; } ';
