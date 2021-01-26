@@ -114,13 +114,26 @@
   display: none;
 }
 
-#ds-default-widget .ds-widget-section h3 {
+#dashboard-widgets #ds-default-widget h3,
+#dashboard-widgets #ds-default-widget h4,
+#dashboard-widgets #ds-default-widget p,
+#dashboard-widgets #ds-default-widget ul,
+#dashboard-widgets #ds-default-widget ol {
+  margin: 0.75em 0 0;
+}
+
+#dashboard-widgets #ds-default-widget li {
+  margin-top: 0.5em;
+}
+
+#dashboard-widgets #ds-default-widget .ds-widget-section h3,
+#dashboard-widgets #ds-default-widget .ds-widget-section h4 {
   font-size: 1em;
   font-weight: bold;
   font-weight: 600;
 }
 
-#ds-default-widget .ds-widget-section ul.ds-content-list {
+#dashboard-widgets #ds-default-widget .ds-widget-section ul.ds-content-list {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (minmax(10px, 1fr))[2];
@@ -128,25 +141,25 @@
   grid-gap: 8px;
 }
 
-#ds-default-widget .ds-widget-section ul.ds-content-list li {
+#dashboard-widgets #ds-default-widget .ds-widget-section ul.ds-content-list li {
   margin: 0;
 }
 
-#ds-default-widget .ds-cpt-icons {
+#dashboard-widgets #ds-default-widget .ds-cpt-icons {
   display: inline-block;
   width: 20px;
   height: 20px;
   vertical-align: middle;
 }
 
-#ds-default-widget .ds-search-engines {
+#dashboard-widgets #ds-default-widget .ds-search-engines {
   color: #f56e28;
   font-weight: bold;
   font-weight: 600;
   text-decoration: underline;
 }
 
-#ds-default-widget .ds-search-engines:hover {
+#dashboard-widgets #ds-default-widget .ds-search-engines:hover {
   text-decoration: none;
 }
 

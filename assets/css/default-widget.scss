@@ -11,44 +11,60 @@
 @import 'modules/_colors';
 @import 'modules/_tabs';
 
-#ds-default-widget {
+#dashboard-widgets {
 
-	.ds-widget-section {
+	#ds-default-widget {
 
-		h3 {
-			font-size: 1em;
-			font-weight: bold;
-			font-weight: 600;
+		h3,
+		h4,
+		p,
+		ul,
+		ol {
+			margin: 0.75em 0 0;
 		}
 
-		ul {
-			&.ds-content-list {
-				display: grid;
-				grid-template-columns: repeat( 2, minmax( 10px, 1fr ) );
-				grid-gap: 8px;
+		li {
+			margin-top: 0.5em;
+		}
 
-				li {
-					margin: 0;
+		.ds-widget-section {
+
+			h3,
+			h4 {
+				font-size: 1em;
+				font-weight: bold;
+				font-weight: 600;
+			}
+
+			ul {
+				&.ds-content-list {
+					display: grid;
+					grid-template-columns: repeat( 2, minmax( 10px, 1fr ) );
+					grid-gap: 8px;
+
+					li {
+						margin: 0;
+					}
 				}
 			}
 		}
-	}
 
-	.ds-cpt-icons {
-		display: inline-block;
-		width: 20px;
-		height: 20px;
-		vertical-align: middle;
-	}
+		.ds-cpt-icons {
+			display: inline-block;
+			width: 20px;
+			height: 20px;
+			vertical-align: middle;
+		}
 
-	.ds-search-engines {
-		color: $orange;
-		font-weight: bold;
-		font-weight: 600;
-		text-decoration: underline;
+		.ds-search-engines {
+			color: $orange;
+			font-weight: bold;
+			font-weight: 600;
+			text-decoration: underline;
 
-		&:hover {
-			text-decoration: none;
+			&:hover {
+				text-decoration: none;
+			}
 		}
 	}
 }
