@@ -4,42 +4,84 @@
 /// @package    Dashboard_Summary
 /// @subpackage Assets
 /// @category   CSS
+/// @since      1.0.0
 ///
 
 // Import partials.
+@import '_colors';
 
+/**
+ * Tabs navigayion, the actual tabs.
+ *
+ * @since 1.0.0
+ */
+.ds-tabs-nav {
+    width: 100%;
+	margin: 0;
+	padding: 0 0.25em;
+	list-style: none;
+	border-bottom: solid 1px $pale_gray;
 
-.ds-tabs .ds-tabs-nav {
-    margin: 0;
-    padding: 0;
+	li {
+		display: inline-block;
+		top: 1px;
+		margin: 0;
+		border: solid 1px $pale_gray;
+		border-bottom: none;
+
+		a {
+			display: inline-block;
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0.425em 0.65em;
+			font-weight: bold;
+			font-weight: 600;
+			text-decoration: none;
+
+			&:focus {
+				box-shadow: none;
+			}
+		}
+
+		&.ds-tabs-state-active {
+			border-bottom: solid 1px $off_white;
+
+			a {
+				background-color: unset;
+				color: unset;
+			}
+		}
+
+		&.ds-tabs-state-disabled {
+			opacity: 0.5;
+		}
+	}
 }
 
-.ds-tabs .ds-tabs-tab {
-    display: inline-block;
-    margin: 0;
-    list-style: none;
+.ds-tabs-panel {
+	display: none;
+	padding: 1rem;
+
+	&.ds-tabs-state-active {
+		display: block;
+	}
+
+	a {
+		text-decoration: none;
+	}
 }
 
-.ds-tabs .ds-tabs-panel {
-    padding: 15px;
+.ds-tabs-accordion-title {
     display: none;
-}
-
-.ds-tabs .ds-tabs-accordion-title {
-    display: none;
-}
-
-.ds-tabs .ds-tabs-panel.ds-tabs-state-active {
-    display: block;
 }
 
 /* Accordion responsive breakpoint */
 @media only screen and (max-width: 782px) {
-    .ds-tabs .ds-tabs-nav {
+    .ds-tabs-nav {
         display: none;
     }
 
-    .ds-tabs .ds-tabs-accordion-title {
+    .ds-tabs-accordion-title {
         display: block;
     }
 }
@@ -50,35 +92,16 @@
 }
 
 /* Tab element */
-.ds-tabs .ds-tabs-nav .ds-tabs-tab {
+.ds-tabs-nav .ds-tabs-tab {
 	position: relative;
 }
 
-/* Tab anchor */
-.ds-tabs .ds-tabs-nav .ds-tabs-anchor {
-	display: inline-block;
-	padding: 10px 12px;
-	text-decoration: none;
-}
-
-/* Disabled tab */
-.ds-tabs .ds-tabs-nav .ds-tabs-state-disabled {
-	opacity: 0.5;
-}
-
-/* Active state tab anchor */
-.ds-tabs .ds-tabs-nav .ds-tabs-state-active .ds-tabs-anchor {
-	text-shadow: none;
-}
-
-/* Tab panel */
-.ds-tabs .ds-tabs-panel {}
-
 /* Accordion anchor */
-.ds-tabs .ds-tabs-accordion-title .ds-tabs-anchor {
+.ds-tabs-accordion-title .ds-tabs-anchor {
 	display: block;
 	padding: 10px;
 	font-weight: bold;
+	font-weight: 600;
 	text-decoration: none;
 	font-size: 14px;
 
@@ -86,27 +109,9 @@
 	border-top-left-radius: 4px;
 }
 
-/* Active accordion anchor */
-.ds-tabs .ds-tabs-accordion-title.ds-tabs-state-active .ds-tabs-anchor {
-	text-shadow: none;
-}
-
 /* Disabled accordion button */
-.ds-tabs .ds-tabs-accordion-title.ds-tabs-state-disabled {
+.ds-tabs-accordion-title.ds-tabs-state-disabled {
 	opacity: 0.5;
-}
-
-/* Info bar */
-.info {
-	display:inline-block;
-	margin-top: 10px;
-	margin-right: 10px;
-	padding: 10px 20px;
-	width: 300px;
-	line-height: 100%;
-	font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
-	font-size: 14px;
-	cursor: pointer;
 }
 
 // If JavaScript is disabled.

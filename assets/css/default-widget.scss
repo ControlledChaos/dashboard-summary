@@ -4,6 +4,7 @@
  * @package    Dashboard_Summary
  * @subpackage Assets
  * @category   CSS
+ * @since      1.0.0
  */
 
 // Import partials.
@@ -13,7 +14,6 @@
 #ds-default-widget {
 
 	.ds-widget-section {
-		margin-top: 1rem;
 
 		h3 {
 			font-size: 1em;
@@ -34,18 +34,22 @@
 		}
 	}
 
-	.ds-widget-system-list {
-		margin-left: 1em;
-		list-style: disc;
-
-		li {
-			margin: 0;
-		}
+	.ds-cpt-icons {
+		display: inline-block;
+		width: 20px;
+		height: 20px;
+		vertical-align: middle;
 	}
 
 	.ds-search-engines {
-		color: #d00;
+		color: $orange;
+		font-weight: bold;
+		font-weight: 600;
 		text-decoration: underline;
+
+		&:hover {
+			text-decoration: none;
+		}
 	}
 }
 
