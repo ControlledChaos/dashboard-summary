@@ -73,7 +73,7 @@ class Dashboard {
 			 * The Fresh (default) scheme in older WordPress & in ClassicPress
 			 * has a link hover/focus color different than the others.
 			 */
-			if ( ! $color_scheme || 'fresh'== $color_scheme ){
+			if ( ! $color_scheme || 'fresh'== $color_scheme ) {
 				$colors = [ 'colors' =>
 					[ 'link' => '#0073aa', 'hover' => '#00a0d2', 'focus' => '#00a0d2' ]
 				];
