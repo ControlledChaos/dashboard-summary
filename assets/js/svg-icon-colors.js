@@ -4,6 +4,8 @@
  * Used to fill base64/SVG background images with colors
  * corresponding to current user's color scheme preference.
  *
+ * Forked from the WordPress SVG Painter used in the admin menu.
+ *
  * @package    Dashboard_Summary
  * @subpackage Assets
  * @category   JavaScript
