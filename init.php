@@ -77,7 +77,7 @@ function dashboard_summary() {
 	new Classes\Settings;
 	new Classes\Site_Summary;
 
-	if ( 'index.php' == $pagenow ) {
+	if ( is_admin() && 'index.php' == $pagenow ) {
 		new Classes\Dashboard;
 	}
 }
