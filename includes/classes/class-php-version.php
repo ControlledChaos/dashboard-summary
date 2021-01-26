@@ -22,6 +22,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 final class PHP_Version {
 
 	/**
+	 * Minimum PHP version
+	 *
+	 * @since  1.0.0
+	 * @access protected
+	 * @var    string The version number.
+	 */
+	protected $minimum = '7.4';
+
+	/**
 	 * Instance of the class
 	 *
 	 * This method can be used to call an instance
@@ -43,7 +52,7 @@ final class PHP_Version {
 	 * @return self
 	 */
 	public function minimum() {
-		return '7.4';
+		return $this->minimum;
 	}
 
 	/**
