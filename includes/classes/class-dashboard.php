@@ -37,16 +37,14 @@ class Dashboard {
 	}
 
 	/**
-	 * At a Glance SVG colors
+	 * SVG icon colors
 	 *
 	 * Returns CSS hex codes for admin user schemes.
 	 * These colors are used to fill base64/SVG background
 	 * images with colors corresponding to current user's
 	 * color scheme preference.
 	 *
-	 * @see assets/js/at-glance-svg.js
-	 *
-	 * @todo Conditional color schemes for the antibrand system.
+	 * @see assets/js/svg-icon-colors.js
 	 *
 	 * @since  1.0.0
 	 * @access public
@@ -54,7 +52,7 @@ class Dashboard {
 	 * @global integer $wp_version
 	 * @return array Returns an array of color scheme CSS hex codes.
 	 */
-	function at_glance_svg( $colors = [] ) {
+	function svg_icon_colors( $colors = [] ) {
 
 		// Get WordPress version.
 		global $wp_version;
@@ -128,6 +126,6 @@ class Dashboard {
 	public function admin_print_scripts() {
 
 		// Script to fill base64 background images with current link colors.
-		echo '<script type="text/javascript">var _atGlanceSVG = ' . wp_json_encode( $this->at_glance_svg() ) . ";</script>\n";
+		echo '<script type="text/javascript">var _atGlanceSVG = ' . wp_json_encode( $this->svg_icon_colors() ) . ";</script>\n";
 	}
 }
