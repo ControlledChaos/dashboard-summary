@@ -393,6 +393,8 @@ class Site_Summary {
 	/**
 	 * Active theme statement
 	 *
+	 * @since  1.0.0
+	 * @access public
 	 * @return string Returns the text of the active theme statement.
 	 */
 	public function active_theme() {
@@ -414,6 +416,106 @@ class Site_Summary {
 		}
 
 		return apply_filters( 'ds_active_theme', $theme_name );
+	}
+
+	/**
+	 * Updates data
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return string Returns the text of the notice.
+	 */
+	public function updates( $updates = '' ) {
+
+		// Get update data.
+		$data = wp_get_update_data();
+
+		switch ( $updates ) {
+			case 'plugins' :
+				$output = $data['counts']['plugins'];
+				break;
+			case 'themes' :
+				$output = $data['counts']['themes'];
+				break;
+			case 'count' :
+				$output = $data['counts']['total'];
+				break;
+
+			case 'title' :
+			default      :
+				$output = $data['title'];
+				break;
+		}
+
+		$output = apply_filters( 'ds_updates', $output, $updates );
+
+		return $output;
+	}
+
+	/**
+	 * Plugins update notoce
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return string Returns the text of the notice.
+	 */
+	public function update_plugins() {
+
+		// Get plugins update count.
+		$count = $this->updates( 'plugins' );
+
+		if ( 1 == $count ) {
+			$notice = sprintf(
+				'%s %s %s',
+				__( 'There is', DS_DOMAIN ),
+				$count,
+				__( 'plugin update available.', DS_DOMAIN )
+			);
+		} elseif ( 0 != $count ) {
+			$notice = sprintf(
+				'%s %s %s',
+				__( 'There are', DS_DOMAIN ),
+				$count,
+				__( 'plugin updates available.', DS_DOMAIN )
+			);
+		} else {
+			$notice = __( 'There are no plugin updates available.', DS_DOMAIN );
+		}
+
+		return $notice;
+	}
+
+	/**
+	 * Themes update notoce
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return string Returns the text of the notice.
+	 */
+	public function update_themes() {
+
+		// Get themes update count.
+		$count = $this->updates( 'themes' );
+
+		if ( 1 == $count ) {
+			$notice = sprintf(
+				'%s %s %s',
+				__( 'There is', DS_DOMAIN ),
+				$count,
+				__( 'theme update available.', DS_DOMAIN )
+			);
+		} elseif ( 0 != $count ) {
+			$notice = sprintf(
+				'%s %s %s',
+				__( 'There are', DS_DOMAIN ),
+				$count,
+				__( 'theme updates available.', DS_DOMAIN )
+			);
+		} else {
+			$notice = __( 'There are no theme updates available.', DS_DOMAIN );
+		}
+
+		return $notice;
 	}
 }
 
