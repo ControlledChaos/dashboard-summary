@@ -28,6 +28,7 @@ class Summary_Widget {
 
 		// Add the summary widget.
 		add_action( 'wp_dashboard_setup', [ $this, 'add_widget' ] );
+		add_action( 'ds_summary_widget', [ $this, 'get_output' ] );
 
 		// Enqueue assets.
 		add_action( 'admin_enqueue_scripts', [ $this, 'assets' ] );
@@ -55,11 +56,25 @@ class Summary_Widget {
 	/**
 	 * Dashboard widget output
 	 *
+	 * Add widget content as an action to facilitate
+	 * the use of another template.
+	 *
 	 * @since  1.0.0
 	 * @access public
 	 * @return void
 	 */
 	public function output() {
+		do_action( 'ds_summary_widget' );
+	}
+
+	/**
+	 * Get dashboard widget output
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function get_output() {
 		include DS_PATH . 'views/default-widget.php';
 	}
 
