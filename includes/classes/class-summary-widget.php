@@ -91,7 +91,7 @@ class Summary_Widget {
 		wp_enqueue_script( 'ds-tabs', DS_URL . 'assets/js/tabs.min.js', [ 'jquery' ], DS_VERSION, true );
 		wp_add_inline_script(
 			'ds-tabs',
-			'jQuery( document ).ready( function ($) { $( ".ds-tabbed-content" ).responsiveTabs(); });'
+			'jQuery( document ).ready( function($) { $( ".ds-tabbed-content" ).responsiveTabs(); });'
 		);
 
 		// Widget styles.
