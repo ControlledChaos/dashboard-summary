@@ -74,7 +74,7 @@ $description_taxes = apply_filters(
 	'ds_default_widget_description_taxes',
 	sprintf(
 		'<p class="description">%s</p>',
-		__( 'This website\'s content is organized in part or in whole by the following taxonomies.', DS_DOMAIN )
+		__( 'This website\'s content is organized by the following taxonomies.', DS_DOMAIN )
 	)
 );
 
