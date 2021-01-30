@@ -37,12 +37,14 @@ class Dashboard {
 	}
 
 	/**
-	 * SVG icon colors
+	 * User colors
 	 *
 	 * Returns CSS hex codes for admin user schemes.
 	 * These colors are used to fill base64/SVG background
 	 * images with colors corresponding to current user's
-	 * color scheme preference.
+	 * color scheme preference. Also used rendering the
+	 * tab effect by applying the color scheme background
+	 * color to the bottom border of the active tab.
 	 *
 	 * @see assets/js/svg-icon-colors.js
 	 *
@@ -52,7 +54,7 @@ class Dashboard {
 	 * @global integer $wp_version
 	 * @return array Returns an array of color scheme CSS hex codes.
 	 */
-	function svg_icon_colors( $colors = [] ) {
+	function user_colors( $colors = [] ) {
 
 		// Get WordPress version.
 		global $wp_version;
@@ -75,32 +77,33 @@ class Dashboard {
 			 */
 			if ( ! $color_scheme || 'fresh'== $color_scheme ) {
 				$colors = [ 'colors' =>
-					[ 'link' => '#0073aa', 'hover' => '#00a0d2', 'focus' => '#00a0d2' ]
+					[ 'background' => '#f1f1f1', 'link' => '#0073aa', 'hover' => '#00a0d2', 'focus' => '#00a0d2' ]
 				];
 			} else {
 				$colors = [ 'colors' =>
-					[ 'link' => '#0073aa', 'hover' => '#0096dd', 'focus' => '#0096dd' ]
+					[ 'background' => '#f1f1f1', 'link' => '#0073aa', 'hover' => '#0096dd', 'focus' => '#0096dd' ]
 				];
 			}
 
 		/**
 		 * The Modern scheme in WordPress is the
-		 * only one with unique link colors.
+		 * only one other than the default (Fresh)
+		 * with unique link colors.
 		 */
 		} elseif ( 'modern' == $color_scheme ) {
 			$colors = [ 'colors' =>
-				[ 'link' => '#3858e9', 'hover' => '#183ad6', 'focus' => '#183ad6' ]
+				[ 'background' => '#f1f1f1', 'link' => '#3858e9', 'hover' => '#183ad6', 'focus' => '#183ad6' ]
 			];
 
 		// All other default color schemes.
 		} else {
 			$colors = [ 'colors' =>
-				[ 'link' => '#0073aa', 'hover' => '#006799', 'focus' => '#006799' ]
+				[ 'background' => '#f1f1f1', 'link' => '#0073aa', 'hover' => '#006799', 'focus' => '#006799' ]
 			];
 		}
 
 		// Apply a filter for custom color schemes.
-		return apply_filters( 'scp_glance_svg', $colors );
+		return apply_filters( 'ds_user_colors', $colors );
 	}
 
 	/**
@@ -129,6 +132,6 @@ class Dashboard {
 	public function admin_print_scripts() {
 
 		// Script to fill base64 background images with current link colors.
-		echo '<script type="text/javascript">var _atGlanceSVG = ' . wp_json_encode( $this->svg_icon_colors() ) . ";</script>\n";
+		echo '<script type="text/javascript">var _atGlanceSVG = ' . wp_json_encode( $this->user_colors() ) . ";</script>\n";
 	}
 }
