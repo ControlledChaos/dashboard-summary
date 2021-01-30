@@ -14,14 +14,14 @@
 
 window.scp = window.scp || {};
 
-scp.atGlanceSVG = ( function( $, window, document, undefined ) {
+scp.dashboard_svg_icons = ( function( $, window, document, undefined ) {
 	'use strict';
 	var selector, base64, painter,
 		colorscheme = {},
 		elements    = [];
 
 	$(document).ready( function() {
-		scp.atGlanceSVG.init();
+		scp.dashboard_svg_icons.init();
 	});
 
 	return {
@@ -35,8 +35,8 @@ scp.atGlanceSVG = ( function( $, window, document, undefined ) {
 		},
 
 		setColors: function( scheme ) {
-			if ( typeof scheme === 'undefined' && typeof window._atGlanceSVG !== 'undefined' ) {
-				scheme = window._atGlanceSVG;
+			if ( typeof scheme === 'undefined' && typeof window._dashboard_svg_icons !== 'undefined' ) {
+				scheme = window._dashboard_svg_icons;
 			}
 
 			if ( scheme && scheme.colors && scheme.colors.link && scheme.colors.hover && scheme.colors.focus ) {

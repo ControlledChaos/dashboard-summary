@@ -132,6 +132,6 @@ class Dashboard {
 	public function admin_print_scripts() {
 
 		// Script to fill base64 background images with current link colors.
-		echo '<script type="text/javascript">var _atGlanceSVG = ' . wp_json_encode( $this->user_colors() ) . ";</script>\n";
+		echo '<script type="text/javascript">var _dashboard_svg_icons = ' . wp_json_encode( $this->user_colors() ) . ";</script>\n";
 	}
 }
