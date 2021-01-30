@@ -110,10 +110,17 @@ class Summary_Widget {
 	 */
 	public function admin_print_styles() {
 
+		// Instantiate the Dashboard class.
+		$dashboard = new Dashboard;
+
+		// Get user colors.
+		$colors = $dashboard->user_colors();
+
 		// Dashboard Summary icons style block.
 		$style  = '<!-- Begin Dashboard Summary icon styles -->' . '<style>';
 		$style .= '.ds-cpt-icons { display: inline-block; width: 20px; height: 20px; vertical-align: middle; background-repeat: no-repeat; background-position: center; background-size: 20px auto; } ';
 		$style .= '.ds-cpt-icons img { display: inline-block; max-width: 20px; } ';
+		$style .= '.ds-tabs-nav li.ds-tabs-state-active { border-bottom-color: ' . $colors['colors']['background'] . '; }';
 		$style .= '</style>' . '<!-- End Dashboard Summary icon styles -->';
 
 		echo $style;
