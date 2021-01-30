@@ -110,11 +110,8 @@ class Summary_Widget {
 	 */
 	public function admin_print_styles() {
 
-		// Instantiate the Dashboard class.
-		$dashboard = new Dashboard;
-
 		// Get user colors.
-		$colors = $dashboard->user_colors();
+		$colors = Dashboard :: user_colors();
 
 		// Dashboard Summary icons style block.
 		$style  = '<!-- Begin Dashboard Summary icon styles -->' . '<style>';

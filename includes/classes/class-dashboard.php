@@ -18,6 +18,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Dashboard {
 
 	/**
+	 * Instance of the class
+	 *
+	 * This method can be used to call an instance
+	 * of the class from outside the class.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return object Returns an instance of the class.
+	 */
+	public static function instance() {
+		return new self;
+	}
+
+	/**
 	 * Constructor method
 	 *
 	 * @since  1.0.0
@@ -54,7 +68,7 @@ class Dashboard {
 	 * @global integer $wp_version
 	 * @return array Returns an array of color scheme CSS hex codes.
 	 */
-	function user_colors( $colors = [] ) {
+	public static function user_colors( $colors = [] ) {
 
 		// Get WordPress version.
 		global $wp_version;
@@ -134,4 +148,15 @@ class Dashboard {
 		// Script to fill base64 background images with current link colors.
 		echo '<script type="text/javascript">var _dashboard_svg_icons = ' . wp_json_encode( $this->user_colors() ) . ";</script>\n";
 	}
+}
+
+/**
+ * Instance of the class
+ *
+ * @since  1.0.0
+ * @access public
+ * @return object Dashboard Returns an instance of the class.
+ */
+function dashboard() {
+	return Dashboard :: instance();
 }
