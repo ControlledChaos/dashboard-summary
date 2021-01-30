@@ -136,7 +136,7 @@
 #dashboard-widgets #ds-default-widget .ds-widget-section ul.ds-content-list {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(10px, 1fr))[2];
+  -ms-grid-columns: (minmax(10px, 1fr));
       grid-template-columns: repeat(2, minmax(10px, 1fr));
   grid-gap: 8px;
 }
