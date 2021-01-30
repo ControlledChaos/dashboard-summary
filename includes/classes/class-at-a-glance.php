@@ -71,8 +71,11 @@ class At_A_Glance {
 	 */
 	public function assets() {
 
+		// Instantiate the Assets class.
+		$assets = new Assets;
+
 		// Widget styles.
-		wp_enqueue_style( 'ds-at-a-glance', DS_URL . 'assets/css/at-a-glance.min.css', [], DS_VERSION, 'all' );
+		wp_enqueue_style( 'ds-at-a-glance', DS_URL . 'assets/css/at-a-glance' . $assets->suffix() . '.css', [], $assets->version(), 'all' );
 	}
 
 	/**

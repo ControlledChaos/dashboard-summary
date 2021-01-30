@@ -87,15 +87,18 @@ class Summary_Widget {
 	 */
 	public function assets() {
 
+		// Instantiate the Assets class.
+		$assets = new Assets;
+
 		// Tabbed/accordion content script.
-		wp_enqueue_script( 'ds-tabs', DS_URL . 'assets/js/tabs.min.js', [ 'jquery' ], DS_VERSION, true );
+		wp_enqueue_script( 'ds-tabs', DS_URL . 'assets/js/tabs' . $assets->suffix() . '.js', [ 'jquery' ], $assets->version(), true );
 		wp_add_inline_script(
 			'ds-tabs',
 			'jQuery( document ).ready( function($) { $( ".ds-tabbed-content" ).responsiveTabs(); });'
 		);
 
 		// Widget styles.
-		wp_enqueue_style( 'ds-default-widget', DS_URL . 'assets/css/default-widget.min.css', [], DS_VERSION, 'all' );
+		wp_enqueue_style( 'ds-default-widget', DS_URL . 'assets/css/default-widget' . $assets->suffix() . '.css', [], $assets->version(), 'all' );
 	}
 
 	/**
