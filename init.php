@@ -79,6 +79,8 @@ function dashboard_summary() {
 
 	if ( is_admin() && 'index.php' == $pagenow ) {
 		new Classes\Dashboard;
+		new Classes\Summary_Widget;
+		new Classes\At_A_Glance;
 	}
 }
 
