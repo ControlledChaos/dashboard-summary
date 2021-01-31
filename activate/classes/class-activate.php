@@ -32,16 +32,38 @@ class Activate {
 	 * @access public
 	 * @return self
 	 */
-	public function __construct() {
+	public function __construct() {}
 
-		// Add notice(s) if the PHP version is insufficient.
+	/**
+	 * Add & update options
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return self
+	 */
+	public function options() {
+
+		// Add options.
+		add_option( 'ds_enable_summary' );
+		add_option( 'ds_enable_glance' );
+
+		// Update options.
+		update_option( 'ds_enable_summary', 1 );
+		update_option( 'ds_enable_glance', 0 );
+	}
+
+	/**
+	 * Get plugin row notice
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function get_row_notice() {
+
+		// Add notice if the PHP version is insufficient.
 		if ( ! Classes\php()->version() ) {
-
-			// Add notice to plugin row.
-			add_action( 'after_plugin_row_' . DS_BASENAME, [ $this, 'php_deactivate_notice_row' ], 5, 3 );
-
-			// Add notice to admin header, uncomment to implement.
-			// add_action( 'admin_notices', [ $this, 'php_deactivate_notice_header' ] );
+			add_action( 'after_plugin_row_' . DS_BASENAME, [ $this, 'row_notice' ], 5, 3 );
 		}
 	}
 
@@ -52,7 +74,7 @@ class Activate {
 	 * @access public
 	 * @return string Returns the markup of the plugin row notice.
 	 */
-	public function php_deactivate_notice_row( $plugin_file, $plugin_data, $status ) {
+	public function row_notice( $plugin_file, $plugin_data, $status ) {
 
 		$colspan = 4;
 
@@ -96,42 +118,4 @@ class Activate {
 		</tr>
 		<?php
 	}
-
-	/**
-	 * PHP deactivation notice: admin header
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @return string Returns the markup of the admin notice.
-	 */
-	public function php_deactivate_notice_header() {
-
-	?>
-		<div id="plugin-php-notice" class="notice notice-error is-dismissible">
-			<?php echo sprintf(
-				'<p>%s %s %s %s %s %s</p>',
-				__( 'Functionality of the', DS_DOMAIN ),
-				DS_NAME,
-				__( 'plugin has been disabled because it requires PHP version', DS_DOMAIN ),
-				bs_php()->minimum(),
-				__( 'or greater. Your system is running PHP version', DS_DOMAIN ),
-				phpversion()
-			); ?>
-		</div>
-	<?php
-
-	}
-}
-
-/**
- * Activate plugin
- *
- * Puts an instance of the class into a function.
- *
- * @since  1.0.0
- * @access public
- * @return object Returns an instance of the class.
- */
-function activation_class() {
-	return new Activate;
 }

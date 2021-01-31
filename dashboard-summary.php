@@ -86,32 +86,33 @@ include_once DS_PATH . 'activate/classes/class-deactivate.php';
 \register_deactivation_hook( __FILE__, __NAMESPACE__ . '\deactivate_plugin' );
 
 /**
- * Run activation class
+ * Activation callback
  *
- * The code that runs during plugin activation.
+ * The function that runs during plugin activation.
  *
  * @since  1.0.0
  * @access public
  * @return void
  */
 function activate_plugin() {
-	Activate\activation_class();
+
+	// Instantiate the Activate class.
+	$activate = new Activate\Activate;
+
+	// Update options.
+	$activate->options();
 }
-activate_plugin();
 
 /**
  * Run daactivation class
  *
- * The code that runs during plugin deactivation.
+ * The function that runs during plugin deactivation.
  *
  * @since  1.0.0
  * @access public
  * @return void
  */
-function deactivate_plugin() {
-	Activate\deactivation_class();
-}
-deactivate_plugin();
+function deactivate_plugin() {}
 
 /**
  * Disable plugin for PHP version
@@ -123,6 +124,11 @@ deactivate_plugin();
  * @return void
  */
 if ( ! Classes\php()->version() ) {
+
+	// First add a notice to the plugin row.
+	$activate = new Activate\Activate;
+	$activate->get_row_notice();
+
 	return;
 }
 

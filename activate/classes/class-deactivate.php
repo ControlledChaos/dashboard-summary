@@ -24,20 +24,5 @@ class Deactivate {
 	 * @access public
 	 * @return self
 	 */
-	public function __construct() {
-		// Add actions & filters.
-	}
-}
-
-/**
- * Deactivate plugin
- *
- * Puts an instance of the class into a function.
- *
- * @since  1.0.0
- * @access public
- * @return object Returns an instance of the class.
- */
-function deactivation_class() {
-	return new Deactivate;
+	public function __construct() {}
 }
