@@ -40,6 +40,7 @@ define( 'DS_CLASS', DS_PATH . 'includes/classes/class-' );
 define( 'DS_CLASSES', [
 	'Dashboard_Summary\Classes\Settings'       => DS_CLASS . 'settings.php',
 	'Dashboard_Summary\Classes\Assets'         => DS_CLASS . 'assets.php',
+	'Dashboard_Summary\Classes\User_Colors'    => DS_CLASS . 'user-colors.php',
 	'Dashboard_Summary\Classes\Site_Summary'   => DS_CLASS . 'site-summary.php',
 	'Dashboard_Summary\Classes\At_A_Glance'    => DS_CLASS . 'at-a-glance.php',
 	'Dashboard_Summary\Classes\Dashboard'      => DS_CLASS . 'dashboard.php',

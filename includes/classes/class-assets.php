@@ -24,24 +24,10 @@ final class Assets {
 	 * Plugin version
 	 *
 	 * @since  1.0.0
-	 * @access protected
+	 * @access private
 	 * @var    string The version number.
 	 */
-	protected $version = DS_VERSION;
-
-	/**
-	 * Instance of the class
-	 *
-	 * This method can be used to call an instance
-	 * of the class from outside the class.
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @return object Returns an instance of the class.
-	 */
-	public static function instance() {
-		return new self;
-	}
+	private $version = DS_VERSION;
 
 	/**
 	 * Plugin version
@@ -78,15 +64,4 @@ final class Assets {
 
 		return $suffix;
 	}
-}
-
-/**
- * Instance of the class
- *
- * @since  1.0.0
- * @access public
- * @return object Assets Returns an instance of the class.
- */
-function assets() {
-	return Assets :: instance();
 }
