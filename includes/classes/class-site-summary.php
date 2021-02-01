@@ -403,6 +403,33 @@ class Site_Summary {
 	}
 
 	/**
+	 * Active theme URI
+	 *
+	 * Use `is_null()` to check for a return value.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return mixed Returns the URI for the active theme's website
+	 *               or returns null.
+	 */
+	public function active_theme_uri() {
+
+		// Get theme data.
+		$theme     = wp_get_theme();
+		$theme_uri = $theme->get( 'ThemeURI' );
+
+		// If the theme header has a URI.
+		if ( $theme_uri ) {
+			$theme_uri = $theme_uri;
+
+		// Otherwise return nothing.
+		} else {
+			$theme_uri = null;
+		}
+		return $theme_uri;
+	}
+
+	/**
 	 * Active theme statement
 	 *
 	 * @since  1.0.0
@@ -412,7 +439,14 @@ class Site_Summary {
 	public function active_theme() {
 
 		$theme_name = wp_get_theme();
-		if ( current_user_can( 'switch_themes' ) ) {
+		if ( ! is_null( $this->active_theme_uri() ) && current_user_can( 'switch_themes' ) ) {
+			$theme_name = sprintf(
+				'%s <a href="%s" target="_blank" rel="nofollow noreferrer noopener">%s</a>',
+				__( 'The active theme is', DS_DOMAIN ),
+				$this->active_theme_uri(),
+				$theme_name
+			);
+		} elseif ( current_user_can( 'switch_themes' ) ) {
 			$theme_name = sprintf(
 				'%s <a href="%s">%s</a>',
 				__( 'The active theme is', DS_DOMAIN ),
