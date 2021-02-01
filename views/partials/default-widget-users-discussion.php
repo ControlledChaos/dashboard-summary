@@ -36,3 +36,12 @@ $description_users = apply_filters(
 <?php echo $description_users; ?>
 
 <h4><?php echo $heading_users; ?></h4>
+
+<ul class="ds-widget-details-list">
+	<li><?php echo sprintf(
+		'%s <a href="%s"><strong>%s</strong></a>',
+		__( 'Number of registered users for this site:', DS_DOMAIN ),
+		esc_url( admin_url( 'users.php' ) ),
+		$summary->total_users()
+	); ?></li>
+</ul>

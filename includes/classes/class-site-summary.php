@@ -101,6 +101,18 @@ class Site_Summary {
 	}
 
 	/**
+	 * Total of registered users
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return integer Returns the number of registered users.
+	 */
+	public static function total_users() {
+		$count = count_users();
+		return $count['total_users'];
+	}
+
+	/**
 	 * Post types list
 	 *
 	 * @since  1.0.0
