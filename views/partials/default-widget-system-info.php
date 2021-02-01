@@ -30,7 +30,7 @@ $description_system = apply_filters(
 	sprintf(
 		'<p class="description">%s <a href="%s">%s</a> %s</p>',
 		__( 'Some technical details about the', DS_DOMAIN ),
-		esc_url( home_url() ),
+		esc_url( get_site_url( get_current_blog_id() ) ),
 		get_bloginfo( 'name' ),
 		__( 'website.', DS_DOMAIN )
 	)
