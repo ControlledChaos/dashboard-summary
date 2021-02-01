@@ -164,13 +164,13 @@
 }
 
 /* Right-to-left language styles */
-.rtl #ds-default-widget .ds-widget-system-list {
+.rtl #ds-default-widget .ds-widget-details-list {
   margin-left: 0;
   margin-right: 1em;
   list-style: disc;
 }
 
-.rtl #ds-default-widget .ds-widget-system-list li {
+.rtl #ds-default-widget .ds-widget-details-list li {
   margin: 0;
 }
 
