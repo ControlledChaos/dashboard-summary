@@ -40,7 +40,7 @@ $description_system = apply_filters(
 <h4><?php echo $heading_system; ?></h4>
 <?php echo $description_system; ?>
 
-<ul class="ds-widget-details-list">
+<ul class="ds-widget-details-list ds-widget-system-list">
 	<li><icon class="ds-cpt-icons dashicons dashicons-editor-code"></icon> <?php echo $summary->php_version(); ?></li>
 	<li><icon class="ds-cpt-icons dashicons dashicons-dashboard"></icon> <?php echo $summary->management_system(); ?></li>
 	<li><icon class="ds-cpt-icons dashicons dashicons-admin-appearance"></icon> <?php echo $summary->active_theme(); ?></li>
