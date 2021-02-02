@@ -66,54 +66,80 @@ $description_users = apply_filters(
 	''
 );
 
-// Get a count of all comments.
+// Get comment counts for various statuses.
 $comment_count = get_comment_count();
+
+// Get a count of all comments, including trash.
+$comment_total = $comment_count['total_comments'] + $comment_count['trash'];
 
 ?>
 <?php echo $heading_users_discussion; ?>
 <?php echo $description_users_discussion; ?>
 
 <h4><?php echo $heading_comments; ?></h4>
-
 <?php echo $description_comments; ?>
 
 <ul class="ds-content-list ds-widget-details-list ds-widget-comments-list">
 	<?php
+	// Total comments.
 	echo sprintf(
 		'<li><a href="%s"><icon class="dashicons dashicons-format-quote"></icon> %s %s</a></li>',
 		esc_url( admin_url( 'edit-comments.php' ) ),
-		$comment_count['total_comments'],
-		_n( __( 'Comment in total', DS_DOMAIN ), __( 'Comments in Total', DS_DOMAIN ), $comment_count['total_comments'] )
+		$comment_total,
+		_n(
+			__( 'Comment in total', DS_DOMAIN ),
+			__( 'Comments in Total', DS_DOMAIN ),
+			$comment_total
+		)
 	);
 	?>
-	<?php echo sprintf(
+	<?php
+	// Approved comments.
+	echo sprintf(
 		'<li><a href="%s"><icon class="dashicons dashicons-admin-comments"></icon> %s %s</a></li>',
 		esc_url( admin_url( 'edit-comments.php?comment_status=approved' ) ),
 		$comment_count['approved'],
 		__( 'Approved', DS_DOMAIN )
 	); ?>
-	<?php echo sprintf(
+	<?php
+	// Comments awaiting moderation.
+	echo sprintf(
 		'<li><a href="%s"><icon class="dashicons dashicons-format-chat"></icon> %s %s</a></li>',
 		esc_url( admin_url( 'edit-comments.php?comment_status=moderated' ) ),
 		$comment_count['awaiting_moderation'],
 		__( 'In Moderation', DS_DOMAIN )
 	); ?>
-	<?php echo sprintf(
+	<?php
+	// Comments marked as spam.
+	echo sprintf(
 		'<li><a href="%s"><icon class="dashicons dashicons-warning"></icon> %s %s</a></li>',
 		esc_url( admin_url( 'edit-comments.php?comment_status=spam' ) ),
 		$comment_count['spam'],
 		__( 'Marked Spam', DS_DOMAIN )
 	); ?>
-	<?php echo sprintf(
+	<?php
+	// Comments in trash.
+	echo sprintf(
 		'<li><a href="%s"><icon class="dashicons dashicons-trash"></icon> %s %s</a></li>',
 		esc_url( admin_url( 'edit-comments.php?comment_status=trash' ) ),
 		$comment_count['trash'],
 		__( 'In Trash', DS_DOMAIN )
 	); ?>
+	<?php
+	// Comments by current user.
+	echo sprintf(
+		'<li><a href="%s"><icon class="dashicons dashicons-nametag"></icon> %s %s</a></li>',
+		esc_url( admin_url( 'edit-comments.php?comment_status=mine&user_id=' . get_current_user_id() ) ),
+		$summary->get_user_comments_count(),
+		_n(
+			__( 'Comment By You', DS_DOMAIN ),
+			__( 'Comments By You', DS_DOMAIN ),
+			$summary->get_user_comments_count()
+		)
+	); ?>
 </ul>
 
 <h4><?php echo $heading_users; ?></h4>
-
 <?php echo $description_users; ?>
 
 <ul class="ds-widget-details-list">
