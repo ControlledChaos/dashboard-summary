@@ -67,41 +67,25 @@ $comment_count = get_comment_count();
 		'<li><a href="%s"><icon class="dashicons dashicons-admin-comments"></icon> %s %s</a></li>',
 		esc_url( admin_url( 'edit-comments.php?comment_status=approved' ) ),
 		$comment_count['approved'],
-		_n(
-			__( 'Approved Comment', DS_DOMAIN ),
-			__( 'Approved Comments', DS_DOMAIN ),
-			$comment_count['approved']
-		)
+		__( 'Approved', DS_DOMAIN )
 	); ?>
 	<?php echo sprintf(
 		'<li><a href="%s"><icon class="dashicons dashicons-format-chat"></icon> %s %s</a></li>',
 		esc_url( admin_url( 'edit-comments.php?comment_status=moderated' ) ),
 		$comment_count['awaiting_moderation'],
-		_n(
-			__( 'Comment in Moderation', DS_DOMAIN ),
-			__( 'Comments in Moderation', DS_DOMAIN ),
-			$comment_count['awaiting_moderation']
-		)
+		__( 'In Moderation', DS_DOMAIN )
 	); ?>
 	<?php echo sprintf(
 		'<li><a href="%s"><icon class="dashicons dashicons-warning"></icon> %s %s</a></li>',
 		esc_url( admin_url( 'edit-comments.php?comment_status=spam' ) ),
 		$comment_count['spam'],
-		_n(
-			__( 'Comment Marked Spam', DS_DOMAIN ),
-			__( 'Comments Marked Spam', DS_DOMAIN ),
-			$comment_count['spam']
-		)
+		__( 'Marked Spam', DS_DOMAIN )
 	); ?>
 	<?php echo sprintf(
 		'<li><a href="%s"><icon class="dashicons dashicons-trash"></icon> %s %s</a></li>',
 		esc_url( admin_url( 'edit-comments.php?comment_status=trash' ) ),
 		$comment_count['trash'],
-		_n(
-			__( 'Comment in Trash', DS_DOMAIN ),
-			__( 'Comments in Trash', DS_DOMAIN ),
-			$comment_count['trash']
-		)
+		__( 'In Trash', DS_DOMAIN )
 	); ?>
 </ul>
 
