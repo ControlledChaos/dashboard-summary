@@ -18,6 +18,30 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die;
 }
 
+/**
+ * Content section heading
+ *
+ * The HTML is included here because of the
+ * screen-reader-text class, which may need
+ * to be filtered out.
+ */
+$heading_content = apply_filters(
+	'ds_default_widget_heading_content',
+	sprintf(
+		'<h3 class="screen-reader-text">%s</h3>',
+		__( 'Website Content', DS_DOMAIN )
+	)
+);
+
+// Content section description.
+$description_content = apply_filters(
+	'ds_default_widget_description_content',
+	sprintf(
+		'<p class="description">%s</p>',
+		__( 'Follow the links to manage website content.', DS_DOMAIN )
+	)
+);
+
 // Post types section heading.
 $heading_types = apply_filters(
 	'ds_default_widget_heading_types',
@@ -28,15 +52,6 @@ $heading_types = apply_filters(
 $heading_taxes = apply_filters(
 	'ds_default_widget_heading_taxes',
 	__( 'Content Classification', DS_DOMAIN )
-);
-
-// Content section description.
-$description_content = apply_filters(
-	'ds_default_widget_description_content',
-	sprintf(
-		'<p class="description">%s</p>',
-		__( 'Follow the links to manage website content.', DS_DOMAIN )
-	)
 );
 
 // Post types description.
@@ -58,8 +73,7 @@ $description_taxes = apply_filters(
 );
 
 ?>
-<h3 class="screen-reader-text"><?php _e( 'Website Content', DS_DOMAIN ); ?></h3>
-
+<?php echo $heading_content; ?>
 <?php echo $description_content; ?>
 
 <h4><?php echo $heading_types; ?></h4>

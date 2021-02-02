@@ -18,6 +18,30 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die;
 }
 
+/**
+ * Users & discussion section heading
+ *
+ * The HTML is included here because of the
+ * screen-reader-text class, which may need
+ * to be filtered out.
+ */
+$heading_users_discussion = apply_filters(
+	'ds_default_widget_heading_users_discussion',
+	sprintf(
+		'<h3 class="screen-reader-text">%s</h3>',
+		__( 'Users & Discussion', DS_DOMAIN )
+	)
+);
+
+// Users section description.
+$description_users_discussion = apply_filters(
+	'ds_default_widget_description_users_discussion',
+	sprintf(
+		'<p>%s</p>',
+		__( 'Follow the links to manage users and comments.', DS_DOMAIN )
+	)
+);
+
 // Comments section heading.
 $heading_comments = apply_filters(
 	'ds_default_widget_heading_comments',
@@ -46,7 +70,8 @@ $description_users = apply_filters(
 $comment_count = get_comment_count();
 
 ?>
-<h3 class="screen-reader-text"><?php _e( 'Users & Discussion', DS_DOMAIN ); ?></h3>
+<?php echo $heading_users_discussion; ?>
+<?php echo $description_users_discussion; ?>
 
 <h4><?php echo $heading_comments; ?></h4>
 
@@ -54,14 +79,12 @@ $comment_count = get_comment_count();
 
 <ul class="ds-content-list ds-widget-details-list ds-widget-comments-list">
 	<?php
-	/**
 	echo sprintf(
 		'<li><a href="%s"><icon class="dashicons dashicons-format-quote"></icon> %s %s</a></li>',
 		esc_url( admin_url( 'edit-comments.php' ) ),
 		$comment_count['total_comments'],
 		_n( __( 'Comment in total', DS_DOMAIN ), __( 'Comments in Total', DS_DOMAIN ), $comment_count['total_comments'] )
 	);
-	*/
 	?>
 	<?php echo sprintf(
 		'<li><a href="%s"><icon class="dashicons dashicons-admin-comments"></icon> %s %s</a></li>',
