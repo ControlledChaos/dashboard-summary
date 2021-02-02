@@ -85,11 +85,12 @@ $comment_total = $comment_count['total_comments'] + $comment_count['trash'];
 	echo sprintf(
 		'<li><a href="%s"><icon class="dashicons dashicons-format-quote"></icon> %s %s</a></li>',
 		esc_url( admin_url( 'edit-comments.php' ) ),
-		$comment_total,
+		intval( $comment_total ),
 		_n(
-			__( 'Comment in total', DS_DOMAIN ),
-			__( 'Comments in Total', DS_DOMAIN ),
-			$comment_total
+			'Comment in total',
+			'Comments in Total',
+			intval( $comment_total ),
+			DS_DOMAIN
 		)
 	);
 	?>
@@ -98,7 +99,7 @@ $comment_total = $comment_count['total_comments'] + $comment_count['trash'];
 	echo sprintf(
 		'<li><a href="%s"><icon class="dashicons dashicons-admin-comments"></icon> %s %s</a></li>',
 		esc_url( admin_url( 'edit-comments.php?comment_status=approved' ) ),
-		$comment_count['approved'],
+		intval( $comment_count['approved'] ),
 		__( 'Approved', DS_DOMAIN )
 	); ?>
 	<?php
@@ -106,7 +107,7 @@ $comment_total = $comment_count['total_comments'] + $comment_count['trash'];
 	echo sprintf(
 		'<li><a href="%s"><icon class="dashicons dashicons-format-chat"></icon> %s %s</a></li>',
 		esc_url( admin_url( 'edit-comments.php?comment_status=moderated' ) ),
-		$comment_count['awaiting_moderation'],
+		intval( $comment_count['awaiting_moderation'] ),
 		__( 'In Moderation', DS_DOMAIN )
 	); ?>
 	<?php
@@ -114,7 +115,7 @@ $comment_total = $comment_count['total_comments'] + $comment_count['trash'];
 	echo sprintf(
 		'<li><a href="%s"><icon class="dashicons dashicons-warning"></icon> %s %s</a></li>',
 		esc_url( admin_url( 'edit-comments.php?comment_status=spam' ) ),
-		$comment_count['spam'],
+		intval( $comment_count['spam'] ),
 		__( 'Marked Spam', DS_DOMAIN )
 	); ?>
 	<?php
@@ -122,7 +123,7 @@ $comment_total = $comment_count['total_comments'] + $comment_count['trash'];
 	echo sprintf(
 		'<li><a href="%s"><icon class="dashicons dashicons-trash"></icon> %s %s</a></li>',
 		esc_url( admin_url( 'edit-comments.php?comment_status=trash' ) ),
-		$comment_count['trash'],
+		intval( $comment_count['trash'] ),
 		__( 'In Trash', DS_DOMAIN )
 	); ?>
 	<?php
@@ -132,9 +133,10 @@ $comment_total = $comment_count['total_comments'] + $comment_count['trash'];
 		esc_url( admin_url( 'edit-comments.php?comment_status=mine&user_id=' . get_current_user_id() ) ),
 		$summary->get_user_comments_count(),
 		_n(
-			__( 'Comment By You', DS_DOMAIN ),
-			__( 'Comments By You', DS_DOMAIN ),
-			$summary->get_user_comments_count()
+			'Comment By You',
+			'Comments By You',
+			$summary->get_user_comments_count(),
+			DS_DOMAIN
 		)
 	); ?>
 </ul>
