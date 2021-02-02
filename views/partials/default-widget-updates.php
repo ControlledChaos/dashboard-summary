@@ -35,8 +35,11 @@ $description_updates = apply_filters(
 
 <?php echo $description_updates; ?>
 
+<h4><?php _e( 'System', DS_DOMAIN ); ?></h4>
+<?php echo $summary->core_updates(); ?>
+
 <h4><?php _e( 'Plugins', DS_DOMAIN ); ?></h4>
 <p><?php echo $summary->update_plugins(); ?></p>
 
 <h4><?php _e( 'Themes', DS_DOMAIN ); ?></h4>
-<p><?php echo $summary->update_themes(); ?></p>
+<?php echo $summary->update_themes(); ?>

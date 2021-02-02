@@ -482,6 +482,298 @@ class Site_Summary {
 	}
 
 	/**
+	 * Display upgrade WordPress for downloading latest or upgrading automatically form.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @global string $required_php_version The required PHP version string.
+	 * @global string $required_mysql_version The required MySQL version string.
+	 * @return void
+	 */
+	public function core_updates() {
+
+		// Access global variables.
+		global $required_php_version, $required_mysql_version;
+
+		$updates = get_core_updates();
+
+		// Get the system version.
+		require ABSPATH . WPINC . '/version.php';
+
+		// System name.
+		if ( function_exists( 'classicpress_version' ) ) {
+			$system = __( 'ClassicPress', DS_DOMAIN );
+		} else {
+			$system = __( 'WordPress', DS_DOMAIN );
+		}
+
+		$is_development_version = preg_match( '/alpha|beta|RC/', $wp_version );
+
+		if ( isset( $updates[0]->version ) && version_compare( $updates[0]->version, $wp_version, '>' ) ) {
+
+			printf(
+				'<p class="response">%s %s %s</p>',
+				__( 'An updated version of', DS_DOMAIN ),
+				$system,
+				__( 'is available.', DS_DOMAIN )
+			);
+
+			printf(
+				'<p><strong>%s</strong> %s</p>',
+				__( 'Important:', DS_DOMAIN ),
+				__( 'Before updating, please back up your database and files.', DS_DOMAIN ),
+			);
+
+		} elseif ( $is_development_version ) {
+			printf(
+				'<p class="response">%s %s</p>',
+				__( 'You are using a development version of', DS_DOMAIN ),
+				$system
+			);
+
+		} else {
+			printf(
+				'<p class="response">%s %s</p>',
+				__( 'You have the latest version of', DS_DOMAIN ),
+				$system
+			);
+		}
+
+		// Don't show the maintenance mode notice when we are only showing a single re-install option.
+		if ( $updates && ( count( $updates ) > 1 || 'latest' !== $updates[0]->response ) ) {
+
+			echo '<p>' . __( 'While your site is being updated, it will be in maintenance mode. As soon as your updates are complete, this mode will be deactivated.', DS_DOMAIN ) . '</p>';
+
+		} elseif ( ! $updates ) {
+
+			list( $normalized_version ) = explode( '-', $wp_version );
+			echo '<p>' . sprintf(
+				__( '<a href="%1$s">Learn more about WordPress %2$s</a>.', DS_DOMAIN ),
+				esc_url( self_admin_url( 'about.php' ) ),
+				$normalized_version
+			) . '</p>';
+		}
+
+		echo '<ul class="core-updates">';
+		foreach ( (array) $updates as $update ) {
+			echo '<li>';
+			$this->list_core_update( $update );
+			echo '</li>';
+		}
+		echo '</ul>';
+
+		$this->dismissed_updates();
+	}
+
+	/**
+	 * Lists available core updates.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @global string $wp_local_package Locale code of the package.
+	 * @global wpdb $wpdb WordPress database abstraction object.
+	 * @param  object $update
+	 * @return void
+	 */
+	public function list_core_update( $update ) {
+
+		// Access global variables.
+		global $wp_local_package, $wpdb;
+		static $first_pass = true;
+
+		$wp_version     = get_bloginfo( 'version' );
+		$version_string = sprintf( '%s&ndash;<strong>%s</strong>', $update->current, $update->locale );
+
+		if ( 'en_US' === $update->locale && 'en_US' === get_locale() ) {
+			$version_string = $update->current;
+
+		} elseif ( 'en_US' === $update->locale && $update->packages->partial && $wp_version == $update->partial_version ) {
+
+			$updates = get_core_updates();
+
+			if ( $updates && 1 === count( $updates ) ) {
+
+				// If the only available update is a partial builds, it doesn't need a language-specific version string.
+				$version_string = $update->current;
+			}
+		}
+
+		$current = false;
+		if ( ! isset( $update->response ) || 'latest' === $update->response ) {
+			$current = true;
+		}
+
+		$submit        = __( 'Update System', DS_DOMAIN );
+		$form_action   = 'update-core.php?action=do-core-upgrade';
+		$php_version   = phpversion();
+		$mysql_version = $wpdb->db_version();
+		$show_buttons  = true;
+
+		if ( 'development' === $update->response ) {
+			$message = __( 'You can update to the latest nightly build manually:', DS_DOMAIN );
+
+		} else {
+
+			if ( $current ) {
+				$message     = sprintf( __( 'If you need to re-install version %s, you can do so here:', DS_DOMAIN ), $version_string );
+				$submit      = __( 'Re-install System', DS_DOMAIN );
+				$form_action = 'update-core.php?action=do-core-reinstall';
+
+			} else {
+
+				$php_compat = version_compare( $php_version, $update->php_version, '>=' );
+
+				if ( file_exists( WP_CONTENT_DIR . '/db.php' ) && empty( $wpdb->is_mysql ) ) {
+					$mysql_compat = true;
+				} else {
+					$mysql_compat = version_compare( $mysql_version, $update->mysql_version, '>=' );
+				}
+
+				$version_url = sprintf(
+					esc_url( __( 'https://wordpress.org/support/wordpress-version/version-%s/' ) ),
+					sanitize_title( $update->current )
+				);
+
+				$php_update_message = '</p><p>' . sprintf(
+					__( '<a href="%s">Learn more about updating PHP</a>.' ),
+					esc_url( wp_get_update_php_url() )
+				);
+
+				$annotation = wp_get_update_php_annotation();
+
+				if ( $annotation ) {
+					$php_update_message .= '</p><p><em>' . $annotation . '</em>';
+				}
+
+				if ( ! $mysql_compat && ! $php_compat ) {
+					$message = sprintf(
+						/* translators: 1: URL to WordPress release notes, 2: WordPress version number, 3: Minimum required PHP version number, 4: Minimum required MySQL version number, 5: Current PHP version number, 6: Current MySQL version number. */
+						__( 'You cannot update because <a href="%1$s">WordPress %2$s</a> requires PHP version %3$s or higher and MySQL version %4$s or higher. You are running PHP version %5$s and MySQL version %6$s.', DS_DOMAIN ),
+						$version_url,
+						$update->current,
+						$update->php_version,
+						$update->mysql_version,
+						$php_version,
+						$mysql_version
+					) . $php_update_message;
+				} elseif ( ! $php_compat ) {
+					$message = sprintf(
+						/* translators: 1: URL to WordPress release notes, 2: WordPress version number, 3: Minimum required PHP version number, 4: Current PHP version number. */
+						__( 'You cannot update because <a href="%1$s">WordPress %2$s</a> requires PHP version %3$s or higher. You are running version %4$s.', DS_DOMAIN ),
+						$version_url,
+						$update->current,
+						$update->php_version,
+						$php_version
+					) . $php_update_message;
+				} elseif ( ! $mysql_compat ) {
+					$message = sprintf(
+						/* translators: 1: URL to WordPress release notes, 2: WordPress version number, 3: Minimum required MySQL version number, 4: Current MySQL version number. */
+						__( 'You cannot update because <a href="%1$s">WordPress %2$s</a> requires MySQL version %3$s or higher. You are running version %4$s.', DS_DOMAIN ),
+						$version_url,
+						$update->current,
+						$update->mysql_version,
+						$mysql_version
+					);
+				} else {
+					$message = sprintf(
+						/* translators: 1: Installed WordPress version number, 2: URL to WordPress release notes, 3: New WordPress version number, including locale if necessary. */
+						__( 'You can update from WordPress %1$s to <a href="%2$s">WordPress %3$s</a> manually:', DS_DOMAIN ),
+						$wp_version,
+						$version_url,
+						$version_string
+					);
+				}
+
+				if ( ! $mysql_compat || ! $php_compat ) {
+					$show_buttons = false;
+				}
+			}
+		}
+
+		echo '<p>' . $message .'</p>';
+
+		echo '<form method="post" action="' . $form_action . '" name="upgrade" class="upgrade">';
+		wp_nonce_field( 'upgrade-core' );
+
+		echo '<p>';
+		echo '<input name="version" value="' . esc_attr( $update->current ) . '" type="hidden"/>';
+		echo '<input name="locale" value="' . esc_attr( $update->locale ) . '" type="hidden"/>';
+		if ( $show_buttons ) {
+
+			if ( $first_pass ) {
+				submit_button( $submit, $current ? '' : 'primary regular', 'upgrade', false );
+				$first_pass = false;
+			} else {
+				submit_button( $submit, '', 'upgrade', false );
+			}
+		}
+
+		if ( 'en_US' !== $update->locale ) {
+
+			if ( ! isset( $update->dismissed ) || ! $update->dismissed ) {
+				submit_button( __( 'Hide this update', DS_DOMAIN ), '', 'dismiss', false );
+			} else {
+				submit_button( __( 'Bring back this update', DS_DOMAIN ), '', 'undismiss', false );
+			}
+		}
+		echo '</p>';
+
+		if ( 'en_US' !== $update->locale && ( ! isset( $wp_local_package ) || $wp_local_package != $update->locale ) ) {
+			echo '<p class="hint">' . __( 'This localized version contains both the translation and various other localization fixes.', DS_DOMAIN ) . '</p>';
+
+		} elseif ( 'en_US' === $update->locale && 'en_US' !== get_locale() && ( ! $update->packages->partial && $wp_version == $update->partial_version ) ) {
+
+			// Partial builds don't need language-specific warnings.
+			echo '<p class="hint">' . sprintf(
+				__( 'You are about to install WordPress %s <strong>in English (US).</strong> There is a chance this update will break your translation. You may prefer to wait for the localized version to be released.', DS_DOMAIN ),
+				'development' !== $update->response ? $update->current : ''
+			) . '</p>';
+		}
+
+		echo '</form>';
+	}
+
+	/**
+	 * Display dismissed updates.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function dismissed_updates() {
+
+		$dismissed = get_core_updates(
+			[
+				'dismissed' => true,
+				'available' => false,
+			]
+		);
+
+		if ( $dismissed ) {
+
+			$show_text = esc_js( __( 'Show hidden updates', DS_DOMAIN ) );
+			$hide_text = esc_js( __( 'Hide hidden updates', DS_DOMAIN ) );
+			?>
+		<script type="text/javascript">
+			jQuery(function( $ ) {
+				$( 'dismissed-updates' ).show();
+				$( '#show-dismissed' ).toggle( function() { $( this ).text( '<?php echo $hide_text; ?>' ).attr( 'aria-expanded', 'true' ); }, function() { $( this ).text( '<?php echo $show_text; ?>' ).attr( 'aria-expanded', 'false' ); } );
+				$( '#show-dismissed' ).click( function() { $( '#dismissed-updates' ).toggle( 'fast' ); } );
+			});
+		</script>
+			<?php
+			echo '<p class="hide-if-no-js"><button type="button" class="button" id="show-dismissed" aria-expanded="false">' . __( 'Show hidden updates', DS_DOMAIN ) . '</button></p>';
+			echo '<ul id="dismissed-updates" class="core-updates dismissed">';
+			foreach ( (array) $dismissed as $update ) {
+				echo '<li>';
+				list_core_update( $update );
+				echo '</li>';
+			}
+			echo '</ul>';
+		}
+	}
+
+	/**
 	 * Updates data
 	 *
 	 * @since  1.0.0
@@ -560,19 +852,17 @@ class Site_Summary {
 		// Get themes update count.
 		$count = $this->updates( 'themes' );
 
-		if ( 1 == $count ) {
+		if ( 0 != $count ) {
 			$notice = sprintf(
-				'%s %s %s',
-				__( 'There is', DS_DOMAIN ),
+				'<p>%s <strong>%s</strong> %s</p>',
+				_n( 'There is', 'There are', $count, DS_DOMAIN ),
 				$count,
-				__( 'theme update available.', DS_DOMAIN )
+				_n( 'theme update available.', 'theme updates available.', $count, DS_DOMAIN )
 			);
-		} elseif ( 0 != $count ) {
-			$notice = sprintf(
-				'%s %s %s',
-				__( 'There are', DS_DOMAIN ),
-				$count,
-				__( 'theme updates available.', DS_DOMAIN )
+			$notice .= sprintf(
+				'<p><a href="%s" class="button button-primary">%s</a></p>',
+				esc_url( admin_url( 'themes.php' ) ),
+				_n( 'Update Theme', 'Update Themes', $count, DS_DOMAIN )
 			);
 		} else {
 			$notice = __( 'There are no theme updates available.', DS_DOMAIN );
