@@ -43,13 +43,18 @@ class Activate {
 	 */
 	public function options() {
 
-		// Add options.
-		add_option( 'ds_enable_summary' );
-		add_option( 'ds_enable_glance' );
+		// Add options with default to look for when freshly installed.
+		add_option( 'ds_enable_summary', 'new_install' );
+		add_option( 'ds_enable_glance', 'new_install' );
 
-		// Update options.
-		update_option( 'ds_enable_summary', 1 );
-		update_option( 'ds_enable_glance', 0 );
+		// Update options if the installation defaults are set.
+		if ( 'new_install' == get_option( 'ds_enable_summary' ) ) {
+			update_option( 'ds_enable_summary', 1 );
+		}
+
+		if ( 'new_install' == get_option( 'ds_enable_glance' ) ) {
+			update_option( 'ds_enable_glance', 0 );
+		}
 	}
 
 	/**
