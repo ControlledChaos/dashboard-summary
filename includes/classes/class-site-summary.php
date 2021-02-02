@@ -321,6 +321,23 @@ class Site_Summary {
 	}
 
 	/**
+	 * Get current user comments
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return integer Returns the number of comments for the user.
+	 */
+	public function get_user_comments_count() {
+		$args = [
+			'user_id' => get_current_user_id(),
+			'count'   => true // Return only the count.
+		];
+		$count = get_comments( $args );
+
+		return $count;
+	}
+
+	/**
 	 * PHP version
 	 *
 	 * States the version of PHP which is
