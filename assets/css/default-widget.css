@@ -127,6 +127,10 @@
   margin-top: 0.5em;
 }
 
+#dashboard-widgets #ds-default-widget .ds-widget-section {
+  max-width: 420px;
+}
+
 #dashboard-widgets #ds-default-widget .ds-widget-section h3,
 #dashboard-widgets #ds-default-widget .ds-widget-section h4 {
   font-size: 1em;
