@@ -150,6 +150,12 @@
   margin: 0;
 }
 
+#dashboard-widgets #ds-default-widget .ds-widget-section div.ds-widget-divided-section:not(:first-of-type) {
+  margin-top: 1em;
+  padding-top: 0.5em;
+  border-top: solid 1px #ccd0d4;
+}
+
 #dashboard-widgets #ds-default-widget .ds-widget-details-list ul {
   list-style: disc;
   margin-left: 1em;

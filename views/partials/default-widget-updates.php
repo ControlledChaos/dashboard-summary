@@ -38,15 +38,17 @@ $description_updates = apply_filters(
 
 <?php echo $description_updates; ?>
 
-<h4><?php _e( 'System', DS_DOMAIN ); ?></h4>
-<?php echo $summary->core_updates(); ?>
+<div class="ds-widget-divided-section ds-widget-updates-section">
+	<h4><?php _e( 'System', DS_DOMAIN ); ?></h4>
+	<?php echo $summary->core_updates(); ?>
+</div>
 
-<br /><hr />
+<div class="ds-widget-divided-section ds-widget-updates-section">
+	<h4><?php _e( 'Plugins', DS_DOMAIN ); ?></h4>
+	<?php echo $summary->update_plugins(); ?>
+</div>
 
-<h4><?php _e( 'Plugins', DS_DOMAIN ); ?></h4>
-<?php echo $summary->update_plugins(); ?>
-
-<hr />
-
-<h4><?php _e( 'Themes', DS_DOMAIN ); ?></h4>
-<?php echo $summary->update_themes_list(); ?>
+<div class="ds-widget-divided-section ds-widget-updates-section">
+	<h4><?php _e( 'Themes', DS_DOMAIN ); ?></h4>
+	<?php echo $summary->update_themes_list(); ?>
+</div>

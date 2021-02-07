@@ -76,12 +76,16 @@ $description_taxes = apply_filters(
 <?php echo $heading_content; ?>
 <?php echo $description_content; ?>
 
-<h4><?php echo $heading_types; ?></h4>
-<?php echo $description_types; ?>
+<div class="ds-widget-divided-section ds-widget-content-section">
+	<h4><?php echo $heading_types; ?></h4>
+	<?php echo $description_types; ?>
 
-<?php $summary->post_types_list(); ?>
+	<?php $summary->post_types_list(); ?>
+</div>
 
-<h4><?php echo $heading_taxes; ?></h4>
-<?php echo $description_taxes; ?>
+<div class="ds-widget-divided-section ds-widget-content-section">
+	<h4><?php echo $heading_taxes; ?></h4>
+	<?php echo $description_taxes; ?>
 
-<?php $summary->taxonomies_icons_list(); ?>
+	<?php $summary->taxonomies_icons_list(); ?>
+</div>

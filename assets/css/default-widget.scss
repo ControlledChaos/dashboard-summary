@@ -11,6 +11,8 @@
 @import 'modules/_colors';
 @import 'modules/_tabs';
 
+$ds_widget_border_color: $pale_gray;
+
 #dashboard-widgets {
 
 	#ds-default-widget {
@@ -49,6 +51,14 @@
 					}
 				}
 			}
+
+			div.ds-widget-divided-section {
+				&:not( :first-of-type ) {
+					margin-top: 1em;
+					padding-top: 0.5em;
+					border-top: solid 1px $ds_widget_border_color;
+				}
+			}
 		}
 
 		.ds-widget-details-list {
@@ -67,7 +77,7 @@
 		}
 
 		.ds-search-engines {
-			color: $orange;
+			color: $notify_color;
 			font-weight: bold;
 			font-weight: 600;
 			text-decoration: underline;
