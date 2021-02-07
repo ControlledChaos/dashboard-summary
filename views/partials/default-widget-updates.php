@@ -18,6 +18,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die;
 }
 
+wp_update_themes();
+wp_update_plugins();
+
 // Updates section heading.
 $heading_updates = apply_filters(
 	'ds_default_widget_heading_updates',
@@ -38,8 +41,12 @@ $description_updates = apply_filters(
 <h4><?php _e( 'System', DS_DOMAIN ); ?></h4>
 <?php echo $summary->core_updates(); ?>
 
+<br /><hr />
+
 <h4><?php _e( 'Plugins', DS_DOMAIN ); ?></h4>
-<p><?php echo $summary->update_plugins(); ?></p>
+<?php echo $summary->update_plugins(); ?>
+
+<hr />
 
 <h4><?php _e( 'Themes', DS_DOMAIN ); ?></h4>
-<?php echo $summary->update_themes(); ?>
+<?php echo $summary->update_themes_list(); ?>
