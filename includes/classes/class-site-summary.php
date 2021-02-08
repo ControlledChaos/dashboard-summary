@@ -349,20 +349,20 @@ class Site_Summary {
 	 */
 	public function php_version() {
 
-		$html = sprintf(
+		$output = sprintf(
 			'%s <a href="%s">%s</a>',
 			__( 'Your web server is running', DS_DOMAIN ),
 			esc_url( 'https://www.php.net/releases/index.php' ),
 			'PHP ' . phpversion()
 		);
 
-		return apply_filters( 'ds_php_version_statement', $html );
+		return apply_filters( 'ds_php_version_statement', $output );
 	}
 
 	/**
 	 * Management system
 	 *
-	 * States the management system and version.
+	 * Defines the name of the management system.
 	 *
 	 * @since  1.0.0
 	 * @access public
@@ -372,22 +372,46 @@ class Site_Summary {
 
 		// Check for ClassicPress.
 		if ( function_exists( 'classicpress_version' ) ) {
-			$system = sprintf(
+			$output = __( 'ClassicPress', DS_DOMAIN );
+		} else {
+			$output = __( 'WordPress', DS_DOMAIN );
+		}
+
+		return apply_filters( 'ds_system_name', $output );
+	}
+
+	/**
+	 * System notice
+	 *
+	 * States the management system and version.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return string Returns a PHP version statement.
+	 */
+	public function system_notice() {
+
+		// Get system name.
+		$system = $this->management_system();
+
+		// Check for ClassicPress.
+		if ( function_exists( 'classicpress_version' ) ) {
+			$output = sprintf(
 				'%s <a href="%s">%s</a>',
 				__( 'Your website is running', DS_DOMAIN ),
 				esc_url( 'https://github.com/ClassicPress/ClassicPress-release/releases' ),
-				'ClassicPress ' . get_bloginfo( 'version', 'display' )
+				$system . ' ' . get_bloginfo( 'version', 'display' )
 			);
 		} else {
-			$system = sprintf(
+			$output = sprintf(
 				'%s <a href="%s">%s</a>',
 				__( 'Your website is running', DS_DOMAIN ),
 				esc_url( 'https://wordpress.org/download/releases/' ),
-				'WordPress ' . get_bloginfo( 'version', 'display' )
+				$system . ' ' . get_bloginfo( 'version', 'display' )
 			);
 		}
 
-		return apply_filters( 'ds_system_name', $system );
+		return apply_filters( 'ds_system_notice', $output );
 	}
 
 	/**
@@ -407,16 +431,16 @@ class Site_Summary {
 			current_user_can( 'manage_options' ) &&
 			'0' == get_option( 'blog_public' )
 		) {
-			$html = sprintf(
+			$output = sprintf(
 				'<a class="ds-search-engines" href="%s">%s</a>',
 				admin_url( 'options-reading.php' ),
 				__( 'Search engines are discouraged', DS_DOMAIN )
 			);
 		} else {
-			$html = null;
+			$output = null;
 		}
 
-		return apply_filters( 'ds_search_engines', $html );
+		return apply_filters( 'ds_search_engines', $output );
 	}
 
 	/**
@@ -808,6 +832,39 @@ class Site_Summary {
 	}
 
 	/**
+	 * Total update count
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return integer Returns the total number of updates available.
+	 */
+	public function update_total_count() {
+		return $this->updates( 'total' );
+	}
+
+	/**
+	 * Plugins update count
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return integer Returns the number of updates available.
+	 */
+	public function update_plugins_count() {
+		return $this->updates( 'plugins' );
+	}
+
+	/**
+	 * Themes update count
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return integer Returns the number of updates available.
+	 */
+	public function update_themes_count() {
+		return $this->updates( 'themes' );
+	}
+
+	/**
 	 * Plugins update notoce
 	 *
 	 * @since  1.0.0
@@ -816,59 +873,86 @@ class Site_Summary {
 	 */
 	public function update_plugins() {
 
-		// Get plugins update count.
-		$count = $this->updates( 'plugins' );
+		// Get available plugin updates.
+		$update_plugins = get_site_transient( 'update_plugins' );
 
-		if ( 1 == $count ) {
-			$notice = sprintf(
-				'%s %s %s',
-				__( 'There is', DS_DOMAIN ),
-				$count,
-				__( 'plugin update available.', DS_DOMAIN )
+		/**
+		 * Default headers for reference.
+		 */
+		$default_headers = [
+			'Name'        => 'Plugin Name',
+			'PluginURI'   => 'Plugin URI',
+			'Version'     => 'Version',
+			'Description' => 'Description',
+			'Author'      => 'Author',
+			'AuthorURI'   => 'Author URI',
+			'TextDomain'  => 'Text Domain',
+			'DomainPath'  => 'Domain Path',
+			'Network'     => 'Network',
+			'RequiresWP'  => 'Requires at least',
+			'RequiresPHP' => 'Requires PHP',
+			// Site Wide Only is deprecated in favor of Network.
+			'_sitewide'   => 'Site Wide Only',
+		];
+
+		$output = '<ul>';
+		foreach ( $update_plugins->response as $update ) {
+
+			$plugin = $update->slug;
+			$data   = get_plugin_data( ABSPATH . 'wp-content/plugins/' . $update->plugin );
+			$name   = $data['Name'];
+
+			$output .= sprintf(
+				'<li><p><strong>%s %s %s <a href="%s" class="thickbox open-plugin-details-modal">%s %s %s</a> %s <a href="%s">%s</a></strong></p></li>',
+				__( 'There is a new version of', DS_DOMAIN ),
+				$name,
+				__( 'available.', DS_DOMAIN ),
+				esc_url( admin_url( 'plugin-install.php?tab=plugin-information&plugin=' . $update->slug . '&section=changelog&TB_iframe=true&width=600&height=800' ) ),
+				__( 'View version', DS_DOMAIN ),
+				$update->new_version,
+				__( 'details', DS_DOMAIN ),
+				__( 'or', DS_DOMAIN ),
+				wp_nonce_url( admin_url( 'update.php?action=upgrade-plugin&plugin=' . urlencode( $update->plugin ) ), 'action' ),
+				__( 'update now.', DS_DOMAIN )
 			);
-		} elseif ( 0 != $count ) {
-			$notice = sprintf(
-				'%s %s %s',
-				__( 'There are', DS_DOMAIN ),
-				$count,
-				__( 'plugin updates available.', DS_DOMAIN )
-			);
-		} else {
-			$notice = __( 'There are no plugin updates available.', DS_DOMAIN );
 		}
+		$output .= '</ul>';
 
-		return $notice;
+		return $output;
 	}
 
 	/**
-	 * Themes update notoce
+	 * Themes update list
 	 *
 	 * @since  1.0.0
 	 * @access public
-	 * @return string Returns the text of the notice.
+	 * @return string Returns the markup & text of the list.
 	 */
-	public function update_themes() {
+	public function update_themes_list() {
 
-		// Get themes update count.
-		$count = $this->updates( 'themes' );
+		// Get available theme updates.
+		$update_themes = get_site_transient( 'update_themes' );
 
-		if ( 0 != $count ) {
-			$notice = sprintf(
-				'<p>%s <strong>%s</strong> %s</p>',
-				_n( 'There is', 'There are', $count, DS_DOMAIN ),
-				$count,
-				_n( 'theme update available.', 'theme updates available.', $count, DS_DOMAIN )
-			);
-			$notice .= sprintf(
-				'<p><a href="%s" class="button button-primary">%s</a></p>',
-				esc_url( admin_url( 'themes.php' ) ),
-				_n( 'Update Theme', 'Update Themes', $count, DS_DOMAIN )
-			);
+		// Print the list of updates if available.
+		if ( $update_themes->response ) {
+
+			$output = '<ul>';
+			foreach ( $update_themes->response as $update ) {
+
+				$theme = $update['theme'];
+				$output .= get_theme_update_available( wp_get_theme( $theme ) );
+			}
+			$output .= '</ul>';
+
+		// No updates message.
 		} else {
-			$notice = __( 'There are no theme updates available.', DS_DOMAIN );
+			$output = sprintf(
+				'<p>%s</p>',
+				__( 'There are no theme updates available.', DS_DOMAIN )
+			);
 		}
 
-		return $notice;
+		return $output;
 	}
 }
 

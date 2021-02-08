@@ -42,7 +42,7 @@ $description_system = apply_filters(
 
 <ul class="ds-widget-details-list ds-widget-system-list">
 	<li><icon class="ds-cpt-icons dashicons dashicons-editor-code"></icon> <?php echo $summary->php_version(); ?></li>
-	<li><icon class="ds-cpt-icons dashicons dashicons-dashboard"></icon> <?php echo $summary->management_system(); ?></li>
+	<li><icon class="ds-cpt-icons dashicons dashicons-dashboard"></icon> <?php echo $summary->system_notice(); ?></li>
 	<li><icon class="ds-cpt-icons dashicons dashicons-admin-appearance"></icon> <?php echo $summary->active_theme(); ?></li>
 	<?php
 	if ( ! empty( $summary->search_engines() ) ) {
