@@ -964,6 +964,8 @@ class Site_Summary {
 	 *
 	 * Used in the profile tab of the default widget.
 	 *
+	 * @since  1.0.0
+	 * @access public
 	 * @return string Returns the markup of the greeting.
 	 */
 	public function user_greeting() {
@@ -999,14 +1001,31 @@ class Site_Summary {
 					esc_html__( 'Welcome,', DS_DOMAIN ),
 					$user_name
 				);
-				echo sprintf(
-					'<p class="description">%s</p>',
-					__( 'This section provides details about your account.', DS_DOMAIN )
-				);
+				do_action( 'ds_profile_description' );
 				?>
 			</div>
 		</div>
 		<?php
+	}
+
+	/**
+	 * User greeting description
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return string Returns the text of the description.
+	 */
+	public static function user_greeting_description() {
+
+		$output = apply_filters(
+			'ds_default_widget_description_profile',
+			sprintf(
+				'<p class="description">%s</p>',
+				__( 'This section provides details about your account.', DS_DOMAIN )
+			)
+		);
+
+		echo $output;
 	}
 }
 

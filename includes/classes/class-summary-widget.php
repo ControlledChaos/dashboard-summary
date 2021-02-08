@@ -35,6 +35,9 @@ class Summary_Widget {
 
 		// Print admin styles to head.
 		add_action( 'admin_print_styles', [ $this, 'admin_print_styles' ], 20 );
+
+		// User profile greeting description.
+		add_action( 'ds_profile_description', [ __NAMESPACE__ . '\Site_Summary', 'user_greeting_description' ] );
 	}
 
 	/**
