@@ -351,7 +351,7 @@ class Site_Summary {
 
 		$output = sprintf(
 			'%s <a href="%s">%s</a>',
-			__( 'Your web server is running', DS_DOMAIN ),
+			__( 'The web server is running', DS_DOMAIN ),
 			esc_url( 'https://www.php.net/releases/index.php' ),
 			'PHP ' . phpversion()
 		);
@@ -398,14 +398,14 @@ class Site_Summary {
 		if ( function_exists( 'classicpress_version' ) ) {
 			$output = sprintf(
 				'%s <a href="%s">%s</a>',
-				__( 'Your website is running', DS_DOMAIN ),
+				__( 'This website is running', DS_DOMAIN ),
 				esc_url( 'https://github.com/ClassicPress/ClassicPress-release/releases' ),
 				$system . ' ' . get_bloginfo( 'version', 'display' )
 			);
 		} else {
 			$output = sprintf(
 				'%s <a href="%s">%s</a>',
-				__( 'Your website is running', DS_DOMAIN ),
+				__( 'This website is running', DS_DOMAIN ),
 				esc_url( 'https://wordpress.org/download/releases/' ),
 				$system . ' ' . get_bloginfo( 'version', 'display' )
 			);
