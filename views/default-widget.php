@@ -23,14 +23,14 @@ $summary = Classes\summary();
 
 // Updates count.
 $update_data = wp_get_update_data();
-$updates = number_format_i18n( $update_data['counts']['total'] );
+$updates     = number_format_i18n( $update_data['counts']['total'] );
 if ( 0 != $updates ) {
-	$count = sprintf(
+	$update_count = sprintf(
 		' <span class="ds-widget-update-count">%s</span>',
 		$updates
 	);
 } else {
-	$count = null;
+	$update_count = null;
 }
 
 do_action( 'ds_default_widget_before' );
@@ -41,7 +41,7 @@ do_action( 'ds_default_widget_before' );
 	<ul class="ds-tabs-nav">
 		<li class="ds-tabs-state-active"><a href="#ds-default-widget-content"><?php _e( 'Content', DS_DOMAIN ); ?></a></li>
 		<li><a href="#ds-default-widget-users-discussion"><?php _e( 'Users', DS_DOMAIN ); ?></a></li>
-		<li><a href="#ds-default-widget-updates"><?php _e( 'Updates', DS_DOMAIN ); echo $count; ?></a></li>
+		<li><a href="#ds-default-widget-updates"><?php _e( 'Updates', DS_DOMAIN ); echo $update_count; ?></a></li>
 		<li><a href="#ds-default-widget-system-info"><?php _e( 'System', DS_DOMAIN ); ?></a></li>
 	</ul>
 
