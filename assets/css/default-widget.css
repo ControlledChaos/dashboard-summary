@@ -114,6 +114,10 @@
   display: none;
 }
 
+.no-js .ds-tabs-panel {
+  display: block;
+}
+
 #dashboard-widgets #ds-default-widget h3,
 #dashboard-widgets #ds-default-widget h4,
 #dashboard-widgets #ds-default-widget p,
