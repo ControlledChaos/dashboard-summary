@@ -85,6 +85,27 @@ $ds_widget_border_color: $pale_gray;
 			}
 		}
 
+		.ds-user-greeting {
+			padding-top: 1em;
+			display: flex;
+			align-items: center;
+
+			figure {
+				margin: 0 1em 0 0;
+
+				img {
+					width: 100%;
+					height: auto;
+					max-width: 36px;
+				}
+			}
+
+			h4,
+			p {
+				margin: 0;
+			}
+		}
+
 		.ds-cpt-icons {
 			display: inline-block;
 			width: 20px;

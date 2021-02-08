@@ -68,7 +68,8 @@ $description_user_options = apply_filters(
 
 ?>
 <?php echo $heading_profile; ?>
-<?php echo $description_profile; ?>
+<?php $summary->user_greeting(); ?>
+<?php // echo $description_profile; ?>
 
 <div class="ds-widget-divided-section ds-widget-profile-section">
 	<h4><?php echo $heading_user_bio; ?></h4>

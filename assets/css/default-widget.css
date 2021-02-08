@@ -182,6 +182,31 @@
   margin-left: 1em;
 }
 
+#dashboard-widgets #ds-default-widget .ds-user-greeting {
+  padding-top: 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#dashboard-widgets #ds-default-widget .ds-user-greeting figure {
+  margin: 0 1em 0 0;
+}
+
+#dashboard-widgets #ds-default-widget .ds-user-greeting figure img {
+  width: 100%;
+  height: auto;
+  max-width: 36px;
+}
+
+#dashboard-widgets #ds-default-widget .ds-user-greeting h4,
+#dashboard-widgets #ds-default-widget .ds-user-greeting p {
+  margin: 0;
+}
+
 #dashboard-widgets #ds-default-widget .ds-cpt-icons {
   display: inline-block;
   width: 20px;

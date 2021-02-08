@@ -958,6 +958,56 @@ class Site_Summary {
 
 		return $output;
 	}
+
+	/**
+	 * User greeting
+	 *
+	 * Used in the profile tab of the default widget.
+	 *
+	 * @return string Returns the markup of the greeting.
+	 */
+	public function user_greeting() {
+
+		// Get the current user data for the greeting.
+		$current_user = wp_get_current_user();
+		$user_id      = get_current_user_id();
+		$user_name    = $current_user->display_name;
+		$avatar       = get_avatar(
+			$user_id,
+			64,
+			'',
+			$current_user->display_name,
+			[
+				'class'         => 'dasnboard-panel-avatar alignnone',
+				'force_display' => true
+				]
+		);
+
+		?>
+		<div class="ds-user-greeting">
+			<figure>
+				<a href="<?php echo esc_url( admin_url( 'profile.php' ) ); ?>">
+					<?php echo $avatar; ?>
+				</a>
+				<figcaption class="screen-reader-text"><?php echo $user_name; ?></figcaption>
+			</figure>
+
+			<div>
+				<?php
+				echo sprintf(
+					'<h4>%1s %2s.</h4>',
+					esc_html__( 'Welcome,', DS_DOMAIN ),
+					$user_name
+				);
+				echo sprintf(
+					'<p class="description">%s</p>',
+					__( 'This section provides details about your account.', DS_DOMAIN )
+				);
+				?>
+			</div>
+		</div>
+		<?php
+	}
 }
 
 /**
