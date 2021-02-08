@@ -40,6 +40,7 @@ do_action( 'ds_default_widget_before' );
 
 	<ul class="ds-tabs-nav">
 		<li class="ds-tabs-state-active"><a href="#ds-default-widget-content"><?php _e( 'Content', DS_DOMAIN ); ?></a></li>
+		<li><a href="#ds-default-widget-profile"><?php _e( 'Profile', DS_DOMAIN ); ?></a></li>
 		<li><a href="#ds-default-widget-users-discussion"><?php _e( 'Users', DS_DOMAIN ); ?></a></li>
 		<li><a href="#ds-default-widget-updates"><?php _e( 'Updates', DS_DOMAIN ); echo $update_count; ?></a></li>
 		<li><a href="#ds-default-widget-system-info"><?php _e( 'System', DS_DOMAIN ); ?></a></li>
@@ -49,6 +50,14 @@ do_action( 'ds_default_widget_before' );
 		<?php
 
 		include_once( DS_PATH . '/views/partials/default-widget-content.php' );
+
+		?>
+	</section>
+
+	<section id="ds-default-widget-profile" class="ds-widget-section ds-tabs-panel">
+		<?php
+
+		include_once( DS_PATH . '/views/partials/default-widget-profile.php' );
 
 		?>
 	</section>
