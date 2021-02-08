@@ -45,7 +45,7 @@ $description_updates = apply_filters(
 
 <div class="ds-widget-divided-section ds-widget-updates-section">
 	<h4><?php _e( 'Plugins', DS_DOMAIN ); ?></h4>
-	<?php echo $summary->update_plugins(); ?>
+	<?php echo $summary->update_plugins_list(); ?>
 </div>
 
 <div class="ds-widget-divided-section ds-widget-updates-section">

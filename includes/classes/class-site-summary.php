@@ -865,58 +865,62 @@ class Site_Summary {
 	}
 
 	/**
-	 * Plugins update notoce
+	 * Plugins update list
 	 *
 	 * @since  1.0.0
 	 * @access public
-	 * @return string Returns the text of the notice.
+	 * @return string Returns the markup & text of the list.
 	 */
-	public function update_plugins() {
+	public function update_plugins_list( $file = '', $plugin_data = [] ) {
 
 		// Get available plugin updates.
 		$update_plugins = get_site_transient( 'update_plugins' );
 
-		/**
-		 * Default headers for reference.
-		 */
-		$default_headers = [
-			'Name'        => 'Plugin Name',
-			'PluginURI'   => 'Plugin URI',
-			'Version'     => 'Version',
-			'Description' => 'Description',
-			'Author'      => 'Author',
-			'AuthorURI'   => 'Author URI',
-			'TextDomain'  => 'Text Domain',
-			'DomainPath'  => 'Domain Path',
-			'Network'     => 'Network',
-			'RequiresWP'  => 'Requires at least',
-			'RequiresPHP' => 'Requires PHP',
-			// Site Wide Only is deprecated in favor of Network.
-			'_sitewide'   => 'Site Wide Only',
-		];
+		// Print the list of updates if available.
+		if ( $update_plugins->response ) {
 
-		$output = '<ul>';
-		foreach ( $update_plugins->response as $update ) {
+			$output = '<ul>';
+			foreach ( $update_plugins->response as $update ) {
 
-			$plugin = $update->slug;
-			$data   = get_plugin_data( ABSPATH . 'wp-content/plugins/' . $update->plugin );
-			$name   = $data['Name'];
+				// Define the name of the plugin.
+				$data    = get_plugin_data( ABSPATH . 'wp-content/plugins/' . $update->plugin );
+				$name    = $data['Name'];
 
-			$output .= sprintf(
-				'<li><p><strong>%s %s %s <a href="%s" class="thickbox open-plugin-details-modal">%s %s %s</a> %s <a href="%s">%s</a></strong></p></li>',
-				__( 'There is a new version of', DS_DOMAIN ),
-				$name,
-				__( 'available.', DS_DOMAIN ),
-				esc_url( admin_url( 'plugin-install.php?tab=plugin-information&plugin=' . $update->slug . '&section=changelog&TB_iframe=true&width=600&height=800' ) ),
-				__( 'View version', DS_DOMAIN ),
-				$update->new_version,
-				__( 'details', DS_DOMAIN ),
-				__( 'or', DS_DOMAIN ),
-				wp_nonce_url( admin_url( 'update.php?action=upgrade-plugin&plugin=' . urlencode( $update->plugin ) ), 'action' ),
-				__( 'update now.', DS_DOMAIN )
+				// Plugin details URL.
+				$details = self_admin_url( 'plugin-install.php?tab=plugin-information&plugin=' . $update->slug . '&section=changelog&TB_iframe=true&width=600&height=800' );
+
+				// List item for each available update.
+				$output .= '<li>';
+				$output .= sprintf(
+					__( 'There is a new version of <strong>%1$s</strong> available. <a href="%2$s" %3$s>View version %4$s details</a> or <a href="%5$s" %6$s>update now</a>.', DS_DOMAIN ),
+					$name,
+					esc_url( $details ),
+					sprintf(
+						'class="thickbox open-plugin-details-modal" aria-label="%s"',
+						esc_attr( sprintf(
+							__( 'View %1$s version %2$s details', DS_DOMAIN ),
+							$name,
+							$update->new_version
+						) )
+					),
+					esc_attr( $update->new_version ),
+					wp_nonce_url( self_admin_url( 'update.php?action=upgrade-plugin&plugin=' ) . $update->plugin, 'upgrade-plugin_' . $update->plugin ),
+					sprintf(
+						'class="update-link" aria-label="%s"',
+						esc_attr( sprintf( __( 'Update %s now', DS_DOMAIN ), $name ) )
+					)
+				);
+				$output .= '</li>';
+			}
+			$output .= '</ul>';
+
+		// No updates message.
+		} else {
+			$output = sprintf(
+				'<p>%s</p>',
+				__( 'There are no plugin updates available.', DS_DOMAIN )
 			);
 		}
-		$output .= '</ul>';
 
 		return $output;
 	}
