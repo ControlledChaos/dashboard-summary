@@ -892,7 +892,7 @@ class Site_Summary {
 				// List item for each available update.
 				$output .= '<li>';
 				$output .= sprintf(
-					__( 'There is a new version of <strong>%1$s</strong> available. <a href="%2$s" %3$s>View version %4$s details</a> or <a href="%5$s" %6$s>update now</a>.', DS_DOMAIN ),
+					__( '<strong>There is a new version of %1$s available. <a href="%2$s" %3$s>View version %4$s details</a> or <a href="%5$s" %6$s>update now</a>.</strong>', DS_DOMAIN ),
 					$name,
 					esc_url( $details ),
 					sprintf(

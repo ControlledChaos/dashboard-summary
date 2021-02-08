@@ -156,6 +156,23 @@
   border-top: solid 1px #ccd0d4;
 }
 
+#dashboard-widgets #ds-default-widget .ds-widget-update-count {
+  display: inline-block;
+  vertical-align: top;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 1px 0 -1px 2px;
+  padding: 0 5px;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 9px;
+  background-color: #f56e28;
+  color: #ffffff;
+  font-size: 11px;
+  line-height: 1.6;
+  text-align: center;
+}
+
 #dashboard-widgets #ds-default-widget .ds-widget-details-list ul {
   list-style: disc;
   margin-left: 1em;
