@@ -18,6 +18,47 @@ if ( ! defined( 'ABSPATH' ) ) {
 class User_Colors {
 
 	/**
+	 * Instance of the class
+	 *
+	 * This method can be used to call an instance
+	 * of the class from outside the class.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return object Returns an instance of the class.
+	 */
+	public static function instance() {
+		return new self;
+	}
+
+	/**
+	 * Get user color scheme
+	 *
+	 * Gets the name of the user's color scheme preference.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return string Returns the name of the color scheme.
+	 */
+	public function get_user_color_scheme() {
+
+		// Access global variables.
+		global $_wp_admin_css_colors;
+
+		// Get the name of the user's color scheme.
+		$scheme = get_user_option( 'admin_color' );
+		$name   = $_wp_admin_css_colors[$scheme]->name;
+
+		// Rename "Default" as "Fresh".
+		if ( 'fresh' == $scheme ) {
+			return __( 'Fresh', DS_DOMAIN );
+		}
+
+		// The name if not the default scheme.
+		return $name;
+	}
+
+	/**
 	 * User colors
 	 *
 	 * Returns CSS hex codes for admin user schemes.
@@ -253,4 +294,15 @@ class User_Colors {
 		// The array of colors.
 		return apply_filters( 'user_notify_colors', $color );
 	}
+}
+
+/**
+ * Instance of the class
+ *
+ * @since  1.0.0
+ * @access public
+ * @return object User_Colors Returns an instance of the class.
+ */
+function user_colors() {
+	return User_Colors :: instance();
 }

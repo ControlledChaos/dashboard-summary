@@ -97,7 +97,7 @@ $description_user_options = apply_filters(
 			<?php echo $description_user_options; ?>
 
 			<ul>
-				<li><strong><?php _e( 'Color scheme:', DS_DOMAIN ); ?></strong> <?php echo $summary->get_user_color_scheme(); ?></li>
+				<li><strong><?php _e( 'Color scheme:', DS_DOMAIN ); ?></strong> <?php echo $user_colors->get_user_color_scheme(); ?></li>
 			</ul>
 		</div>
 

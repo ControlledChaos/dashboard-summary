@@ -21,6 +21,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 // Instance of the Site_Summary class.
 $summary = Classes\summary();
 
+// Instance of the User_Colors class.
+$user_colors = Classes\user_colors();
+
 // Updates count.
 $update_data = wp_get_update_data();
 $updates     = number_format_i18n( $update_data['counts']['total'] );
