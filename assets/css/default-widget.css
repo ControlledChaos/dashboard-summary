@@ -225,6 +225,10 @@
   text-decoration: none;
 }
 
+#dashboard-widgets #ds-default-widget .ds-wdget-link-button {
+  margin-top: 1.5em;
+}
+
 /* Right-to-left language styles */
 .rtl #dashboard-widgets #ds-default-widget .ds-widget-details-list ul {
   margin-left: auto;

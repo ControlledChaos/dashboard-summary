@@ -89,3 +89,17 @@ $description_taxes = apply_filters(
 
 	<?php $summary->taxonomies_icons_list(); ?>
 </div>
+
+
+<p class="ds-wdget-link-button">
+	<?php if ( current_user_can( 'import' ) ) : ?>
+	<a class="button button-primary" href="<?php echo self_admin_url( 'import.php' ); ?>">
+		<?php _e( 'Import', DS_DOMAIN ); ?>
+	</a>
+	<?php endif; ?>
+	<?php if ( current_user_can( 'export' ) ) : ?>
+	<a class="button button-primary" href="<?php echo self_admin_url( 'export.php' ); ?>">
+		<?php _e( 'Export', DS_DOMAIN ); ?>
+	</a>
+	<?php endif; ?>
+</p>

@@ -52,3 +52,15 @@ $description_system = apply_filters(
 		);
 	} ?>
 </ul>
+
+<?php
+
+if ( current_user_can( 'manage_options' ) ) :
+?>
+<p class="ds-wdget-link-button">
+	<a class="button button-primary" href="<?php echo self_admin_url( 'options.php' ); ?>">
+		<?php _e( 'Options Page', DS_DOMAIN ); ?>
+	</a>
+</p>
+<?php
+endif;

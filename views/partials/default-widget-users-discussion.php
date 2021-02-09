@@ -158,3 +158,15 @@ $comment_total = $comment_count['total_comments'] + $comment_count['trash'];
 		</li>
 	</ul>
 </div>
+
+<?php
+
+if ( current_user_can( 'list_users' ) ) :
+?>
+<p class="ds-wdget-link-button">
+	<a class="button button-primary" href="<?php echo self_admin_url( 'users.php' ); ?>">
+		<?php _e( 'Manage Users', DS_DOMAIN ); ?>
+	</a>
+</p>
+<?php
+endif;
