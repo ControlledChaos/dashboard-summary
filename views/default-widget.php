@@ -18,11 +18,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die;
 }
 
-// Instance of the Site_Summary class.
-$summary = Classes\summary();
-
-// Instance of the User_Colors class.
-$user_colors = Classes\user_colors();
+// Get class instances.
+$summary      = Classes\summary();
+$user_options = Classes\user_options();
+$user_colors  = Classes\user_colors();
 
 // Updates count.
 $update_data = wp_get_update_data();
