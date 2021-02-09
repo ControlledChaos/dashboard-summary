@@ -84,7 +84,7 @@ $description_user_options = apply_filters(
 
 			<h4><?php _e( 'Your Biography', DS_DOMAIN ); ?></h4>
 
-			<p><?php echo get_user_option( 'description' ); ?></p>
+			<?php echo wpautop( get_user_option( 'description' ) ); ?>
 			<p><a class="button button-primary" href="<?php echo self_admin_url( 'profile.php' ); ?>"><?php _e( 'Edit Profile', DS_DOMAIN ); ?></a></p>
 		</div>
 	</section>
