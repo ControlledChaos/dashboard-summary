@@ -892,6 +892,15 @@ class Site_Summary {
 		// Get available plugin updates.
 		$update_plugins = get_site_transient( 'update_plugins' );
 
+		// Stop here if updates have been disabled.
+		$update_data = wp_get_update_data();
+		if ( 0 == $update_data['counts']['plugins'] ) {
+			return sprintf(
+				'<p>%s</p>',
+				__( 'There are no plugin updates available.', DS_DOMAIN )
+			);
+		}
+
 		// Print the list of updates if available.
 		if ( isset( $update_plugins->response ) && is_array( $update_plugins->response ) ) {
 
@@ -951,6 +960,15 @@ class Site_Summary {
 
 		// Get available theme updates.
 		$update_themes = get_site_transient( 'update_themes' );
+
+		// Stop here if updates have been disabled.
+		$update_data = wp_get_update_data();
+		if ( 0 == $update_data['counts']['themes'] ) {
+			return sprintf(
+				'<p>%s</p>',
+				__( 'There are no theme updates available.', DS_DOMAIN )
+			);
+		}
 
 		// Print the list of updates if available.
 		if ( isset( $update_themes->response ) && is_array( $update_themes->response ) ) {
