@@ -993,6 +993,15 @@ class Site_Summary {
 	}
 
 	/**
+	 * Get user greeting
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function get_user_greeting() {}
+
+	/**
 	 * User greeting
 	 *
 	 * Used in the profile tab of the default widget.
@@ -1059,6 +1068,33 @@ class Site_Summary {
 		);
 
 		echo $output;
+	}
+
+	/**
+	 * Get user color scheme
+	 *
+	 * Gets the name of the user's color scheme preference.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return string Returns the name of the color scheme.
+	 */
+	public function get_user_color_scheme() {
+
+		// Access global variables.
+		global $_wp_admin_css_colors;
+
+		// Get the name of the user's color scheme.
+		$scheme = get_user_option( 'admin_color' );
+		$name   = $_wp_admin_css_colors[$scheme]->name;
+
+		// Rename "Default" as "Fresh".
+		if ( 'fresh' == $scheme ) {
+			return __( 'Fresh', DS_DOMAIN );
+		}
+
+		// The name if not the default scheme.
+		return $name;
 	}
 }
 

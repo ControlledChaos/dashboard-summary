@@ -95,6 +95,10 @@ $description_user_options = apply_filters(
 
 			<h4><?php echo $heading_user_options; ?></h4>
 			<?php echo $description_user_options; ?>
+
+			<ul>
+				<li><strong><?php _e( 'Color scheme:', DS_DOMAIN ); ?></strong> <?php echo $summary->get_user_color_scheme(); ?></li>
+			</ul>
 		</div>
 
 		<div class="ds-widget-divided-section ds-widget-profile-section">
