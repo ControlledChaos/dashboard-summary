@@ -521,6 +521,16 @@ class Site_Summary {
 
 		$updates = get_core_updates();
 
+		// Stop here if updates have been disabled.
+		$update_data = wp_get_update_data();
+		if ( 0 == $update_data['counts']['wordpress'] ) {
+			printf(
+				'<p class="response">%s</p>',
+				__( 'There are no system updates available.', DS_DOMAIN )
+			);
+			return;
+		}
+
 		// Get the system version.
 		require ABSPATH . WPINC . '/version.php';
 
@@ -604,6 +614,12 @@ class Site_Summary {
 		// Access global variables.
 		global $wp_local_package, $wpdb;
 		static $first_pass = true;
+
+		// Stop here if updates have been disabled.
+		$update_data = wp_get_update_data();
+		if ( 0 == $update_data['counts']['wordpress'] ) {
+			return;
+		}
 
 		$wp_version     = get_bloginfo( 'version' );
 		$version_string = sprintf( '%s&ndash;<strong>%s</strong>', $update->current, $update->locale );
@@ -871,13 +887,13 @@ class Site_Summary {
 	 * @access public
 	 * @return string Returns the markup & text of the list.
 	 */
-	public function update_plugins_list( $file = '', $plugin_data = [] ) {
+	public function update_plugins_list() {
 
 		// Get available plugin updates.
 		$update_plugins = get_site_transient( 'update_plugins' );
 
 		// Print the list of updates if available.
-		if ( $update_plugins->response ) {
+		if ( isset( $update_plugins->response ) && is_array( $update_plugins->response ) ) {
 
 			$output = '<ul>';
 			foreach ( $update_plugins->response as $update ) {
@@ -921,7 +937,6 @@ class Site_Summary {
 				__( 'There are no plugin updates available.', DS_DOMAIN )
 			);
 		}
-
 		return $output;
 	}
 
@@ -938,7 +953,7 @@ class Site_Summary {
 		$update_themes = get_site_transient( 'update_themes' );
 
 		// Print the list of updates if available.
-		if ( $update_themes->response ) {
+		if ( isset( $update_themes->response ) && is_array( $update_themes->response ) ) {
 
 			$output = '<ul>';
 			foreach ( $update_themes->response as $update ) {
