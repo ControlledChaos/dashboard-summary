@@ -197,9 +197,11 @@
 }
 
 #dashboard-widgets #ds-default-widget .ds-user-greeting figure img {
+  display: block;
   width: 100%;
   height: auto;
-  max-width: 36px;
+  max-width: 48px;
+  border-radius: 50%;
 }
 
 #dashboard-widgets #ds-default-widget .ds-user-greeting h4,
