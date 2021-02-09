@@ -85,7 +85,6 @@ $description_user_options = apply_filters(
 			<h4><?php _e( 'Your Biography', DS_DOMAIN ); ?></h4>
 
 			<?php echo wpautop( get_user_option( 'description' ) ); ?>
-			<p><a class="button button-primary" href="<?php echo self_admin_url( 'profile.php' ); ?>"><?php _e( 'Edit Profile', DS_DOMAIN ); ?></a></p>
 		</div>
 	</section>
 
@@ -96,8 +95,11 @@ $description_user_options = apply_filters(
 			<h4><?php echo $heading_user_options; ?></h4>
 			<?php echo $description_user_options; ?>
 
-			<ul>
-				<li><strong><?php _e( 'Color scheme:', DS_DOMAIN ); ?></strong> <?php echo $user_colors->get_user_color_scheme(); ?></li>
+			<ul class="ds-widget-details-list ds-widget-options-list">
+				<li><?php _e( 'Account email:', DS_DOMAIN ); ?> <strong><?php echo $user_options->email(); ?></strong></li>
+				<li><?php _e( 'Your website:', DS_DOMAIN ); ?> <strong><?php echo $user_options->website(); ?></strong></li>
+				<li><?php _e( 'Color scheme:', DS_DOMAIN ); ?> <strong><?php echo $user_colors->get_user_color_scheme(); ?></strong></li>
+				<li><?php _e( 'Frontend toolbar:', DS_DOMAIN ); ?> <strong><?php echo $user_options->toolbar(); ?></strong></li>
 			</ul>
 		</div>
 
@@ -108,9 +110,10 @@ $description_user_options = apply_filters(
 			<?php
 			$meta = get_user_meta( get_current_user_id() );
 			echo '<pre style="white-space: pre-wrap; word-break: break-all; line-height: 1;">';
-			print_r( $meta );
+			// print_r( $meta );
 			echo '</pre>';
 			?>
 		</div>
 	</section>
 </div>
+<p><a class="button button-primary" href="<?php echo self_admin_url( 'profile.php' ); ?>"><?php _e( 'Edit Profile', DS_DOMAIN ); ?></a></p>
