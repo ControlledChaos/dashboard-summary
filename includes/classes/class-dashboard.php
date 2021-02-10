@@ -26,14 +26,14 @@ class Dashboard {
 	 */
 	public function __construct() {
 
-		// Enqueue admin scripts.
-		add_action( 'admin_enqueue_scripts', [ $this, 'admin_enqueue_scripts' ] );
+		// Enqueue admin assets.
+		add_action( 'admin_enqueue_scripts', [ $this, 'assets' ] );
 
 		// Print admin scripts to head.
-		add_action( 'admin_print_scripts', [ $this, 'admin_print_scripts' ], 20 );
+		add_action( 'admin_print_scripts', [ $this, 'print_scripts' ], 20 );
 
 		// Print admin styles to head.
-		add_action( 'admin_print_styles', [ $this, 'admin_print_styles' ], 20 );
+		add_action( 'admin_print_styles', [ $this, 'print_styles' ], 20 );
 	}
 
 	/**
@@ -43,7 +43,7 @@ class Dashboard {
 	 * @access public
 	 * @return void
 	 */
-	public function admin_enqueue_scripts() {
+	public function assets() {
 
 		// Instantiate the Assets class.
 		$assets = new Assets;
@@ -59,13 +59,18 @@ class Dashboard {
 	 * @access public
 	 * @return string
 	 */
-	public function admin_print_scripts() {
+	public function print_scripts() {
 
-		// Instantiate the User_Colors class.
+		// Instantiate classes.
 		$colors = new User_Colors;
+		$assets = new Assets;
 
 		// Script to fill base64 background images with current link colors.
 		echo '<script type="text/javascript">var _dashboard_svg_icons = ' . wp_json_encode( $colors->user_colors() ) . ";</script>\n";
+
+		// Modal window script.
+		$modal = file_get_contents( DS_URL . 'assets/js/modal' . $assets->suffix() . '.js' );
+		echo '<script>' . $modal . '</script>';
 	}
 
 	/**
@@ -75,19 +80,25 @@ class Dashboard {
 	 * @access public
 	 * @return string
 	 */
-	public function admin_print_styles() {
+	public function print_styles() {
 
-		// Instantiate the User_Colors class.
-		$user_colors = new User_Colors;
+		// Instantiate classes.
+		$colors = new User_Colors;
+		$assets = new Assets;
 
 		// Get user notification colors.
-		$notify_color      = $user_colors->user_notify_colors();
+		$notify_color      = $colors->user_notify_colors();
 		$notify_background = $notify_color['background'];
 		$notify_text       = $notify_color['text'];
 
+		// Notification bubble.
 		$style  = '<style>';
 		$style .= '#dashboard-widgets #ds-default-widget .ds-widget-update-count { background-color: ' . $notify_background . '; color: ' . $notify_text . '; }';
 		$style .= '</style>';
+
+		// Modal windows.
+		$modal = file_get_contents( DS_URL . 'assets/css/modal' . $assets->suffix() . '.css' );
+		$style = '<style>' . $modal . '</style>';
 
 		echo $style;
 	}
