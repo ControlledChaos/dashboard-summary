@@ -43,6 +43,79 @@ class User_Options {
 	public function sample() {}
 
 	/**
+	 * User login (username)
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return srting Returns the username.
+	 */
+	public function user_login() {
+
+		$user_data = get_userdata( get_current_user_id() );
+
+		return esc_html( $user_data->user_login );
+	}
+
+	/**
+	 * Get user roles
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return array Returns an array of user roles.
+	 */
+	function get_user_roles() {
+
+		$user  = wp_get_current_user();
+		$roles = ( array ) $user->roles;
+		return $roles;
+	}
+
+	/**
+	 * User roles
+	 *
+	 * Comma-separated list of user roles.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return srting Returns the list.
+	 */
+	function user_roles() {
+
+		$roles = $this->get_user_roles();
+		$html  = implode( ', ', array_map( 'ucwords', $roles ) );
+
+		return $html;
+	}
+
+	/**
+	 * Nickname
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return srting Returns the nickname.
+	 */
+	public function nickname() {
+
+		$user_data = get_userdata( get_current_user_id() );
+
+		return esc_html( $user_data->nickname );
+	}
+
+	/**
+	 * Display name
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return srting Returns the display name.
+	 */
+	public function display_name() {
+
+		$user_data = get_userdata( get_current_user_id() );
+
+		return esc_html( $user_data->display_name );
+	}
+
+	/**
 	 * User email
 	 *
 	 * @since  1.0.0

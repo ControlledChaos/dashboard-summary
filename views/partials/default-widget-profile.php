@@ -67,11 +67,11 @@ $description_user_options = apply_filters(
 <div class="ds-tabbed-content">
 
 	<ul class="ds-tabs-nav">
-		<li class="ds-tabs-state-active"><a href="#ds-user-bio"><?php _e( 'Information', DS_DOMAIN ); ?></a></li>
+		<li class="ds-tabs-state-active"><a href="#ds-user-info"><?php _e( 'Information', DS_DOMAIN ); ?></a></li>
 		<li><a href="#ds-user-options"><?php _e( 'Options', DS_DOMAIN ); ?></a></li>
 	</ul>
 
-	<section id="ds-user-bio" class="ds-widget-section ds-tabs-panel ds-tabs-state-active">
+	<section id="ds-user-info" class="ds-widget-section ds-tabs-panel ds-tabs-state-active">
 
 		<h4><?php echo $heading_user_bio; ?></h4>
 		<?php echo $description_user_bio; ?>
@@ -79,12 +79,24 @@ $description_user_options = apply_filters(
 		<div class="ds-widget-divided-section ds-widget-profile-section">
 
 			<h4><?php _e( 'Your Identity', DS_DOMAIN ); ?></h4>
+
+			<ul class="ds-widget-details-list ds-widget-options-list">
+				<li><?php _e( 'User name:', DS_DOMAIN ); ?> <strong><?php echo $user_options->user_login(); ?></strong></li>
+				<li><?php _e( 'Nickname:', DS_DOMAIN ); ?> <strong><?php echo $user_options->nickname(); ?></strong></li>
+				<li><?php _e( 'Display name:', DS_DOMAIN ); ?> <strong><?php echo $user_options->display_name(); ?></strong></li>
+				<li><?php _e( 'User roles:', DS_DOMAIN ); ?> <strong><?php echo $user_options->user_roles(); ?></strong></li>
+			</ul>
 		</div>
 		<div class="ds-widget-divided-section ds-widget-profile-section">
 
 			<h4><?php _e( 'Your Biography', DS_DOMAIN ); ?></h4>
 
-			<?php echo wpautop( get_user_option( 'description' ) ); ?>
+			<p class="hide-if-no-js"><a href="#ds-user-bio" rel="modal:open"><?php _e( 'View in popup window', DS_DOMAIN ); ?></a></p>
+
+			<div id="ds-user-bio" class="ds-modal show-if-no-js">
+				<p class="hide-if-no-js"><strong><?php _e( 'Your Biography', DS_DOMAIN ); ?></strong></p>
+				<?php echo wpautop( get_user_option( 'description' ) ); ?>
+			</div>
 		</div>
 	</section>
 
@@ -101,18 +113,6 @@ $description_user_options = apply_filters(
 				<li><?php _e( 'Color scheme:', DS_DOMAIN ); ?> <strong><?php echo $user_colors->get_user_color_scheme(); ?></strong></li>
 				<li><?php _e( 'Frontend toolbar:', DS_DOMAIN ); ?> <strong><?php echo $user_options->toolbar(); ?></strong></li>
 			</ul>
-		</div>
-
-		<div class="ds-widget-divided-section ds-widget-profile-section">
-
-			<h4><?php _e( 'Reference', DS_DOMAIN ); ?></h4>
-
-			<?php
-			$meta = get_user_meta( get_current_user_id() );
-			echo '<pre style="white-space: pre-wrap; word-break: break-all; line-height: 1;">';
-			// print_r( $meta );
-			echo '</pre>';
-			?>
 		</div>
 	</section>
 </div>
