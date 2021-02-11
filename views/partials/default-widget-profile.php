@@ -91,9 +91,9 @@ $description_user_options = apply_filters(
 
 			<h4><?php _e( 'Your Biography', DS_DOMAIN ); ?></h4>
 
-			<p class="hide-if-no-js"><a href="#ds-user-bio" rel="modal:open"><?php _e( 'View in popup window', DS_DOMAIN ); ?></a></p>
+			<p class="hide-if-no-js"><a href="#ds-user-bio" data-ds-modal><?php _e( 'View in popup window', DS_DOMAIN ); ?></a></p>
 
-			<div id="ds-user-bio" class="ds-modal show-if-no-js">
+			<div id="ds-user-bio" class="ds-modal">
 				<p class="hide-if-no-js"><strong><?php _e( 'Your Biography', DS_DOMAIN ); ?></strong></p>
 				<?php echo wpautop( get_user_option( 'description' ) ); ?>
 			</div>
