@@ -66,7 +66,8 @@ class User_Options {
 	function get_user_roles() {
 
 		$user  = wp_get_current_user();
-		$roles = ( array ) $user->roles;
+		$roles = (array) $user->roles;
+
 		return $roles;
 	}
 
@@ -82,9 +83,12 @@ class User_Options {
 	function user_roles() {
 
 		$roles = $this->get_user_roles();
-		$html  = implode( ', ', array_map( 'ucwords', $roles ) );
 
-		return $html;
+		foreach( $roles as $role ) {
+			$role_i18n[] = ucwords( __( $role, DS_DOMAIN ) );
+		}
+
+		return implode( ', ', $role_i18n );
 	}
 
 	/**
