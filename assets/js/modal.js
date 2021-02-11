@@ -136,7 +136,7 @@
 	show: function() {
 	  this.$elm.trigger($.modal.BEFORE_OPEN, [this._ctx()]);
 	  if (this.options.showClose) {
-		this.closeButton = $('<a href="#close-modal" rel="modal:close" class="close-modal ' + this.options.closeClass + '">' + this.options.closeText + '</a>');
+		this.closeButton = $('<a href="#close-modal" rel="modal:close" class="close-modal ' + this.options.closeClass + '"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 10.6L6.6 5.2 5.2 6.6l5.4 5.4-5.4 5.4 1.4 1.4 5.4-5.4 5.4 5.4 1.4-1.4-5.4-5.4 5.4-5.4-1.4-1.4-5.4 5.4z"/></svg><span class="ds-modal-close-text screen-reader-text">' + this.options.closeText + '</span></a>');
 		this.$elm.append(this.closeButton);
 	  }
 	  this.$elm.addClass(this.options.modalClass).appendTo(this.$blocker);
