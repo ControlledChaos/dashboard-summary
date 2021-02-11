@@ -34,15 +34,6 @@ class User_Options {
 	}
 
 	/**
-	 * Sample
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @return void
-	 */
-	public function sample() {}
-
-	/**
 	 * User login (username)
 	 *
 	 * @since  1.0.0
