@@ -87,6 +87,10 @@ $description_user_options = apply_filters(
 				<li><?php _e( 'User roles:', DS_DOMAIN ); ?> <strong><?php echo $user_options->user_roles(); ?></strong></li>
 			</ul>
 		</div>
+		<?php
+
+		// Print biography section only if content is available.
+		if ( ! empty( get_user_option( 'description' ) ) ) : ?>
 		<div class="ds-widget-divided-section ds-widget-profile-section">
 
 			<h4><?php _e( 'Your Biography', DS_DOMAIN ); ?></h4>
@@ -98,6 +102,7 @@ $description_user_options = apply_filters(
 				<?php echo wpautop( get_user_option( 'description' ) ); ?>
 			</div>
 		</div>
+		<?php endif; ?>
 	</section>
 
 	<section id="ds-user-options" class="ds-widget-section ds-tabs-panel">
