@@ -20,6 +20,10 @@
 	height: 100%;
 	overflow: auto;
 	z-index: 9998;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 	padding: 3rem;
 	box-sizing: border-box;
 	background-color: $black;
@@ -29,24 +33,14 @@
 	&.behind {
 		background-color: transparent;
 	}
-
-	&:before{
-		content: '';
-		display: inline-block;
-		height: 100%;
-		vertical-align: middle;
-		margin-right: -0.05em;
-	}
 }
 
 .ds-modal {
 	display: none;
-	vertical-align: middle;
 	position: relative;
 	z-index: 9999;
 	max-width: 500px;
 	box-sizing: border-box;
-	width: 90%;
 	background: $white;
 	padding: 1em 2em;
 	text-align: left;
