@@ -124,6 +124,6 @@ $description_user_options = apply_filters(
 
 <p class="ds-wdget-link-button">
 	<a class="button button-primary" href="<?php echo self_admin_url( 'profile.php' ); ?>">
-		<?php _e( 'Edit Profile', DS_DOMAIN ); ?>
+		<?php _e( 'Edit Account', DS_DOMAIN ); ?>
 	</a>
 </p>
