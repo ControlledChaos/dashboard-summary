@@ -255,6 +255,7 @@
   display: block;
   max-width: 36px;
   height: auto;
+  border-radius: 50%;
 }
 
 .ds-modal-bio-heading p {
