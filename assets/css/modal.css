@@ -139,6 +139,7 @@
 
 .no-js .ds-modal {
   display: block;
+  min-width: unset;
   padding: 0;
   -webkit-box-shadow: none;
           box-shadow: none;

@@ -37,7 +37,7 @@ $heading_users_discussion = apply_filters(
 $description_users_discussion = apply_filters(
 	'ds_default_widget_description_users_discussion',
 	sprintf(
-		'<p>%s</p>',
+		'<p class="description">%s</p>',
 		__( 'Follow the links to manage users and comments.', DS_DOMAIN )
 	)
 );

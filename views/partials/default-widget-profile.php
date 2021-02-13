@@ -95,7 +95,7 @@ $description_user_options = apply_filters(
 
 			<h4><?php _e( 'Your Description/Biography', DS_DOMAIN ); ?></h4>
 
-			<p><?php _e( 'This may be displayed to website users or visitors, depending on the active theme or members plugins.', DS_DOMAIN ); ?></p>
+			<p class="description"><?php _e( 'This may be displayed to website users or visitors, depending on the active theme or members plugins.', DS_DOMAIN ); ?></p>
 
 			<p class="hide-if-no-js"><a href="#ds-user-bio" data-ds-modal><?php _e( 'View in popup window', DS_DOMAIN ); ?></a></p>
 
