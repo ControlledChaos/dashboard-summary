@@ -993,13 +993,38 @@ class Site_Summary {
 	}
 
 	/**
-	 * Get user greeting
+	 * User avatar
 	 *
 	 * @since  1.0.0
 	 * @access public
-	 * @return void
+	 * @return string Returns the markup of the avatar.
 	 */
-	public function get_user_greeting() {}
+	public function user_avatar() {
+
+		// Get the current user data for the caption & attributes.
+		$current_user = wp_get_current_user();
+		$user_id      = get_current_user_id();
+		$user_name    = $current_user->display_name;
+		$avatar       = get_avatar(
+			$user_id,
+			64,
+			'',
+			$current_user->display_name,
+			[
+				'class'         => 'dashboard-panel-avatar alignnone',
+				'force_display' => true
+				]
+		);
+
+		?>
+		<figure>
+			<a href="<?php echo esc_url( admin_url( 'profile.php' ) ); ?>">
+				<?php echo $avatar; ?>
+			</a>
+			<figcaption class="screen-reader-text"><?php echo $user_name; ?></figcaption>
+		</figure>
+		<?php
+	}
 
 	/**
 	 * User greeting
@@ -1016,25 +1041,10 @@ class Site_Summary {
 		$current_user = wp_get_current_user();
 		$user_id      = get_current_user_id();
 		$user_name    = $current_user->display_name;
-		$avatar       = get_avatar(
-			$user_id,
-			64,
-			'',
-			$current_user->display_name,
-			[
-				'class'         => 'dashboard-panel-avatar alignnone',
-				'force_display' => true
-				]
-		);
 
 		?>
 		<div class="ds-user-greeting">
-			<figure>
-				<a href="<?php echo esc_url( admin_url( 'profile.php' ) ); ?>">
-					<?php echo $avatar; ?>
-				</a>
-				<figcaption class="screen-reader-text"><?php echo $user_name; ?></figcaption>
-			</figure>
+			<?php $this->user_avatar(); ?>
 
 			<div>
 				<?php
