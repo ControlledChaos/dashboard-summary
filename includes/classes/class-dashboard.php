@@ -97,8 +97,8 @@ class Dashboard {
 		$style .= '</style>';
 
 		// Modal windows.
-		$modal = file_get_contents( DS_URL . 'assets/css/modal' . $assets->suffix() . '.css' );
-		$style = '<style>' . $modal . '</style>';
+		$modal  = file_get_contents( DS_URL . 'assets/css/modal' . $assets->suffix() . '.css' );
+		$style .= '<style>' . $modal . '</style>';
 
 		echo $style;
 	}
