@@ -1022,7 +1022,7 @@ class Site_Summary {
 			'',
 			$current_user->display_name,
 			[
-				'class'         => 'dasnboard-panel-avatar alignnone',
+				'class'         => 'dashboard-panel-avatar alignnone',
 				'force_display' => true
 				]
 		);
