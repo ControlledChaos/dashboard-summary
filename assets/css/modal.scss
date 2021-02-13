@@ -39,7 +39,8 @@
 	display: none;
 	position: relative;
 	z-index: 9999;
-	max-width: 500px;
+	min-width: 480px;
+	max-width: 768px;
 	box-sizing: border-box;
 	background: $white;
 	padding: 1em 2em;

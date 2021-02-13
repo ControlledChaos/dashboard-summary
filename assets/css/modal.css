@@ -45,7 +45,8 @@
   display: none;
   position: relative;
   z-index: 9999;
-  max-width: 500px;
+  min-width: 480px;
+  max-width: 768px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   background: #ffffff;
