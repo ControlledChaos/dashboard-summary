@@ -73,7 +73,7 @@ $description_user_options = apply_filters(
 
 	<section id="ds-user-info" class="ds-widget-section ds-tabs-panel ds-tabs-state-active">
 
-		<h4><?php echo $heading_user_bio; ?></h4>
+		<?php echo $heading_user_bio; ?>
 		<?php echo $description_user_bio; ?>
 
 		<div class="ds-widget-divided-section ds-widget-profile-section">
@@ -93,12 +93,17 @@ $description_user_options = apply_filters(
 		if ( ! empty( get_user_option( 'description' ) ) ) : ?>
 		<div class="ds-widget-divided-section ds-widget-profile-section">
 
-			<h4><?php _e( 'Your Biography', DS_DOMAIN ); ?></h4>
+			<h4><?php _e( 'Your Description/Biography', DS_DOMAIN ); ?></h4>
+
+			<p><?php _e( 'This may be displayed to website users or visitors, depending on the active theme or members plugins.', DS_DOMAIN ); ?></p>
 
 			<p class="hide-if-no-js"><a href="#ds-user-bio" data-ds-modal><?php _e( 'View in popup window', DS_DOMAIN ); ?></a></p>
 
 			<div id="ds-user-bio" class="ds-modal">
-				<p class="hide-if-no-js"><strong><?php _e( 'Your Biography', DS_DOMAIN ); ?></strong></p>
+				<div class="ds-modal-bio-heading hide-if-no-js">
+					<?php $summary->user_avatar(); ?>
+					<p><strong><?php echo __( 'About', DS_DOMAIN ) . ' ' . $user_options->display_name(); ?></strong></p>
+				</div>
 				<?php echo wpautop( get_user_option( 'description' ) ); ?>
 			</div>
 		</div>

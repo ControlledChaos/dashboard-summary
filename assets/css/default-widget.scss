@@ -132,16 +132,55 @@ $ds_widget_border_color: $pale_gray;
 	}
 }
 
+// Modal removed from DOM order.
+.ds-modal-bio-heading {
+	display: flex;
+	align-items: center;
+	padding: 0;
+
+	figure {
+		margin: 0;
+		margin-right: 0.5em;
+
+		img {
+			display: block;
+			max-width: 36px;
+			height: auto;
+		}
+	}
+
+	p {
+		margin: 0;
+		font-size: 1rem;
+		line-height: 1;
+	}
+}
+
 /* Right-to-left language styles */
-.rtl #dashboard-widgets {
-	#ds-default-widget {
+.rtl {
+	#dashboard-widgets {
+		#ds-default-widget {
 
-		.ds-widget-details-list {
+			.ds-widget-details-list {
 
-			ul {
-				margin-left: auto;
-				margin-right: 1em;
+				ul {
+					margin-left: auto;
+					margin-right: 1em;
+				}
 			}
+
+			.ds-user-greeting {
+				figure {
+					margin: 0 0 0 1em;
+				}
+			}
+		}
+	}
+
+	.ds-modal-bio-heading {
+		figure {
+			margin: 0;
+			margin-left: 0.5em;
 		}
 	}
 }

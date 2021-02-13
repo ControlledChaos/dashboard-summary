@@ -231,10 +231,46 @@
   margin-top: 1.5em;
 }
 
+.ds-modal-bio-heading {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0;
+}
+
+.ds-modal-bio-heading figure {
+  margin: 0;
+  margin-right: 0.5em;
+}
+
+.ds-modal-bio-heading figure img {
+  display: block;
+  max-width: 36px;
+  height: auto;
+}
+
+.ds-modal-bio-heading p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1;
+}
+
 /* Right-to-left language styles */
 .rtl #dashboard-widgets #ds-default-widget .ds-widget-details-list ul {
   margin-left: auto;
   margin-right: 1em;
+}
+
+.rtl #dashboard-widgets #ds-default-widget .ds-user-greeting figure {
+  margin: 0 0 0 1em;
+}
+
+.rtl .ds-modal-bio-heading figure {
+  margin: 0;
+  margin-left: 0.5em;
 }
 
 /* System queries */
