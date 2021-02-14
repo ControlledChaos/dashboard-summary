@@ -68,13 +68,6 @@ class Dashboard {
 		// Script to fill base64 background images with current link colors.
 		echo '<script type="text/javascript">var _dashboard_svg_icons = ' . wp_json_encode( $colors->user_colors() ) . ";</script>\n";
 
-		// @todo Delete if this remains ineffective.
-		echo '<script>jQuery(document).ready(function() {
-			jQuery("iframe#TB_iframeContent").load(function() {
-				jQuery("iframe#TB_iframeContent").contents().find("#plugin-information-footer").hide();
-			});
-		});</script>';
-
 		// Modal window script.
 		$modal = file_get_contents( DS_URL . 'assets/js/modal' . $assets->suffix() . '.js' );
 		echo '<script>' . $modal . '</script>';
