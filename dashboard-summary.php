@@ -4,8 +4,6 @@
  *
  * Improves the At a Glance dashboard widget and offers
  * a replacement widget with more detailed website information.
- * The content of the Dashboard Summary widget is extensible and
- * can be displayed outside the widget with very little code.
  *
  * @package     Dashboard_Summary
  * @version     1.0.0
@@ -13,7 +11,7 @@
  *
  * Plugin Name:  Dashboard Summary
  * Plugin URI:   https://github.com/ControlledChaos/dashboard-summary
- * Description:  Improves the At a Glance dashboard widget and offers a replacement widget with more detailed website information. The content of the Dashboard Summary widget is extensible and can be displayed outside the widget with very little code.
+ * Description:  Improves the At a Glance dashboard widget and offers a replacement widget with more detailed website information.
  * Version:      1.0.0
  * Author:       Controlled Chaos Design
  * Author URI:   http://ccdzine.com/
