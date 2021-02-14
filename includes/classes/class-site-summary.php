@@ -1111,6 +1111,30 @@ class Site_Summary {
 
 		echo $output;
 	}
+
+	/**
+	 * Display updates tab
+	 *
+	 * Used to display the updates tab in the default
+	 * widget if the current user can update at least
+	 * one of the update options.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return boolean Returns true if the user can update.
+	 */
+	public function updates_tab() {
+
+		if (
+			current_user_can( 'update_core' ) ||
+			current_user_can( 'update_plugins' ) ||
+			current_user_can( 'update_themes' ) ||
+			current_user_can( 'update_languages' )
+		) {
+			return true;
+		}
+		return false;
+	}
 }
 
 /**
