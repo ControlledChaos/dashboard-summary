@@ -112,17 +112,17 @@ class At_A_Glance {
 		}
 
 		// At a Glance icons style block.
-		$glance  = '<!-- Begin At a Glance icon styles -->' . '<style>';
-		$glance .= '#dashboard_right_now li a:before, #dashboard_right_now li span:before { color: currentColor; } ';
-		$glance .= '.at-glance-cpt-icons { display: inline-block; width: 20px; height: 20px; vertical-align: middle; background-repeat: no-repeat; background-position: center; background-size: 20px auto; } ';
-		$glance .= '.at-glance-cpt-icons img { display: inline-block; max-width: 20px; } ';
-		$glance .= $type_count;
-		$glance .= '#dashboard_right_now li.at-glance-taxonomy a:before, #dashboard_right_now li.at-glance-taxonomy > span:before { content: "\f318"; }';
-		$glance .= '#dashboard_right_now li.at-glance-taxonomy.post_tag a:before, #dashboard_right_now li.at-glance-taxonomy.post_tag > span:before { content: "\f323"; }';
-		$glance .= '#dashboard_right_now .post-count.attachment-count a::before, #dashboard_right_now .post-count.attachment-count span::before { display: none; }';
-		$glance .= '</style>' . '<!-- End At a Glance icon styles -->';
+		$style  = '<!-- Begin At a Glance icon styles -->' . '<style>';
+		$style .= '#dashboard_right_now li a:before, #dashboard_right_now li span:before { color: currentColor; } ';
+		$style .= '.at-glance-cpt-icons { display: inline-block; width: 20px; height: 20px; vertical-align: middle; background-repeat: no-repeat; background-position: center; background-size: 20px auto; } ';
+		$style .= '.at-glance-cpt-icons img { display: inline-block; max-width: 20px; } ';
+		$style .= $type_count;
+		$style .= '#dashboard_right_now li.at-glance-taxonomy a:before, #dashboard_right_now li.at-glance-taxonomy > span:before { content: "\f318"; }';
+		$style .= '#dashboard_right_now li.at-glance-taxonomy.post_tag a:before, #dashboard_right_now li.at-glance-taxonomy.post_tag > span:before { content: "\f323"; }';
+		$style .= '#dashboard_right_now .post-count.attachment-count a::before, #dashboard_right_now .post-count.attachment-count span::before { display: none; }';
+		$style .= '</style>' . '<!-- End At a Glance icon styles -->';
 
-		echo $glance;
+		echo $style;
 	}
 
 	/**
