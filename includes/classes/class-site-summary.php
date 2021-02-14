@@ -512,7 +512,7 @@ class Site_Summary {
 	public function active_theme() {
 
 		$theme_name = wp_get_theme();
-		if ( ! is_null( $this->active_theme_uri() ) && current_user_can( 'switch_themes' ) ) {
+		if ( ! is_null( $this->active_theme_uri() ) ) {
 			$theme_name = sprintf(
 				'%s <a href="%s" target="_blank" rel="nofollow noreferrer noopener">%s</a>',
 				__( 'The active theme is', DS_DOMAIN ),
