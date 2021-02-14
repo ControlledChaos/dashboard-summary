@@ -116,7 +116,7 @@ final class Settings {
 	public function section_description() {
 
 		echo sprintf(
-			'<p>%s</p>',
+			'<p id="dashboard-summary-description">%s</p>',
 			__( 'Choose which website summary widgets to display on the dashboard.', DS_DOMAIN )
 		);
 	}

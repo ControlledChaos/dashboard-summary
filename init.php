@@ -87,3 +87,32 @@ function dashboard_summary() {
 
 // Run the plugin.
 dashboard_summary();
+
+/**
+ * Settings link
+ *
+ * @param  array $links Default plugin links on the 'Plugins' admin page.
+ * @since  1.0.0
+ * @access public
+ * @return string Returns the new set of plugin links.
+ */
+function settings_link( $links ) {
+
+	// Stop if not in the admin.
+	if ( ! is_admin() ) {
+		return;
+	}
+
+	// Markup & text of the new link.
+	$settings = [
+		sprintf(
+			'<a href="%s">%s</a>',
+			esc_url( admin_url( 'options-general.php#dashboard-summary-description' ) ),
+			esc_attr( 'Settings', DS_DOMAIN )
+		)
+	];
+
+	// Merge the new link with existing links.
+	return array_merge( $settings, $links );
+}
+add_filter( 'plugin_action_links_' . DS_BASENAME, __NAMESPACE__ . '\settings_link' );
