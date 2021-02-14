@@ -49,7 +49,7 @@ class Summary_Widget {
 	 */
 	public function add_widget() {
 
-		$heading = apply_filters( 'ds_widget_heading', __( 'Website Summary', DS_DOMAIN ) );
+		$heading = apply_filters( 'ds_widget_heading', DS_WIDGET_TITLE );
 
 		if ( true == settings()->sanitize_summary() ) {
 			wp_add_dashboard_widget( 'dashboard_summary', $heading, [ $this, 'output' ] );

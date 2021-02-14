@@ -50,3 +50,14 @@ define( 'DS_PATH', plugin_dir_path( __FILE__ ) );
  *               for the plugin __FILE__ passed in.
  */
 define( 'DS_URL', plugin_dir_url(__FILE__ ) );
+
+/**
+ * Constant: Widget title
+ *
+ * @since 1.0.0
+ * @var   string The text of the title.
+ */
+if ( ! defined( 'DS_WIDGET_TITLE' ) ) {
+	$title = __( 'Website Summary', DS_DOMAIN );
+	define( 'DS_WIDGET_TITLE', $title );
+}
