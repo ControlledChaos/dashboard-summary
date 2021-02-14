@@ -81,7 +81,12 @@ $comment_total = $comment_count['total_comments'] + $comment_count['trash'];
 	<?php echo $description_comments; ?>
 
 	<ul class="ds-content-list ds-widget-details-list ds-widget-comments-list">
+
 		<?php
+
+		// Complete list if the current user can moderate comments.
+		if ( current_user_can( 'moderate_comments' ) ) :
+
 		// Total comments.
 		echo sprintf(
 			'<li><a href="%s"><icon class="dashicons dashicons-format-quote"></icon> %s %s</a></li>',
@@ -139,10 +144,31 @@ $comment_total = $comment_count['total_comments'] + $comment_count['trash'];
 				$summary->get_user_comments_count(),
 				DS_DOMAIN
 			)
-		); ?>
+		);
+
+		// If the current user cannot moderate comments.
+		else :
+
+			// Comments by current user.
+		echo sprintf(
+			'<li><icon class="dashicons dashicons-nametag"></icon> %s %s</li>',
+			$summary->get_user_comments_count(),
+			_n(
+				'Comment By You',
+				'Comments By You',
+				$summary->get_user_comments_count(),
+				DS_DOMAIN
+			)
+		);
+		endif;
+		?>
 	</ul>
 </div>
 
+<?php
+
+if ( current_user_can( 'list_users' ) ) :
+?>
 <div class="ds-widget-divided-section ds-widget-users-section">
 	<h4><?php echo $heading_users; ?></h4>
 	<?php echo $description_users; ?>
@@ -159,10 +185,6 @@ $comment_total = $comment_count['total_comments'] + $comment_count['trash'];
 	</ul>
 </div>
 
-<?php
-
-if ( current_user_can( 'list_users' ) ) :
-?>
 <p class="ds-wdget-link-button">
 	<a class="button button-primary" href="<?php echo self_admin_url( 'users.php' ); ?>">
 		<?php _e( 'Manage Users', DS_DOMAIN ); ?>
@@ -170,3 +192,6 @@ if ( current_user_can( 'list_users' ) ) :
 </p>
 <?php
 endif;
+
+// Development hook.
+do_action( 'ds_users_discussion_tab' );
