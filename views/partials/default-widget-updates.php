@@ -38,43 +38,33 @@ $description_updates = apply_filters(
 
 <?php echo $description_updates; ?>
 
+<?php if ( current_user_can( 'update_core' ) ) : ?>
 <div class="ds-widget-divided-section ds-widget-updates-section">
 	<h4><?php _e( 'System', DS_DOMAIN ); ?></h4>
 	<?php echo $summary->core_updates(); ?>
 </div>
+<?php endif; ?>
 
+<?php if ( current_user_can( 'update_plugins' ) ) : ?>
 <div class="ds-widget-divided-section ds-widget-updates-section">
 	<h4><?php _e( 'Plugins', DS_DOMAIN ); ?></h4>
 	<?php echo $summary->update_plugins_list(); ?>
 </div>
+<?php endif; ?>
 
+<?php if ( current_user_can( 'update_themes' ) ) : ?>
 <div class="ds-widget-divided-section ds-widget-updates-section">
 	<h4><?php _e( 'Themes', DS_DOMAIN ); ?></h4>
 	<?php echo $summary->update_themes_list(); ?>
 </div>
+<?php endif; ?>
 
-<?php
-
-// Capabilities from the admin menu.
-if ( current_user_can( 'update_core' ) ) {
-	$cap = 'update_core';
-} elseif ( current_user_can( 'update_plugins' ) ) {
-	$cap = 'update_plugins';
-} elseif ( current_user_can( 'update_themes' ) ) {
-	$cap = 'update_themes';
-} else {
-	$cap = 'update_languages';
-}
-
-if ( current_user_can( $cap ) ) :
-?>
 <p class="ds-wdget-link-button">
 	<a class="button button-primary" href="<?php echo self_admin_url( 'update-core.php' ); ?>">
 		<?php _e( 'Updates Page', DS_DOMAIN ); ?>
 	</a>
 </p>
 <?php
-endif;
 
 // Development hook.
 do_action( 'ds_updates_tab' );
