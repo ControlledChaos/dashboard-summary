@@ -132,3 +132,8 @@ $description_user_options = apply_filters(
 		<?php _e( 'Edit Account', DS_DOMAIN ); ?>
 	</a>
 </p>
+
+<?php
+
+// Development hook.
+do_action( 'ds_profile_tab' );

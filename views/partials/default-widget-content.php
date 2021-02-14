@@ -103,3 +103,9 @@ $description_taxes = apply_filters(
 	</a>
 	<?php endif; ?>
 </p>
+
+<?php
+
+// Development hook.
+do_action( 'ds_content_tab' );
+

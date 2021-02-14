@@ -64,3 +64,6 @@ if ( current_user_can( 'manage_options' ) ) :
 </p>
 <?php
 endif;
+
+// Development hook.
+do_action( 'ds_system_info_tab' );

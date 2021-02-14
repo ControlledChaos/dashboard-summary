@@ -75,3 +75,6 @@ if ( current_user_can( $cap ) ) :
 </p>
 <?php
 endif;
+
+// Development hook.
+do_action( 'ds_updates_tab' );
