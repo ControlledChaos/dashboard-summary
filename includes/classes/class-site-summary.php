@@ -222,14 +222,30 @@ class Site_Summary {
 				// Get the plural or singlular name based on the count.
 				$name = _n( $taxonomy->labels->singular_name, $taxonomy->labels->name, intval( $count ) );
 
-				// Print a list item for the taxonomy.
-				echo sprintf(
-					'<li class="at-glance-taxonomy %s"><a href="%s">%s %s</a></li>',
-					$taxonomy->name,
-					admin_url( 'edit-tags.php?taxonomy=' . $taxonomy->name . $type ),
-					$count,
-					$name
-				);
+				// Supply an edit link if the user can edit associated post types.
+				$edit = get_post_type_object( $types );
+				if ( current_user_can( $edit->cap->edit_posts ) ) {
+
+					// Print a list item for the taxonomy.
+					echo sprintf(
+						'<li class="at-glance-taxonomy %s"><a href="%s">%s %s</a></li>',
+						$taxonomy->name,
+						esc_url( admin_url( 'edit-tags.php?taxonomy=' . $taxonomy->name . $type ) ),
+						$count,
+						$name
+					);
+
+				// List item without link.
+				} else {
+
+					// Print a list item for the taxonomy.
+					echo sprintf(
+						'<li class="at-glance-taxonomy %s"><a href="%s">%s %s</a></li>',
+						$taxonomy->name,
+						$count,
+						$name
+					);
+				}
 			}
 
 			echo '</ul>';
@@ -293,15 +309,31 @@ class Site_Summary {
 					);
 				}
 
-				// Print a list item for the taxonomy.
-				echo sprintf(
-					'<li class="at-glance-taxonomy %s"><a href="%s">%s %s %s</a></li>',
-					$taxonomy->name,
-					admin_url( 'edit-tags.php?taxonomy=' . $taxonomy->name . $type ),
-					$icon,
-					$count,
-					$name
-				);
+				// Supply an edit link if the user can edit associated post types.
+				$edit = get_post_type_object( $types );
+				if ( current_user_can( $edit->cap->edit_posts ) ) {
+
+					// Print a list item for the taxonomy.
+					echo sprintf(
+						'<li class="at-glance-taxonomy %s"><a href="%s">%s %s %s</a></li>',
+						$taxonomy->name,
+						esc_url( admin_url( 'edit-tags.php?taxonomy=' . $taxonomy->name . $type ) ),
+						$icon,
+						$count,
+						$name
+					);
+
+				// List item without link.
+				} else {
+					// Print a list item for the taxonomy.
+					echo sprintf(
+						'<li class="at-glance-taxonomy %s">%s %s %s</li>',
+						$taxonomy->name,
+						$icon,
+						$count,
+						$name
+					);
+				}
 			}
 
 			echo '</ul>';
@@ -433,7 +465,7 @@ class Site_Summary {
 		) {
 			$output = sprintf(
 				'<a class="ds-search-engines" href="%s">%s</a>',
-				admin_url( 'options-reading.php' ),
+				esc_url( admin_url( 'options-reading.php' ) ),
 				__( 'Search engines are discouraged', DS_DOMAIN )
 			);
 		} else {
@@ -491,7 +523,7 @@ class Site_Summary {
 			$theme_name = sprintf(
 				'%s <a href="%s">%s</a>',
 				__( 'The active theme is', DS_DOMAIN ),
-				admin_url( 'themes.php' ),
+				esc_url( admin_url( 'themes.php' ) ),
 				$theme_name
 			);
 		} else {
