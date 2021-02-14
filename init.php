@@ -45,7 +45,7 @@ function text_domain() {
  * Core plugin function
  *
  * Loads and runs PHP classes.
- * Removes unwanted features.
+ * Adds settings link in the plugin row.
  *
  * @since  1.0.0
  * @access public
