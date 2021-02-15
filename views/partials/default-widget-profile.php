@@ -99,12 +99,14 @@ $description_user_options = apply_filters(
 
 			<p class="hide-if-no-js"><a href="#ds-user-bio" data-ds-modal><?php _e( 'View in popup window', DS_DOMAIN ); ?></a></p>
 
-			<div id="ds-user-bio" class="ds-modal">
+			<div id="ds-user-bio" class="ds-modal" role="dialog" aria-labelledby="ds-modal-bio-heading-text" aria-describedby="ds-user-bio-content">
 				<div class="ds-modal-bio-heading hide-if-no-js">
 					<?php $summary->user_avatar(); ?>
-					<p><strong><?php echo __( 'About', DS_DOMAIN ) . ' ' . $user_options->display_name(); ?></strong></p>
+					<p id="ds-modal-bio-heading-text"><strong><?php echo __( 'About', DS_DOMAIN ) . ' ' . $user_options->display_name(); ?></strong></p>
 				</div>
-				<?php echo wpautop( get_user_option( 'description' ) ); ?>
+				<div id="ds-user-bio-content">
+					<?php echo wpautop( get_user_option( 'description' ) ); ?>
+				</div>
 			</div>
 		</div>
 		<?php endif; ?>
