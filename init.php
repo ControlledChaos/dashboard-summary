@@ -85,7 +85,7 @@ function dashboard_summary() {
 	}
 
 	// Add settings link to plugin row.
-	add_filter( 'plugin_action_links_' . DS_BASENAME, [ 'Dashboard_Summary\Classes\Settings', 'settings_link' ] );
+	add_filter( 'plugin_action_links_' . DS_BASENAME, [ __NAMESPACE__ . '\Classes\Settings', 'settings_link' ] );
 }
 
 // Run the plugin.
