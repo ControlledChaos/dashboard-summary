@@ -9,3 +9,9 @@ Improves the At a Glance dashboard widget and offers a replacement widget with m
 Requires PHP version 7.4 or higher.
 
 Settings on the General Settings screen.
+
+![Screenshot: Profile Tab](https://github.com/ControlledChaos/dashboard-summary/raw/main/assets/images/tab-profile.jpg)
+![Screenshot: Content Tab](https://github.com/ControlledChaos/dashboard-summary/raw/main/assets/images/tab-content.jpg)
+![Screenshot: Users Tab](https://github.com/ControlledChaos/dashboard-summary/raw/main/assets/images/tab-users.jpg)
+![Screenshot: Updates Tab](https://github.com/ControlledChaos/dashboard-summary/raw/main/assets/images/tab-updates.jpg)
+![Screenshot: System Tab](https://github.com/ControlledChaos/dashboard-summary/raw/main/assets/images/tab-system.jpg)
