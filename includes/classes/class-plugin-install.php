@@ -27,7 +27,7 @@ class Plugin_Install {
 	public function __construct() {
 
 		// Print plugin install styles.
-		add_action( 'install_plugins_pre_plugin-information', [ $this, 'install_plugins' ] );
+		add_action( 'install_plugins_pre_plugin-information', [ $this, 'styles' ] );
 	}
 
 	/**
@@ -37,7 +37,7 @@ class Plugin_Install {
 	 * @access public
 	 * @return string Returns a style block.
 	 */
-	public function install_plugins() {
+	public function styles() {
 
 		$style  = '<style>';
 		$style .= '#plugin-information-footer { display: none; }';
