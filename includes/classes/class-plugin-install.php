@@ -33,6 +33,9 @@ class Plugin_Install {
 	/**
 	 * Print plugin install styles
 	 *
+	 * @todo Find a way to override the script on the
+	 * update button in the iframe the remove this.
+	 *
 	 * @since  1.0.0
 	 * @access public
 	 * @return string Returns a style block.
