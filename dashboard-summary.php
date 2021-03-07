@@ -17,7 +17,7 @@
  * Author URI:   http://ccdzine.com/
  * Text Domain:  dashboard-summary
  * Domain Path:  /languages
- * Tested up to: 5.6.1
+ * Tested up to: 5.6.2
  */
 
 namespace Dashboard_Summary;
