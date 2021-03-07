@@ -71,13 +71,14 @@ function dashboard_summary() {
 	/**
 	 * New instances of plugin classes
 	 *
-	 * The Dashboard class is only run on the system
+	 * Some classes only run on the system
 	 * administration dashboard (index.php).
 	 */
 	new Classes\Settings;
 	new Classes\Site_Summary;
 	new Classes\User_Options;
 
+	// Dashboard only.
 	if ( is_admin() && 'index.php' == $pagenow ) {
 		new Classes\Dashboard;
 		new Classes\Summary_Widget;
@@ -86,6 +87,11 @@ function dashboard_summary() {
 
 	// Add settings link to plugin row.
 	add_filter( 'plugin_action_links_' . DS_BASENAME, [ __NAMESPACE__ . '\Classes\Settings', 'settings_link' ] );
+
+	// Plugin install iframe modal.
+	if ( is_admin() && 'plugin-install.php' === $pagenow ) {
+		new Classes\Plugin_Install;
+	}
 }
 
 // Run the plugin.

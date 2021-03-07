@@ -34,6 +34,9 @@ class Dashboard {
 
 		// Print admin styles to head.
 		add_action( 'admin_print_styles', [ $this, 'print_styles' ], 20 );
+
+		// Print admin styles to plugin install iframe.
+		add_action( 'install_plugins_pre_plugin-information', [ $this, 'install_plugins' ] );
 	}
 
 	/**
@@ -99,6 +102,22 @@ class Dashboard {
 		// Modal windows.
 		$modal  = file_get_contents( DS_URL . 'assets/css/modal' . $assets->suffix() . '.css' );
 		$style .= '<style>' . $modal . '</style>';
+
+		echo $style;
+	}
+
+	/**
+	 * Print plugin install styles
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return string
+	 */
+	public function install_plugins() {
+
+		$style  = '<style>';
+		$style .= '#plugin-information-footer { display: none; }';
+		$style .= '</style>';
 
 		echo $style;
 	}
