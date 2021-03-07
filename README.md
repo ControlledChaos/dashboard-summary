@@ -10,8 +10,22 @@ Requires PHP version 7.4 or higher.
 
 Settings on the General Settings screen.
 
+## Profile Tab
+
 ![Screenshot: Profile Tab](https://github.com/ControlledChaos/dashboard-summary/raw/main/assets/images/tab-profile.jpg)
+
+## Content Tab
+
 ![Screenshot: Content Tab](https://github.com/ControlledChaos/dashboard-summary/raw/main/assets/images/tab-content.jpg)
+
+## Users Tab
+
 ![Screenshot: Users Tab](https://github.com/ControlledChaos/dashboard-summary/raw/main/assets/images/tab-users.jpg)
+
+## Updates Tab
+
 ![Screenshot: Updates Tab](https://github.com/ControlledChaos/dashboard-summary/raw/main/assets/images/tab-updates.jpg)
+
+## System Tab
+
 ![Screenshot: System Tab](https://github.com/ControlledChaos/dashboard-summary/raw/main/assets/images/tab-system.jpg)
