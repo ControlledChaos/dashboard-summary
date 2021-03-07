@@ -27,11 +27,16 @@ class Plugin_Install {
 	public function __construct() {
 
 		// Print plugin install styles.
-		add_action( 'install_plugins_pre_plugin-information', [ $this, 'styles' ] );
+		add_action( 'install_plugins_pre_plugin-information', [ $this, 'hide_update_button' ] );
 	}
 
 	/**
 	 * Print plugin install styles
+	 *
+	 * Hide the "Install Update Now" button in the
+	 * plugin details modal window. This currently
+	 * removes it on the Plugins page as well so a
+	 * better solution is needed.
 	 *
 	 * @todo Find a way to override the script on the
 	 * update button in the iframe the remove this.
@@ -40,7 +45,7 @@ class Plugin_Install {
 	 * @access public
 	 * @return string Returns a style block.
 	 */
-	public function styles() {
+	public function hide_update_button() {
 
 		$style  = '<style>';
 		$style .= '#plugin-information-footer { display: none; }';
