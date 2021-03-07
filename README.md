@@ -6,4 +6,6 @@
 
 Improves the At a Glance dashboard widget and offers a replacement widget with more detailed website information.
 
+Requires PHP version 7.4 or higher.
+
 Settings on the General Settings screen.
