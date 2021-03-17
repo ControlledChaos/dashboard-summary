@@ -219,7 +219,7 @@ final class Settings {
 			sprintf(
 				'<a href="%s">%s</a>',
 				esc_url( admin_url( 'options-general.php#dashboard-summary-description' ) ),
-				esc_attr( 'Settings', DS_DOMAIN )
+				esc_html__( 'Settings', DS_DOMAIN )
 			)
 		];
 
