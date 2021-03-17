@@ -79,7 +79,7 @@ function dashboard_summary() {
 	new Classes\User_Options;
 
 	// Dashboard only.
-	if ( is_admin() && 'index.php' == $pagenow ) {
+	if ( ( is_admin() || is_network_admin() ) && 'index.php' === $pagenow ) {
 		new Classes\Dashboard;
 		new Classes\Summary_Widget;
 		new Classes\At_A_Glance;
@@ -89,10 +89,10 @@ function dashboard_summary() {
 	add_filter( 'plugin_action_links_' . DS_BASENAME, [ __NAMESPACE__ . '\Classes\Settings', 'settings_link' ] );
 
 	// Plugin install iframe modal.
-	if ( is_admin() && 'plugin-install.php' === $pagenow ) {
+	if ( ( is_admin() || is_network_admin() ) && 'plugin-install.php' === $pagenow ) {
 		new Classes\Plugin_Install;
 	}
 }
 
 // Run the plugin.
-dashboard_summary();
+add_action( 'init', __NAMESPACE__ . '\dashboard_summary' );
