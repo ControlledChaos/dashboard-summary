@@ -1119,12 +1119,21 @@ class Site_Summary {
 	 * widget if the current user can update at least
 	 * one of the update options.
 	 *
+	 * Only display on the network dashboard if the
+	 * installation is in network mode.
+	 *
 	 * @since  1.0.0
 	 * @access public
 	 * @return boolean Returns true if the user can update.
 	 */
 	public function updates_tab() {
 
+		// Exclude the dashboards of network sites.
+		if ( is_multisite() && ! is_network_admin() ) {
+			return;
+		}
+
+		// Return true for certain user capabilities.
 		if (
 			current_user_can( 'update_core' ) ||
 			current_user_can( 'update_plugins' ) ||
@@ -1133,6 +1142,8 @@ class Site_Summary {
 		) {
 			return true;
 		}
+
+		// Return false by default.
 		return false;
 	}
 }

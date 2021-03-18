@@ -28,6 +28,7 @@ class Summary_Widget {
 
 		// Add the summary widget.
 		add_action( 'wp_dashboard_setup', [ $this, 'add_widget' ] );
+		add_action( 'wp_network_dashboard_setup', [ $this, 'add_widget' ] );
 		add_action( 'ds_summary_widget', [ $this, 'get_output' ] );
 
 		// Enqueue assets.

@@ -28,6 +28,7 @@ class At_A_Glance {
 
 		// Remove the widget.
 		add_action( 'wp_dashboard_setup', [ $this, 'remove_widget' ] );
+		add_action( 'wp_network_dashboard_setup', [ $this, 'remove_widget' ] );
 
 		if ( true == settings()->sanitize_glance() ) {
 
