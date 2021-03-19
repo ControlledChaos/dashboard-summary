@@ -56,9 +56,17 @@ class User_Options {
 	 */
 	function get_user_roles() {
 
+		// Get current user roles as a variable.
 		$user  = wp_get_current_user();
 		$roles = (array) $user->roles;
 
+		// Add Super Admin if applicable to current user.
+		if ( is_multisite() && is_super_admin( get_current_user_id() ) ) {
+			$super = [ 'Super Admin' ];
+			$roles = array_merge( $super, $roles );
+		}
+
+		// Return an array of user roles.
 		return $roles;
 	}
 
@@ -73,12 +81,15 @@ class User_Options {
 	 */
 	function user_roles() {
 
+		// Get the array of user roles.
 		$roles = $this->get_user_roles();
 
+		// Translate and capitalize each role.
 		foreach( $roles as $role ) {
 			$role_i18n[] = ucwords( __( $role, DS_DOMAIN ) );
 		}
 
+		// Return a comma-separated list of user roles.
 		return implode( ', ', $role_i18n );
 	}
 

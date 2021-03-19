@@ -55,6 +55,15 @@ class Activate {
 		if ( 'new_install' == get_option( 'ds_enable_glance' ) ) {
 			update_option( 'ds_enable_glance', 0 );
 		}
+
+		// Network options.
+		if ( is_multisite() ) {
+			add_network_option( get_current_network_id(), 'ds_enable_network_summary', 'new_install' );
+
+			if ( 'new_install' == get_option( 'ds_enable_network_summary' ) ) {
+				update_network_option( 'ds_enable_network_summary', 1 );
+			}
+		}
 	}
 
 	/**

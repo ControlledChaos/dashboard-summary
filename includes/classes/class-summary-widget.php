@@ -28,7 +28,9 @@ class Summary_Widget {
 
 		// Add the summary widget.
 		add_action( 'wp_dashboard_setup', [ $this, 'add_widget' ] );
-		add_action( 'wp_network_dashboard_setup', [ $this, 'add_widget' ] );
+		if ( is_multisite() ) {
+			add_action( 'wp_network_dashboard_setup', [ $this, 'add_network_widget' ] );
+		}
 		add_action( 'ds_summary_widget', [ $this, 'get_output' ] );
 
 		// Enqueue assets.
@@ -53,6 +55,22 @@ class Summary_Widget {
 		$heading = apply_filters( 'ds_widget_heading', DS_WIDGET_TITLE );
 
 		if ( true == settings()->sanitize_summary() ) {
+			wp_add_dashboard_widget( 'dashboard_summary', $heading, [ $this, 'output' ] );
+		}
+	}
+
+	/**
+	 * Add the network summary widget
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function add_network_widget() {
+
+		$heading = apply_filters( 'ds_network_widget_heading', DS_NETWORK_WIDGET_TITLE );
+
+		if ( true == settings()->sanitize_network_summary() ) {
 			wp_add_dashboard_widget( 'dashboard_summary', $heading, [ $this, 'output' ] );
 		}
 	}

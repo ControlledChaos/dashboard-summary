@@ -61,3 +61,14 @@ if ( ! defined( 'DS_WIDGET_TITLE' ) ) {
 	$title = __( 'Website Summary', DS_DOMAIN );
 	define( 'DS_WIDGET_TITLE', $title );
 }
+
+/**
+ * Constant: Network widget title
+ *
+ * @since 1.0.0
+ * @var   string The text of the title.
+ */
+if ( ! defined( 'DS_NETWORK_WIDGET_TITLE' ) ) {
+	$title = __( 'Network Summary', DS_DOMAIN );
+	define( 'DS_NETWORK_WIDGET_TITLE', $title );
+}

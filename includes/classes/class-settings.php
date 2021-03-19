@@ -42,10 +42,16 @@ final class Settings {
 
 		// Register settings sections and fields.
 		add_action( 'admin_init', [ $this, 'settings' ] );
+
+		// Network settings sections and fields.
+		if ( is_multisite() ) {
+			add_filter( 'wpmu_options', [ $this, 'network_settings' ] );
+			add_action( 'update_wpmu_options', [ $this, 'update_network_settings' ] );
+		}
 	}
 
 	/**
-	 * Plugin settings
+	 * Site settings
 	 *
 	 * @since  1.0.0
 	 * @access public
@@ -104,6 +110,36 @@ final class Settings {
 				false
 			]
 		);
+	}
+
+	/**
+	 * Update network settings
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function update_network_settings() {
+
+		if ( isset( $_POST['ds_enable_network_summary'] ) ) {
+			update_network_option( get_current_network_id(), 'ds_enable_network_summary', filter_var( $_POST['ds_enable_network_summary'], FILTER_VALIDATE_INT ) );
+		}
+	}
+
+	/**
+	 * Enable the network Dashboard Summary widget
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function network_settings() {
+
+		// Get option sanitization method.
+		$option = $this->sanitize_network_summary();
+
+		// Get the form markup.
+		include DS_PATH . '/views/partials/enable-network-summary.php';
 	}
 
 	/**
@@ -194,6 +230,25 @@ final class Settings {
 		$option = get_option( 'ds_enable_glance' );
 
 		if ( true == $option ) {
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * Sanitize network Dashboard Summary option
+	 *
+	 * Defaults to true.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return boolean Returns true or false.
+	 */
+	public function sanitize_network_summary() {
+
+		$option = get_network_option( get_current_network_id(), 'ds_enable_network_summary' );
+
+		if ( null == $option || true == $option ) {
 			return true;
 		}
 		return false;
