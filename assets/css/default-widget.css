@@ -126,6 +126,10 @@
   margin: 0.75em 0 0;
 }
 
+#dashboard-widgets #ds-default-widget .button {
+  vertical-align: middle;
+}
+
 #dashboard-widgets #ds-default-widget p.description {
   font-style: italic;
   line-height: 1.3;

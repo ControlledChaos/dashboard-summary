@@ -25,6 +25,12 @@ $ds_widget_border_color: $pale_gray;
 			margin: 0.75em 0 0;
 		}
 
+		// Fix WP UI alignment
+		// Last chacked as of v5.7
+		.button {
+			vertical-align: middle;
+		}
+
 		p.description {
 			font-style: italic;
 			line-height: 1.3;
