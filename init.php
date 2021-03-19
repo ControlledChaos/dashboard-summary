@@ -81,8 +81,15 @@ function dashboard_summary() {
 	// Dashboard only.
 	if ( ( is_admin() || is_network_admin() ) && 'index.php' === $pagenow ) {
 		new Classes\Dashboard;
+	}
+
+	if ( is_admin() && 'index.php' === $pagenow ) {
 		new Classes\Summary_Widget;
 		new Classes\At_A_Glance;
+	}
+
+	if ( is_multisite() && is_network_admin() && 'index.php' === $pagenow ) {
+		new Classes\Network_Widget;
 	}
 
 	// Add settings link to plugin row.

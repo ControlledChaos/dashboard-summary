@@ -56,7 +56,7 @@ $sites_text  = sprintf(
 
 	<h4><?php _e( 'Network Sites', DS_DOMAIN ); ?></h4>
 
-	<p><?php printf( __( 'This netork consists of %1$s.', DS_DOMAIN ), $sites_text ); ?></p>
+	<p><?php printf( __( 'This network consists of %1$s.', DS_DOMAIN ), $sites_text ); ?></p>
 
 	<form action="<?php echo network_admin_url( 'sites.php' ); ?>" method="get">
 		<p>
