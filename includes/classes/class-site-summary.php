@@ -456,9 +456,15 @@ class Site_Summary {
 	 */
 	public function search_engines() {
 
+		// Conditional link text.
+		if ( is_multisite() && is_network_admin() ) {
+			$text = __( 'Search engines are discouraged for the primary site', DS_DOMAIN );
+		} else {
+			$text = __( 'Search engines are discouraged', DS_DOMAIN );
+		}
+
 		// Check if search engines are asked not to index this site.
 		if (
-			! is_network_admin() &&
 			! is_user_admin() &&
 			current_user_can( 'manage_options' ) &&
 			'0' == get_option( 'blog_public' )
@@ -466,7 +472,7 @@ class Site_Summary {
 			$output = sprintf(
 				'<a class="ds-search-engines" href="%s">%s</a>',
 				esc_url( admin_url( 'options-reading.php' ) ),
-				__( 'Search engines are discouraged', DS_DOMAIN )
+				$text
 			);
 		} else {
 			$output = null;
