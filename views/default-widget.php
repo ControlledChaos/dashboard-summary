@@ -58,7 +58,7 @@ do_action( 'ds_default_widget_before' );
 	<section id="ds-default-widget-profile" class="ds-widget-section ds-tabs-panel ds-tabs-state-active">
 		<?php
 
-		include( DS_PATH . '/views/partials/default-widget-profile.php' );
+		include( DS_PATH . '/views/partials/widget-profile.php' );
 
 		?>
 	</section>
@@ -66,7 +66,7 @@ do_action( 'ds_default_widget_before' );
 	<section id="ds-default-widget-content" class="ds-widget-section ds-tabs-panel<?php echo $sites_active; ?>">
 		<?php
 
-		include( DS_PATH . '/views/partials/default-widget-content.php' );
+		include( DS_PATH . '/views/partials/site-widget-content.php' );
 
 		?>
 	</section>
@@ -74,7 +74,7 @@ do_action( 'ds_default_widget_before' );
 	<section id="ds-default-widget-users-discussion" class="ds-widget-section ds-tabs-panel">
 		<?php
 
-		include( DS_PATH . '/views/partials/default-widget-users-discussion.php' );
+		include( DS_PATH . '/views/partials/site-widget-users.php' );
 
 		?>
 	</section>
@@ -83,7 +83,7 @@ do_action( 'ds_default_widget_before' );
 	<section id="ds-default-widget-updates" class="ds-widget-section ds-tabs-panel">
 		<?php
 
-		include( DS_PATH . '/views/partials/default-widget-updates.php' );
+		include( DS_PATH . '/views/partials/widget-updates.php' );
 
 		?>
 	</section>
@@ -92,7 +92,7 @@ do_action( 'ds_default_widget_before' );
 	<section id="ds-default-widget-system-info" class="ds-widget-section ds-tabs-panel">
 		<?php
 
-		include( DS_PATH . '/views/partials/default-widget-system-info.php' );
+		include( DS_PATH . '/views/partials/widget-system-info.php' );
 
 		?>
 	</section>

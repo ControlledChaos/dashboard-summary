@@ -56,7 +56,7 @@ do_action( 'ds_default_network_widget_before' );
 	<section id="ds-default-network-widget-sites" class="ds-widget-section ds-tabs-panel ds-tabs-state-active">
 		<?php
 
-		include( DS_PATH . '/views/partials/default-widget-sites.php' );
+		include( DS_PATH . '/views/partials/network-widget-sites.php' );
 
 		?>
 	</section>
@@ -64,7 +64,7 @@ do_action( 'ds_default_network_widget_before' );
 	<section id="ds-default-network-widget-users" class="ds-widget-section ds-tabs-panel">
 		<?php
 
-		include( DS_PATH . '/views/partials/default-widget-network-users.php' );
+		include( DS_PATH . '/views/partials/network-widget-users.php' );
 
 		?>
 	</section>
@@ -73,7 +73,7 @@ do_action( 'ds_default_network_widget_before' );
 	<section id="ds-default-widget-updates" class="ds-widget-section ds-tabs-panel">
 		<?php
 
-		include( DS_PATH . '/views/partials/default-widget-updates.php' );
+		include( DS_PATH . '/views/partials/widget-updates.php' );
 
 		?>
 	</section>
@@ -82,7 +82,7 @@ do_action( 'ds_default_network_widget_before' );
 	<section id="ds-default-network-widget-system-info" class="ds-widget-section ds-tabs-panel">
 		<?php
 
-		include( DS_PATH . '/views/partials/default-widget-system-info.php' );
+		include( DS_PATH . '/views/partials/widget-system-info.php' );
 
 		?>
 	</section>

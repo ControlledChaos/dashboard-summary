@@ -139,7 +139,7 @@ final class Settings {
 		$option = $this->sanitize_network_summary();
 
 		// Get the form markup.
-		include DS_PATH . '/views/partials/enable-network-summary.php';
+		include DS_PATH . '/views/partials/form-network-summary.php';
 	}
 
 	/**
