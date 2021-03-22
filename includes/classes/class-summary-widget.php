@@ -54,22 +54,6 @@ class Summary_Widget {
 	}
 
 	/**
-	 * Add the network summary widget
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @return void
-	 */
-	public function add_network_widget() {
-
-		$heading = apply_filters( 'ds_network_widget_heading', DS_NETWORK_WIDGET_TITLE );
-
-		if ( true == settings()->sanitize_network_summary() ) {
-			wp_add_dashboard_widget( 'dashboard_summary', $heading, [ $this, 'output' ] );
-		}
-	}
-
-	/**
 	 * Dashboard widget output
 	 *
 	 * Add widget content as an action to facilitate
