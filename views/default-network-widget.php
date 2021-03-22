@@ -44,6 +44,8 @@ do_action( 'ds_default_network_widget_before' );
 
 		<li class="ds-tabs-state-active"><a href="#ds-default-network-widget-sites"><?php _e( 'Sites', DS_DOMAIN ); ?></a></li>
 
+		<li><a href="#ds-default-network-widget-users"><?php _e( 'Users', DS_DOMAIN ); ?></a></li>
+
 		<?php if ( $summary->updates_tab() ) : ?>
 		<li><a href="#ds-default-widget-updates"><?php _e( 'Updates', DS_DOMAIN ); echo $update_count; ?></a></li>
 		<?php endif; ?>
@@ -55,6 +57,14 @@ do_action( 'ds_default_network_widget_before' );
 		<?php
 
 		include( DS_PATH . '/views/partials/default-widget-sites.php' );
+
+		?>
+	</section>
+
+	<section id="ds-default-network-widget-users" class="ds-widget-section ds-tabs-panel">
+		<?php
+
+		include( DS_PATH . '/views/partials/default-widget-network-users.php' );
 
 		?>
 	</section>
