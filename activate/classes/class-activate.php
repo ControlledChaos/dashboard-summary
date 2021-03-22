@@ -59,9 +59,14 @@ class Activate {
 		// Network options.
 		if ( is_multisite() ) {
 			add_network_option( get_current_network_id(), 'ds_enable_network_summary', 'new_install' );
+			add_network_option( get_current_network_id(), 'ds_enable_network_right_now', 'new_install' );
 
 			if ( 'new_install' == get_option( 'ds_enable_network_summary' ) ) {
 				update_network_option( 'ds_enable_network_summary', 1 );
+			}
+
+			if ( 'new_install' == get_option( 'ds_enable_network_right_now' ) ) {
+				update_network_option( 'ds_enable_network_right_now', 0 );
 			}
 		}
 	}

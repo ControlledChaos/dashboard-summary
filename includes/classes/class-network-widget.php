@@ -34,6 +34,25 @@ class Network_Widget {
 
 		// Print admin styles to head.
 		add_action( 'admin_print_styles', [ $this, 'admin_print_styles' ], 20 );
+
+		add_action( 'wp_network_dashboard_setup', [ $this, 'remove_widget' ] );
+	}
+
+	/**
+	 * Remove At a Glance widget
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @global array wp_meta_boxes The metaboxes array holds all the widgets for wp-admin.
+	 * @return void
+	 */
+	public function remove_widget() {
+
+		global $wp_meta_boxes;
+
+		if ( false == settings()->sanitize_network_right_now() ) {
+			unset( $wp_meta_boxes['dashboard-network']['normal']['core']['network_dashboard_right_now'] );
+		}
 	}
 
 	/**

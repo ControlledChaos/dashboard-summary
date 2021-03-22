@@ -124,6 +124,10 @@ final class Settings {
 		if ( isset( $_POST['ds_enable_network_summary'] ) ) {
 			update_network_option( get_current_network_id(), 'ds_enable_network_summary', filter_var( $_POST['ds_enable_network_summary'], FILTER_VALIDATE_INT ) );
 		}
+
+		if ( isset( $_POST['ds_enable_network_right_now'] ) ) {
+			update_network_option( get_current_network_id(), 'ds_enable_network_right_now', filter_var( $_POST['ds_enable_network_right_now'], FILTER_VALIDATE_INT ) );
+		}
 	}
 
 	/**
@@ -135,11 +139,12 @@ final class Settings {
 	 */
 	public function network_settings() {
 
-		// Get option sanitization method.
-		$option = $this->sanitize_network_summary();
+		// Get option sanitization methods.
+		$summary   = $this->sanitize_network_summary();
+		$right_now = $this->sanitize_network_right_now();
 
 		// Get the form markup.
-		include DS_PATH . '/views/partials/form-network-summary.php';
+		include DS_PATH . '/views/partials/form-network-settings.php';
 	}
 
 	/**
@@ -236,7 +241,7 @@ final class Settings {
 	}
 
 	/**
-	 * Sanitize network Dashboard Summary option
+	 * Sanitize network summary option
 	 *
 	 * Defaults to true.
 	 *
@@ -249,6 +254,25 @@ final class Settings {
 		$option = get_network_option( get_current_network_id(), 'ds_enable_network_summary' );
 
 		if ( null == $option || true == $option ) {
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * Sanitize network Right Now option
+	 *
+	 * Defaults to false.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return boolean Returns true or false.
+	 */
+	public function sanitize_network_right_now() {
+
+		$option = get_network_option( get_current_network_id(), 'ds_enable_network_right_now' );
+
+		if ( true == $option ) {
 			return true;
 		}
 		return false;
