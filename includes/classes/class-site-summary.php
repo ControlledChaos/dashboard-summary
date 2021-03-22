@@ -513,19 +513,41 @@ class Site_Summary {
 
 		$theme_name = wp_get_theme();
 		if ( ! is_null( $this->active_theme_uri() ) ) {
-			$theme_name = sprintf(
-				'%s <a href="%s" target="_blank" rel="nofollow noreferrer noopener">%s</a>',
-				__( 'The active theme is', DS_DOMAIN ),
-				$this->active_theme_uri(),
-				$theme_name
-			);
+
+			if ( is_network_admin() ) {
+				$theme_name = sprintf(
+					'%s <a href="%s" target="_blank" rel="nofollow noreferrer noopener">%s</a>',
+					__( 'The active theme of the primary site is', DS_DOMAIN ),
+					$this->active_theme_uri(),
+					$theme_name
+				);
+			} else {
+				$theme_name = sprintf(
+					'%s <a href="%s" target="_blank" rel="nofollow noreferrer noopener">%s</a>',
+					__( 'The active theme is', DS_DOMAIN ),
+					$this->active_theme_uri(),
+					$theme_name
+				);
+			}
+
 		} elseif ( current_user_can( 'switch_themes' ) ) {
-			$theme_name = sprintf(
-				'%s <a href="%s">%s</a>',
-				__( 'The active theme is', DS_DOMAIN ),
-				esc_url( admin_url( 'themes.php' ) ),
-				$theme_name
-			);
+
+			if ( is_network_admin() ) {
+				$theme_name = sprintf(
+					'%s <a href="%s">%s</a>',
+					__( 'The active theme of the primary site is', DS_DOMAIN ),
+					esc_url( self_admin_url( 'themes.php' ) ),
+					$theme_name
+				);
+			} else {
+				$theme_name = sprintf(
+					'%s <a href="%s">%s</a>',
+					__( 'The active theme is', DS_DOMAIN ),
+					esc_url( admin_url( 'themes.php' ) ),
+					$theme_name
+				);
+			}
+
 		} else {
 			$theme_name = sprintf(
 				'%s %s',
