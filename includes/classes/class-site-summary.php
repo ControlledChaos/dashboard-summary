@@ -995,6 +995,7 @@ class Site_Summary {
 
 		// Stop here if updates have been disabled.
 		$update_data = wp_get_update_data();
+
 		if ( 0 == $update_data['counts']['themes'] ) {
 			return sprintf(
 				'<p>%s</p>',
@@ -1009,7 +1010,7 @@ class Site_Summary {
 			foreach ( $update_themes->response as $update ) {
 
 				$theme = $update['theme'];
-				$output .= get_theme_update_available( wp_get_theme( $theme ) );
+				$output .= $this->update_themes_list_items( wp_get_theme( $theme ) );
 			}
 			$output .= '</ul>';
 
@@ -1022,6 +1023,105 @@ class Site_Summary {
 		}
 
 		return $output;
+	}
+
+	/**
+	 * Theme update list items
+	 *
+	 * Returns a list item with links if there is an update available.
+	 * This is a copy of `get_theme_update_available()`
+	 * with the exeption removed for multisite.
+	 *
+	 * @see wp-admin/includes/theme.php
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @param WP_Theme $theme WP_Theme object.
+	 * @return string|false Returns the markup for the update link or
+	 *                      false if invalid info was passed.
+	 */
+	public function update_themes_list_items( $theme ) {
+
+		static $themes_update = null;
+
+		if ( ! current_user_can( 'update_themes' ) ) {
+			return false;
+		}
+
+		if ( ! isset( $themes_update ) ) {
+			$themes_update = get_site_transient( 'update_themes' );
+		}
+
+		if ( ! ( $theme instanceof \WP_Theme ) ) {
+			return false;
+		}
+
+		$stylesheet = $theme->get_stylesheet();
+		$html       = '';
+
+		if ( isset( $themes_update->response[ $stylesheet ] ) ) {
+			$update      = $themes_update->response[ $stylesheet ];
+			$theme_name  = $theme->display( 'Name' );
+			$details_url = add_query_arg(
+				[
+					'TB_iframe' => 'true',
+					'width'     => 1024,
+					'height'    => 800,
+				],
+				$update['url']
+			);
+			$update_url = wp_nonce_url(
+				admin_url( 'update.php?action=upgrade-theme&amp;theme=' . urlencode( $stylesheet ) ),
+				'upgrade-theme_' . $stylesheet
+			);
+
+			if ( ! current_user_can( 'update_themes' ) ) {
+
+				$html = sprintf(
+					'<li><strong>' . __( 'There is a new version of %1$s available. <a href="%2$s" %3$s>View version %4$s details</a>.', DS_DOMAIN ) . '</strong></li>',
+					$theme_name,
+					esc_url( $details_url ),
+					sprintf(
+						'class="thickbox open-plugin-details-modal" aria-label="%s"',
+						esc_attr( sprintf( __( 'View %1$s version %2$s details', DS_DOMAIN ), $theme_name, $update['new_version'] ) )
+					),
+					$update['new_version']
+				);
+
+			} elseif ( empty( $update['package'] ) ) {
+
+				$html = sprintf(
+					'<li><strong>' . __( 'There is a new version of %1$s available. <a href="%2$s" %3$s>View version %4$s details</a>. <em>Automatic update is unavailable for this theme.</em>', DS_DOMAIN ) . '</strong></li>',
+					$theme_name,
+					esc_url( $details_url ),
+					sprintf(
+						'class="thickbox open-plugin-details-modal" aria-label="%s"',
+						esc_attr( sprintf( __( 'View %1$s version %2$s details', DS_DOMAIN ), $theme_name, $update['new_version'] ) )
+					),
+					$update['new_version']
+				);
+
+			} else {
+				$html = sprintf(
+					'<li><strong>' . __( 'There is a new version of %1$s available. <a href="%2$s" %3$s>View version %4$s details</a> or <a href="%5$s" %6$s>update now</a>.', DS_DOMAIN ) . '</strong></li>',
+					$theme_name,
+					esc_url( $details_url ),
+					sprintf(
+						'class="thickbox open-plugin-details-modal" aria-label="%s"',
+						esc_attr( sprintf( __( 'View %1$s version %2$s details', DS_DOMAIN ), $theme_name, $update['new_version'] ) )
+					),
+					$update['new_version'],
+					$update_url,
+					sprintf(
+						'aria-label="%s" id="update-theme" data-slug="%s"',
+						esc_attr( sprintf( __( 'Update %s now', DS_DOMAIN ), $theme_name ) ),
+						$stylesheet
+					)
+				);
+			}
+		}
+
+		return $html;
 	}
 
 	/**
