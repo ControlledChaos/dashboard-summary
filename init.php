@@ -18,6 +18,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die;
 }
 
+// Hook initialization functions.
+add_action( 'init', __NAMESPACE__ . '\init' );
+add_action( 'admin_init', __NAMESPACE__ . '\admin_init' );
+
 /**
  * Initialization function
  *
@@ -59,7 +63,6 @@ function init() {
 	// Add settings link to plugin row.
 	add_filter( 'plugin_action_links_' . DS_BASENAME, [ __NAMESPACE__ . '\Classes\Settings', 'settings_link' ] );
 }
-add_action( 'init', __NAMESPACE__ . '\init' );
 
 /**
  * Admin initialization function
@@ -97,4 +100,3 @@ function admin_init() {
 		new Classes\Plugin_Install;
 	}
 }
-add_action( 'admin_init', __NAMESPACE__ . '\admin_init' );
