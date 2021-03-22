@@ -60,9 +60,9 @@ $sites_text  = sprintf(
 
 	<form action="<?php echo network_admin_url( 'sites.php' ); ?>" method="get">
 		<p>
-			<label class="screen-reader-text" for="search-sites"><?php _e( 'Search Sites' ); ?></label>
+			<label class="screen-reader-text" for="search-sites"><?php _e( 'Search Sites', DS_DOMAIN ); ?></label>
 			<input type="search" name="s" value="" size="30" autocomplete="off" id="search-sites"/>
-			<?php submit_button( __( 'Search Sites' ), '', false, false, array( 'id' => 'submit_sites' ) ); ?>
+			<?php submit_button( __( 'Search Sites', DS_DOMAIN ), '', false, false, [ 'id' => 'submit_sites' ] ); ?>
 		</p>
 	</form>
 </div>
