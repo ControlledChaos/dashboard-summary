@@ -19,15 +19,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Load plugin text domain
+ * Initialization function
+ *
+ * Loads PHP classes and text domain.
+ * Adds settings link in the plugin row.
  *
  * @since  1.0.0
  * @access public
  * @return void
  */
-function text_domain() {
+function init() {
 
-	// Standard plugin installation.
+	// Load plugin text domain.
 	load_plugin_textdomain(
 		DS_DOMAIN,
 		false,
@@ -39,26 +42,6 @@ function text_domain() {
 		DS_DOMAIN,
 		dirname( DS_BASENAME ) . '/languages'
 	);
-}
-
-/**
- * Core plugin function
- *
- * Loads and runs PHP classes.
- * Adds settings link in the plugin row.
- *
- * @since  1.0.0
- * @access public
- * @global $pagenow Get the current admin screen.
- * @return void
- */
-function dashboard_summary() {
-
-	// Access current admin page.
-	global $pagenow;
-
-	// Load text domain. Hook to `init` rather than `plugins_loaded`.
-	add_action( 'init', __NAMESPACE__ . '\text_domain' );
 
 	/**
 	 * Class autoloader
@@ -68,38 +51,50 @@ function dashboard_summary() {
 	 */
 	require_once DS_PATH . 'includes/autoloader.php';
 
-	/**
-	 * New instances of plugin classes
-	 *
-	 * Some classes only run on the system
-	 * administration dashboard (index.php).
-	 */
+	// New instances of plugin classes.
 	new Classes\Settings;
 	new Classes\Site_Summary;
 	new Classes\User_Options;
 
-	// Dashboard only.
+	// Add settings link to plugin row.
+	add_filter( 'plugin_action_links_' . DS_BASENAME, [ __NAMESPACE__ . '\Classes\Settings', 'settings_link' ] );
+}
+add_action( 'init', __NAMESPACE__ . '\init' );
+
+/**
+ * Admin initialization function
+ *
+ * Adds widgets, loads scripts & styles.
+ *
+ * @since  1.0.0
+ * @access public
+ * @global $pagenow Get the current admin screen.
+ * @return void
+ */
+function admin_init() {
+
+	// Access current admin page.
+	global $pagenow;
+
+	// Site & network dashboards.
 	if ( ( is_admin() || is_network_admin() ) && 'index.php' === $pagenow ) {
 		new Classes\Dashboard;
 	}
 
+	// Site dashboard.
 	if ( is_admin() && 'index.php' === $pagenow ) {
 		new Classes\Summary_Widget;
 		new Classes\At_A_Glance;
 	}
 
-	if ( is_multisite() && is_network_admin() && 'index.php' === $pagenow ) {
+	// Network dashboard.
+	if ( is_network_admin() && 'index.php' === $pagenow ) {
 		new Classes\Network_Widget;
 	}
-
-	// Add settings link to plugin row.
-	add_filter( 'plugin_action_links_' . DS_BASENAME, [ __NAMESPACE__ . '\Classes\Settings', 'settings_link' ] );
 
 	// Plugin install iframe modal.
 	if ( ( is_admin() || is_network_admin() ) && 'plugin-install.php' === $pagenow ) {
 		new Classes\Plugin_Install;
 	}
 }
-
-// Run the plugin.
-add_action( 'init', __NAMESPACE__ . '\dashboard_summary' );
+add_action( 'admin_init', __NAMESPACE__ . '\admin_init' );
