@@ -426,18 +426,25 @@ class Site_Summary {
 		// Get system name.
 		$system = $this->management_system();
 
+		// Text for site or network dashboard.
+		if ( is_multisite() && is_network_admin() ) {
+			$text = __( 'This network is running', DS_DOMAIN );
+		} else {
+			$text = __( 'This website is running', DS_DOMAIN );
+		}
+
 		// Check for ClassicPress.
 		if ( function_exists( 'classicpress_version' ) ) {
 			$output = sprintf(
 				'%s <a href="%s">%s</a>',
-				__( 'This website is running', DS_DOMAIN ),
+				$text,
 				esc_url( 'https://github.com/ClassicPress/ClassicPress-release/releases' ),
 				$system . ' ' . get_bloginfo( 'version', 'display' )
 			);
 		} else {
 			$output = sprintf(
 				'%s <a href="%s">%s</a>',
-				__( 'This website is running', DS_DOMAIN ),
+				$text,
 				esc_url( 'https://wordpress.org/download/releases/' ),
 				$system . ' ' . get_bloginfo( 'version', 'display' )
 			);
