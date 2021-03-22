@@ -62,7 +62,7 @@ $description_user_options = apply_filters(
 
 ?>
 <?php echo $heading_profile; ?>
-<?php $summary->user_greeting(); ?>
+<?php $summary->user_intro(); ?>
 
 <div class="ds-tabbed-content">
 

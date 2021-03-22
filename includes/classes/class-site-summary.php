@@ -1159,13 +1159,36 @@ class Site_Summary {
 	}
 
 	/**
-	 * User greeting
+	 * User intro
 	 *
-	 * Used in the profile tab of the default widget.
+	 * Used in the profile tab.
 	 *
 	 * @since  1.0.0
 	 * @access public
-	 * @return string Returns the markup of the greeting.
+	 * @return string Returns the markup of the intro.
+	 */
+	public function user_intro() {
+
+		?>
+		<div class="ds-user-greeting">
+			<?php $this->user_avatar(); ?>
+
+			<div>
+				<?php
+				$this->user_greeting();
+				$this->user_greeting_description();
+				?>
+			</div>
+		</div>
+		<?php
+	}
+
+	/**
+	 * User greeting
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return string Returns the text of the greeting.
 	 */
 	public function user_greeting() {
 
@@ -1174,22 +1197,14 @@ class Site_Summary {
 		$user_id      = get_current_user_id();
 		$user_name    = $current_user->display_name;
 
-		?>
-		<div class="ds-user-greeting">
-			<?php $this->user_avatar(); ?>
-
-			<div>
-				<?php
-				echo sprintf(
-					'<h4>%1s %2s.</h4>',
-					esc_html__( 'Welcome,', DS_DOMAIN ),
-					$user_name
-				);
-				do_action( 'ds_profile_description' );
-				?>
-			</div>
-		</div>
-		<?php
+		echo apply_filters(
+			'ds_user_greeting',
+			sprintf(
+				'<h4>%1s %2s.</h4>',
+				esc_html__( 'Hello,', DS_DOMAIN ),
+				$user_name
+			)
+		);
 	}
 
 	/**
@@ -1199,17 +1214,15 @@ class Site_Summary {
 	 * @access public
 	 * @return string Returns the text of the description.
 	 */
-	public static function user_greeting_description() {
+	public function user_greeting_description() {
 
-		$output = apply_filters(
-			'ds_default_widget_description_profile',
+		echo apply_filters(
+			'ds_user_greeting_description',
 			sprintf(
 				'<p class="description">%s</p>',
 				__( 'This section provides details about your account.', DS_DOMAIN )
 			)
 		);
-
-		echo $output;
 	}
 
 	/**
