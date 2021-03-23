@@ -23,7 +23,7 @@ wp_update_plugins();
 
 // Updates section heading.
 $tab_heading = apply_filters(
-	'ds_network_widget_sites_heading',
+	'ds_widget_updates_heading',
 	sprintf(
 		'<h3 class="screen-reader-text">%s</h3>',
 		__( 'System Updates', DS_DOMAIN )
