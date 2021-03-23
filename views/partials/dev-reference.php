@@ -113,7 +113,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</li>
 			<li>
 				<p><code>ds_taxonomies_query</code><br />
-				<?php _e( 'Filters an array of queried taxonomies used in the site widget content tab.', DS_DOMAIN ); ?></p>
+				<?php _e( 'Filters an array of queried taxonomies used in the site widget content tab and in the At a Glance widget.', DS_DOMAIN ); ?></p>
 			</li>
 			<li>
 				<p><code>ds_php_version_notice</code><br />
