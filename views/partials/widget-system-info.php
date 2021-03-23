@@ -134,7 +134,7 @@ if (
 <div class="ds-widget-divided-section ds-widget-plugin-development hide-if-no-js">
 
 	<h4><?php _e( 'Widget Development', DS_DOMAIN ); ?></h4>
-	<p class="description"><?php _e( 'Development hooks & filters for adding content or modifying text.', DS_DOMAIN ); ?></p>
+	<p class="description"><?php _e( 'Development hooks & filters of the dashboard summary widgets for adding content or modifying text.', DS_DOMAIN ); ?></p>
 
 	<p><a href="#dev-reference" data-ds-modal><?php _e( 'View reference in modal window.', DS_DOMAIN ); ?></a></p>
 	<div id="dev-reference" class="ds-modal" role="dialog">
