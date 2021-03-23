@@ -28,16 +28,18 @@ $tab_heading = apply_filters(
 );
 
 // System section description.
-$tab_description = apply_filters(
-	'ds_widget_system_description',
-	sprintf(
-		'<p class="description">%s <a href="%s">%s</a> %s</p>',
-		__( 'Some technical details about the', DS_DOMAIN ),
-		esc_url( get_site_url( get_current_blog_id() ) ),
-		get_bloginfo( 'name' ),
-		__( 'website.', DS_DOMAIN )
-	)
-);
+if ( is_multisite() && is_network_admin() ) {
+	$tab_description = sprintf(
+		'<p class="description screen-reader-text">%s</p>',
+		__( 'An overview of network operations.', DS_DOMAIN )
+	);
+} else {
+	$tab_description = sprintf(
+		'<p class="description screen-reader-text">%s</p>',
+		__( 'An overview of website operations.', DS_DOMAIN )
+	);
+}
+$tab_description = apply_filters( 'ds_widget_system_description', $tab_description );
 
 // Information section heading.
 $info_heading = apply_filters(
