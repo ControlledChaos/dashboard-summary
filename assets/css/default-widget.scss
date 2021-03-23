@@ -148,12 +148,21 @@ $ds_widget_border_color: $pale_gray;
 
 	h4 {
 		margin: 0.75em 0 0;
+
+		~ div {
+			margin-top: 1em;
+		}
 	}
 
-	p.description {
+	.description {
 		margin: 0.75em 0 0;
 		font-style: italic;
 		line-height: 1.3;
+	}
+
+	.dev-reference-list {
+		list-style: unset;
+		margin-left: 1em;
 	}
 }
 
@@ -199,6 +208,14 @@ $ds_widget_border_color: $pale_gray;
 					margin: 0 0 0 1em;
 				}
 			}
+		}
+	}
+
+	.ds-modal {
+
+		.dev-reference-list {
+			margin-left: auto;
+			margin-right: 1em;
 		}
 	}
 

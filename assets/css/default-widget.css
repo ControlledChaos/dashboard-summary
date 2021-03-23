@@ -244,10 +244,19 @@
   margin: 0.75em 0 0;
 }
 
-.ds-modal p.description {
+.ds-modal h4 ~ div {
+  margin-top: 1em;
+}
+
+.ds-modal .description {
   margin: 0.75em 0 0;
   font-style: italic;
   line-height: 1.3;
+}
+
+.ds-modal .dev-reference-list {
+  list-style: unset;
+  margin-left: 1em;
 }
 
 .ds-modal-bio-heading {
@@ -286,6 +295,11 @@
 
 .rtl #dashboard-widgets #ds-default-widget .ds-user-greeting figure {
   margin: 0 0 0 1em;
+}
+
+.rtl .ds-modal .dev-reference-list {
+  margin-left: auto;
+  margin-right: 1em;
 }
 
 .rtl .ds-modal-bio-heading figure {
