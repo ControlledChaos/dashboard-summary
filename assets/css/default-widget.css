@@ -240,6 +240,16 @@
   margin-top: 1.5em;
 }
 
+.ds-modal h4 {
+  margin: 0.75em 0 0;
+}
+
+.ds-modal p.description {
+  margin: 0.75em 0 0;
+  font-style: italic;
+  line-height: 1.3;
+}
+
 .ds-modal-bio-heading {
   display: -webkit-box;
   display: -ms-flexbox;
