@@ -83,7 +83,7 @@ $tools_description = apply_filters(
 	'ds_site_widget_content_tools_description',
 	sprintf(
 		'<p class="description">%s</p>',
-		__( 'Import and export content for this website.', DS_DOMAIN )
+		__( 'Search, import, and export content of this website.', DS_DOMAIN )
 	)
 );
 
@@ -109,6 +109,15 @@ $tools_description = apply_filters(
 
 	<h4><?php echo $tools_heading; ?></h4>
 	<?php echo $tools_description; ?>
+
+	<form role="search" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+		<?php $field_id = 'site-' . get_current_blog_id() . '-dashboard-search-content'; ?>
+		<p>
+			<label class="screen-reader-text" for="<?php echo $field_id; ?>" aria-label="<?php _e( 'Search Content', DS_DOMAIN ); ?>"><?php _e( 'Search Content', DS_DOMAIN ); ?></label>
+			<input type="search" name="s" id="<?php echo $field_id; ?>" value="<?php echo get_search_query(); ?>" placeholder="<?php _e( 'Enter search terms', DS_DOMAIN ); ?>" />
+			<?php submit_button( __( 'Search Content', DS_DOMAIN ), '', false, false, [ 'id' => 'submit-' . $field_id ] ); ?>
+		</p>
+	</form>
 
 	<p class="ds-widget-link-button">
 		<?php if ( current_user_can( 'import' ) ) : ?>

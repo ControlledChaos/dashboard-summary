@@ -87,11 +87,12 @@ $users_text  = sprintf(
 
 	<p><?php printf( __( 'There %1$s registered in the network.', DS_DOMAIN ), $users_text ); ?></p>
 
-	<form action="<?php echo network_admin_url( 'users.php' ); ?>" method="get">
+	<form role="search" action="<?php echo network_admin_url( 'users.php' ); ?>" method="get">
+		<?php $field_id = 'network-' . get_current_network_id() . '-dashboard-search-users'; ?>
 		<p>
-			<label class="screen-reader-text" for="search-users"><?php _e( 'Search Users', DS_DOMAIN ); ?></label>
-			<input type="search" name="s" value="" size="30" autocomplete="off" id="search-users" placeholder="<?php _e( 'Enter whole or partial user name', DS_DOMAIN ); ?>" />
-			<?php submit_button( __( 'Search Users', DS_DOMAIN ), '', false, false, [ 'id' => 'submit_users' ] ); ?>
+			<label class="screen-reader-text" for="<?php echo $field_id; ?>" aria-label="<?php _e( 'Search Users', DS_DOMAIN ); ?>"><?php _e( 'Search Users', DS_DOMAIN ); ?></label>
+			<input type="search" name="s" value="" size="30" autocomplete="off" id="<?php echo $field_id; ?>" placeholder="<?php _e( 'Enter whole or partial user name', DS_DOMAIN ); ?>" />
+			<?php submit_button( __( 'Search Users', DS_DOMAIN ), '', false, false, [ 'id' => 'submit-' . $field_id ] ); ?>
 		</p>
 	</form>
 </div>

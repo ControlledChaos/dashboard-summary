@@ -85,11 +85,12 @@ $sites_text  = sprintf(
 
 	<p><?php printf( __( 'This network consists of %1$s.', DS_DOMAIN ), $sites_text ); ?></p>
 
-	<form action="<?php echo network_admin_url( 'sites.php' ); ?>" method="get">
+	<form role="search" action="<?php echo network_admin_url( 'sites.php' ); ?>" method="get">
+		<?php $field_id = 'network-' . get_current_network_id() . '-dashboard-search-sites'; ?>
 		<p>
-			<label class="screen-reader-text" for="search-sites"><?php _e( 'Search Sites', DS_DOMAIN ); ?></label>
-			<input type="search" name="s" value="" size="30" autocomplete="off" id="search-sites" placeholder="<?php _e( 'Enter whole or partial site name', DS_DOMAIN ); ?>" />
-			<?php submit_button( __( 'Search Sites', DS_DOMAIN ), '', false, false, [ 'id' => 'submit_sites' ] ); ?>
+			<label class="screen-reader-text" for="<?php echo $field_id; ?>" aria-label="<?php _e( 'Search Sites', DS_DOMAIN ); ?>"><?php _e( 'Search Sites', DS_DOMAIN ); ?></label>
+			<input type="search" name="s" value="" size="30" autocomplete="off" id="<?php echo $field_id; ?>" placeholder="<?php _e( 'Enter whole or partial site name', DS_DOMAIN ); ?>" />
+			<?php submit_button( __( 'Search Sites', DS_DOMAIN ), '', false, false, [ 'id' => 'submit-' . $field_id ] ); ?>
 		</p>
 	</form>
 </div>
