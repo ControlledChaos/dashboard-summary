@@ -203,9 +203,10 @@ if ( current_user_can( 'list_users' ) ) :
 
 	<form role="search" action="<?php echo self_admin_url( 'users.php' ); ?>" method="get">
 		<?php $field_id = 'site-' . get_current_blog_id() . '-dashboard-search-users'; ?>
-		<p>
+		<p class="ds-widget-search-fields">
 			<label class="screen-reader-text" for="<?php echo $field_id; ?>" aria-label="<?php _e( 'Search Users', DS_DOMAIN ); ?>"><?php _e( 'Search Users', DS_DOMAIN ); ?></label>
-			<input type="search" name="s" value="" size="30" autocomplete="off" id="<?php echo $field_id; ?>" placeholder="<?php _e( 'Enter whole or partial user name', DS_DOMAIN ); ?>" />
+
+			<input type="search" name="s" id="<?php echo $field_id; ?>" aria-labelledby="<?php _e( 'Search Users', DS_DOMAIN ); ?>" value="<?php echo get_search_query(); ?>" autocomplete="off" placeholder="<?php _e( 'Enter whole or partial user name', DS_DOMAIN ); ?>" aria-placeholder="<?php _e( 'Enter whole or partial user name', DS_DOMAIN ); ?>" />
 			<?php submit_button( __( 'Search Users', DS_DOMAIN ), '', false, false, [ 'id' => 'submit-' . $field_id ] ); ?>
 		</p>
 	</form>

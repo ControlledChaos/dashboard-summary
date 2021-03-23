@@ -111,19 +111,21 @@ $tools_description = apply_filters(
 	<?php echo $tools_description; ?>
 
 	<form role="search" action="<?php echo esc_url( home_url( '/' ) ); ?>" method="get" target="_blank" rel="nofollow noreferrer noopener">
-		<?php $field_id = 'site-' . get_current_blog_id() . '-dashboard-search-content'; ?>
-		<p>
-			<label class="screen-reader-text" for="<?php echo $field_id; ?>" aria-label="<?php _e( 'Search Content', DS_DOMAIN ); ?>"><?php _e( 'Search Content', DS_DOMAIN ); ?></label>
-			<input type="search" name="s" id="<?php echo $field_id; ?>" value="<?php echo get_search_query(); ?>" placeholder="<?php _e( 'Enter search terms', DS_DOMAIN ); ?>" />
-			<?php submit_button( __( 'Search Content', DS_DOMAIN ), '', false, false, [ 'id' => 'submit-' . $field_id ] ); ?>
+		<?php $content_id = 'site-' . get_current_blog_id() . '-dashboard-search-content'; ?>
+		<p class="ds-widget-search-fields">
+			<label class="screen-reader-text" for="<?php echo $content_id; ?>" aria-label="<?php _e( 'Search Content', DS_DOMAIN ); ?>"><?php _e( 'Search Content', DS_DOMAIN ); ?></label>
+
+			<input type="search" name="s" id="<?php echo $content_id; ?>" aria-labelledby="<?php _e( 'Search Content', DS_DOMAIN ); ?>" value="<?php echo get_search_query(); ?>" autocomplete="off" placeholder="<?php _e( 'Enter search terms', DS_DOMAIN ); ?>" aria-placeholder="<?php _e( 'Enter search terms', DS_DOMAIN ); ?>" />
+			<?php submit_button( __( 'Search Content', DS_DOMAIN ), '', false, false, [ 'id' => 'submit-' . $content_id ] ); ?>
 		</p>
 	</form>
 
 	<form role="search" action="<?php echo self_admin_url( 'upload.php' ); ?>" method="get">
 		<?php $media_id = 'site-' . get_current_blog_id() . '-dashboard-search-media'; ?>
-		<p>
+		<p class="ds-widget-search-fields">
 			<label class="screen-reader-text" for="<?php echo $media_id; ?>" aria-label="<?php _e( 'Search Media', DS_DOMAIN ); ?>"><?php _e( 'Search Media', DS_DOMAIN ); ?></label>
-			<input type="search" name="search" id="<?php echo $media_id; ?>" value="<?php echo get_search_query(); ?>" placeholder="<?php _e( 'Enter title or filename', DS_DOMAIN ); ?>" />
+
+			<input type="search" name="search" id="<?php echo $media_id; ?>" aria-labelledby="<?php _e( 'Search Media', DS_DOMAIN ); ?>" value="<?php echo get_search_query(); ?>" autocomplete="off" placeholder="<?php _e( 'Enter title or filename', DS_DOMAIN ); ?>" aria-placeholder="<?php _e( 'Enter title or filename', DS_DOMAIN ); ?>" />
 			<?php submit_button( __( 'Search Media', DS_DOMAIN ), '', false, false, [ 'id' => 'submit-' . $media_id ] ); ?>
 		</p>
 	</form>

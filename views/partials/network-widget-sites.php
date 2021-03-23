@@ -87,9 +87,10 @@ $sites_text  = sprintf(
 
 	<form role="search" action="<?php echo network_admin_url( 'sites.php' ); ?>" method="get">
 		<?php $field_id = 'network-' . get_current_network_id() . '-dashboard-search-sites'; ?>
-		<p>
+		<p class="ds-widget-search-fields">
 			<label class="screen-reader-text" for="<?php echo $field_id; ?>" aria-label="<?php _e( 'Search Sites', DS_DOMAIN ); ?>"><?php _e( 'Search Sites', DS_DOMAIN ); ?></label>
-			<input type="search" name="s" value="" size="30" autocomplete="off" id="<?php echo $field_id; ?>" placeholder="<?php _e( 'Enter whole or partial site name', DS_DOMAIN ); ?>" />
+
+			<input type="search" name="s" id="<?php echo $field_id; ?>" aria-labelledby="<?php _e( 'Search Sites', DS_DOMAIN ); ?>" value="<?php echo get_search_query(); ?>" autocomplete="off" placeholder="<?php _e( 'Enter whole or partial site name', DS_DOMAIN ); ?>" aria-placeholder="<?php _e( 'Enter whole or partial site name', DS_DOMAIN ); ?>" />
 			<?php submit_button( __( 'Search Sites', DS_DOMAIN ), '', false, false, [ 'id' => 'submit-' . $field_id ] ); ?>
 		</p>
 	</form>
