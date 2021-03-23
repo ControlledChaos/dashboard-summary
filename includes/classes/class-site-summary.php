@@ -392,6 +392,69 @@ class Site_Summary {
 	}
 
 	/**
+	 * Get database variables
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @global object $wpdb
+	 * @return array
+	 */
+	public function get_database_vars() {
+
+		global $wpdb;
+
+		if ( ! $results = $wpdb->get_results( 'SHOW GLOBAL VARIABLES' ) ) {
+			return false;
+		}
+
+		$mysql_vars = [];
+		foreach ( $results as $result ) {
+			$mysql_vars[ $result->Variable_name ] = $result->Value;
+		}
+
+		return $mysql_vars;
+	}
+
+	/**
+	 * Get database version
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return string Returns the database name/version or
+	 *                "Not available".
+	 */
+	public function get_database_version() {
+
+		$vars = $this->get_database_vars();
+
+		if ( isset( $vars['version'] ) && ! empty( $vars['version'] ) ) {
+			$version = sanitize_text_field( $vars['version'] );
+		} else {
+			$version = __( 'not available', DS_DOMAIN );
+		}
+
+		return $version;
+	}
+
+	/**
+	 * Database version
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return string Returns the text of database version notice.
+	 */
+	public function database_version() {
+
+		$output = sprintf(
+			'%s %s',
+			__( 'The database version is', DS_DOMAIN ),
+			$this->get_database_version()
+		);
+
+		return apply_filters( 'ds_database_version_notice', $output );
+	}
+
+	/**
 	 * Management system
 	 *
 	 * Defines the name of the management system.

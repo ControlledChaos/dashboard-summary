@@ -120,6 +120,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<?php _e( 'Filters the <code>&lt;a&gt;</code> markup & text of the PHP version notice.', DS_DOMAIN ); ?></p>
 			</li>
 			<li>
+				<p><code>ds_database_version_notice</code><br />
+				<?php _e( 'Filters the text of the database version notice.', DS_DOMAIN ); ?></p>
+			</li>
+			<li>
 				<p><code>ds_system_name</code><br />
 				<?php _e( 'Filters the name of the content/website management system.', DS_DOMAIN ); ?></p>
 			</li>
