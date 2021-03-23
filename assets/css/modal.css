@@ -17,8 +17,7 @@
   overflow: auto;
   z-index: 9998;
   display: block;
-  padding: 3rem;
-  padding: calc(32px + 3rem) 3rem 3rem;
+  padding: 5vw;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   background-color: #000000;
