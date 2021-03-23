@@ -22,48 +22,90 @@ wp_update_themes();
 wp_update_plugins();
 
 // Updates section heading.
-$heading_updates = apply_filters(
-	'ds_default_widget_heading_updates',
-	__( 'System Updates', DS_DOMAIN )
+$tab_heading = apply_filters(
+	'ds_network_widget_sites_heading',
+	sprintf(
+		'<h3 class="screen-reader-text">%s</h3>',
+		__( 'System Updates', DS_DOMAIN )
+	)
 );
 
 // Updates section description.
-$description_updates = apply_filters(
-	'ds_default_widget_description_updates',
-	''
+$tab_description = apply_filters(
+	'ds_widget_updates_description',
+	sprintf(
+		'<p class="description screen-reader-text">%s</p>',
+		''
+	)
 );
 
-?>
-<h3 class="screen-reader-text"><?php echo $heading_updates; ?></h3>
+// Tools section heading.
+$tools_heading = apply_filters(
+	'ds_widget_updates_tools_heading',
+	__( 'Update Tools', DS_DOMAIN )
+);
 
-<?php echo $description_updates; ?>
+// Tools description.
+if ( is_multisite() && is_network_admin() ) {
+	$tools_description = sprintf(
+		'<p class="description">%s</p>',
+		__( 'Go to the updates page or upgrade the network.', DS_DOMAIN )
+	);
+} else {
+	$tools_description = sprintf(
+		'<p class="description">%s</p>',
+		__( 'Go to the updates page.', DS_DOMAIN )
+	);
+}
+$tools_description = apply_filters( 'ds_widget_updates_tools_description', $tools_description );
+
+?>
+<?php echo $tab_heading ?>
+<?php echo $tab_description; ?>
 
 <?php if ( current_user_can( 'update_core' ) ) : ?>
 <div class="ds-widget-divided-section ds-widget-updates-section">
+
 	<h4><?php _e( 'System', DS_DOMAIN ); ?></h4>
+
 	<?php echo $summary->core_updates(); ?>
 </div>
 <?php endif; ?>
 
 <?php if ( current_user_can( 'update_plugins' ) ) : ?>
 <div class="ds-widget-divided-section ds-widget-updates-section">
+
 	<h4><?php _e( 'Plugins', DS_DOMAIN ); ?></h4>
+
 	<?php echo $summary->update_plugins_list(); ?>
 </div>
 <?php endif; ?>
 
 <?php if ( current_user_can( 'update_themes' ) ) : ?>
 <div class="ds-widget-divided-section ds-widget-updates-section">
+
 	<h4><?php _e( 'Themes', DS_DOMAIN ); ?></h4>
+
 	<?php echo $summary->update_themes_list(); ?>
 </div>
 <?php endif; ?>
 
-<p class="ds-wdget-link-button">
-	<a class="button button-primary" href="<?php echo self_admin_url( 'update-core.php' ); ?>">
-		<?php _e( 'Updates Page', DS_DOMAIN ); ?>
-	</a>
-</p>
+<div class="ds-widget-divided-section ds-widget-updates-links">
+
+	<h4><?php echo $tools_heading; ?></h4>
+	<?php echo $tools_description; ?>
+
+	<p class="ds-widget-link-button">
+		<a class="button button-primary" href="<?php echo self_admin_url( 'update-core.php' ); ?>">
+			<?php _e( 'Updates Page', DS_DOMAIN ); ?>
+		</a>
+		<?php if ( is_multisite() && is_network_admin() ) : ?>
+		<a class="button button-primary" href="<?php echo network_admin_url( 'upgrade.php' ); ?>">
+			<?php _e( 'Upgrade Network', DS_DOMAIN ); ?>
+		</a>
+		<?php endif; ?>
+	</p>
+</div>
 <?php
 
 // Development hook.

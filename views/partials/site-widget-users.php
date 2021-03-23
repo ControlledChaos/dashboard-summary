@@ -25,8 +25,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  * screen-reader-text class, which may need
  * to be filtered out.
  */
-$heading_users_discussion = apply_filters(
-	'ds_default_widget_heading_users_discussion',
+$tab_heading = apply_filters(
+	'ds_site_widget_users_heading',
 	sprintf(
 		'<h3 class="screen-reader-text">%s</h3>',
 		__( 'Users & Discussion', DS_DOMAIN )
@@ -34,8 +34,8 @@ $heading_users_discussion = apply_filters(
 );
 
 // Users section description.
-$description_users_discussion = apply_filters(
-	'ds_default_widget_description_users_discussion',
+$tab_description = apply_filters(
+	'ds_site_widget_users_description',
 	sprintf(
 		'<p class="description">%s</p>',
 		__( 'Follow the links to manage users and comments.', DS_DOMAIN )
@@ -44,26 +44,41 @@ $description_users_discussion = apply_filters(
 
 // Comments section heading.
 $heading_comments = apply_filters(
-	'ds_default_widget_heading_comments',
+	'ds_site_widget_heading_comments',
 	__( 'User Discussion', DS_DOMAIN )
 );
 
 // Comments section description.
 $description_comments = apply_filters(
-	'ds_default_widget_description_comments',
+	'ds_site_widget_description_comments',
 	''
 );
 
 // Users section heading.
 $heading_users = apply_filters(
-	'ds_default_widget_heading_users',
+	'ds_site_widget_heading_users',
 	__( 'Registered Users', DS_DOMAIN )
 );
 
 // Users section description.
 $description_users = apply_filters(
-	'ds_default_widget_description_users',
+	'ds_site_widget_description_users',
 	''
+);
+
+// Tools section heading.
+$tools_heading = apply_filters(
+	'ds_site_widget_users_tools_heading',
+	__( 'User Tools', DS_DOMAIN )
+);
+
+// Tools description.
+$tools_description = apply_filters(
+	'ds_site_widget_users_tools_description',
+	sprintf(
+		'<p class="description">%s</p>',
+		__( 'Add a user or manage users from the users list screen.', DS_DOMAIN )
+	)
 );
 
 // Get comment counts for various statuses.
@@ -73,10 +88,11 @@ $comment_count = get_comment_count();
 $comment_total = $comment_count['total_comments'] + $comment_count['trash'];
 
 ?>
-<?php echo $heading_users_discussion; ?>
-<?php echo $description_users_discussion; ?>
+<?php echo $tab_heading; ?>
+<?php echo $tab_description; ?>
 
-<div class="ds-widget-divided-section ds-widget-users-section">
+<div class="ds-widget-divided-section ds-widget-users-discussion">
+
 	<h4><?php echo $heading_comments; ?></h4>
 	<?php echo $description_comments; ?>
 
@@ -169,7 +185,8 @@ $comment_total = $comment_count['total_comments'] + $comment_count['trash'];
 
 if ( current_user_can( 'list_users' ) ) :
 ?>
-<div class="ds-widget-divided-section ds-widget-users-section">
+<div class="ds-widget-divided-section ds-widget-users-site">
+
 	<h4><?php echo $heading_users; ?></h4>
 	<?php echo $description_users; ?>
 
@@ -185,11 +202,21 @@ if ( current_user_can( 'list_users' ) ) :
 	</ul>
 </div>
 
-<p class="ds-wdget-link-button">
-	<a class="button button-primary" href="<?php echo self_admin_url( 'users.php' ); ?>">
-		<?php _e( 'Manage Users', DS_DOMAIN ); ?>
-	</a>
-</p>
+<div class="ds-widget-divided-section ds-widget-users-discussion-links">
+
+	<h4><?php echo $tools_heading; ?></h4>
+	<?php echo $tools_description; ?>
+
+	<p class="ds-widget-link-button">
+		<a class="button button-primary" href="<?php echo self_admin_url( 'users.php' ); ?>">
+			<?php _e( 'Manage Users', DS_DOMAIN ); ?>
+		</a>
+		<a class="button button-primary" href="<?php echo self_admin_url( 'user-new.php' ); ?>">
+			<?php _e( 'New User', DS_DOMAIN ); ?>
+		</a>
+	</p>
+</div>
+
 <?php
 endif;
 
