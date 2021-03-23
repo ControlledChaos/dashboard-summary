@@ -146,8 +146,10 @@ $ds_widget_border_color: $pale_gray;
 // Modal removed from DOM order.
 .ds-modal {
 
-	h4 {
+	h4,
+	h5 {
 		margin: 0.75em 0 0;
+		font-size: 1em;
 
 		~ div {
 			margin-top: 1em;

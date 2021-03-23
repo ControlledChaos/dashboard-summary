@@ -240,11 +240,14 @@
   margin-top: 1.5em;
 }
 
-.ds-modal h4 {
+.ds-modal h4,
+.ds-modal h5 {
   margin: 0.75em 0 0;
+  font-size: 1em;
 }
 
-.ds-modal h4 ~ div {
+.ds-modal h4 ~ div,
+.ds-modal h5 ~ div {
   margin-top: 1em;
 }
 
