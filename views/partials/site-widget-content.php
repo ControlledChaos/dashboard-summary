@@ -110,7 +110,7 @@ $tools_description = apply_filters(
 	<h4><?php echo $tools_heading; ?></h4>
 	<?php echo $tools_description; ?>
 
-	<form role="search" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+	<form role="search" action="<?php echo esc_url( home_url( '/' ) ); ?>" method="get" target="_blank" rel="nofollow noreferrer noopener">
 		<?php $field_id = 'site-' . get_current_blog_id() . '-dashboard-search-content'; ?>
 		<p>
 			<label class="screen-reader-text" for="<?php echo $field_id; ?>" aria-label="<?php _e( 'Search Content', DS_DOMAIN ); ?>"><?php _e( 'Search Content', DS_DOMAIN ); ?></label>
