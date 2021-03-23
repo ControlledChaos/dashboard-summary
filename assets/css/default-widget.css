@@ -140,6 +140,19 @@
   margin-top: 0.325em;
 }
 
+#dashboard-widgets #ds-default-widget .ds-widget-search-fields {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+#dashboard-widgets #ds-default-widget .ds-widget-search-fields input[type="search"] {
+  width: 100%;
+  max-width: 100%;
+  margin-right: 0.35em;
+}
+
 #dashboard-widgets #ds-default-widget .ds-widget-section {
   max-width: 420px;
 }
@@ -300,6 +313,11 @@
   margin: 0 0 0 1em;
 }
 
+.rtl #dashboard-widgets #ds-default-widget .ds-widget-search-fields input[type="search"] {
+  margin-right: auto;
+  margin-left: 0.35em;
+}
+
 .rtl .ds-modal .dev-reference-list {
   margin-left: auto;
   margin-right: 1em;
@@ -311,3 +329,8 @@
 }
 
 /* System queries */
+@media screen and (max-width: 782px) {
+  #dashboard-widgets #ds-default-widget .button {
+    margin-bottom: 0;
+  }
+}

@@ -41,6 +41,20 @@ $ds_widget_border_color: $pale_gray;
 			margin-top: 0.325em;
 		}
 
+		.ds-widget-search-fields {
+			display: flex;
+			width: 100%;
+
+			input {
+
+				&[type="search"] {
+					width: 100%;
+					max-width: 100%;
+					margin-right: 0.35em;
+				}
+			}
+		}
+
 		.ds-widget-section {
 			max-width: 420px;
 
@@ -210,6 +224,15 @@ $ds_widget_border_color: $pale_gray;
 					margin: 0 0 0 1em;
 				}
 			}
+
+			.ds-widget-search-fields {
+				input {
+					&[type="search"] {
+						margin-right: auto;
+						margin-left: 0.35em;
+					}
+				}
+			}
 		}
 	}
 
@@ -231,7 +254,14 @@ $ds_widget_border_color: $pale_gray;
 
 /* System queries */
 @media screen and (max-width: 782px) {
-	// Styles
+
+	#dashboard-widgets {
+		#ds-default-widget {
+			.button {
+				margin-bottom: 0;
+			}
+		}
+	}
 }
 
 @media screen and (max-width: 600px) {
