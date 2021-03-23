@@ -119,6 +119,15 @@ $tools_description = apply_filters(
 		</p>
 	</form>
 
+	<form role="search" action="<?php echo self_admin_url( 'upload.php' ); ?>" method="get">
+		<?php $media_id = 'site-' . get_current_blog_id() . '-dashboard-search-media'; ?>
+		<p>
+			<label class="screen-reader-text" for="<?php echo $media_id; ?>" aria-label="<?php _e( 'Search Media', DS_DOMAIN ); ?>"><?php _e( 'Search Media', DS_DOMAIN ); ?></label>
+			<input type="search" name="search" id="<?php echo $media_id; ?>" value="<?php echo get_search_query(); ?>" placeholder="<?php _e( 'Enter title or filename', DS_DOMAIN ); ?>" />
+			<?php submit_button( __( 'Search Media', DS_DOMAIN ), '', false, false, [ 'id' => 'submit-' . $media_id ] ); ?>
+		</p>
+	</form>
+
 	<p class="ds-widget-link-button">
 		<?php if ( current_user_can( 'import' ) ) : ?>
 		<a class="button button-primary" href="<?php echo self_admin_url( 'import.php' ); ?>">
