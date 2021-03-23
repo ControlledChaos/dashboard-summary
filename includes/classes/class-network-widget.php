@@ -64,10 +64,10 @@ class Network_Widget {
 	 */
 	public function add_widget() {
 
-		$heading = apply_filters( 'ds_network_widget_heading', DS_NETWORK_WIDGET_TITLE );
+		$title = apply_filters( 'ds_network_widget_title', DS_NETWORK_WIDGET_TITLE );
 
 		if ( true == settings()->sanitize_network_summary() ) {
-			wp_add_dashboard_widget( 'dashboard_summary', $heading, [ $this, 'output' ] );
+			wp_add_dashboard_widget( 'dashboard_summary', $title, [ $this, 'output' ] );
 		}
 	}
 

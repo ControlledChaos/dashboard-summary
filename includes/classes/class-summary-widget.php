@@ -46,10 +46,10 @@ class Summary_Widget {
 	 */
 	public function add_widget() {
 
-		$heading = apply_filters( 'ds_widget_heading', DS_WIDGET_TITLE );
+		$title = apply_filters( 'ds_site_widget_title', DS_WIDGET_TITLE );
 
 		if ( true == settings()->sanitize_summary() ) {
-			wp_add_dashboard_widget( 'dashboard_summary', $heading, [ $this, 'output' ] );
+			wp_add_dashboard_widget( 'dashboard_summary', $title, [ $this, 'output' ] );
 		}
 	}
 

@@ -143,7 +143,7 @@ class User_Colors {
 	 *
 	 * @since  1.0.0
 	 * @access public
-	 * @return string Returns the hex code of a matching color.
+	 * @return array Returns the array of CSS hex codes.
 	 */
 	public function user_notify_colors() {
 
@@ -292,7 +292,7 @@ class User_Colors {
 		}
 
 		// The array of colors.
-		return apply_filters( 'user_notify_colors', $color );
+		return apply_filters( 'ds_user_notify_colors', $color );
 	}
 }
 

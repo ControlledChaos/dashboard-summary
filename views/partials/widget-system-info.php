@@ -121,8 +121,30 @@ if ( current_user_can( 'manage_options' ) ) :
 		</a>
 	</p>
 </div>
+
 <?php
-endif;
+
+// Do not display on network site dashboards, except the main site.
+if (
+	! is_multisite() ||
+	( is_multisite() && is_network_admin() ) ||
+	( is_main_site() )
+) :
+?>
+<div class="ds-widget-divided-section ds-widget-plugin-development hide-if-no-js">
+
+	<h4><?php _e( 'Widget Development', DS_DOMAIN ); ?></h4>
+	<p class="description"><?php _e( 'Development hooks & filters for adding content or modifying text.', DS_DOMAIN ); ?></p>
+
+	<p><a href="#dev-reference" data-ds-modal><?php _e( 'View reference in modal window.', DS_DOMAIN ); ?></a></p>
+	<div id="dev-reference" class="ds-modal" role="dialog">
+		<?php include( DS_PATH . '/views/partials/dev-reference.php' ); ?>
+	</div>
+
+</div>
+<?php
+endif; // End if not network site dashboard.
+endif; // End current_user_can.
 
 // Development hook.
-do_action( 'ds_system_info_tab' );
+do_action( 'ds_system_tab' );

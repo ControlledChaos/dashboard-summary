@@ -43,26 +43,26 @@ $tab_description = apply_filters(
 );
 
 // Comments section heading.
-$heading_comments = apply_filters(
-	'ds_site_widget_heading_comments',
+$comments_heading = apply_filters(
+	'ds_site_widget_users_comments_heading',
 	__( 'User Discussion', DS_DOMAIN )
 );
 
 // Comments section description.
-$description_comments = apply_filters(
-	'ds_site_widget_description_comments',
+$comments_description = apply_filters(
+	'ds_site_widget_users_comments_description',
 	''
 );
 
-// Users section heading.
-$heading_users = apply_filters(
-	'ds_site_widget_heading_users',
+// Registered users section heading.
+$registered_heading = apply_filters(
+	'ds_site_widget_users_registered_heading',
 	__( 'Registered Users', DS_DOMAIN )
 );
 
-// Users section description.
-$description_users = apply_filters(
-	'ds_site_widget_description_users',
+// Registered users section description.
+$registered_description = apply_filters(
+	'ds_site_widget_users_registered_description',
 	''
 );
 
@@ -93,8 +93,8 @@ $comment_total = $comment_count['total_comments'] + $comment_count['trash'];
 
 <div class="ds-widget-divided-section ds-widget-users-discussion">
 
-	<h4><?php echo $heading_comments; ?></h4>
-	<?php echo $description_comments; ?>
+	<h4><?php echo $comments_heading; ?></h4>
+	<?php echo $comments_description; ?>
 
 	<ul class="ds-content-list ds-widget-details-list ds-widget-comments-list">
 
@@ -187,8 +187,8 @@ if ( current_user_can( 'list_users' ) ) :
 ?>
 <div class="ds-widget-divided-section ds-widget-users-site">
 
-	<h4><?php echo $heading_users; ?></h4>
-	<?php echo $description_users; ?>
+	<h4><?php echo $registered_heading; ?></h4>
+	<?php echo $registered_description; ?>
 
 	<ul class="ds-widget-details-list">
 		<li>
@@ -221,4 +221,4 @@ if ( current_user_can( 'list_users' ) ) :
 endif;
 
 // Development hook.
-do_action( 'ds_users_discussion_tab' );
+do_action( 'ds_site_widget_users_tab' );

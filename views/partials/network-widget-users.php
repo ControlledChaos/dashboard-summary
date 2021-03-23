@@ -114,4 +114,4 @@ $users_text  = sprintf(
 <?php
 
 // Development hook.
-do_action( 'ds_network_widget_users' );
+do_action( 'ds_network_widget_users_tab' );

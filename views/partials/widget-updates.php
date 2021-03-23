@@ -33,10 +33,7 @@ $tab_heading = apply_filters(
 // Updates section description.
 $tab_description = apply_filters(
 	'ds_widget_updates_description',
-	sprintf(
-		'<p class="description screen-reader-text">%s</p>',
-		''
-	)
+	''
 );
 
 // Tools section heading.

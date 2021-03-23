@@ -127,4 +127,4 @@ $tools_description = apply_filters(
 <?php
 
 // Development hook.
-do_action( 'ds_site_widget_content' );
+do_action( 'ds_site_widget_content_tab' );

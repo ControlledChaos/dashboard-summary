@@ -112,4 +112,4 @@ $sites_text  = sprintf(
 <?php
 
 // Development hook.
-do_action( 'ds_network_widget_sites' );
+do_action( 'ds_network_widget_sites_tab' );

@@ -377,7 +377,7 @@ class Site_Summary {
 	 *
 	 * @since  1.0.0
 	 * @access public
-	 * @return string Returns a PHP version statement.
+	 * @return string Returns a PHP version notice.
 	 */
 	public function php_version() {
 
@@ -388,7 +388,7 @@ class Site_Summary {
 			'PHP ' . phpversion()
 		);
 
-		return apply_filters( 'ds_php_version_statement', $output );
+		return apply_filters( 'ds_php_version_notice', $output );
 	}
 
 	/**
@@ -398,7 +398,7 @@ class Site_Summary {
 	 *
 	 * @since  1.0.0
 	 * @access public
-	 * @return string Returns a PHP version statement.
+	 * @return string Returns the name of the management system.
 	 */
 	public function management_system() {
 
@@ -419,7 +419,7 @@ class Site_Summary {
 	 *
 	 * @since  1.0.0
 	 * @access public
-	 * @return string Returns a PHP version statement.
+	 * @return string Returns the link to the management system.
 	 */
 	public function system_notice() {
 
@@ -885,7 +885,7 @@ class Site_Summary {
 	 *
 	 * @since  1.0.0
 	 * @access public
-	 * @return string Returns the text of the notice.
+	 * @return integer Returns a number of updates.
 	 */
 	public function updates( $updates = '' ) {
 
