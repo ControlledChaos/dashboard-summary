@@ -83,7 +83,7 @@ $tools_description = apply_filters(
 	'ds_site_widget_content_tools_description',
 	sprintf(
 		'<p class="description">%s</p>',
-		__( 'Search, import, and export content of this website.', DS_DOMAIN )
+		__( 'Search, import, and export content of this website, if allowed.', DS_DOMAIN )
 	)
 );
 
