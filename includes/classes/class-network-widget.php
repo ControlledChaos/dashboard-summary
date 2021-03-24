@@ -1,6 +1,6 @@
 <?php
 /**
- * Replace Widget
+ * Network summary Widget
  *
  * @package    Dashboard_Summary
  * @subpackage Classes

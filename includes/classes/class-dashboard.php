@@ -2,6 +2,9 @@
 /**
  * Dashboard class
  *
+ * Instantiated for both site and network dashboards.
+ * Primarily used to load scripts & styles.
+ *
  * @package    Dashboard_Summary
  * @subpackage Classes
  * @category   Admin

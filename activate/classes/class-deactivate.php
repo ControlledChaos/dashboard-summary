@@ -2,6 +2,8 @@
 /**
  * Plugin deactivation class
  *
+ * Nothing to see here.
+ *
  * @package    Dashboard_Summary
  * @subpackage Classes
  * @category   Activate

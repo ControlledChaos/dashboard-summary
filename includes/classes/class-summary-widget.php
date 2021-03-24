@@ -1,6 +1,6 @@
 <?php
 /**
- * Replace Widget
+ * Site summary widget
  *
  * @package    Dashboard_Summary
  * @subpackage Classes

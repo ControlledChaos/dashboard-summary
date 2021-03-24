@@ -1362,6 +1362,10 @@ class Site_Summary {
 /**
  * Instance of the class
  *
+ * This function is used throughout the plugin files
+ * to access class methods. This class is instantiated
+ * in the plugin initialization file.
+ *
  * @since  1.0.0
  * @access public
  * @return object Site_Summary Returns an instance of the class.

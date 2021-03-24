@@ -2,6 +2,14 @@
 /**
  * At a Glance widget
  *
+ * The "At a Glance" widget, formerly "Right Now",
+ * is the default WordPress & ClassicPress summary
+ * widget on site dashboards, not network dashboards.
+ *
+ * Methods in this class add custom post types with
+ * icons, taxonomies with icons, and a PHP notice
+ * to the default widget content.
+ *
  * @package    Dashboard_Summary
  * @subpackage Classes
  * @category   Widgets
@@ -26,7 +34,7 @@ class At_A_Glance {
 	 */
 	public function __construct() {
 
-		// Remove the widget.
+		// Maybe remove the widget.
 		add_action( 'wp_dashboard_setup', [ $this, 'remove_widget' ] );
 
 		if ( true == settings()->sanitize_glance() ) {
@@ -48,6 +56,9 @@ class At_A_Glance {
 	/**
 	 * Remove At a Glance widget
 	 *
+	 * Removes the widget by default and if the setting
+	 * is not set to tru (checkbox checked).
+	 *
 	 * @since  1.0.0
 	 * @access public
 	 * @global array wp_meta_boxes The metaboxes array holds all the widgets for wp-admin.
@@ -55,9 +66,13 @@ class At_A_Glance {
 	 */
 	public function remove_widget() {
 
+		// Access metaboxes.
 		global $wp_meta_boxes;
 
+		// Check the At a Glance setting.
 		if ( false == settings()->sanitize_glance() ) {
+
+			// Unset the At a Glance widget.
 			unset( $wp_meta_boxes['dashboard']['normal']['core']['dashboard_right_now'] );
 		}
 	}
@@ -179,11 +194,12 @@ class At_A_Glance {
 			} elseif( 0 === strpos( $type->menu_icon, 'http' ) ) {
 				$menu_icon = '<icon class="at-glance-cpt-icons"><img src="' . esc_url( $type->menu_icon ) . '" /></icon>';
 
+			// Fall back to the default post icon.
 			} else {
 				$menu_icon = '<icon class="dashicons dashicons-admin-post dashicons-admin-' . $type->menu_icon . '"></icon>';
 			}
 
-			// Supply an edit link if the user can edit posts.
+			// Supply an edit link if the user can edit post type.
 			if ( current_user_can( $type->cap->edit_posts ) ) {
 				printf(
 					'<li class="post-count %s-count"><a href="edit.php?post_type=%s">%s %s %s</a></li>',
@@ -260,7 +276,7 @@ class At_A_Glance {
 	 */
 	public function at_glance_end() {
 
-		// PHP version statement.
+		// PHP version notice.
 		echo sprintf(
 			'<p>%s</p>',
 			summary()->php_version()

@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Class files
  *
- * Defines the class directories and file prefixes.
+ * Defines the class directory and file prefix.
  *
  * @since 1.0.0
  * @var   string Defines the class file path.
@@ -29,10 +29,6 @@ define( 'DS_CLASS', DS_PATH . 'includes/classes/class-' );
 
 /**
  * Array of classes to register
- *
- * When you add new classes to your version of this plugin you may
- * add them to the following array rather than requiring the file
- * elsewhere. Be sure to include the precise namespace.
  *
  * @since 1.0.0
  * @var   array Defines an array of class files to register.
