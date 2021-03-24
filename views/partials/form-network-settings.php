@@ -21,6 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 
 <h2><?php _e( 'Dashboard Options', DS_DOMAIN ); ?></h2>
+<p id="network-summary-description" class="description"><?php _e( 'These options are for the network dashboard only. Visit the General Settings screen of network sites for site dashboard options.', DS_DOMAIN ); ?></p>
 
 <table id="network-dashboard-options" class="form-table" role="presentation">
 	<tbody>
