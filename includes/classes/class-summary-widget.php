@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die;
 }
 
-class Summary_Widget {
+class Site_Widget {
 
 	/**
 	 * Constructor method

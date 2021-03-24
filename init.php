@@ -91,7 +91,7 @@ function admin_init() {
 
 	// Site dashboard.
 	if ( is_admin() && 'index.php' === $pagenow ) {
-		new Classes\Summary_Widget;
+		new Classes\Site_Widget;
 		new Classes\At_A_Glance;
 	}
 
