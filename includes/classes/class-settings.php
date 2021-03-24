@@ -294,13 +294,23 @@ final class Settings {
 		}
 
 		// Markup & text of the new link.
-		$settings = [
-			sprintf(
-				'<a href="%s">%s</a>',
-				esc_url( admin_url( 'options-general.php#dashboard-summary-description' ) ),
-				esc_html__( 'Settings', DS_DOMAIN )
-			)
-		];
+		if ( is_multisite() && is_network_admin() ) {
+			$settings = [
+				sprintf(
+					'<a href="%s">%s</a>',
+					esc_url( network_admin_url( 'settings.php#network-summary-description' ) ),
+					esc_html__( 'Settings', DS_DOMAIN )
+				)
+			];
+		} else {
+			$settings = [
+				sprintf(
+					'<a href="%s">%s</a>',
+					esc_url( admin_url( 'options-general.php#dashboard-summary-description' ) ),
+					esc_html__( 'Settings', DS_DOMAIN )
+				)
+			];
+		}
 
 		// Merge the new link with existing links.
 		return array_merge( $settings, $links );

@@ -66,6 +66,7 @@ function init() {
 
 	// Add settings link to plugin row.
 	add_filter( 'plugin_action_links_' . DS_BASENAME, [ __NAMESPACE__ . '\Classes\Settings', 'settings_link' ], 99 );
+	add_filter( 'network_admin_plugin_action_links_' . DS_BASENAME, [ __NAMESPACE__ . '\Classes\Settings', 'settings_link' ], 99 );
 }
 
 /**
