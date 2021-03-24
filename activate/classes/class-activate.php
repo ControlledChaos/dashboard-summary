@@ -2,11 +2,6 @@
 /**
  * Plugin activation class
  *
- * The minimum PHP version is not included in the
- * plugin header because the admin notices here are
- * more elegant than the native `die()` screen
- * proveded by the management system.
- *
  * @package    Dashboard_Summary
  * @subpackage Classes
  * @category   Activate
@@ -87,7 +82,10 @@ class Activate {
 	}
 
 	/**
-	 * PHP deactivation notice: after plugin row
+	 * Plugin row notice
+	 *
+	 * Provides a PHP deactivation notice below the content
+	 * of the plugin row.
 	 *
 	 * @since  1.0.0
 	 * @access public
@@ -95,9 +93,10 @@ class Activate {
 	 */
 	public function row_notice( $plugin_file, $plugin_data, $status ) {
 
+		// Column span of the table data cell.
 		$colspan = 4;
 
-		// If WP  version< 5.5.
+		// Column span if WordPress version is less than 5.5 or ClassicPress.
 		if ( version_compare( $GLOBALS['wp_version'], '5.5', '<' ) ) {
 			$colspan = 3;
 		}

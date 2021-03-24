@@ -2,6 +2,8 @@
 /**
  * Plugin configuration
  *
+ * Defines constants used throughout the plugin files.
+ *
  * @package    Dashboard_Summary
  * @subpackage Configuration
  * @category   Core
@@ -25,8 +27,6 @@ define( 'DS_VERSION', '1.0.0' );
 
 /**
  * Constant: Text domain
- *
- * Remember to replace in the plugin header above.
  *
  * @since 1.0.0
  * @var   string The text domain of the plugin.
@@ -52,7 +52,7 @@ define( 'DS_PATH', plugin_dir_path( __FILE__ ) );
 define( 'DS_URL', plugin_dir_url(__FILE__ ) );
 
 /**
- * Constant: Widget title
+ * Constant: Site widget title
  *
  * @since 1.0.0
  * @var   string The text of the title.

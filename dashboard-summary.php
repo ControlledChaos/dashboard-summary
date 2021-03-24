@@ -2,22 +2,24 @@
 /**
  * Dashboard Summary
  *
- * Improves the At a Glance dashboard widget and offers
- * a replacement widget with more detailed website information.
+ * Improves the At a Glance dashboard widget and offers a replacement
+ * widget with more detailed website and network information.
  *
- * @package     Dashboard_Summary
- * @version     1.0.0
- * @link        https://github.com/ControlledChaos/dashboard-summary
+ * Compatible with WordPress Multisite and with ClassicPress.
+ *
+ * @package Dashboard_Summary
+ * @version 1.0.0
+ * @link    https://github.com/ControlledChaos/dashboard-summary
  *
  * Plugin Name:  Dashboard Summary
  * Plugin URI:   https://github.com/ControlledChaos/dashboard-summary
- * Description:  Improves the At a Glance dashboard widget and offers a replacement widget with more detailed website information.
+ * Description:  Improves the At a Glance dashboard widget and offers a replacement widget with more detailed website and network information. Compatible with WordPress Multisite and with ClassicPress.
  * Version:      1.0.0
  * Author:       Controlled Chaos Design
  * Author URI:   http://ccdzine.com/
  * Text Domain:  dashboard-summary
  * Domain Path:  /languages
- * Tested up to: 5.6.2
+ * Tested up to: 5.7
  */
 
 namespace Dashboard_Summary;
@@ -42,10 +44,10 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 
 /**
- * Constant: Plugin base name
+ * Constant: Plugin basename
  *
  * @since 1.0.0
- * @var   string The base name of this plugin file.
+ * @var   string The basename of this plugin file.
  */
 define( 'DS_BASENAME', plugin_basename( __FILE__ ) );
 
@@ -102,7 +104,7 @@ function activate_plugin() {
 }
 
 /**
- * Run daactivation class
+ * Deactivation callback
  *
  * The function that runs during plugin deactivation.
  *
@@ -118,6 +120,11 @@ function deactivate_plugin() {}
  * Stop here if the minimum PHP version is not met.
  * Prevents breaking sites running older PHP versions.
  *
+ * A notice is added to the plugin row on the Plugins
+ * screen as a more elegant and more imformative way
+ * of disabling the plugin than putting the PHP minimum
+ * tag in the plugin header.
+ *
  * @since  1.0.0
  * @return void
  */
@@ -127,8 +134,16 @@ if ( ! Classes\php()->version() ) {
 	$activate = new Activate\Activate;
 	$activate->get_row_notice();
 
+	// Stop here.
 	return;
 }
 
-// Get the plugin initialization file.
+/**
+ * Plugin initialization
+ *
+ * Get the plugin initialization file if
+ * the PHP minimum is met.
+ *
+ * @since  1.0.0
+ */
 require_once DS_PATH . 'init.php';

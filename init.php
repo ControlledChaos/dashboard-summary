@@ -2,6 +2,9 @@
 /**
  * Initialize plugin functionality
  *
+ * Loads the text domain for translation and
+ * instantiates various classes.
+ *
  * @package    Dashboard_Summary
  * @subpackage Init
  * @category   Core
@@ -26,6 +29,7 @@ add_action( 'admin_init', __NAMESPACE__ . '\admin_init' );
  * Initialization function
  *
  * Loads PHP classes and text domain.
+ * Instantiates various classes.
  * Adds settings link in the plugin row.
  *
  * @since  1.0.0
@@ -55,19 +59,19 @@ function init() {
 	 */
 	require_once DS_PATH . 'includes/autoloader.php';
 
-	// New instances of plugin classes.
+	// Settings and core methods.
 	new Classes\Settings;
 	new Classes\Site_Summary;
 	new Classes\User_Options;
 
 	// Add settings link to plugin row.
-	add_filter( 'plugin_action_links_' . DS_BASENAME, [ __NAMESPACE__ . '\Classes\Settings', 'settings_link' ] );
+	add_filter( 'plugin_action_links_' . DS_BASENAME, [ __NAMESPACE__ . '\Classes\Settings', 'settings_link' ], 99 );
 }
 
 /**
  * Admin initialization function
  *
- * Adds widgets, loads scripts & styles.
+ * Instantiates various classes.
  *
  * @since  1.0.0
  * @access public
