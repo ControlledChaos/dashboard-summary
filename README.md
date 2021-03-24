@@ -9,33 +9,3 @@ Improves the At a Glance dashboard widget and offers a replacement widget with m
 Requires PHP version 7.4 or higher.
 
 Settings on the General Settings screen.
-
-## Profile Tab
-
-The profile tab displays basic information and options of the current user. The same is displayed in this tab for all user roles.
-
-![Screenshot: Profile Tab](https://github.com/ControlledChaos/dashboard-summary/raw/main/assets/images/tab-profile.jpg)
-
-## Content Tab
-
-The content tab displays links to manage content only if the current user has the defined capability.
-
-![Screenshot: Content Tab](https://github.com/ControlledChaos/dashboard-summary/raw/main/assets/images/tab-content.jpg)
-
-## Users Tab
-
-The content of the users tab varies by user capabilities.
-
-![Screenshot: Users Tab](https://github.com/ControlledChaos/dashboard-summary/raw/main/assets/images/tab-users.jpg)
-
-## Updates Tab
-
-The content of the updates tab varies by user capabilities and is not displayed for some user roles.
-
-![Screenshot: Updates Tab](https://github.com/ControlledChaos/dashboard-summary/raw/main/assets/images/tab-updates.jpg)
-
-## System Tab
-
-The system tab displays basic information about the website. Some content varies by user capability.
-
-![Screenshot: System Tab](https://github.com/ControlledChaos/dashboard-summary/raw/main/assets/images/tab-system.jpg)
