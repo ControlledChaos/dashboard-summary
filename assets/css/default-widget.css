@@ -149,7 +149,7 @@
 
 #dashboard-widgets #ds-default-widget .ds-widget-search-fields input[type="search"] {
   width: 100%;
-  max-width: 100%;
+  max-width: 240px;
   margin-right: 0.35em;
 }
 
