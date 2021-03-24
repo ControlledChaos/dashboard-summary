@@ -24,5 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 function delete_options() {
 	delete_option( 'ds_enable_summary' );
 	delete_option( 'ds_enable_glance' );
+	delete_network_option( get_current_network_id(), 'ds_enable_network_summary' );
+	delete_network_option( get_current_network_id(), 'ds_enable_network_right_now' );
 }
 delete_options();
