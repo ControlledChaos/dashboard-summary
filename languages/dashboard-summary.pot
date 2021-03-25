@@ -1,0 +1,40 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Dashboard Summary\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-03-25 03:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.5.2; wp-5.7\n"
+"X-Domain: dashboard-summary"
+
+#. Author of the plugin
+msgid "Controlled Chaos Design"
+msgstr ""
+
+#. Name of the plugin
+msgid "Dashboard Summary"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "http://ccdzine.com/"
+msgstr ""
+
+#. URI of the plugin
+msgid "https://github.com/ControlledChaos/dashboard-summary"
+msgstr ""
+
+#. Description of the plugin
+msgid ""
+"Improves the At a Glance dashboard widget and offers a replacement widget "
+"with more detailed website and network information. Compatible with "
+"WordPress Multisite and with ClassicPress."
+msgstr ""
