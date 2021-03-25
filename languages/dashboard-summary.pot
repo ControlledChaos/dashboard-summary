@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dashboard Summary\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-25 03:08+0000\n"
+"POT-Creation-Date: 2021-03-25 04:48+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -16,12 +16,606 @@ msgstr ""
 "X-Loco-Version: 2.5.2; wp-5.7\n"
 "X-Domain: dashboard-summary"
 
+#: includes/classes/class-site-summary.php:715
+#, php-format
+msgid "<a href=\"%1$s\">Learn more about WordPress %2$s</a>."
+msgstr ""
+
+#: views/partials/dev-reference.php:74
+msgid ""
+"<strong>Note:</strong> Many of these also filter the markup as well as the "
+"text inside the element so carefully read the filter description."
+msgstr ""
+
+#: includes/classes/class-site-summary.php:1050
+#, php-format
+msgid ""
+"<strong>There is a new version of %1$s available. <a href=\"%2$s\" %3$s>View "
+"version %4$s details</a> or <a href=\"%5$s\" %6$s>update now</a>.</strong>"
+msgstr ""
+
+#: views/partials/widget-profile.php:65
+msgid "A quick review of your options for using this website."
+msgstr ""
+
+#: views/partials/widget-profile.php:129
+msgid "About"
+msgstr ""
+
+#: views/partials/widget-profile.php:147
+msgid "Account email:"
+msgstr ""
+
+#: views/partials/widget-profile.php:72
+msgid "Account Tools"
+msgstr ""
+
+#: views/partials/network-widget-sites.php:62
+msgid "Add a site or manage sites from the sites list screen."
+msgstr ""
+
+#: views/partials/network-widget-users.php:64
+#: views/partials/site-widget-users.php:80
+msgid "Add a user or manage users from the users list screen."
+msgstr ""
+
+#: views/partials/widget-system-info.php:34
+msgid "An overview of network operations."
+msgstr ""
+
+#: views/partials/widget-system-info.php:39
+msgid "An overview of website operations."
+msgstr ""
+
+#: includes/classes/class-site-summary.php:680
+msgid "An updated version of"
+msgstr ""
+
+#: views/partials/site-widget-users.php:125
+msgid "Approved"
+msgstr ""
+
+#: includes/classes/class-settings.php:103
+msgid "At a Glance"
+msgstr ""
+
+#: includes/classes/class-site-summary.php:688
+msgid "Before updating, please back up your database and files."
+msgstr ""
+
+#: includes/classes/class-site-summary.php:886
+msgid "Bring back this update"
+msgstr ""
+
+#: includes/classes/class-settings.php:169
+msgid "Choose which website summary widgets to display on the dashboard."
+msgstr ""
+
+#: includes/classes/class-site-summary.php:470
+#: includes/classes/class-site-summary.php:669
+msgid "ClassicPress"
+msgstr ""
+
+#: views/partials/widget-profile.php:149
+msgid "Color scheme:"
+msgstr ""
+
+#: views/partials/dev-reference.php:88
+msgid "Colors"
+msgstr ""
+
+#: views/partials/site-widget-users.php:157
+#: views/partials/site-widget-users.php:172
+msgid "Comment By You"
+msgid_plural "Comments By You"
+msgstr[0] ""
+msgstr[1] ""
+
+#: views/partials/site-widget-users.php:111
+msgid "Comment in total"
+msgid_plural "Comments in Total"
+msgstr[0] ""
+msgstr[1] ""
+
+#: views/default-widget.php:47
+msgid "Content"
+msgstr ""
+
+#: views/partials/site-widget-content.php:63
+msgid "Content Classification"
+msgstr ""
+
+#: views/partials/site-widget-content.php:78
+msgid "Content Tools"
+msgstr ""
+
+#: views/partials/site-widget-content.php:48
+msgid "Content Types"
+msgstr ""
+
 #. Author of the plugin
 msgid "Controlled Chaos Design"
 msgstr ""
 
+#: includes/classes/class-settings.php:68
+#: views/partials/form-network-settings.php:23
+msgid "Dashboard Options"
+msgstr ""
+
 #. Name of the plugin
 msgid "Dashboard Summary"
+msgstr ""
+
+#: views/partials/dev-reference.php:70
+msgid "Development Filters"
+msgstr ""
+
+#: views/partials/dev-reference.php:31
+msgid "Development Hooks"
+msgstr ""
+
+#: views/partials/dev-reference.php:19
+msgid "Development Hooks & Filters"
+msgstr ""
+
+#: views/partials/widget-system-info.php:140
+msgid ""
+"Development hooks & filters of the dashboard summary widgets for adding "
+"content or modifying text."
+msgstr ""
+
+#: views/partials/widget-profile.php:110
+msgid "Display name:"
+msgstr ""
+
+#: views/partials/widget-profile.php:164
+msgid "Edit Account"
+msgstr ""
+
+#: includes/classes/class-settings.php:82
+#: views/partials/form-network-settings.php:36
+msgid "Enable the"
+msgstr ""
+
+#: includes/classes/class-settings.php:107
+msgid "Enable the At a Glance widget."
+msgstr ""
+
+#: views/partials/form-network-settings.php:49
+msgid "Enable the Right Now widget."
+msgstr ""
+
+#: views/partials/site-widget-content.php:118
+msgid "Enter content search terms"
+msgstr ""
+
+#: views/partials/site-widget-content.php:128
+msgid "Enter media title or filename"
+msgstr ""
+
+#: views/partials/network-widget-sites.php:93
+msgid "Enter whole or partial site name"
+msgstr ""
+
+#: views/partials/network-widget-users.php:95
+#: views/partials/site-widget-users.php:209
+#: views/partials/site-widget-users.php:209
+msgid "Enter whole or partial user name"
+msgstr ""
+
+#: views/partials/site-widget-content.php:141
+msgid "Export"
+msgstr ""
+
+#: views/partials/dev-reference.php:26
+msgid "Filters"
+msgstr ""
+
+#: views/partials/dev-reference.php:144
+msgid "Filters a number of updates."
+msgstr ""
+
+#: views/partials/dev-reference.php:94
+msgid "Filters an array of color scheme CSS hex codes."
+msgstr ""
+
+#: views/partials/dev-reference.php:98
+msgid "Filters an array of color scheme notification CSS hex codes."
+msgstr ""
+
+#: views/partials/dev-reference.php:112
+msgid ""
+"Filters an array of merged built-in post types and custom post types used in "
+"the site widget content tab and in the At a Glance widget."
+msgstr ""
+
+#: views/partials/dev-reference.php:116
+msgid ""
+"Filters an array of queried taxonomies used in the site widget content tab "
+"and in the At a Glance widget."
+msgstr ""
+
+#: views/partials/dev-reference.php:140
+msgid "Filters the <code>&lt;a&gt;</code> markup & text of the active theme."
+msgstr ""
+
+#: views/partials/dev-reference.php:132
+msgid ""
+"Filters the <code>&lt;a&gt;</code> markup & text of the content/website "
+"management system notice."
+msgstr ""
+
+#: views/partials/dev-reference.php:120
+msgid ""
+"Filters the <code>&lt;a&gt;</code> markup & text of the PHP version notice."
+msgstr ""
+
+#: views/partials/dev-reference.php:136
+msgid ""
+"Filters the <code>&lt;a&gt;</code> markup & text of the search engines "
+"notice, if discouraged."
+msgstr ""
+
+#: views/partials/dev-reference.php:316
+msgid ""
+"Filters the <code>&lt;h3&gt;</code> markup & text of the network sites tab "
+"heading."
+msgstr ""
+
+#: views/partials/dev-reference.php:345
+msgid ""
+"Filters the <code>&lt;h3&gt;</code> markup & text of the network users tab "
+"heading."
+msgstr ""
+
+#: views/partials/dev-reference.php:160
+msgid ""
+"Filters the <code>&lt;h3&gt;</code> markup & text of the profile tab heading."
+msgstr ""
+
+#: views/partials/dev-reference.php:244
+msgid ""
+"Filters the <code>&lt;h3&gt;</code> markup & text of the site content tab "
+"heading."
+msgstr ""
+
+#: views/partials/dev-reference.php:280
+msgid ""
+"Filters the <code>&lt;h3&gt;</code> markup & text of the site users tab "
+"heading."
+msgstr ""
+
+#: views/partials/dev-reference.php:196
+msgid ""
+"Filters the <code>&lt;h3&gt;</code> markup & text of the system tab heading."
+msgstr ""
+
+#: views/partials/dev-reference.php:224
+msgid ""
+"Filters the <code>&lt;h3&gt;</code> markup & text of the updates tab heading."
+msgstr ""
+
+#: views/partials/dev-reference.php:168
+msgid ""
+"Filters the <code>&lt;h4&gt;</code> markup & text of the profile tab account "
+"section heading."
+msgstr ""
+
+#: views/partials/dev-reference.php:148
+msgid ""
+"Filters the <code>&lt;h4&gt;</code> markup & text of the user greeting in "
+"the profile tab."
+msgstr ""
+
+#: views/partials/dev-reference.php:320
+msgid ""
+"Filters the <code>&lt;p&gt;</code> markup & text of the network sites tab "
+"description."
+msgstr ""
+
+#: views/partials/dev-reference.php:328
+msgid ""
+"Filters the <code>&lt;p&gt;</code> markup & text of the network sites tab "
+"manage section description."
+msgstr ""
+
+#: views/partials/dev-reference.php:336
+msgid ""
+"Filters the <code>&lt;p&gt;</code> markup & text of the network sites tab "
+"tools section description."
+msgstr ""
+
+#: views/partials/dev-reference.php:349
+msgid ""
+"Filters the <code>&lt;p&gt;</code> markup & text of the network users tab "
+"description."
+msgstr ""
+
+#: views/partials/dev-reference.php:357
+msgid ""
+"Filters the <code>&lt;p&gt;</code> markup & text of the network users tab "
+"manage section description."
+msgstr ""
+
+#: views/partials/dev-reference.php:365
+msgid ""
+"Filters the <code>&lt;p&gt;</code> markup & text of the network users tab "
+"tools section description."
+msgstr ""
+
+#: views/partials/dev-reference.php:172
+msgid ""
+"Filters the <code>&lt;p&gt;</code> markup & text of the profile tab account "
+"section description."
+msgstr ""
+
+#: views/partials/dev-reference.php:164
+msgid ""
+"Filters the <code>&lt;p&gt;</code> markup & text of the profile tab "
+"description."
+msgstr ""
+
+#: views/partials/dev-reference.php:180
+msgid ""
+"Filters the <code>&lt;p&gt;</code> markup & text of the profile tab options "
+"section description."
+msgstr ""
+
+#: views/partials/dev-reference.php:188
+msgid ""
+"Filters the <code>&lt;p&gt;</code> markup & text of the profile tab tools "
+"section description."
+msgstr ""
+
+#: views/partials/dev-reference.php:248
+msgid ""
+"Filters the <code>&lt;p&gt;</code> markup & text of the site content tab "
+"description."
+msgstr ""
+
+#: views/partials/dev-reference.php:256
+msgid ""
+"Filters the <code>&lt;p&gt;</code> markup & text of the site content tab "
+"post types section description."
+msgstr ""
+
+#: views/partials/dev-reference.php:264
+msgid ""
+"Filters the <code>&lt;p&gt;</code> markup & text of the site content tab "
+"taxonomies section description."
+msgstr ""
+
+#: views/partials/dev-reference.php:272
+msgid ""
+"Filters the <code>&lt;p&gt;</code> markup & text of the site content tab "
+"tools section description."
+msgstr ""
+
+#: views/partials/dev-reference.php:292
+msgid ""
+"Filters the <code>&lt;p&gt;</code> markup & text of the site users tab "
+"comments section description."
+msgstr ""
+
+#: views/partials/dev-reference.php:284
+msgid ""
+"Filters the <code>&lt;p&gt;</code> markup & text of the site users tab "
+"description."
+msgstr ""
+
+#: views/partials/dev-reference.php:300
+msgid ""
+"Filters the <code>&lt;p&gt;</code> markup & text of the site users tab "
+"registered users section description."
+msgstr ""
+
+#: views/partials/dev-reference.php:308
+msgid ""
+"Filters the <code>&lt;p&gt;</code> markup & text of the site users tab tools "
+"section description."
+msgstr ""
+
+#: views/partials/dev-reference.php:200
+msgid ""
+"Filters the <code>&lt;p&gt;</code> markup & text of the system tab "
+"description."
+msgstr ""
+
+#: views/partials/dev-reference.php:208
+msgid ""
+"Filters the <code>&lt;p&gt;</code> markup & text of the system tab "
+"information section description."
+msgstr ""
+
+#: views/partials/dev-reference.php:216
+msgid ""
+"Filters the <code>&lt;p&gt;</code> markup & text of the system tab tools "
+"section description."
+msgstr ""
+
+#: views/partials/dev-reference.php:228
+msgid ""
+"Filters the <code>&lt;p&gt;</code> markup & text of the updates tab "
+"description."
+msgstr ""
+
+#: views/partials/dev-reference.php:152
+msgid ""
+"Filters the <code>&lt;p&gt;</code> markup & text of the user greeting "
+"description in the profile tab."
+msgstr ""
+
+#: views/partials/dev-reference.php:128
+msgid "Filters the name of the content/website management system."
+msgstr ""
+
+#: views/partials/dev-reference.php:108
+msgid ""
+"Filters the query array of custom post types used in the site widget content "
+"tab and in the At a Glance widget."
+msgstr ""
+
+#: views/partials/dev-reference.php:124
+msgid "Filters the text of the database version notice."
+msgstr ""
+
+#: views/partials/dev-reference.php:84
+msgid "Filters the text of the network dashboard widget title."
+msgstr ""
+
+#: views/partials/dev-reference.php:324
+msgid "Filters the text of the network sites tab manage section heading."
+msgstr ""
+
+#: views/partials/dev-reference.php:332
+msgid "Filters the text of the network sites tab tools section heading."
+msgstr ""
+
+#: views/partials/dev-reference.php:353
+msgid "Filters the text of the network users tab manage section heading."
+msgstr ""
+
+#: views/partials/dev-reference.php:361
+msgid "Filters the text of the network users tab tools section heading."
+msgstr ""
+
+#: views/partials/dev-reference.php:176
+msgid "Filters the text of the profile tab options section heading."
+msgstr ""
+
+#: views/partials/dev-reference.php:184
+msgid "Filters the text of the profile tab tools section heading."
+msgstr ""
+
+#: views/partials/dev-reference.php:252
+msgid "Filters the text of the site content tab post types section heading."
+msgstr ""
+
+#: views/partials/dev-reference.php:260
+msgid "Filters the text of the site content tab taxonomies section heading."
+msgstr ""
+
+#: views/partials/dev-reference.php:268
+msgid "Filters the text of the site content tab tools section heading."
+msgstr ""
+
+#: views/partials/dev-reference.php:80
+msgid "Filters the text of the site dashboard widget title."
+msgstr ""
+
+#: views/partials/dev-reference.php:288
+msgid "Filters the text of the site users tab comments section heading."
+msgstr ""
+
+#: views/partials/dev-reference.php:296
+msgid ""
+"Filters the text of the site users tab registered users section heading."
+msgstr ""
+
+#: views/partials/dev-reference.php:304
+msgid "Filters the text of the site users tab tools section heading."
+msgstr ""
+
+#: views/partials/dev-reference.php:204
+msgid "Filters the text of the system tab information section heading."
+msgstr ""
+
+#: views/partials/dev-reference.php:212
+msgid "Filters the text of the system tab tools section heading."
+msgstr ""
+
+#: views/partials/dev-reference.php:236
+msgid "Filters the text of the updates tab tools section description."
+msgstr ""
+
+#: views/partials/dev-reference.php:232
+msgid "Filters the text of the updates tab tools section heading."
+msgstr ""
+
+#: views/partials/dev-reference.php:59
+msgid "Fires at the end of the network sites tab."
+msgstr ""
+
+#: views/partials/dev-reference.php:63
+msgid "Fires at the end of the network users tab."
+msgstr ""
+
+#: views/partials/dev-reference.php:39
+msgid "Fires at the end of the profile tab."
+msgstr ""
+
+#: views/partials/dev-reference.php:51
+msgid "Fires at the end of the site content tab."
+msgstr ""
+
+#: views/partials/dev-reference.php:55
+msgid "Fires at the end of the site users tab."
+msgstr ""
+
+#: views/partials/dev-reference.php:43
+msgid "Fires at the end of the system tab."
+msgstr ""
+
+#: views/partials/dev-reference.php:47
+msgid "Fires at the end of the updates tab."
+msgstr ""
+
+#: views/partials/site-widget-users.php:41
+msgid "Follow the links to manage users and comments."
+msgstr ""
+
+#: views/partials/site-widget-content.php:41
+msgid "Follow the links to manage website content."
+msgstr ""
+
+#: views/partials/dev-reference.php:72
+msgid ""
+"Following is a list of filters that can be used to change text in the "
+"various widget tabs."
+msgstr ""
+
+#: views/partials/dev-reference.php:33
+msgid ""
+"Following is a list of hooks that can be used to add content to the various "
+"widget tabs."
+msgstr ""
+
+#: includes/classes/class-user-colors.php:54
+msgid "Fresh"
+msgstr ""
+
+#: views/partials/widget-profile.php:150
+msgid "Frontend toolbar:"
+msgstr ""
+
+#: activate/classes/class-activate.php:129
+msgid ""
+"Functionality of this plugin has been disabled because it requires PHP "
+"version"
+msgstr ""
+
+#: views/partials/widget-updates.php:49
+msgid "Go to the updates page or upgrade the network."
+msgstr ""
+
+#: views/partials/widget-updates.php:54
+msgid "Go to the updates page."
+msgstr ""
+
+#: includes/classes/class-site-summary.php:1302
+msgid "Hello,"
+msgstr ""
+
+#: includes/classes/class-site-summary.php:925
+msgid "Hide hidden updates"
+msgstr ""
+
+#: includes/classes/class-site-summary.php:884
+msgid "Hide this update"
+msgstr ""
+
+#: views/partials/dev-reference.php:25
+msgid "Hooks"
 msgstr ""
 
 #. Author URI of the plugin
@@ -32,9 +626,581 @@ msgstr ""
 msgid "https://github.com/ControlledChaos/dashboard-summary"
 msgstr ""
 
+#: includes/classes/class-site-summary.php:788
+#, php-format
+msgid "If you need to re-install version %s, you can do so here:"
+msgstr ""
+
+#: views/partials/site-widget-content.php:136
+msgid "Import"
+msgstr ""
+
+#: includes/classes/class-site-summary.php:687
+msgid "Important:"
+msgstr ""
+
 #. Description of the plugin
 msgid ""
 "Improves the At a Glance dashboard widget and offers a replacement widget "
 "with more detailed website and network information. Compatible with "
 "WordPress Multisite and with ClassicPress."
+msgstr ""
+
+#: views/partials/site-widget-users.php:133
+msgid "In Moderation"
+msgstr ""
+
+#: views/partials/site-widget-users.php:149
+msgid "In Trash"
+msgstr ""
+
+#: views/partials/widget-profile.php:94
+msgid "Information"
+msgstr ""
+
+#: includes/classes/class-site-summary.php:682
+msgid "is available."
+msgstr ""
+
+#: views/partials/network-widget-users.php:37
+msgid "Manage network users."
+msgstr ""
+
+#: views/partials/network-widget-sites.php:106
+msgid "Manage Sites"
+msgstr ""
+
+#: views/partials/widget-system-info.php:72
+msgid "Manage the network settings and the options for the primary website."
+msgstr ""
+
+#: views/partials/widget-system-info.php:77
+msgid "Manage the options for this website."
+msgstr ""
+
+#: views/partials/network-widget-sites.php:35
+msgid "Manage the websites of this network."
+msgstr ""
+
+#: views/partials/network-widget-users.php:108
+#: views/partials/site-widget-users.php:222
+msgid "Manage Users"
+msgstr ""
+
+#: views/partials/widget-profile.php:80
+msgid "Manage your profile and the details of your account."
+msgstr ""
+
+#: views/partials/site-widget-users.php:141
+msgid "Marked Spam"
+msgstr ""
+
+#: views/partials/network-widget-sites.php:26
+msgid "Network Management"
+msgstr ""
+
+#: views/partials/widget-system-info.php:119
+msgid "Network Settings"
+msgstr ""
+
+#: views/partials/network-widget-sites.php:42
+msgid "Network Sites"
+msgstr ""
+
+#: views/partials/dev-reference.php:312
+msgid "Network Sites Tab"
+msgstr ""
+
+#: config.php:64
+msgid "Network Summary"
+msgstr ""
+
+#: views/partials/network-widget-users.php:44
+msgid "Network Users"
+msgstr ""
+
+#: views/partials/dev-reference.php:341
+msgid "Network Users Tab"
+msgstr ""
+
+#: views/partials/network-widget-sites.php:109
+msgid "New Site"
+msgstr ""
+
+#: views/partials/network-widget-users.php:111
+#: views/partials/site-widget-users.php:225
+msgid "New User"
+msgstr ""
+
+#: views/partials/widget-profile.php:109
+msgid "Nickname:"
+msgstr ""
+
+#: includes/classes/class-user-options.php:174
+msgid "No"
+msgstr ""
+
+#: includes/classes/class-user-options.php:158
+msgid "No website provided."
+msgstr ""
+
+#: includes/classes/class-site-summary.php:433
+msgid "not available"
+msgstr ""
+
+#: views/partials/site-widget-users.php:197
+msgid "Number of registered users for this site:"
+msgstr ""
+
+#: views/partials/widget-profile.php:95
+msgid "Options"
+msgstr ""
+
+#: views/partials/widget-system-info.php:123
+msgid "Options Page"
+msgstr ""
+
+#: activate/classes/class-activate.php:131
+msgid "or greater. Your system is running PHP version"
+msgstr ""
+
+#: views/partials/widget-profile.php:41
+msgid "Personal Information"
+msgstr ""
+
+#: views/partials/widget-profile.php:57
+msgid "Personal Options"
+msgstr ""
+
+#: views/partials/widget-updates.php:75
+msgid "Plugins"
+msgstr ""
+
+#: views/default-network-widget.php:49 views/default-widget.php:45
+msgid "Profile"
+msgstr ""
+
+#: views/partials/dev-reference.php:156
+msgid "Profile Tab"
+msgstr ""
+
+#: includes/classes/class-site-summary.php:789
+msgid "Re-install System"
+msgstr ""
+
+#: views/partials/site-widget-users.php:60
+msgid "Registered Users"
+msgstr ""
+
+#: views/partials/form-network-settings.php:44
+msgid "Right Now"
+msgstr ""
+
+#: views/partials/site-widget-content.php:116
+#: views/partials/site-widget-content.php:118
+#: views/partials/site-widget-content.php:119
+msgid "Search Content"
+msgstr ""
+
+#: includes/classes/class-site-summary.php:533
+msgid "Search engines are discouraged"
+msgstr ""
+
+#: includes/classes/class-site-summary.php:531
+msgid "Search engines are discouraged for the primary site"
+msgstr ""
+
+#: views/partials/site-widget-content.php:126
+#: views/partials/site-widget-content.php:128
+#: views/partials/site-widget-content.php:129
+msgid "Search Media"
+msgstr ""
+
+#: views/partials/network-widget-sites.php:91
+#: views/partials/network-widget-sites.php:93
+#: views/partials/network-widget-sites.php:94
+msgid "Search Sites"
+msgstr ""
+
+#: views/partials/network-widget-users.php:93
+#: views/partials/network-widget-users.php:95
+#: views/partials/network-widget-users.php:96
+#: views/partials/site-widget-users.php:207
+#: views/partials/site-widget-users.php:207
+#: views/partials/site-widget-users.php:209
+#: views/partials/site-widget-users.php:210
+msgid "Search Users"
+msgstr ""
+
+#: views/partials/site-widget-content.php:86
+msgid "Search, import, and export content of this website, if allowed."
+msgstr ""
+
+#: views/partials/dev-reference.php:103
+msgid "See includes/classes/class-site-summary.php."
+msgstr ""
+
+#: views/partials/dev-reference.php:89
+msgid "See includes/classes/class-user-colors.php."
+msgstr ""
+
+#: includes/classes/class-settings.php:310
+#: includes/classes/class-settings.php:318
+msgid "Settings"
+msgstr ""
+
+#: includes/classes/class-site-summary.php:924
+#: includes/classes/class-site-summary.php:935
+msgid "Show hidden updates"
+msgstr ""
+
+#: views/partials/dev-reference.php:240
+msgid "Site Content Tab"
+msgstr ""
+
+#: views/partials/dev-reference.php:276
+msgid "Site Users Tab"
+msgstr ""
+
+#: views/default-network-widget.php:45
+msgid "Sites"
+msgstr ""
+
+#: views/partials/widget-system-info.php:55
+msgid "Some technical details about the"
+msgstr ""
+
+#: views/partials/dev-reference.php:102
+msgid "Summary Content Methods"
+msgstr ""
+
+#: views/default-network-widget.php:55 views/default-widget.php:55
+#: views/partials/widget-updates.php:66
+msgid "System"
+msgstr ""
+
+#: views/partials/widget-system-info.php:47
+msgid "System Information"
+msgstr ""
+
+#: views/partials/widget-system-info.php:26
+msgid "System Overview"
+msgstr ""
+
+#: views/partials/dev-reference.php:192
+msgid "System Tab"
+msgstr ""
+
+#: views/partials/widget-system-info.php:65
+msgid "System Tools"
+msgstr ""
+
+#: views/partials/widget-updates.php:29
+msgid "System Updates"
+msgstr ""
+
+#: includes/classes/class-site-summary.php:603
+#: includes/classes/class-site-summary.php:621
+#: includes/classes/class-site-summary.php:630
+msgid "The active theme is"
+msgstr ""
+
+#: includes/classes/class-site-summary.php:596
+#: includes/classes/class-site-summary.php:614
+msgid "The active theme of the primary site is"
+msgstr ""
+
+#: includes/classes/class-site-summary.php:450
+msgid "The database version is"
+msgstr ""
+
+#: includes/classes/class-site-summary.php:386
+msgid "The web server is running"
+msgstr ""
+
+#: views/partials/widget-updates.php:84
+msgid "Themes"
+msgstr ""
+
+#: views/partials/network-widget-users.php:88
+#, php-format
+msgid "There %1$s registered in the network."
+msgstr ""
+
+#: includes/classes/class-site-summary.php:1030
+#: includes/classes/class-site-summary.php:1076
+msgid "There are no plugin updates available."
+msgstr ""
+
+#: includes/classes/class-site-summary.php:659
+msgid "There are no system updates available."
+msgstr ""
+
+#: includes/classes/class-site-summary.php:1100
+#: includes/classes/class-site-summary.php:1119
+msgid "There are no theme updates available."
+msgstr ""
+
+#: includes/classes/class-site-summary.php:1204
+#, php-format
+msgid ""
+"There is a new version of %1$s available. <a href=\"%2$s\" %3$s>View version "
+"%4$s details</a> or <a href=\"%5$s\" %6$s>update now</a>."
+msgstr ""
+
+#: includes/classes/class-site-summary.php:1179
+#, php-format
+msgid ""
+"There is a new version of %1$s available. <a href=\"%2$s\" %3$s>View version "
+"%4$s details</a>."
+msgstr ""
+
+#: includes/classes/class-site-summary.php:1192
+#, php-format
+msgid ""
+"There is a new version of %1$s available. <a href=\"%2$s\" %3$s>View version "
+"%4$s details</a>. <em>Automatic update is unavailable for this theme.</em>"
+msgstr ""
+
+#: views/partials/form-network-settings.php:24
+msgid ""
+"These options are for the network dashboard only. Visit the General Settings "
+"screen of network sites for site dashboard options."
+msgstr ""
+
+#: views/partials/dev-reference.php:20
+msgid ""
+"This code reference is provided by the Dashboard Summary plugin for adding "
+"content or modifying text."
+msgstr ""
+
+#: includes/classes/class-site-summary.php:892
+msgid ""
+"This localized version contains both the translation and various other "
+"localization fixes."
+msgstr ""
+
+#: views/partials/widget-profile.php:122
+msgid ""
+"This may be displayed to website users or visitors, depending on the active "
+"theme or members plugins."
+msgstr ""
+
+#: views/partials/network-widget-sites.php:86
+#, php-format
+msgid "This network consists of %1$s."
+msgstr ""
+
+#: includes/classes/class-site-summary.php:494
+msgid "This network is running"
+msgstr ""
+
+#: includes/classes/class-site-summary.php:1321
+msgid "This section provides details about your account."
+msgstr ""
+
+#: views/partials/site-widget-content.php:56
+msgid "This website contains the following post and content types."
+msgstr ""
+
+#: includes/classes/class-site-summary.php:496
+msgid "This website is running"
+msgstr ""
+
+#: views/partials/site-widget-content.php:71
+msgid "This website&#8217;s content is organized by the following taxonomies."
+msgstr ""
+
+#: includes/classes/class-site-summary.php:1065
+#: includes/classes/class-site-summary.php:1215
+#, php-format
+msgid "Update %s now"
+msgstr ""
+
+#: includes/classes/class-site-summary.php:776
+msgid "Update System"
+msgstr ""
+
+#: views/partials/widget-updates.php:42
+msgid "Update Tools"
+msgstr ""
+
+#: views/default-network-widget.php:52 views/default-widget.php:52
+msgid "Updates"
+msgstr ""
+
+#: views/partials/widget-updates.php:97
+msgid "Updates Page"
+msgstr ""
+
+#: views/partials/dev-reference.php:220
+msgid "Updates Tab"
+msgstr ""
+
+#: views/partials/widget-updates.php:101
+msgid "Upgrade Network"
+msgstr ""
+
+#: views/partials/site-widget-users.php:48
+msgid "User Discussion"
+msgstr ""
+
+#: views/partials/widget-profile.php:108
+msgid "User name:"
+msgstr ""
+
+#: views/partials/widget-profile.php:111
+msgid "User roles:"
+msgstr ""
+
+#: views/partials/network-widget-users.php:56
+#: views/partials/site-widget-users.php:72
+msgid "User Tools"
+msgstr ""
+
+#: views/default-network-widget.php:47 views/default-widget.php:49
+msgid "Users"
+msgstr ""
+
+#: views/partials/site-widget-users.php:32
+msgid "Users & Discussion"
+msgstr ""
+
+#: views/partials/network-widget-users.php:28
+msgid "Users Overview"
+msgstr ""
+
+#: includes/classes/class-site-summary.php:1056
+#: includes/classes/class-site-summary.php:1184
+#: includes/classes/class-site-summary.php:1197
+#: includes/classes/class-site-summary.php:1209
+#, php-format
+msgid "View %1$s version %2$s details"
+msgstr ""
+
+#: views/partials/widget-profile.php:124
+msgid "View in popup window"
+msgstr ""
+
+#: views/partials/widget-system-info.php:142
+msgid "View reference in modal window."
+msgstr ""
+
+#: views/partials/site-widget-content.php:32
+msgid "Website Content"
+msgstr ""
+
+#: config.php:53
+msgid "Website Summary"
+msgstr ""
+
+#: views/partials/network-widget-sites.php:54
+msgid "Website Tools"
+msgstr ""
+
+#: views/partials/widget-system-info.php:58
+msgid "website."
+msgstr ""
+
+#: includes/classes/class-site-summary.php:709
+msgid ""
+"While your site is being updated, it will be in maintenance mode. As soon as "
+"your updates are complete, this mode will be deactivated."
+msgstr ""
+
+#: views/partials/widget-system-info.php:139
+msgid "Widget Development"
+msgstr ""
+
+#: views/partials/dev-reference.php:76
+msgid "Widget Titles"
+msgstr ""
+
+#: includes/classes/class-settings.php:84
+#: views/partials/form-network-settings.php:38
+msgid "widget."
+msgstr ""
+
+#: includes/classes/class-site-summary.php:472
+#: includes/classes/class-site-summary.php:671
+msgid "WordPress"
+msgstr ""
+
+#: includes/classes/class-user-options.php:172
+msgid "Yes"
+msgstr ""
+
+#: includes/classes/class-site-summary.php:898
+#, php-format
+msgid ""
+"You are about to install WordPress %s <strong>in English (US).</strong> "
+"There is a chance this update will break your translation. You may prefer to "
+"wait for the localized version to be released."
+msgstr ""
+
+#: includes/classes/class-site-summary.php:694
+msgid "You are using a development version of"
+msgstr ""
+
+#. 1: Installed WordPress version number, 2: URL to WordPress release notes, 3: New WordPress version number, including locale if necessary.
+#: includes/classes/class-site-summary.php:850
+#, php-format
+msgid ""
+"You can update from WordPress %1$s to <a href=\"%2$s\">WordPress %3$s</a> "
+"manually:"
+msgstr ""
+
+#: includes/classes/class-site-summary.php:783
+msgid "You can update to the latest nightly build manually:"
+msgstr ""
+
+#. 1: URL to WordPress release notes, 2: WordPress version number, 3: Minimum required MySQL version number, 4: Current MySQL version number.
+#: includes/classes/class-site-summary.php:841
+#, php-format
+msgid ""
+"You cannot update because <a href=\"%1$s\">WordPress %2$s</a> requires MySQL "
+"version %3$s or higher. You are running version %4$s."
+msgstr ""
+
+#. 1: URL to WordPress release notes, 2: WordPress version number, 3: Minimum required PHP version number, 4: Minimum required MySQL version number, 5: Current PHP version number, 6: Current MySQL version number.
+#: includes/classes/class-site-summary.php:821
+#, php-format
+msgid ""
+"You cannot update because <a href=\"%1$s\">WordPress %2$s</a> requires PHP "
+"version %3$s or higher and MySQL version %4$s or higher. You are running PHP "
+"version %5$s and MySQL version %6$s."
+msgstr ""
+
+#. 1: URL to WordPress release notes, 2: WordPress version number, 3: Minimum required PHP version number, 4: Current PHP version number.
+#: includes/classes/class-site-summary.php:832
+#, php-format
+msgid ""
+"You cannot update because <a href=\"%1$s\">WordPress %2$s</a> requires PHP "
+"version %3$s or higher. You are running version %4$s."
+msgstr ""
+
+#: includes/classes/class-site-summary.php:701
+msgid "You have the latest version of"
+msgstr ""
+
+#: views/partials/widget-profile.php:120
+msgid "Your Description/Biography"
+msgstr ""
+
+#: views/partials/widget-profile.php:105
+msgid "Your Identity"
+msgstr ""
+
+#: views/partials/widget-profile.php:50
+msgid ""
+"Your personal information is as follows. Some of this information may be "
+"displayed publicly."
+msgstr ""
+
+#: views/partials/widget-profile.php:26
+msgid "Your Profile"
+msgstr ""
+
+#: views/partials/widget-profile.php:148
+msgid "Your website:"
 msgstr ""
