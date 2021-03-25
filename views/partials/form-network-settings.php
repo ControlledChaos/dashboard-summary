@@ -26,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <table id="network-dashboard-options" class="form-table" role="presentation">
 	<tbody>
 		<tr>
-			<th scope="row"><?php _e( DS_NETWORK_WIDGET_TITLE, DS_DOMAIN ); ?></th>
+			<th scope="row"><?php echo DS_NETWORK_WIDGET_TITLE; ?></th>
 			<td>
 				<label for="ds_enable_network_summary">
 					<input type="hidden" name="ds_enable_network_summary" value="0">

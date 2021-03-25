@@ -70,14 +70,19 @@ final class Settings {
 			'general'
 		);
 
-		// Enable the Dashboard Summary widget.
+		// Enable the Website Summary widget.
 		add_settings_field(
 			'ds_enable_summary',
-			__( 'Dashboard Summary', DS_DOMAIN ),
+			DS_WIDGET_TITLE,
 			[ $this, 'enable_summary' ],
 			'general',
 			'ds_dashboard_options',
-			[ esc_html__( 'Enable the Dashboard Summary widget.', DS_DOMAIN ) ]
+			[ sprintf(
+				'%s %s %s',
+				__( 'Enable the', DS_DOMAIN ),
+				DS_WIDGET_TITLE,
+				__( 'widget.', DS_DOMAIN )
+			) ]
 		);
 
 		register_setting(
@@ -134,7 +139,7 @@ final class Settings {
 	}
 
 	/**
-	 * Enable the network Dashboard Summary widget
+	 * Enable the network Website Summary widget
 	 *
 	 * @since  1.0.0
 	 * @access public
@@ -166,7 +171,7 @@ final class Settings {
 	}
 
 	/**
-	 * Enable the Dashboard Summary widget
+	 * Enable the Website Summary widget
 	 *
 	 * @since  1.0.0
 	 * @access public
@@ -206,7 +211,7 @@ final class Settings {
 	}
 
 	/**
-	 * Sanitize Dashboard Summary option
+	 * Sanitize Website Summary option
 	 *
 	 * Defaults to true.
 	 *
