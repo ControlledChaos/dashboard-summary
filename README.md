@@ -9,3 +9,7 @@ Improves the At a Glance dashboard widget and offers a replacement widget with m
 Requires PHP version 7.4 or higher.
 
 Settings on the General Settings screen and on the Network Settings screen of multisite installations.
+
+## About the Plugin
+
+While rewriting the plugin boilerplate that I have for building site-specific client plugins I set about to improve upon the At a Glance dashboard widget. I already had code written to add custom post types to the widget but to display the correct, corresponding icon I had to add CSS to the dashboard. The initial goal was to add the correct post type icon programmatically, which snowballed into this project.
