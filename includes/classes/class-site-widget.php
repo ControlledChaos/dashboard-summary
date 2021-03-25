@@ -2,6 +2,9 @@
 /**
  * Site summary widget
  *
+ * Adds a widget to the dashboard of a standard installation
+ * or to network sites of a multisite installation.
+ *
  * @package    Dashboard_Summary
  * @subpackage Classes
  * @category   Widgets

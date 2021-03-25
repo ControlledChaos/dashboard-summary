@@ -2,6 +2,9 @@
 /**
  * Settings
  *
+ * Register settings and render the fields,
+ * plus associated markup.
+ *
  * @package    Dashboard_Summary
  * @subpackage Classes
  * @category   Settings
@@ -59,7 +62,7 @@ final class Settings {
 	 */
 	public function settings() {
 
-		// Admin pages settings section.
+		// Add a section on the General Settings screen.
 		add_settings_section(
 			'ds_dashboard_options',
 			__( 'Dashboard Options', DS_DOMAIN ),

@@ -2,6 +2,8 @@
 /**
  * Network summary Widget
  *
+ * Adds a widget to the network dashboard of a multisite installation.
+ *
  * @package    Dashboard_Summary
  * @subpackage Classes
  * @category   Widgets
@@ -26,6 +28,7 @@ class Network_Widget {
 	 */
 	public function __construct() {
 
+		// Add the widget to the network dashboard.
 		add_action( 'wp_network_dashboard_setup', [ $this, 'add_widget' ] );
 		add_action( 'ds_network_widget', [ $this, 'get_output' ] );
 
@@ -35,11 +38,12 @@ class Network_Widget {
 		// Print admin styles to head.
 		add_action( 'admin_print_styles', [ $this, 'admin_print_styles' ], 20 );
 
+		// Maybe remove the Right Now widget.
 		add_action( 'wp_network_dashboard_setup', [ $this, 'remove_widget' ] );
 	}
 
 	/**
-	 * Remove At a Glance widget
+	 * Remove Right Now widget
 	 *
 	 * @since  1.0.0
 	 * @access public
@@ -48,9 +52,13 @@ class Network_Widget {
 	 */
 	public function remove_widget() {
 
+		// Access metaboxes.
 		global $wp_meta_boxes;
 
+		// Check the Right Now setting.
 		if ( false == settings()->sanitize_network_right_now() ) {
+
+			// Unset the Right Now widget.
 			unset( $wp_meta_boxes['dashboard-network']['normal']['core']['network_dashboard_right_now'] );
 		}
 	}
@@ -64,9 +72,20 @@ class Network_Widget {
 	 */
 	public function add_widget() {
 
+		/**
+		 * Widget title
+		 *
+		 * The title is set as a constant in the plugin config file.
+		 * The title can be modified by defining the `DS_NETWORK_WIDGET_TITLE`
+		 * constant in the system config file or by accessing the
+		 * `ds_network_widget_title` filter applied here.
+		 */
 		$title = apply_filters( 'ds_network_widget_title', DS_NETWORK_WIDGET_TITLE );
 
+		// Check the network summary setting.
 		if ( true == settings()->sanitize_network_summary() ) {
+
+			// Add the network summary widget.
 			wp_add_dashboard_widget( 'dashboard_summary', $title, [ $this, 'output' ] );
 		}
 	}
@@ -74,8 +93,9 @@ class Network_Widget {
 	/**
 	 * Dashboard widget output
 	 *
-	 * Add widget content as an action to facilitate
-	 * the use of another template.
+	 * Add widget content as an action to facilitate the use
+	 * of another template via the `remove_action` and the
+	 * `add_action` hooks.
 	 *
 	 * @since  1.0.0
 	 * @access public
@@ -87,6 +107,8 @@ class Network_Widget {
 
 	/**
 	 * Get dashboard widget output
+	 *
+	 * Includes the widget markup from files in the views directory.
 	 *
 	 * @since  1.0.0
 	 * @access public
@@ -141,6 +163,7 @@ class Network_Widget {
 		$style .= '.ds-tabs-nav li.ds-tabs-state-active { border-bottom-color: ' . $colors['colors']['background'] . '; }';
 		$style .= '</style>' . '<!-- End Dashboard Summary icon styles -->';
 
+		// Print the style block.
 		echo $style;
 	}
 }

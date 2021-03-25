@@ -34,7 +34,7 @@ class At_A_Glance {
 	 */
 	public function __construct() {
 
-		// Maybe remove the widget.
+		// Maybe remove the At a Glance widget.
 		add_action( 'wp_dashboard_setup', [ $this, 'remove_widget' ] );
 
 		if ( true == settings()->sanitize_glance() ) {

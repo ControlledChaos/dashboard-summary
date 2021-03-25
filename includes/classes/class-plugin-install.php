@@ -47,10 +47,12 @@ class Plugin_Install {
 	 */
 	public function hide_update_button() {
 
+		// Plugin modal styles.
 		$style  = '<style>';
 		$style .= '#plugin-information-footer { display: none; }';
 		$style .= '</style>';
 
+		// Print the style block.
 		echo $style;
 	}
 }
