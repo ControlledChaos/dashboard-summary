@@ -29,7 +29,7 @@ $tab_heading = apply_filters(
 	'ds_site_widget_users_heading',
 	sprintf(
 		'<h3 class="screen-reader-text">%s</h3>',
-		__( 'Users & Discussion', DS_DOMAIN )
+		__( 'Users & Discussion', 'dashboard-summary' )
 	)
 );
 
@@ -38,14 +38,14 @@ $tab_description = apply_filters(
 	'ds_site_widget_users_description',
 	sprintf(
 		'<p class="description">%s</p>',
-		__( 'Follow the links to manage users and comments.', DS_DOMAIN )
+		__( 'Follow the links to manage users and comments.', 'dashboard-summary' )
 	)
 );
 
 // Comments section heading.
 $comments_heading = apply_filters(
 	'ds_site_widget_users_comments_heading',
-	__( 'User Discussion', DS_DOMAIN )
+	__( 'User Discussion', 'dashboard-summary' )
 );
 
 // Comments section description.
@@ -57,7 +57,7 @@ $comments_description = apply_filters(
 // Registered users section heading.
 $registered_heading = apply_filters(
 	'ds_site_widget_users_registered_heading',
-	__( 'Registered Users', DS_DOMAIN )
+	__( 'Registered Users', 'dashboard-summary' )
 );
 
 // Registered users section description.
@@ -69,7 +69,7 @@ $registered_description = apply_filters(
 // Tools section heading.
 $tools_heading = apply_filters(
 	'ds_site_widget_users_tools_heading',
-	__( 'User Tools', DS_DOMAIN )
+	__( 'User Tools', 'dashboard-summary' )
 );
 
 // Tools description.
@@ -77,7 +77,7 @@ $tools_description = apply_filters(
 	'ds_site_widget_users_tools_description',
 	sprintf(
 		'<p class="description">%s</p>',
-		__( 'Add a user or manage users from the users list screen.', DS_DOMAIN )
+		__( 'Add a user or manage users from the users list screen.', 'dashboard-summary' )
 	)
 );
 
@@ -112,7 +112,7 @@ $comment_total = $comment_count['total_comments'] + $comment_count['trash'];
 				'Comment in total',
 				'Comments in Total',
 				intval( $comment_total ),
-				DS_DOMAIN
+				'dashboard-summary'
 			)
 		);
 		?>
@@ -122,7 +122,7 @@ $comment_total = $comment_count['total_comments'] + $comment_count['trash'];
 			'<li><a href="%s"><icon class="dashicons dashicons-admin-comments"></icon> %s %s</a></li>',
 			esc_url( admin_url( 'edit-comments.php?comment_status=approved' ) ),
 			intval( $comment_count['approved'] ),
-			__( 'Approved', DS_DOMAIN )
+			__( 'Approved', 'dashboard-summary' )
 		); ?>
 		<?php
 		// Comments awaiting moderation.
@@ -130,7 +130,7 @@ $comment_total = $comment_count['total_comments'] + $comment_count['trash'];
 			'<li><a href="%s"><icon class="dashicons dashicons-format-chat"></icon> %s %s</a></li>',
 			esc_url( admin_url( 'edit-comments.php?comment_status=moderated' ) ),
 			intval( $comment_count['awaiting_moderation'] ),
-			__( 'In Moderation', DS_DOMAIN )
+			__( 'In Moderation', 'dashboard-summary' )
 		); ?>
 		<?php
 		// Comments marked as spam.
@@ -138,7 +138,7 @@ $comment_total = $comment_count['total_comments'] + $comment_count['trash'];
 			'<li><a href="%s"><icon class="dashicons dashicons-warning"></icon> %s %s</a></li>',
 			esc_url( admin_url( 'edit-comments.php?comment_status=spam' ) ),
 			intval( $comment_count['spam'] ),
-			__( 'Marked Spam', DS_DOMAIN )
+			__( 'Marked Spam', 'dashboard-summary' )
 		); ?>
 		<?php
 		// Comments in trash.
@@ -146,7 +146,7 @@ $comment_total = $comment_count['total_comments'] + $comment_count['trash'];
 			'<li><a href="%s"><icon class="dashicons dashicons-trash"></icon> %s %s</a></li>',
 			esc_url( admin_url( 'edit-comments.php?comment_status=trash' ) ),
 			intval( $comment_count['trash'] ),
-			__( 'In Trash', DS_DOMAIN )
+			__( 'In Trash', 'dashboard-summary' )
 		); ?>
 		<?php
 		// Comments by current user.
@@ -158,7 +158,7 @@ $comment_total = $comment_count['total_comments'] + $comment_count['trash'];
 				'Comment By You',
 				'Comments By You',
 				$summary->get_user_comments_count(),
-				DS_DOMAIN
+				'dashboard-summary'
 			)
 		);
 
@@ -173,7 +173,7 @@ $comment_total = $comment_count['total_comments'] + $comment_count['trash'];
 				'Comment By You',
 				'Comments By You',
 				$summary->get_user_comments_count(),
-				DS_DOMAIN
+				'dashboard-summary'
 			)
 		);
 		endif;
@@ -194,7 +194,7 @@ if ( current_user_can( 'list_users' ) ) :
 		<li>
 			<?php echo sprintf(
 				'%s <a href="%s"><strong>%s</strong></a>',
-				__( 'Number of registered users for this site:', DS_DOMAIN ),
+				__( 'Number of registered users for this site:', 'dashboard-summary' ),
 				esc_url( admin_url( 'users.php' ) ),
 				$summary->total_users()
 			); ?>
@@ -204,10 +204,10 @@ if ( current_user_can( 'list_users' ) ) :
 	<form role="search" action="<?php echo self_admin_url( 'users.php' ); ?>" method="get">
 		<?php $field_id = 'site-' . get_current_blog_id() . '-dashboard-search-users'; ?>
 		<p class="ds-widget-search-fields">
-			<label class="screen-reader-text" for="<?php echo $field_id; ?>" aria-label="<?php _e( 'Search Users', DS_DOMAIN ); ?>"><?php _e( 'Search Users', DS_DOMAIN ); ?></label>
+			<label class="screen-reader-text" for="<?php echo $field_id; ?>" aria-label="<?php _e( 'Search Users', 'dashboard-summary' ); ?>"><?php _e( 'Search Users', 'dashboard-summary' ); ?></label>
 
-			<input type="search" name="s" id="<?php echo $field_id; ?>" aria-labelledby="<?php _e( 'Search Users', DS_DOMAIN ); ?>" value="<?php echo get_search_query(); ?>" autocomplete="off" placeholder="<?php _e( 'Enter whole or partial user name', DS_DOMAIN ); ?>" aria-placeholder="<?php _e( 'Enter whole or partial user name', DS_DOMAIN ); ?>" />
-			<?php submit_button( __( 'Search Users', DS_DOMAIN ), '', false, false, [ 'id' => 'submit-' . $field_id ] ); ?>
+			<input type="search" name="s" id="<?php echo $field_id; ?>" aria-labelledby="<?php _e( 'Search Users', 'dashboard-summary' ); ?>" value="<?php echo get_search_query(); ?>" autocomplete="off" placeholder="<?php _e( 'Enter whole or partial user name', 'dashboard-summary' ); ?>" aria-placeholder="<?php _e( 'Enter whole or partial user name', 'dashboard-summary' ); ?>" />
+			<?php submit_button( __( 'Search Users', 'dashboard-summary' ), '', false, false, [ 'id' => 'submit-' . $field_id ] ); ?>
 		</p>
 	</form>
 </div>
@@ -219,10 +219,10 @@ if ( current_user_can( 'list_users' ) ) :
 
 	<p class="ds-widget-link-button">
 		<a class="button button-primary" href="<?php echo self_admin_url( 'users.php' ); ?>">
-			<?php _e( 'Manage Users', DS_DOMAIN ); ?>
+			<?php _e( 'Manage Users', 'dashboard-summary' ); ?>
 		</a>
 		<a class="button button-primary" href="<?php echo self_admin_url( 'user-new.php' ); ?>">
-			<?php _e( 'New User', DS_DOMAIN ); ?>
+			<?php _e( 'New User', 'dashboard-summary' ); ?>
 		</a>
 	</p>
 </div>

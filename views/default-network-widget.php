@@ -42,17 +42,17 @@ do_action( 'ds_default_network_widget_before' );
 
 	<ul class="ds-tabs-nav">
 
-		<li class="ds-tabs-state-active"><a href="#ds-default-network-widget-sites"><?php _e( 'Sites', DS_DOMAIN ); ?></a></li>
+		<li class="ds-tabs-state-active"><a href="#ds-default-network-widget-sites"><?php _e( 'Sites', 'dashboard-summary' ); ?></a></li>
 
-		<li><a href="#ds-default-network-widget-users"><?php _e( 'Users', DS_DOMAIN ); ?></a></li>
+		<li><a href="#ds-default-network-widget-users"><?php _e( 'Users', 'dashboard-summary' ); ?></a></li>
 
-		<li><a href="#ds-default-widget-profile"><?php _e( 'Profile', DS_DOMAIN ); ?></a></li>
+		<li><a href="#ds-default-widget-profile"><?php _e( 'Profile', 'dashboard-summary' ); ?></a></li>
 
 		<?php if ( $summary->updates_tab() ) : ?>
-		<li><a href="#ds-default-widget-updates"><?php _e( 'Updates', DS_DOMAIN ); echo $update_count; ?></a></li>
+		<li><a href="#ds-default-widget-updates"><?php _e( 'Updates', 'dashboard-summary' ); echo $update_count; ?></a></li>
 		<?php endif; ?>
 
-		<li><a href="#ds-default-network-widget-system-info"><?php _e( 'System', DS_DOMAIN ); ?></a></li>
+		<li><a href="#ds-default-network-widget-system-info"><?php _e( 'System', 'dashboard-summary' ); ?></a></li>
 	</ul>
 
 	<section id="ds-default-network-widget-sites" class="ds-widget-section ds-tabs-panel ds-tabs-state-active">

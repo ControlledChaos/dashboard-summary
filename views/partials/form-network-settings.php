@@ -20,8 +20,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 
-<h2><?php _e( 'Dashboard Options', DS_DOMAIN ); ?></h2>
-<p id="network-summary-description" class="description"><?php _e( 'These options are for the network dashboard only. Visit the General Settings screen of network sites for site dashboard options.', DS_DOMAIN ); ?></p>
+<h2><?php _e( 'Dashboard Options', 'dashboard-summary' ); ?></h2>
+<p id="network-summary-description" class="description"><?php _e( 'These options are for the network dashboard only. Visit the General Settings screen of network sites for site dashboard options.', 'dashboard-summary' ); ?></p>
 
 <table id="network-dashboard-options" class="form-table" role="presentation">
 	<tbody>
@@ -33,20 +33,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<input type="checkbox" id="ds_enable_network_summary" name="ds_enable_network_summary" value="1" <?php echo checked( 1, $summary, false ); ?> />
 					<?php printf(
 						'%s %s %s',
-						__( 'Enable the', DS_DOMAIN ),
+						__( 'Enable the', 'dashboard-summary' ),
 						DS_NETWORK_WIDGET_TITLE,
-						__( 'widget.', DS_DOMAIN )
+						__( 'widget.', 'dashboard-summary' )
 					); ?>
 				</label>
 			</td>
 		</tr>
 		<tr>
-			<th scope="row"><?php _e( 'Right Now', DS_DOMAIN ); ?></th>
+			<th scope="row"><?php _e( 'Right Now', 'dashboard-summary' ); ?></th>
 			<td>
 				<label for="ds_enable_network_right_now">
 					<input type="hidden" name="ds_enable_network_right_now" value="0">
 					<input type="checkbox" id="ds_enable_network_right_now" name="ds_enable_network_right_now" value="1" <?php echo checked( 1, $right_now, false ); ?> />
-					<?php _e( 'Enable the Right Now widget.', DS_DOMAIN ); ?>
+					<?php _e( 'Enable the Right Now widget.', 'dashboard-summary' ); ?>
 				</label>
 			</td>
 		</tr>

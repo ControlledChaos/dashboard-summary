@@ -23,7 +23,7 @@ $tab_heading = apply_filters(
 	'ds_network_widget_sites_heading',
 	sprintf(
 		'<h3 class="screen-reader-text">%s</h3>',
-		__( 'Network Management', DS_DOMAIN )
+		__( 'Network Management', 'dashboard-summary' )
 	)
 );
 
@@ -32,14 +32,14 @@ $tab_description = apply_filters(
 	'ds_network_widget_sites_description',
 	sprintf(
 		'<p class="description screen-reader-text">%s</p>',
-		__( 'Manage the websites of this network.', DS_DOMAIN )
+		__( 'Manage the websites of this network.', 'dashboard-summary' )
 	)
 );
 
 // Manage section heading.
 $manage_heading = apply_filters(
 	'ds_site_widget_manage_sites_heading',
-	__( 'Network Sites', DS_DOMAIN )
+	__( 'Network Sites', 'dashboard-summary' )
 );
 
 // Manage description.
@@ -51,7 +51,7 @@ $manage_description = apply_filters(
 // Tools section heading.
 $tools_heading = apply_filters(
 	'ds_network_widget_sites_tools_heading',
-	__( 'Website Tools', DS_DOMAIN )
+	__( 'Website Tools', 'dashboard-summary' )
 );
 
 // Tools description.
@@ -59,7 +59,7 @@ $tools_description = apply_filters(
 	'ds_network_widget_sites_tools_description',
 	sprintf(
 		'<p class="description">%s</p>',
-		__( 'Add a site or manage sites from the sites list screen.', DS_DOMAIN )
+		__( 'Add a site or manage sites from the sites list screen.', 'dashboard-summary' )
 	)
 );
 
@@ -83,15 +83,15 @@ $sites_text  = sprintf(
 	<h4><?php echo $manage_heading; ?></h4>
 	<?php echo $manage_description; ?>
 
-	<p><?php printf( __( 'This network consists of %1$s.', DS_DOMAIN ), $sites_text ); ?></p>
+	<p><?php printf( __( 'This network consists of %1$s.', 'dashboard-summary' ), $sites_text ); ?></p>
 
 	<form role="search" action="<?php echo network_admin_url( 'sites.php' ); ?>" method="get">
 		<?php $field_id = 'network-' . get_current_network_id() . '-dashboard-search-sites'; ?>
 		<p class="ds-widget-search-fields">
-			<label class="screen-reader-text" for="<?php echo $field_id; ?>" aria-label="<?php _e( 'Search Sites', DS_DOMAIN ); ?>"><?php _e( 'Search Sites', DS_DOMAIN ); ?></label>
+			<label class="screen-reader-text" for="<?php echo $field_id; ?>" aria-label="<?php _e( 'Search Sites', 'dashboard-summary' ); ?>"><?php _e( 'Search Sites', 'dashboard-summary' ); ?></label>
 
-			<input type="search" name="s" id="<?php echo $field_id; ?>" aria-labelledby="<?php _e( 'Search Sites', DS_DOMAIN ); ?>" value="<?php echo get_search_query(); ?>" autocomplete="off" placeholder="<?php _e( 'Enter whole or partial site name', DS_DOMAIN ); ?>" aria-placeholder="<?php _e( 'Enter whole or partial site name', DS_DOMAIN ); ?>" />
-			<?php submit_button( __( 'Search Sites', DS_DOMAIN ), '', false, false, [ 'id' => 'submit-' . $field_id ] ); ?>
+			<input type="search" name="s" id="<?php echo $field_id; ?>" aria-labelledby="<?php _e( 'Search Sites', 'dashboard-summary' ); ?>" value="<?php echo get_search_query(); ?>" autocomplete="off" placeholder="<?php _e( 'Enter whole or partial site name', 'dashboard-summary' ); ?>" aria-placeholder="<?php _e( 'Enter whole or partial site name', 'dashboard-summary' ); ?>" />
+			<?php submit_button( __( 'Search Sites', 'dashboard-summary' ), '', false, false, [ 'id' => 'submit-' . $field_id ] ); ?>
 		</p>
 	</form>
 </div>
@@ -103,10 +103,10 @@ $sites_text  = sprintf(
 
 	<p class="ds-widget-link-button">
 		<a class="button button-primary" href="<?php echo network_admin_url( 'sites.php' ); ?>">
-			<?php _e( 'Manage Sites', DS_DOMAIN ); ?>
+			<?php _e( 'Manage Sites', 'dashboard-summary' ); ?>
 		</a>
 		<a class="button button-primary" href="<?php echo network_admin_url( 'site-new.php' ); ?>">
-			<?php _e( 'New Site', DS_DOMAIN ); ?>
+			<?php _e( 'New Site', 'dashboard-summary' ); ?>
 		</a>
 	</p>
 </div>

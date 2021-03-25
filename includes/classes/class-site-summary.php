@@ -383,7 +383,7 @@ class Site_Summary {
 
 		$output = sprintf(
 			'%s <a href="%s">%s</a>',
-			__( 'The web server is running', DS_DOMAIN ),
+			__( 'The web server is running', 'dashboard-summary' ),
 			esc_url( 'https://www.php.net/releases/index.php' ),
 			'PHP ' . phpversion()
 		);
@@ -430,7 +430,7 @@ class Site_Summary {
 		if ( isset( $vars['version'] ) && ! empty( $vars['version'] ) ) {
 			$version = sanitize_text_field( $vars['version'] );
 		} else {
-			$version = __( 'not available', DS_DOMAIN );
+			$version = __( 'not available', 'dashboard-summary' );
 		}
 
 		return $version;
@@ -447,7 +447,7 @@ class Site_Summary {
 
 		$output = sprintf(
 			'%s %s',
-			__( 'The database version is', DS_DOMAIN ),
+			__( 'The database version is', 'dashboard-summary' ),
 			$this->get_database_version()
 		);
 
@@ -467,9 +467,9 @@ class Site_Summary {
 
 		// Check for ClassicPress.
 		if ( function_exists( 'classicpress_version' ) ) {
-			$output = __( 'ClassicPress', DS_DOMAIN );
+			$output = __( 'ClassicPress', 'dashboard-summary' );
 		} else {
-			$output = __( 'WordPress', DS_DOMAIN );
+			$output = __( 'WordPress', 'dashboard-summary' );
 		}
 
 		return apply_filters( 'ds_system_name', $output );
@@ -491,9 +491,9 @@ class Site_Summary {
 
 		// Text for site or network dashboard.
 		if ( is_multisite() && is_network_admin() ) {
-			$text = __( 'This network is running', DS_DOMAIN );
+			$text = __( 'This network is running', 'dashboard-summary' );
 		} else {
-			$text = __( 'This website is running', DS_DOMAIN );
+			$text = __( 'This website is running', 'dashboard-summary' );
 		}
 
 		// Check for ClassicPress.
@@ -528,9 +528,9 @@ class Site_Summary {
 
 		// Conditional link text.
 		if ( is_multisite() && is_network_admin() ) {
-			$text = __( 'Search engines are discouraged for the primary site', DS_DOMAIN );
+			$text = __( 'Search engines are discouraged for the primary site', 'dashboard-summary' );
 		} else {
-			$text = __( 'Search engines are discouraged', DS_DOMAIN );
+			$text = __( 'Search engines are discouraged', 'dashboard-summary' );
 		}
 
 		// Check if search engines are asked not to index this site.
@@ -593,14 +593,14 @@ class Site_Summary {
 			if ( is_network_admin() ) {
 				$theme_name = sprintf(
 					'%s <a href="%s" target="_blank" rel="nofollow noreferrer noopener">%s</a>',
-					__( 'The active theme of the primary site is', DS_DOMAIN ),
+					__( 'The active theme of the primary site is', 'dashboard-summary' ),
 					$this->active_theme_uri(),
 					$theme_name
 				);
 			} else {
 				$theme_name = sprintf(
 					'%s <a href="%s" target="_blank" rel="nofollow noreferrer noopener">%s</a>',
-					__( 'The active theme is', DS_DOMAIN ),
+					__( 'The active theme is', 'dashboard-summary' ),
 					$this->active_theme_uri(),
 					$theme_name
 				);
@@ -611,14 +611,14 @@ class Site_Summary {
 			if ( is_network_admin() ) {
 				$theme_name = sprintf(
 					'%s <a href="%s">%s</a>',
-					__( 'The active theme of the primary site is', DS_DOMAIN ),
+					__( 'The active theme of the primary site is', 'dashboard-summary' ),
 					esc_url( self_admin_url( 'themes.php' ) ),
 					$theme_name
 				);
 			} else {
 				$theme_name = sprintf(
 					'%s <a href="%s">%s</a>',
-					__( 'The active theme is', DS_DOMAIN ),
+					__( 'The active theme is', 'dashboard-summary' ),
 					esc_url( admin_url( 'themes.php' ) ),
 					$theme_name
 				);
@@ -627,7 +627,7 @@ class Site_Summary {
 		} else {
 			$theme_name = sprintf(
 				'%s %s',
-				__( 'The active theme is', DS_DOMAIN ),
+				__( 'The active theme is', 'dashboard-summary' ),
 				$theme_name
 			);
 		}
@@ -656,7 +656,7 @@ class Site_Summary {
 		if ( 0 == $update_data['counts']['wordpress'] ) {
 			printf(
 				'<p class="response">%s</p>',
-				__( 'There are no system updates available.', DS_DOMAIN )
+				__( 'There are no system updates available.', 'dashboard-summary' )
 			);
 			return;
 		}
@@ -666,9 +666,9 @@ class Site_Summary {
 
 		// System name.
 		if ( function_exists( 'classicpress_version' ) ) {
-			$system = __( 'ClassicPress', DS_DOMAIN );
+			$system = __( 'ClassicPress', 'dashboard-summary' );
 		} else {
-			$system = __( 'WordPress', DS_DOMAIN );
+			$system = __( 'WordPress', 'dashboard-summary' );
 		}
 
 		$is_development_version = preg_match( '/alpha|beta|RC/', $wp_version );
@@ -677,28 +677,28 @@ class Site_Summary {
 
 			printf(
 				'<p class="response">%s %s %s</p>',
-				__( 'An updated version of', DS_DOMAIN ),
+				__( 'An updated version of', 'dashboard-summary' ),
 				$system,
-				__( 'is available.', DS_DOMAIN )
+				__( 'is available.', 'dashboard-summary' )
 			);
 
 			printf(
 				'<p><strong>%s</strong> %s</p>',
-				__( 'Important:', DS_DOMAIN ),
-				__( 'Before updating, please back up your database and files.', DS_DOMAIN ),
+				__( 'Important:', 'dashboard-summary' ),
+				__( 'Before updating, please back up your database and files.', 'dashboard-summary' ),
 			);
 
 		} elseif ( $is_development_version ) {
 			printf(
 				'<p class="response">%s %s</p>',
-				__( 'You are using a development version of', DS_DOMAIN ),
+				__( 'You are using a development version of', 'dashboard-summary' ),
 				$system
 			);
 
 		} else {
 			printf(
 				'<p class="response">%s %s</p>',
-				__( 'You have the latest version of', DS_DOMAIN ),
+				__( 'You have the latest version of', 'dashboard-summary' ),
 				$system
 			);
 		}
@@ -706,13 +706,13 @@ class Site_Summary {
 		// Don't show the maintenance mode notice when we are only showing a single re-install option.
 		if ( $updates && ( count( $updates ) > 1 || 'latest' !== $updates[0]->response ) ) {
 
-			echo '<p>' . __( 'While your site is being updated, it will be in maintenance mode. As soon as your updates are complete, this mode will be deactivated.', DS_DOMAIN ) . '</p>';
+			echo '<p>' . __( 'While your site is being updated, it will be in maintenance mode. As soon as your updates are complete, this mode will be deactivated.', 'dashboard-summary' ) . '</p>';
 
 		} elseif ( ! $updates ) {
 
 			list( $normalized_version ) = explode( '-', $wp_version );
 			echo '<p>' . sprintf(
-				__( '<a href="%1$s">Learn more about WordPress %2$s</a>.', DS_DOMAIN ),
+				__( '<a href="%1$s">Learn more about WordPress %2$s</a>.', 'dashboard-summary' ),
 				esc_url( self_admin_url( 'about.php' ) ),
 				$normalized_version
 			) . '</p>';
@@ -773,20 +773,20 @@ class Site_Summary {
 			$current = true;
 		}
 
-		$submit        = __( 'Update System', DS_DOMAIN );
+		$submit        = __( 'Update System', 'dashboard-summary' );
 		$form_action   = 'update-core.php?action=do-core-upgrade';
 		$php_version   = phpversion();
 		$mysql_version = $wpdb->db_version();
 		$show_buttons  = true;
 
 		if ( 'development' === $update->response ) {
-			$message = __( 'You can update to the latest nightly build manually:', DS_DOMAIN );
+			$message = __( 'You can update to the latest nightly build manually:', 'dashboard-summary' );
 
 		} else {
 
 			if ( $current ) {
-				$message     = sprintf( __( 'If you need to re-install version %s, you can do so here:', DS_DOMAIN ), $version_string );
-				$submit      = __( 'Re-install System', DS_DOMAIN );
+				$message     = sprintf( __( 'If you need to re-install version %s, you can do so here:', 'dashboard-summary' ), $version_string );
+				$submit      = __( 'Re-install System', 'dashboard-summary' );
 				$form_action = 'update-core.php?action=do-core-reinstall';
 
 			} else {
@@ -818,7 +818,7 @@ class Site_Summary {
 				if ( ! $mysql_compat && ! $php_compat ) {
 					$message = sprintf(
 						/* translators: 1: URL to WordPress release notes, 2: WordPress version number, 3: Minimum required PHP version number, 4: Minimum required MySQL version number, 5: Current PHP version number, 6: Current MySQL version number. */
-						__( 'You cannot update because <a href="%1$s">WordPress %2$s</a> requires PHP version %3$s or higher and MySQL version %4$s or higher. You are running PHP version %5$s and MySQL version %6$s.', DS_DOMAIN ),
+						__( 'You cannot update because <a href="%1$s">WordPress %2$s</a> requires PHP version %3$s or higher and MySQL version %4$s or higher. You are running PHP version %5$s and MySQL version %6$s.', 'dashboard-summary' ),
 						$version_url,
 						$update->current,
 						$update->php_version,
@@ -829,7 +829,7 @@ class Site_Summary {
 				} elseif ( ! $php_compat ) {
 					$message = sprintf(
 						/* translators: 1: URL to WordPress release notes, 2: WordPress version number, 3: Minimum required PHP version number, 4: Current PHP version number. */
-						__( 'You cannot update because <a href="%1$s">WordPress %2$s</a> requires PHP version %3$s or higher. You are running version %4$s.', DS_DOMAIN ),
+						__( 'You cannot update because <a href="%1$s">WordPress %2$s</a> requires PHP version %3$s or higher. You are running version %4$s.', 'dashboard-summary' ),
 						$version_url,
 						$update->current,
 						$update->php_version,
@@ -838,7 +838,7 @@ class Site_Summary {
 				} elseif ( ! $mysql_compat ) {
 					$message = sprintf(
 						/* translators: 1: URL to WordPress release notes, 2: WordPress version number, 3: Minimum required MySQL version number, 4: Current MySQL version number. */
-						__( 'You cannot update because <a href="%1$s">WordPress %2$s</a> requires MySQL version %3$s or higher. You are running version %4$s.', DS_DOMAIN ),
+						__( 'You cannot update because <a href="%1$s">WordPress %2$s</a> requires MySQL version %3$s or higher. You are running version %4$s.', 'dashboard-summary' ),
 						$version_url,
 						$update->current,
 						$update->mysql_version,
@@ -847,7 +847,7 @@ class Site_Summary {
 				} else {
 					$message = sprintf(
 						/* translators: 1: Installed WordPress version number, 2: URL to WordPress release notes, 3: New WordPress version number, including locale if necessary. */
-						__( 'You can update from WordPress %1$s to <a href="%2$s">WordPress %3$s</a> manually:', DS_DOMAIN ),
+						__( 'You can update from WordPress %1$s to <a href="%2$s">WordPress %3$s</a> manually:', 'dashboard-summary' ),
 						$wp_version,
 						$version_url,
 						$version_string
@@ -881,21 +881,21 @@ class Site_Summary {
 		if ( 'en_US' !== $update->locale ) {
 
 			if ( ! isset( $update->dismissed ) || ! $update->dismissed ) {
-				submit_button( __( 'Hide this update', DS_DOMAIN ), '', 'dismiss', false );
+				submit_button( __( 'Hide this update', 'dashboard-summary' ), '', 'dismiss', false );
 			} else {
-				submit_button( __( 'Bring back this update', DS_DOMAIN ), '', 'undismiss', false );
+				submit_button( __( 'Bring back this update', 'dashboard-summary' ), '', 'undismiss', false );
 			}
 		}
 		echo '</p>';
 
 		if ( 'en_US' !== $update->locale && ( ! isset( $wp_local_package ) || $wp_local_package != $update->locale ) ) {
-			echo '<p class="hint">' . __( 'This localized version contains both the translation and various other localization fixes.', DS_DOMAIN ) . '</p>';
+			echo '<p class="hint">' . __( 'This localized version contains both the translation and various other localization fixes.', 'dashboard-summary' ) . '</p>';
 
 		} elseif ( 'en_US' === $update->locale && 'en_US' !== get_locale() && ( ! $update->packages->partial && $wp_version == $update->partial_version ) ) {
 
 			// Partial builds don't need language-specific warnings.
 			echo '<p class="hint">' . sprintf(
-				__( 'You are about to install WordPress %s <strong>in English (US).</strong> There is a chance this update will break your translation. You may prefer to wait for the localized version to be released.', DS_DOMAIN ),
+				__( 'You are about to install WordPress %s <strong>in English (US).</strong> There is a chance this update will break your translation. You may prefer to wait for the localized version to be released.', 'dashboard-summary' ),
 				'development' !== $update->response ? $update->current : ''
 			) . '</p>';
 		}
@@ -921,8 +921,8 @@ class Site_Summary {
 
 		if ( $dismissed ) {
 
-			$show_text = esc_js( __( 'Show hidden updates', DS_DOMAIN ) );
-			$hide_text = esc_js( __( 'Hide hidden updates', DS_DOMAIN ) );
+			$show_text = esc_js( __( 'Show hidden updates', 'dashboard-summary' ) );
+			$hide_text = esc_js( __( 'Hide hidden updates', 'dashboard-summary' ) );
 			?>
 		<script type="text/javascript">
 			jQuery(function( $ ) {
@@ -932,7 +932,7 @@ class Site_Summary {
 			});
 		</script>
 			<?php
-			echo '<p class="hide-if-no-js"><button type="button" class="button" id="show-dismissed" aria-expanded="false">' . __( 'Show hidden updates', DS_DOMAIN ) . '</button></p>';
+			echo '<p class="hide-if-no-js"><button type="button" class="button" id="show-dismissed" aria-expanded="false">' . __( 'Show hidden updates', 'dashboard-summary' ) . '</button></p>';
 			echo '<ul id="dismissed-updates" class="core-updates dismissed">';
 			foreach ( (array) $dismissed as $update ) {
 				echo '<li>';
@@ -1027,7 +1027,7 @@ class Site_Summary {
 		if ( 0 == $update_data['counts']['plugins'] ) {
 			return sprintf(
 				'<p>%s</p>',
-				__( 'There are no plugin updates available.', DS_DOMAIN )
+				__( 'There are no plugin updates available.', 'dashboard-summary' )
 			);
 		}
 
@@ -1047,13 +1047,13 @@ class Site_Summary {
 				// List item for each available update.
 				$output .= '<li>';
 				$output .= sprintf(
-					__( '<strong>There is a new version of %1$s available. <a href="%2$s" %3$s>View version %4$s details</a> or <a href="%5$s" %6$s>update now</a>.</strong>', DS_DOMAIN ),
+					__( '<strong>There is a new version of %1$s available. <a href="%2$s" %3$s>View version %4$s details</a> or <a href="%5$s" %6$s>update now</a>.</strong>', 'dashboard-summary' ),
 					$name,
 					esc_url( $details ),
 					sprintf(
 						'class="thickbox open-plugin-details-modal" aria-label="%s"',
 						esc_attr( sprintf(
-							__( 'View %1$s version %2$s details', DS_DOMAIN ),
+							__( 'View %1$s version %2$s details', 'dashboard-summary' ),
 							$name,
 							$update->new_version
 						) )
@@ -1062,7 +1062,7 @@ class Site_Summary {
 					wp_nonce_url( self_admin_url( 'update.php?action=upgrade-plugin&plugin=' ) . $update->plugin, 'upgrade-plugin_' . $update->plugin ),
 					sprintf(
 						'class="update-link" aria-label="%s"',
-						esc_attr( sprintf( __( 'Update %s now', DS_DOMAIN ), $name ) )
+						esc_attr( sprintf( __( 'Update %s now', 'dashboard-summary' ), $name ) )
 					)
 				);
 				$output .= '</li>';
@@ -1073,7 +1073,7 @@ class Site_Summary {
 		} else {
 			$output = sprintf(
 				'<p>%s</p>',
-				__( 'There are no plugin updates available.', DS_DOMAIN )
+				__( 'There are no plugin updates available.', 'dashboard-summary' )
 			);
 		}
 		return $output;
@@ -1097,7 +1097,7 @@ class Site_Summary {
 		if ( 0 == $update_data['counts']['themes'] ) {
 			return sprintf(
 				'<p>%s</p>',
-				__( 'There are no theme updates available.', DS_DOMAIN )
+				__( 'There are no theme updates available.', 'dashboard-summary' )
 			);
 		}
 
@@ -1116,7 +1116,7 @@ class Site_Summary {
 		} else {
 			$output = sprintf(
 				'<p>%s</p>',
-				__( 'There are no theme updates available.', DS_DOMAIN )
+				__( 'There are no theme updates available.', 'dashboard-summary' )
 			);
 		}
 
@@ -1176,12 +1176,12 @@ class Site_Summary {
 			if ( ! current_user_can( 'update_themes' ) ) {
 
 				$html = sprintf(
-					'<li><strong>' . __( 'There is a new version of %1$s available. <a href="%2$s" %3$s>View version %4$s details</a>.', DS_DOMAIN ) . '</strong></li>',
+					'<li><strong>' . __( 'There is a new version of %1$s available. <a href="%2$s" %3$s>View version %4$s details</a>.', 'dashboard-summary' ) . '</strong></li>',
 					$theme_name,
 					esc_url( $details_url ),
 					sprintf(
 						'class="thickbox open-plugin-details-modal" aria-label="%s"',
-						esc_attr( sprintf( __( 'View %1$s version %2$s details', DS_DOMAIN ), $theme_name, $update['new_version'] ) )
+						esc_attr( sprintf( __( 'View %1$s version %2$s details', 'dashboard-summary' ), $theme_name, $update['new_version'] ) )
 					),
 					$update['new_version']
 				);
@@ -1189,30 +1189,30 @@ class Site_Summary {
 			} elseif ( empty( $update['package'] ) ) {
 
 				$html = sprintf(
-					'<li><strong>' . __( 'There is a new version of %1$s available. <a href="%2$s" %3$s>View version %4$s details</a>. <em>Automatic update is unavailable for this theme.</em>', DS_DOMAIN ) . '</strong></li>',
+					'<li><strong>' . __( 'There is a new version of %1$s available. <a href="%2$s" %3$s>View version %4$s details</a>. <em>Automatic update is unavailable for this theme.</em>', 'dashboard-summary' ) . '</strong></li>',
 					$theme_name,
 					esc_url( $details_url ),
 					sprintf(
 						'class="thickbox open-plugin-details-modal" aria-label="%s"',
-						esc_attr( sprintf( __( 'View %1$s version %2$s details', DS_DOMAIN ), $theme_name, $update['new_version'] ) )
+						esc_attr( sprintf( __( 'View %1$s version %2$s details', 'dashboard-summary' ), $theme_name, $update['new_version'] ) )
 					),
 					$update['new_version']
 				);
 
 			} else {
 				$html = sprintf(
-					'<li><strong>' . __( 'There is a new version of %1$s available. <a href="%2$s" %3$s>View version %4$s details</a> or <a href="%5$s" %6$s>update now</a>.', DS_DOMAIN ) . '</strong></li>',
+					'<li><strong>' . __( 'There is a new version of %1$s available. <a href="%2$s" %3$s>View version %4$s details</a> or <a href="%5$s" %6$s>update now</a>.', 'dashboard-summary' ) . '</strong></li>',
 					$theme_name,
 					esc_url( $details_url ),
 					sprintf(
 						'class="thickbox open-plugin-details-modal" aria-label="%s"',
-						esc_attr( sprintf( __( 'View %1$s version %2$s details', DS_DOMAIN ), $theme_name, $update['new_version'] ) )
+						esc_attr( sprintf( __( 'View %1$s version %2$s details', 'dashboard-summary' ), $theme_name, $update['new_version'] ) )
 					),
 					$update['new_version'],
 					$update_url,
 					sprintf(
 						'aria-label="%s" id="update-theme" data-slug="%s"',
-						esc_attr( sprintf( __( 'Update %s now', DS_DOMAIN ), $theme_name ) ),
+						esc_attr( sprintf( __( 'Update %s now', 'dashboard-summary' ), $theme_name ) ),
 						$stylesheet
 					)
 				);
@@ -1299,7 +1299,7 @@ class Site_Summary {
 			'ds_user_greeting',
 			sprintf(
 				'<h4>%1s %2s.</h4>',
-				esc_html__( 'Hello,', DS_DOMAIN ),
+				esc_html__( 'Hello,', 'dashboard-summary' ),
 				$user_name
 			)
 		);
@@ -1318,7 +1318,7 @@ class Site_Summary {
 			'ds_user_greeting_description',
 			sprintf(
 				'<p class="description">%s</p>',
-				__( 'This section provides details about your account.', DS_DOMAIN )
+				__( 'This section provides details about your account.', 'dashboard-summary' )
 			)
 		);
 	}

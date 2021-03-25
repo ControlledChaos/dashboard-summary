@@ -23,7 +23,7 @@ $tab_heading = apply_filters(
 	'ds_widget_system_heading',
 	sprintf(
 		'<h3 class="screen-reader-text">%s</h3>',
-		__( 'System Overview', DS_DOMAIN )
+		__( 'System Overview', 'dashboard-summary' )
 	)
 );
 
@@ -31,12 +31,12 @@ $tab_heading = apply_filters(
 if ( is_multisite() && is_network_admin() ) {
 	$tab_description = sprintf(
 		'<p class="description screen-reader-text">%s</p>',
-		__( 'An overview of network operations.', DS_DOMAIN )
+		__( 'An overview of network operations.', 'dashboard-summary' )
 	);
 } else {
 	$tab_description = sprintf(
 		'<p class="description screen-reader-text">%s</p>',
-		__( 'An overview of website operations.', DS_DOMAIN )
+		__( 'An overview of website operations.', 'dashboard-summary' )
 	);
 }
 $tab_description = apply_filters( 'ds_widget_system_description', $tab_description );
@@ -44,7 +44,7 @@ $tab_description = apply_filters( 'ds_widget_system_description', $tab_descripti
 // Information section heading.
 $info_heading = apply_filters(
 	'ds_widget_system_info_heading',
-	__( 'System Information', DS_DOMAIN )
+	__( 'System Information', 'dashboard-summary' )
 );
 
 // Information description.
@@ -52,29 +52,29 @@ $info_description = apply_filters(
 	'ds_widget_system_info_description',
 	sprintf(
 		'<p class="description">%s <a href="%s">%s</a> %s</p>',
-		__( 'Some technical details about the', DS_DOMAIN ),
+		__( 'Some technical details about the', 'dashboard-summary' ),
 		esc_url( get_site_url( get_current_blog_id() ) ),
 		get_bloginfo( 'name' ),
-		__( 'website.', DS_DOMAIN )
+		__( 'website.', 'dashboard-summary' )
 	)
 );
 
 // Tools section heading.
 $tools_heading = apply_filters(
 	'ds_widget_system_tools_heading',
-	__( 'System Tools', DS_DOMAIN )
+	__( 'System Tools', 'dashboard-summary' )
 );
 
 // Tools description.
 if ( is_multisite() && is_network_admin() ) {
 	$tools_description = sprintf(
 		'<p class="description">%s</p>',
-		__( 'Manage the network settings and the options for the primary website.', DS_DOMAIN )
+		__( 'Manage the network settings and the options for the primary website.', 'dashboard-summary' )
 	);
 } else {
 	$tools_description = sprintf(
 		'<p class="description">%s</p>',
-		__( 'Manage the options for this website.', DS_DOMAIN )
+		__( 'Manage the options for this website.', 'dashboard-summary' )
 	);
 }
 $tools_description = apply_filters( 'ds_widget_system_tools_description', $tools_description );
@@ -116,11 +116,11 @@ if ( current_user_can( 'manage_options' ) ) :
 	<p class="ds-widget-link-button">
 		<?php if ( is_multisite() && is_network_admin() ) : ?>
 		<a class="button button-primary" href="<?php echo network_admin_url( 'settings.php' ); ?>">
-			<?php _e( 'Network Settings', DS_DOMAIN ); ?>
+			<?php _e( 'Network Settings', 'dashboard-summary' ); ?>
 		</a>
 		<?php endif; ?>
 		<a class="button button-primary" href="<?php echo admin_url( 'options.php' ); ?>">
-			<?php _e( 'Options Page', DS_DOMAIN ); ?>
+			<?php _e( 'Options Page', 'dashboard-summary' ); ?>
 		</a>
 	</p>
 </div>
@@ -136,10 +136,10 @@ if (
 ?>
 <div class="ds-widget-divided-section ds-widget-plugin-development hide-if-no-js">
 
-	<h4><?php _e( 'Widget Development', DS_DOMAIN ); ?></h4>
-	<p class="description"><?php _e( 'Development hooks & filters of the dashboard summary widgets for adding content or modifying text.', DS_DOMAIN ); ?></p>
+	<h4><?php _e( 'Widget Development', 'dashboard-summary' ); ?></h4>
+	<p class="description"><?php _e( 'Development hooks & filters of the dashboard summary widgets for adding content or modifying text.', 'dashboard-summary' ); ?></p>
 
-	<p><a href="#dev-reference" data-ds-modal><?php _e( 'View reference in modal window.', DS_DOMAIN ); ?></a></p>
+	<p><a href="#dev-reference" data-ds-modal><?php _e( 'View reference in modal window.', 'dashboard-summary' ); ?></a></p>
 	<div id="dev-reference" class="ds-modal" role="dialog">
 		<?php include( DS_PATH . '/views/partials/dev-reference.php' ); ?>
 	</div>

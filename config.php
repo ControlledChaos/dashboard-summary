@@ -26,14 +26,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 define( 'DS_VERSION', '1.0.0' );
 
 /**
- * Constant: Text domain
- *
- * @since 1.0.0
- * @var   string The text domain of the plugin.
- */
-define( 'DS_DOMAIN', 'dashboard-summary' );
-
-/**
  * Constant: Plugin folder path
  *
  * @since 1.0.0
@@ -58,7 +50,7 @@ define( 'DS_URL', plugin_dir_url(__FILE__ ) );
  * @var   string The text of the title.
  */
 if ( ! defined( 'DS_WIDGET_TITLE' ) ) {
-	$title = __( 'Website Summary', DS_DOMAIN );
+	$title = __( 'Website Summary', 'dashboard-summary' );
 	define( 'DS_WIDGET_TITLE', $title );
 }
 
@@ -69,6 +61,6 @@ if ( ! defined( 'DS_WIDGET_TITLE' ) ) {
  * @var   string The text of the title.
  */
 if ( ! defined( 'DS_NETWORK_WIDGET_TITLE' ) ) {
-	$title = __( 'Network Summary', DS_DOMAIN );
+	$title = __( 'Network Summary', 'dashboard-summary' );
 	define( 'DS_NETWORK_WIDGET_TITLE', $title );
 }

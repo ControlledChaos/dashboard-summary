@@ -40,14 +40,14 @@ function init() {
 
 	// Load plugin text domain.
 	load_plugin_textdomain(
-		DS_DOMAIN,
+		'dashboard-summary',
 		false,
 		dirname( DS_BASENAME ) . '/languages'
 	);
 
 	// If this is in the must-use plugins directory.
 	load_muplugin_textdomain(
-		DS_DOMAIN,
+		'dashboard-summary',
 		dirname( DS_BASENAME ) . '/languages'
 	);
 

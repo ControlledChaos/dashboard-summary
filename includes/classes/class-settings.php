@@ -65,7 +65,7 @@ final class Settings {
 		// Add a section on the General Settings screen.
 		add_settings_section(
 			'ds_dashboard_options',
-			__( 'Dashboard Options', DS_DOMAIN ),
+			__( 'Dashboard Options', 'dashboard-summary' ),
 			[ $this, 'section_description' ],
 			'general'
 		);
@@ -79,9 +79,9 @@ final class Settings {
 			'ds_dashboard_options',
 			[ sprintf(
 				'%s %s %s',
-				__( 'Enable the', DS_DOMAIN ),
+				__( 'Enable the', 'dashboard-summary' ),
 				DS_WIDGET_TITLE,
-				__( 'widget.', DS_DOMAIN )
+				__( 'widget.', 'dashboard-summary' )
 			) ]
 		);
 
@@ -100,11 +100,11 @@ final class Settings {
 		// Disable the At a Glance widget.
 		add_settings_field(
 			'ds_enable_glance',
-			__( 'At a Glance', DS_DOMAIN ),
+			__( 'At a Glance', 'dashboard-summary' ),
 			[ $this, 'enable_glance' ],
 			'general',
 			'ds_dashboard_options',
-			[ esc_html__( 'Enable the At a Glance widget.', DS_DOMAIN ) ]
+			[ esc_html__( 'Enable the At a Glance widget.', 'dashboard-summary' ) ]
 		);
 
 		register_setting(
@@ -166,7 +166,7 @@ final class Settings {
 
 		echo sprintf(
 			'<p id="dashboard-summary-description">%s</p>',
-			__( 'Choose which website summary widgets to display on the dashboard.', DS_DOMAIN )
+			__( 'Choose which website summary widgets to display on the dashboard.', 'dashboard-summary' )
 		);
 	}
 
@@ -307,7 +307,7 @@ final class Settings {
 				sprintf(
 					'<a href="%s">%s</a>',
 					esc_url( network_admin_url( 'settings.php#network-summary-description' ) ),
-					esc_html__( 'Settings', DS_DOMAIN )
+					esc_html__( 'Settings', 'dashboard-summary' )
 				)
 			];
 		} else {
@@ -315,7 +315,7 @@ final class Settings {
 				sprintf(
 					'<a href="%s">%s</a>',
 					esc_url( admin_url( 'options-general.php#dashboard-summary-description' ) ),
-					esc_html__( 'Settings', DS_DOMAIN )
+					esc_html__( 'Settings', 'dashboard-summary' )
 				)
 			];
 		}

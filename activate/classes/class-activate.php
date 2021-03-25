@@ -110,25 +110,25 @@ class Activate {
 
 			<?php if ( isset( $plugin_data['update'] ) && ! empty( $plugin_data['update'] ) ) : ?>
 
-				.plugins tr.<?php echo DS_DOMAIN; ?>-plugin-tr td {
+				.plugins tr.<?php echo 'dashboard-summary'; ?>-plugin-tr td {
 					box-shadow: none ! important;
 				}
 
-				.plugins tr.<?php echo DS_DOMAIN; ?>-plugin-tr .update-message {
+				.plugins tr.<?php echo 'dashboard-summary'; ?>-plugin-tr .update-message {
 					margin-bottom: 0;
 				}
 
 			<?php endif; ?>
 		</style>
 
-		<tr id="plugin-php-notice" class="plugin-update-tr active <?php echo DS_DOMAIN; ?>-plugin-tr">
+		<tr id="plugin-php-notice" class="plugin-update-tr active <?php echo 'dashboard-summary'; ?>-plugin-tr">
 			<td colspan="<?php echo $colspan; ?>" class="plugin-update colspanchange">
 				<div class="update-message notice inline notice-error notice-alt">
 					<?php echo sprintf(
 						'<p>%s %s %s %s</p>',
-						__( 'Functionality of this plugin has been disabled because it requires PHP version', DS_DOMAIN ),
+						__( 'Functionality of this plugin has been disabled because it requires PHP version', 'dashboard-summary' ),
 						Classes\php()->minimum(),
-						__( 'or greater. Your system is running PHP version', DS_DOMAIN ),
+						__( 'or greater. Your system is running PHP version', 'dashboard-summary' ),
 						phpversion()
 					); ?>
 				</div>

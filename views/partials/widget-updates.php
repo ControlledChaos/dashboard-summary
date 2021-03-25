@@ -26,7 +26,7 @@ $tab_heading = apply_filters(
 	'ds_widget_updates_heading',
 	sprintf(
 		'<h3 class="screen-reader-text">%s</h3>',
-		__( 'System Updates', DS_DOMAIN )
+		__( 'System Updates', 'dashboard-summary' )
 	)
 );
 
@@ -39,19 +39,19 @@ $tab_description = apply_filters(
 // Tools section heading.
 $tools_heading = apply_filters(
 	'ds_widget_updates_tools_heading',
-	__( 'Update Tools', DS_DOMAIN )
+	__( 'Update Tools', 'dashboard-summary' )
 );
 
 // Tools description.
 if ( is_multisite() && is_network_admin() ) {
 	$tools_description = sprintf(
 		'<p class="description">%s</p>',
-		__( 'Go to the updates page or upgrade the network.', DS_DOMAIN )
+		__( 'Go to the updates page or upgrade the network.', 'dashboard-summary' )
 	);
 } else {
 	$tools_description = sprintf(
 		'<p class="description">%s</p>',
-		__( 'Go to the updates page.', DS_DOMAIN )
+		__( 'Go to the updates page.', 'dashboard-summary' )
 	);
 }
 $tools_description = apply_filters( 'ds_widget_updates_tools_description', $tools_description );
@@ -63,7 +63,7 @@ $tools_description = apply_filters( 'ds_widget_updates_tools_description', $tool
 <?php if ( current_user_can( 'update_core' ) ) : ?>
 <div class="ds-widget-divided-section ds-widget-updates-section">
 
-	<h4><?php _e( 'System', DS_DOMAIN ); ?></h4>
+	<h4><?php _e( 'System', 'dashboard-summary' ); ?></h4>
 
 	<?php echo $summary->core_updates(); ?>
 </div>
@@ -72,7 +72,7 @@ $tools_description = apply_filters( 'ds_widget_updates_tools_description', $tool
 <?php if ( current_user_can( 'update_plugins' ) ) : ?>
 <div class="ds-widget-divided-section ds-widget-updates-section">
 
-	<h4><?php _e( 'Plugins', DS_DOMAIN ); ?></h4>
+	<h4><?php _e( 'Plugins', 'dashboard-summary' ); ?></h4>
 
 	<?php echo $summary->update_plugins_list(); ?>
 </div>
@@ -81,7 +81,7 @@ $tools_description = apply_filters( 'ds_widget_updates_tools_description', $tool
 <?php if ( current_user_can( 'update_themes' ) ) : ?>
 <div class="ds-widget-divided-section ds-widget-updates-section">
 
-	<h4><?php _e( 'Themes', DS_DOMAIN ); ?></h4>
+	<h4><?php _e( 'Themes', 'dashboard-summary' ); ?></h4>
 
 	<?php echo $summary->update_themes_list(); ?>
 </div>
@@ -94,11 +94,11 @@ $tools_description = apply_filters( 'ds_widget_updates_tools_description', $tool
 
 	<p class="ds-widget-link-button">
 		<a class="button button-primary" href="<?php echo self_admin_url( 'update-core.php' ); ?>">
-			<?php _e( 'Updates Page', DS_DOMAIN ); ?>
+			<?php _e( 'Updates Page', 'dashboard-summary' ); ?>
 		</a>
 		<?php if ( is_multisite() && is_network_admin() ) : ?>
 		<a class="button button-primary" href="<?php echo network_admin_url( 'upgrade.php' ); ?>">
-			<?php _e( 'Upgrade Network', DS_DOMAIN ); ?>
+			<?php _e( 'Upgrade Network', 'dashboard-summary' ); ?>
 		</a>
 		<?php endif; ?>
 	</p>

@@ -86,7 +86,7 @@ class User_Options {
 
 		// Translate and capitalize each role.
 		foreach( $roles as $role ) {
-			$role_i18n[] = ucwords( __( $role, DS_DOMAIN ) );
+			$role_i18n[] = ucwords( __( $role, 'dashboard-summary' ) );
 		}
 
 		// Return a comma-separated list of user roles.
@@ -155,7 +155,7 @@ class User_Options {
 				esc_url( get_user_option( 'user_url' ) )
 			);
 		} else {
-			return __( 'No website provided.', DS_DOMAIN );
+			return __( 'No website provided.', 'dashboard-summary' );
 		}
 	}
 
@@ -169,9 +169,9 @@ class User_Options {
 	public function toolbar() {
 
 		if ( true == get_user_option( 'show_admin_bar_front' ) ) {
-			return __( 'Yes', DS_DOMAIN );
+			return __( 'Yes', 'dashboard-summary' );
 		} else {
-			return __( 'No', DS_DOMAIN );
+			return __( 'No', 'dashboard-summary' );
 		}
 	}
 }
