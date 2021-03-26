@@ -97,7 +97,7 @@ msgid "ClassicPress"
 msgstr ""
 
 #: views/partials/widget-profile.php:149
-msgid "Color scheme:"
+msgid "Admin color scheme:"
 msgstr ""
 
 #: views/partials/dev-reference.php:88
