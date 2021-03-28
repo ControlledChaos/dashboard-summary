@@ -49,9 +49,9 @@ define( 'DS_URL', plugin_dir_url(__FILE__ ) );
  * @since 1.0.0
  * @var   string The text of the title.
  */
-if ( ! defined( 'DS_WIDGET_TITLE' ) ) {
+if ( ! defined( 'DS_SITE_WIDGET_TITLE' ) ) {
 	$title = __( 'Website Summary', 'dashboard-summary' );
-	define( 'DS_WIDGET_TITLE', $title );
+	define( 'DS_SITE_WIDGET_TITLE', $title );
 }
 
 /**

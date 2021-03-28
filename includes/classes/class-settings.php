@@ -89,14 +89,14 @@ final class Settings {
 		// Add the Website Summary setting field.
 		add_settings_field(
 			'ds_enable_summary',
-			DS_WIDGET_TITLE,
+			DS_SITE_WIDGET_TITLE,
 			[ $this, 'enable_summary' ],
 			'general',
 			'ds_dashboard_options',
 			[ sprintf(
 				'%s %s %s',
 				__( 'Enable the', 'dashboard-summary' ),
-				DS_WIDGET_TITLE,
+				DS_SITE_WIDGET_TITLE,
 				__( 'widget.', 'dashboard-summary' )
 			) ]
 		);

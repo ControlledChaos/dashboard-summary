@@ -49,7 +49,7 @@ class Site_Widget {
 	 */
 	public function add_widget() {
 
-		$title = apply_filters( 'ds_site_widget_title', DS_WIDGET_TITLE );
+		$title = apply_filters( 'ds_site_widget_title', DS_SITE_WIDGET_TITLE );
 
 		if ( true == settings()->sanitize_summary() ) {
 			wp_add_dashboard_widget( 'dashboard_summary', $title, [ $this, 'output' ] );

@@ -2,6 +2,9 @@
 /**
  * Summary methods
  *
+ * Methods used throughout the plugin for
+ * website and network dashboards.
+ *
  * @package    Dashboard_Summary
  * @subpackage Classes
  * @category   Content
