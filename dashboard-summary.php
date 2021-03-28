@@ -48,12 +48,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Author's Note
  *
- * To all who may read this, I hope you find this code to be
- * easily deciphered. I have learned much by examining the code
- * of well written & well documented products so I have done
- * my best to document this code with comments where necessary,
- * even where not necessary, and by using logical, descriptive
- * names for PHP classes & methods, HTML IDs, CSS classes, etc.
+ * To all who may read this,
+ *
+ * I hope you find this code to be easily deciphered. I have
+ * learned much by examining the code of well written & well
+ * documented products so I have done my best to document this
+ * code with comments where necessary, even where not necessary,
+ * and by using logical, descriptive names for PHP classes &
+ * methods, HTML IDs, CSS classes, etc.
  *
  * Beginners, note that the short array syntax ( `[]` rather than
  * array()` ) is used. Use of the `array()` function is encouraged
@@ -67,7 +69,9 @@ if ( ! defined( 'ABSPATH' ) ) {
  * are smart folk if you are reading this and you'll figure it out
  * like I did.
  *
- * Greg Sweet, Controlled Chaos Design
+ * Greg Sweet, Controlled Chaos Design, former mule packer, cook,
+ * landscaper, & janitor who learned PHP by breaking stuff and by
+ * reading code comments.
  */
 
 /**
