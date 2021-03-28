@@ -37,6 +37,7 @@ class At_A_Glance {
 		// Maybe remove the At a Glance widget.
 		add_action( 'wp_dashboard_setup', [ $this, 'remove_widget' ] );
 
+		// If the At a Glance widget setting is true/checked.
 		if ( true == settings()->sanitize_glance() ) {
 
 			// Enqueue assets.
@@ -137,6 +138,7 @@ class At_A_Glance {
 		$style .= '#dashboard_right_now .post-count.attachment-count a::before, #dashboard_right_now .post-count.attachment-count span::before { display: none; }';
 		$style .= '</style>' . '<!-- End At a Glance icon styles -->';
 
+		// Print the style block.
 		echo $style;
 	}
 

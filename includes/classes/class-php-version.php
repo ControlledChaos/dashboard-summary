@@ -66,8 +66,12 @@ final class PHP_Version {
 
 		// Compare versions.
 		if ( version_compare( phpversion(), $this->minimum(), '<' ) ) {
+
+			// Return false if the minimum is not met.
 			return false;
 		}
+
+		// Return true by default.
 		return true;
 	}
 }

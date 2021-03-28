@@ -62,6 +62,7 @@ final class Assets {
 			$suffix = '.min';
 		}
 
+		// Return the suffix or not.
 		return $suffix;
 	}
 }

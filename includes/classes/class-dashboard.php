@@ -106,6 +106,7 @@ class Dashboard {
 		$modal  = file_get_contents( DS_URL . 'assets/css/modal' . $assets->suffix() . '.css' );
 		$style .= '<style>' . $modal . '</style>';
 
+		// Print the style block.
 		echo $style;
 	}
 
@@ -122,6 +123,7 @@ class Dashboard {
 		$style .= '#plugin-information-footer { display: none; }';
 		$style .= '</style>';
 
+		// Print the style block.
 		echo $style;
 	}
 }
