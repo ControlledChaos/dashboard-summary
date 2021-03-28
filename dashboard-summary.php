@@ -61,7 +61,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * that beginners will inevitably encounter the short array syntax
  * so they may as well learn to recognize this early. If the code
  * is well documented then it will be clear when the brackets (`[]`)
- * represent an array. And someday you to will be writing many
+ * represent an array. And someday you too will be writing many
  * arrays in your code and you will find the short syntax to be
  * a time saver. Let's not unecessarily dumb-down code; y'all
  * are smart folk if you are reading this and you'll figure it out
