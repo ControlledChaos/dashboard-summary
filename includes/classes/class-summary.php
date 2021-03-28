@@ -1,6 +1,6 @@
 <?php
 /**
- * Site summary
+ * Summary methods
  *
  * @package    Dashboard_Summary
  * @subpackage Classes
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die;
 }
 
-class Site_Summary {
+class Summary {
 
 	/**
 	 * Instance of the class
@@ -1368,8 +1368,8 @@ class Site_Summary {
  *
  * @since  1.0.0
  * @access public
- * @return object Site_Summary Returns an instance of the class.
+ * @return object Summary Returns an instance of the class.
  */
 function summary() {
-	return Site_Summary :: instance();
+	return Summary :: instance();
 }

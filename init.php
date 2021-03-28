@@ -61,7 +61,7 @@ function init() {
 
 	// Settings and core methods.
 	new Classes\Settings;
-	new Classes\Site_Summary;
+	new Classes\Summary;
 	new Classes\User_Options;
 
 	// Add settings link to plugin row.

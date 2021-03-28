@@ -100,7 +100,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</ul>
 
 		<h5><?php _e( 'Summary Content Methods', 'dashboard-summary' ); ?></h5>
-		<p class="description"><?php _e( 'See includes/classes/class-site-summary.php.', 'dashboard-summary' ); ?></p>
+		<p class="description"><?php _e( 'See includes/classes/class-summary.php.', 'dashboard-summary' ); ?></p>
 
 		<ul class="dev-reference-list">
 			<li>
