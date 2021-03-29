@@ -761,7 +761,7 @@ class Summary {
 		$is_development_version = preg_match( '/alpha|beta|RC/', $wp_version );
 
 		// If an update is available.
-		if ( isset( $updates[0]->version ) && version_compare( $updates[0]->version, $wp_version, '>' ) ) {
+		if ( (isset( $updates[0]->version ) && version_compare( $updates[0]->version, $wp_version, '>' )) || 'latest' != $updates[0]->response ) {
 
 			// Update notice.
 			printf(
@@ -778,8 +778,18 @@ class Summary {
 				__( 'Before updating, please back up your database and files.', 'dashboard-summary' ),
 			);
 
-		// If the site or network is running a development version.
+		// If the site or network is running a WordPress development version.
 		} elseif ( $is_development_version ) {
+
+			// Development notice.
+			printf(
+				'<p class="response">%s %s</p>',
+				__( 'You are using a development version of', 'dashboard-summary' ),
+				$system
+			);
+
+		// If the site or network is running a ClassicPress development version.
+		} elseif ( function_exists( 'classicpress_is_dev_install' ) && classicpress_is_dev_install() ) {
 
 			// Development notice.
 			printf(
@@ -810,7 +820,8 @@ class Summary {
 			// Link to the About page.
 			list( $normalized_version ) = explode( '-', $wp_version );
 			echo '<p>' . sprintf(
-				__( '<a href="%1$s">Learn more about WordPress %2$s</a>.', 'dashboard-summary' ),
+				__( '<a href="%1$s">Learn more about %2$s %3$s</a>.', 'dashboard-summary' ),
+				$system,
 				esc_url( self_admin_url( 'about.php' ) ),
 				$normalized_version
 			) . '</p>';
@@ -849,6 +860,9 @@ class Summary {
 		global $wp_local_package, $wpdb;
 		static $first_pass = true;
 
+		// System name.
+		$system = $this->management_system();
+
 		// Stop here if updates have been disabled.
 		$update_data = wp_get_update_data();
 		if ( 0 == $update_data['counts']['wordpress'] ) {
@@ -856,7 +870,12 @@ class Summary {
 		}
 
 		// Get system version.
-		$wp_version     = get_bloginfo( 'version' );
+		$wp_version = get_bloginfo( 'version' );
+		if ( function_exists( 'classicpress_version' ) ) {
+			$current_version = classicpress_version();
+		} else {
+			$current_version = $wp_version;
+		}
 
 		// Defualt version string.
 		$version_string = sprintf( '%s&ndash;<strong>%s</strong>', $update->current, $update->locale );
@@ -935,8 +954,9 @@ class Summary {
 
 				if ( ! $mysql_compat && ! $php_compat ) {
 					$message = sprintf(
-						__( 'You cannot update because <a href="%1$s">WordPress %2$s</a> requires PHP version %3$s or higher and MySQL version %4$s or higher. You are running PHP version %5$s and MySQL version %6$s.', 'dashboard-summary' ),
+						__( 'You cannot update because <a href="%1$s">%2$s %3$s</a> requires PHP version %4$s or higher and MySQL version %5$s or higher. You are running PHP version %6$s and MySQL version %7$s.', 'dashboard-summary' ),
 						$version_url,
+						$system,
 						$update->current,
 						$update->php_version,
 						$update->mysql_version,
@@ -946,8 +966,9 @@ class Summary {
 
 				} elseif ( ! $php_compat ) {
 					$message = sprintf(
-						__( 'You cannot update because <a href="%1$s">WordPress %2$s</a> requires PHP version %3$s or higher. You are running version %4$s.', 'dashboard-summary' ),
+						__( 'You cannot update because <a href="%1$s">%2$s %3$s</a> requires PHP version %4$s or higher. You are running version %5$s.', 'dashboard-summary' ),
 						$version_url,
+						$system,
 						$update->current,
 						$update->php_version,
 						$php_version
@@ -955,8 +976,9 @@ class Summary {
 
 				} elseif ( ! $mysql_compat ) {
 					$message = sprintf(
-						__( 'You cannot update because <a href="%1$s">WordPress %2$s</a> requires MySQL version %3$s or higher. You are running version %4$s.', 'dashboard-summary' ),
+						__( 'You cannot update because <a href="%1$s">%2$s %3$s</a> requires MySQL version %4$s or higher. You are running version %5$s.', 'dashboard-summary' ),
 						$version_url,
+						$system,
 						$update->current,
 						$update->mysql_version,
 						$mysql_version
@@ -964,9 +986,11 @@ class Summary {
 
 				} else {
 					$message = sprintf(
-						__( 'You can update from WordPress %1$s to <a href="%2$s">WordPress %3$s</a> manually:', 'dashboard-summary' ),
-						$wp_version,
+						__( 'You can update from  %1$s %2$s to <a href="%3$s">%4$s %5$s</a> manually:', 'dashboard-summary' ),
+						$system,
+						$current_version,
 						$version_url,
+						$system,
 						$version_string
 					);
 				}
