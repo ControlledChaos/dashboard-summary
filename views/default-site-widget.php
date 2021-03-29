@@ -1,6 +1,6 @@
 <?php
 /**
- * Default widget content
+ * Default site widget content
  *
  * @package    Dashboard_Summary
  * @subpackage Views

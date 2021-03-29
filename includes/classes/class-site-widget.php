@@ -66,7 +66,7 @@ class Site_Widget {
 	}
 
 	/**
-	 * Dashboard widget output
+	 * Site ashboard widget output
 	 *
 	 * Add widget content as an action to facilitate the use
 	 * of another template via the `remove_action` and the
@@ -81,7 +81,7 @@ class Site_Widget {
 	}
 
 	/**
-	 * Get dashboard widget output
+	 * Get site dashboard widget output
 	 *
 	 * Includes the widget markup from files in the views directory.
 	 *
@@ -90,7 +90,7 @@ class Site_Widget {
 	 * @return void
 	 */
 	public function get_output() {
-		include DS_PATH . 'views/default-widget.php';
+		include DS_PATH . 'views/default-site-widget.php';
 	}
 
 	/**
