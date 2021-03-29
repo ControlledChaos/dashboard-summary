@@ -154,6 +154,11 @@ class Network_Widget {
 		// Get user colors.
 		$colors = $user_colors->user_colors();
 
+		// Tabs sections: hide while stylesheet loading.
+		$style  = '<style>';
+		$style .= '.ds-widget-section:not( .ds-tabs-state-active ) { display: none; }';
+		$style .= '</style>';
+
 		// Dashboard Summary icons style block.
 		$style  = '<!-- Begin Dashboard Summary icon styles -->' . '<style>';
 		$style .= '.ds-cpt-icons { display: inline-block; width: 20px; height: 20px; vertical-align: middle; background-repeat: no-repeat; background-position: center; background-size: 20px auto; } ';
