@@ -914,12 +914,20 @@ class Summary {
 					sanitize_title( $update->current )
 				);
 
-				$php_update_message = '</p><p>' . sprintf(
-					__( '<a href="%s">Learn more about updating PHP</a>.' ),
-					esc_url( wp_get_update_php_url() )
-				);
+				if ( function_exists( 'wp_get_update_php_url' ) ) {
+					$php_update_message = '</p><p>' . sprintf(
+						__( '<a href="%s">Learn more about updating PHP</a>.' ),
+						esc_url( wp_get_update_php_url() )
+					);
+				} else {
+					$php_update_message = '';
+				}
 
-				$annotation = wp_get_update_php_annotation();
+				if ( function_exists( 'wp_get_update_php_url' ) ) {
+					$annotation = wp_get_update_php_annotation();
+				} else {
+					$annotation = null;
+				}
 
 				if ( $annotation ) {
 					$php_update_message .= '</p><p><em>' . $annotation . '</em>';
