@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dashboard Summary\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-29 21:34+0000\n"
+"POT-Creation-Date: 2021-03-29 22:31+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -21,13 +21,42 @@ msgstr ""
 msgid "<a href=\"%1$s\">Learn more about %2$s %3$s</a>."
 msgstr ""
 
+#: includes/classes/class-summary.php:1034
+#, php-format
+msgid ""
+"<p>You can update from  %1$s %2$s to <a href=\"%3$s\">%4$s %5$s</a> manually:"
+"</p>"
+msgstr ""
+
+#: includes/classes/class-summary.php:1023
+#, php-format
+msgid ""
+"<p>You cannot update because <a href=\"%1$s\">%2$s %3$s</a> requires MySQL "
+"version %4$s or higher. You are running version %5$s.</p>"
+msgstr ""
+
+#: includes/classes/class-summary.php:997
+#, php-format
+msgid ""
+"<p>You cannot update because <a href=\"%1$s\">%2$s %3$s</a> requires PHP "
+"version %4$s or higher and MySQL version %5$s or higher. You are running PHP "
+"version %6$s and MySQL version %7$s.</p>"
+msgstr ""
+
+#: includes/classes/class-summary.php:1011
+#, php-format
+msgid ""
+"<p>You cannot update because <a href=\"%1$s\">%2$s %3$s</a> requires PHP "
+"version %4$s or higher. You are running version %5$s.</p>"
+msgstr ""
+
 #: views/partials/dev-reference.php:74
 msgid ""
 "<strong>Note:</strong> Many of these also filter the markup as well as the "
 "text inside the element so carefully read the filter description."
 msgstr ""
 
-#: includes/classes/class-summary.php:1246
+#: includes/classes/class-summary.php:1280
 #, php-format
 msgid ""
 "<strong>There is a new version of %1$s available. <a href=\"%2$s\" %3$s>View "
@@ -87,7 +116,7 @@ msgstr ""
 msgid "Before updating, please back up your database and files."
 msgstr ""
 
-#: includes/classes/class-summary.php:1068
+#: includes/classes/class-summary.php:1080
 msgid "Bring back this update"
 msgstr ""
 
@@ -116,7 +145,7 @@ msgid_plural "Comments in Total"
 msgstr[0] ""
 msgstr[1] ""
 
-#: views/default-widget.php:47
+#: views/default-site-widget.php:47
 msgid "Content"
 msgstr ""
 
@@ -613,15 +642,15 @@ msgstr ""
 msgid "Go to the updates page."
 msgstr ""
 
-#: includes/classes/class-summary.php:1498
+#: includes/classes/class-summary.php:1531
 msgid "Hello,"
 msgstr ""
 
-#: includes/classes/class-summary.php:1121
+#: includes/classes/class-summary.php:1140
 msgid "Hide hidden updates"
 msgstr ""
 
-#: includes/classes/class-summary.php:1066
+#: includes/classes/class-summary.php:1078
 msgid "Hide this update"
 msgstr ""
 
@@ -747,11 +776,11 @@ msgstr ""
 msgid "Nickname:"
 msgstr ""
 
-#: includes/classes/class-user-options.php:174
+#: includes/classes/class-user-options.php:187
 msgid "No"
 msgstr ""
 
-#: includes/classes/class-user-options.php:158
+#: includes/classes/class-user-options.php:170
 msgid "No website provided."
 msgstr ""
 
@@ -787,7 +816,7 @@ msgstr ""
 msgid "Plugins"
 msgstr ""
 
-#: views/default-network-widget.php:49 views/default-widget.php:45
+#: views/default-network-widget.php:49 views/default-site-widget.php:45
 msgid "Profile"
 msgstr ""
 
@@ -860,8 +889,8 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: includes/classes/class-summary.php:1120
-#: includes/classes/class-summary.php:1131
+#: includes/classes/class-summary.php:1139
+#: includes/classes/class-summary.php:1152
 msgid "Show hidden updates"
 msgstr ""
 
@@ -885,7 +914,7 @@ msgstr ""
 msgid "Summary Content Methods"
 msgstr ""
 
-#: views/default-network-widget.php:55 views/default-widget.php:55
+#: views/default-network-widget.php:55 views/default-site-widget.php:55
 #: views/partials/widget-updates.php:66
 msgid "System"
 msgstr ""
@@ -946,31 +975,31 @@ msgstr ""
 msgid "There are no"
 msgstr ""
 
-#: includes/classes/class-summary.php:1226
-#: includes/classes/class-summary.php:1272
+#: includes/classes/class-summary.php:1260
+#: includes/classes/class-summary.php:1306
 msgid "There are no plugin updates available."
 msgstr ""
 
-#: includes/classes/class-summary.php:1296
-#: includes/classes/class-summary.php:1315
+#: includes/classes/class-summary.php:1330
+#: includes/classes/class-summary.php:1349
 msgid "There are no theme updates available."
 msgstr ""
 
-#: includes/classes/class-summary.php:1400
+#: includes/classes/class-summary.php:1434
 #, php-format
 msgid ""
 "There is a new version of %1$s available. <a href=\"%2$s\" %3$s>View version "
 "%4$s details</a> or <a href=\"%5$s\" %6$s>update now</a>."
 msgstr ""
 
-#: includes/classes/class-summary.php:1375
+#: includes/classes/class-summary.php:1408
 #, php-format
 msgid ""
 "There is a new version of %1$s available. <a href=\"%2$s\" %3$s>View version "
 "%4$s details</a>."
 msgstr ""
 
-#: includes/classes/class-summary.php:1388
+#: includes/classes/class-summary.php:1421
 #, php-format
 msgid ""
 "There is a new version of %1$s available. <a href=\"%2$s\" %3$s>View version "
@@ -989,7 +1018,7 @@ msgid ""
 "content or modifying text."
 msgstr ""
 
-#: includes/classes/class-summary.php:1074
+#: includes/classes/class-summary.php:1088
 msgid ""
 "This localized version contains both the translation and various other "
 "localization fixes."
@@ -1010,7 +1039,7 @@ msgstr ""
 msgid "This network is running"
 msgstr ""
 
-#: includes/classes/class-summary.php:1517
+#: includes/classes/class-summary.php:1550
 msgid "This section provides details about your account."
 msgstr ""
 
@@ -1026,8 +1055,8 @@ msgstr ""
 msgid "This website&#8217;s content is organized by the following taxonomies."
 msgstr ""
 
-#: includes/classes/class-summary.php:1261
-#: includes/classes/class-summary.php:1411
+#: includes/classes/class-summary.php:1295
+#: includes/classes/class-summary.php:1445
 #, php-format
 msgid "Update %s now"
 msgstr ""
@@ -1040,7 +1069,7 @@ msgstr ""
 msgid "Update Tools"
 msgstr ""
 
-#: views/default-network-widget.php:52 views/default-widget.php:52
+#: views/default-network-widget.php:52 views/default-site-widget.php:52
 msgid "Updates"
 msgstr ""
 
@@ -1077,7 +1106,7 @@ msgstr ""
 msgid "User Tools"
 msgstr ""
 
-#: views/default-network-widget.php:47 views/default-widget.php:49
+#: views/default-network-widget.php:47 views/default-site-widget.php:49
 msgid "Users"
 msgstr ""
 
@@ -1089,10 +1118,10 @@ msgstr ""
 msgid "Users Overview"
 msgstr ""
 
-#: includes/classes/class-summary.php:1252
-#: includes/classes/class-summary.php:1380
-#: includes/classes/class-summary.php:1393
-#: includes/classes/class-summary.php:1405
+#: includes/classes/class-summary.php:1286
+#: includes/classes/class-summary.php:1413
+#: includes/classes/class-summary.php:1426
+#: includes/classes/class-summary.php:1439
 #, php-format
 msgid "View %1$s version %2$s details"
 msgstr ""
@@ -1144,16 +1173,16 @@ msgstr ""
 msgid "WordPress"
 msgstr ""
 
-#: includes/classes/class-user-options.php:172
+#: includes/classes/class-user-options.php:185
 msgid "Yes"
 msgstr ""
 
-#: includes/classes/class-summary.php:1080
+#: includes/classes/class-summary.php:1094
 #, php-format
 msgid ""
-"You are about to install WordPress %s <strong>in English (US).</strong> "
-"There is a chance this update will break your translation. You may prefer to "
-"wait for the localized version to be released."
+"You are about to install %s %s <strong>in English (US).</strong> There is a "
+"chance this update will break your translation. You may prefer to wait for "
+"the localized version to be released."
 msgstr ""
 
 #: includes/classes/class-summary.php:823
@@ -1161,36 +1190,8 @@ msgstr ""
 msgid "You are using a development version of"
 msgstr ""
 
-#: includes/classes/class-summary.php:1028
-#, php-format
-msgid ""
-"You can update from  %1$s %2$s to <a href=\"%3$s\">%4$s %5$s</a> manually:"
-msgstr ""
-
 #: includes/classes/class-summary.php:951
 msgid "You can update to the latest nightly build manually:"
-msgstr ""
-
-#: includes/classes/class-summary.php:1018
-#, php-format
-msgid ""
-"You cannot update because <a href=\"%1$s\">%2$s %3$s</a> requires MySQL "
-"version %4$s or higher. You are running version %5$s."
-msgstr ""
-
-#: includes/classes/class-summary.php:996
-#, php-format
-msgid ""
-"You cannot update because <a href=\"%1$s\">%2$s %3$s</a> requires PHP "
-"version %4$s or higher and MySQL version %5$s or higher. You are running PHP "
-"version %6$s and MySQL version %7$s."
-msgstr ""
-
-#: includes/classes/class-summary.php:1008
-#, php-format
-msgid ""
-"You cannot update because <a href=\"%1$s\">%2$s %3$s</a> requires PHP "
-"version %4$s or higher. You are running version %5$s."
 msgstr ""
 
 #: includes/classes/class-summary.php:843
