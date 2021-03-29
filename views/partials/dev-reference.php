@@ -235,6 +235,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<p><code>ds_widget_updates_tools_description</code><br />
 				<?php _e( 'Filters the text of the updates tab tools section description.', 'dashboard-summary' ); ?></p>
 			</li>
+			<li>
+				<p><code>ds_update_php_url</code><br />
+				<?php _e( 'Filters the URL of information on updating a server&#39;s PHP version.', 'dashboard-summary' ); ?></p>
+			</li>
 		</ul>
 
 		<h5><?php _e( 'Site Content Tab', 'dashboard-summary' ); ?></h5>

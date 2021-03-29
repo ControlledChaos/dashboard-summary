@@ -913,13 +913,16 @@ class Summary {
 
 		} else {
 
+			// Re-install notice if current version.
 			if ( $current ) {
 				$message     = sprintf( __( 'If you need to re-install version %s, you can do so here:', 'dashboard-summary' ), $version_string );
 				$submit      = __( 'Re-install System', 'dashboard-summary' );
 				$form_action = 'update-core.php?action=do-core-reinstall';
 
+			// Various notices if not the current version.
 			} else {
 
+				// Check required PHP version.
 				$php_compat = version_compare( $php_version, $update->php_version, '>=' );
 
 				if ( file_exists( WP_CONTENT_DIR . '/db.php' ) && empty( $wpdb->is_mysql ) ) {
@@ -933,24 +936,11 @@ class Summary {
 					sanitize_title( $update->current )
 				);
 
-				if ( function_exists( 'wp_get_update_php_url' ) ) {
-					$php_update_message = '</p><p>' . sprintf(
-						__( '<a href="%s">Learn more about updating PHP</a>.' ),
-						esc_url( wp_get_update_php_url() )
-					);
-				} else {
-					$php_update_message = '';
-				}
-
-				if ( function_exists( 'wp_get_update_php_url' ) ) {
-					$annotation = wp_get_update_php_annotation();
-				} else {
-					$annotation = null;
-				}
-
-				if ( $annotation ) {
-					$php_update_message .= '</p><p><em>' . $annotation . '</em>';
-				}
+				// Link to information on updating a server's PHP version.
+				$php_update_message = '</p><p>' . sprintf(
+					__( '<a href="%s">Learn more about updating PHP</a>.' ),
+					$this->update_php_url()
+				);
 
 				if ( ! $mysql_compat && ! $php_compat ) {
 					$message = sprintf(
@@ -1044,6 +1034,20 @@ class Summary {
 		}
 
 		echo '</form>';
+	}
+
+	/**
+	 * Update PHP URL
+	 *
+	 * Link to information on updating a server's PHP version.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return string Returns the escaped, filtered URL.
+	 */
+	public function update_php_url() {
+		$url = esc_url( 'https://github.com/ControlledChaos/dashboard-summary/blob/main/includes/docs/update-php-links.md' );
+		return apply_filters( 'ds_update_php_url', $url );
 	}
 
 	/**
