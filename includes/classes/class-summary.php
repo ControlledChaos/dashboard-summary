@@ -505,7 +505,7 @@ class Summary {
 	/**
 	 * Management system
 	 *
-	 * Defines the name of the management system.
+	 * Defines the code name of the management system.
 	 *
 	 * @since  1.0.0
 	 * @access public
@@ -515,15 +515,46 @@ class Summary {
 
 		// Check for ClassicPress.
 		if ( function_exists( 'classicpress_version' ) ) {
-			$output = __( 'ClassicPress', 'dashboard-summary' );
+			$system = 'classicpress';
 
 		// Default to WordPress.
 		} else {
-			$output = __( 'WordPress', 'dashboard-summary' );
+			$system = 'wordpress';
+		}
+
+		// Return the system. Apply filter for customization.
+		return apply_filters( 'ds_system', $system );
+	}
+
+	/**
+	 * Name of the management system
+	 *
+	 * Defines the display name of the management system.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return string Returns the name of the management system.
+	 */
+	public function system_name() {
+
+		// Get the current management system.
+		$system = $this->management_system();
+
+		// Check for ClassicPress.
+		if ( 'classicpress' === $system ) {
+			$name = __( 'ClassicPress', 'dashboard-summary' );
+
+		// Check for WordPress.
+		} elseif ( 'wordpress' === $system ) {
+			$name = __( 'WordPress', 'dashboard-summary' );
+
+		// Generic name.
+		} else {
+			$name = __( 'system', 'dashboard-summary' );
 		}
 
 		// Return the system name. Apply filter for customization.
-		return apply_filters( 'ds_system_name', $output );
+		return apply_filters( 'ds_system_name', $name );
 	}
 
 	/**
@@ -537,8 +568,11 @@ class Summary {
 	 */
 	public function system_notice() {
 
-		// Get system name.
+		// Get the current management system.
 		$system = $this->management_system();
+
+		// Get system name.
+		$name = $this->system_name();
 
 		// Text for site or network dashboard.
 		if ( is_multisite() && is_network_admin() ) {
@@ -548,14 +582,14 @@ class Summary {
 		}
 
 		// Check for ClassicPress.
-		if ( function_exists( 'classicpress_version' ) ) {
+		if ( 'classicpress' === $system ) {
 
 			// Markup of the notice.
 			$output = sprintf(
 				'%s <a href="%s">%s</a>',
 				$text,
 				esc_url( 'https://github.com/ClassicPress/ClassicPress-release/releases' ),
-				$system . ' ' . get_bloginfo( 'version', 'display' )
+				$name . ' ' . get_bloginfo( 'version', 'display' )
 			);
 
 		// Default to WordPress.
@@ -566,7 +600,7 @@ class Summary {
 				'%s <a href="%s">%s</a>',
 				$text,
 				esc_url( 'https://wordpress.org/download/releases/' ),
-				$system . ' ' . get_bloginfo( 'version', 'display' )
+				$name . ' ' . get_bloginfo( 'version', 'display' )
 			);
 		}
 
@@ -755,7 +789,7 @@ class Summary {
 		require ABSPATH . WPINC . '/version.php';
 
 		// System name.
-		$system = $this->management_system();
+		$system = $this->system_name();
 
 		// Check for a development version.
 		$is_development_version = preg_match( '/alpha|beta|RC/', $wp_version );
@@ -860,7 +894,7 @@ class Summary {
 		global $wp_local_package, $wpdb;
 		static $first_pass = true;
 
-		// System name.
+		// Get the current management system.
 		$system = $this->management_system();
 
 		// Stop here if updates have been disabled.
