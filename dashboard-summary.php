@@ -5,7 +5,7 @@
  * Improves the At a Glance dashboard widget and offers a replacement
  * widget with more detailed website and network information.
  *
- * Compatible with WordPress Multisite and with ClassicPress.
+ * Compatible with multisite installations and with ClassicPress.
  *
  * @package Dashboard_Summary
  * @version 1.0.0
@@ -13,7 +13,7 @@
  *
  * Plugin Name:  Dashboard Summary
  * Plugin URI:   https://github.com/ControlledChaos/dashboard-summary
- * Description:  Improves the At a Glance dashboard widget and offers a replacement widget with more detailed website and network information. Compatible with WordPress Multisite and with ClassicPress.
+ * Description:  Improves the At a Glance dashboard widget and offers a replacement widget with more detailed website and network information. Compatible with multisite installations and with ClassicPress.
  * Version:      1.0.0
  * Author:       Controlled Chaos Design
  * Author URI:   http://ccdzine.com/
