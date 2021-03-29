@@ -774,22 +774,24 @@ class Summary {
 		// // Get core updates data.
 		$update_data = wp_get_update_data();
 
+		// System name.
+		$system = $this->system_name();
+
 		// Stop here if updates have been disabled.
 		if ( 0 == $update_data['counts']['wordpress'] ) {
 
 			// Print the markup for no system updates.
 			printf(
-				'<p class="response">%s</p>',
-				__( 'There are no system updates available.', 'dashboard-summary' )
+				'<p class="response">%s %s %s</p>',
+				__( 'There are no', 'dashboard-summary' ),
+				$system,
+				__( 'updates available.', 'dashboard-summary' )
 			);
 			return;
 		}
 
 		// Get the system version.
 		require ABSPATH . WPINC . '/version.php';
-
-		// System name.
-		$system = $this->system_name();
 
 		// Check for a development version.
 		$is_development_version = preg_match( '/alpha|beta|RC/', $wp_version );
@@ -884,7 +886,7 @@ class Summary {
 	 * @since  1.0.0
 	 * @access public
 	 * @global string $wp_local_package Locale code of the package.
-	 * @global wpdb $wpdb WordPress database abstraction object.
+	 * @global wpdb $wpdb Database abstraction object.
 	 * @param  object $update
 	 * @return void
 	 */
@@ -896,6 +898,9 @@ class Summary {
 
 		// Get the current management system.
 		$system = $this->management_system();
+
+		// System name.
+		$name = $this->system_name();
 
 		// Stop here if updates have been disabled.
 		$update_data = wp_get_update_data();
@@ -935,7 +940,7 @@ class Summary {
 			$current = true;
 		}
 
-		// Variables for update messages.
+		// Variables for update notices.
 		$submit        = __( 'Update System', 'dashboard-summary' );
 		$form_action   = 'update-core.php?action=do-core-upgrade';
 		$php_version   = phpversion();
@@ -943,13 +948,13 @@ class Summary {
 
 		// Update manually if a development version is installed.
 		if ( 'development' === $update->response ) {
-			$message = __( 'You can update to the latest nightly build manually:', 'dashboard-summary' );
+			$notice = __( 'You can update to the latest nightly build manually:', 'dashboard-summary' );
 
 		} else {
 
 			// Re-install notice if current version.
 			if ( $current ) {
-				$message     = sprintf( __( 'If you need to re-install version %s, you can do so here:', 'dashboard-summary' ), $version_string );
+				$notice     = sprintf( __( 'If you need to re-install version %s, you can do so here:', 'dashboard-summary' ), $version_string );
 				$submit      = __( 'Re-install System', 'dashboard-summary' );
 				$form_action = 'update-core.php?action=do-core-reinstall';
 
@@ -965,56 +970,72 @@ class Summary {
 					$mysql_compat = version_compare( $mysql_version, $update->mysql_version, '>=' );
 				}
 
-				$version_url = sprintf(
-					esc_url( __( 'https://wordpress.org/support/wordpress-version/version-%s/' ) ),
-					sanitize_title( $update->current )
-				);
+				// ClassicPress version URL.
+				if ( 'classicpress' === $system ) {
+					$version_url = sprintf(
+						esc_url( __( 'https://www.classicpress.net/version/%s' ) ),
+						$update->current
+					);
+
+				// Default to WordPress version URL.
+				} else {
+					$version_url = sprintf(
+						esc_url( __( 'https://wordpress.org/support/wordpress-version/version-%s/' ) ),
+						sanitize_title( $update->current )
+					);
+				}
 
 				// Link to information on updating a server's PHP version.
-				$php_update_message = '</p><p>' . sprintf(
-					__( '<a href="%s">Learn more about updating PHP</a>.' ),
+				$php_update_notice = sprintf(
+					__( '<p><a href="%s">Learn more about updating PHP</a>.</p>' ),
 					$this->update_php_url()
 				);
 
+				// PHP & database compatibility notice.
 				if ( ! $mysql_compat && ! $php_compat ) {
-					$message = sprintf(
-						__( 'You cannot update because <a href="%1$s">%2$s %3$s</a> requires PHP version %4$s or higher and MySQL version %5$s or higher. You are running PHP version %6$s and MySQL version %7$s.', 'dashboard-summary' ),
+					$notice = sprintf(
+						__( '<p>You cannot update because <a href="%1$s">%2$s %3$s</a> requires PHP version %4$s or higher and MySQL version %5$s or higher. You are running PHP version %6$s and MySQL version %7$s.</p>', 'dashboard-summary' ),
 						$version_url,
-						$system,
+						$name,
 						$update->current,
 						$update->php_version,
 						$update->mysql_version,
 						$php_version,
 						$mysql_version
-					) . $php_update_message;
+					);
+					$notice .= $php_update_notice;
 
+				// PHP compatibility notice.
 				} elseif ( ! $php_compat ) {
-					$message = sprintf(
-						__( 'You cannot update because <a href="%1$s">%2$s %3$s</a> requires PHP version %4$s or higher. You are running version %5$s.', 'dashboard-summary' ),
+					$notice = sprintf(
+						__( '<p>You cannot update because <a href="%1$s">%2$s %3$s</a> requires PHP version %4$s or higher. You are running version %5$s.</p>', 'dashboard-summary' ),
 						$version_url,
-						$system,
+						$name,
 						$update->current,
 						$update->php_version,
 						$php_version
-					) . $php_update_message;
+					);
+					$notice .= $php_update_notice;
 
+				// Database compatibility notice.
 				} elseif ( ! $mysql_compat ) {
-					$message = sprintf(
-						__( 'You cannot update because <a href="%1$s">%2$s %3$s</a> requires MySQL version %4$s or higher. You are running version %5$s.', 'dashboard-summary' ),
+					$notice = sprintf(
+						__( '<p>You cannot update because <a href="%1$s">%2$s %3$s</a> requires MySQL version %4$s or higher. You are running version %5$s.</p>', 'dashboard-summary' ),
 						$version_url,
-						$system,
+						$name,
 						$update->current,
 						$update->mysql_version,
 						$mysql_version
 					);
 
+				// Manual update notice.
 				} else {
-					$message = sprintf(
-						__( 'You can update from  %1$s %2$s to <a href="%3$s">%4$s %5$s</a> manually:', 'dashboard-summary' ),
-						$system,
+					$notice = sprintf(
+						__( '<p>You can update from  %1$s %2$s to <a href="%3$s">%4$s %5$s</a> manually:</p>', 'dashboard-summary' ),
+						$name,
 						$current_version,
 						$version_url,
-						$system,
+						$name,
 						$version_string
 					);
 				}
@@ -1027,14 +1048,19 @@ class Summary {
 			}
 		}
 
-		echo '<p>' . $message .'</p>';
+		// Print the applicable update notice.
+		echo $notice;
 
+		// Begin updates form.
 		echo '<form method="post" action="' . $form_action . '" name="upgrade" class="upgrade">';
 		wp_nonce_field( 'upgrade-core' );
 
+		// Begin applicable update or dismiss button.
 		echo '<p>';
 		echo '<input name="version" value="' . esc_attr( $update->current ) . '" type="hidden"/>';
 		echo '<input name="locale" value="' . esc_attr( $update->locale ) . '" type="hidden"/>';
+
+		// If update buttons can be shown.
 		if ( $show_buttons ) {
 
 			if ( $first_pass ) {
@@ -1045,6 +1071,7 @@ class Summary {
 			}
 		}
 
+		// If the update is not in the default language (en_US).
 		if ( 'en_US' !== $update->locale ) {
 
 			if ( ! isset( $update->dismissed ) || ! $update->dismissed ) {
@@ -1053,6 +1080,8 @@ class Summary {
 				submit_button( __( 'Bring back this update', 'dashboard-summary' ), '', 'undismiss', false );
 			}
 		}
+
+		// End applicable update or dismiss button.
 		echo '</p>';
 
 		if ( 'en_US' !== $update->locale && ( ! isset( $wp_local_package ) || $wp_local_package != $update->locale ) ) {
@@ -1062,11 +1091,13 @@ class Summary {
 
 			// Partial builds don't need language-specific warnings.
 			echo '<p class="hint">' . sprintf(
-				__( 'You are about to install WordPress %s <strong>in English (US).</strong> There is a chance this update will break your translation. You may prefer to wait for the localized version to be released.', 'dashboard-summary' ),
+				__( 'You are about to install %s %s <strong>in English (US).</strong> There is a chance this update will break your translation. You may prefer to wait for the localized version to be released.', 'dashboard-summary' ),
+				$name,
 				'development' !== $update->response ? $update->current : ''
 			) . '</p>';
 		}
 
+		// End updates form.
 		echo '</form>';
 	}
 
@@ -1093,34 +1124,45 @@ class Summary {
 	 */
 	public function dismissed_updates() {
 
+		// Get dismissed updates.
 		$dismissed = get_core_updates(
+
+			// Reverse the default array.
 			[
 				'dismissed' => true,
 				'available' => false,
 			]
 		);
 
+		// If an update has been dismissed.
 		if ( $dismissed ) {
-
 			$show_text = esc_js( __( 'Show hidden updates', 'dashboard-summary' ) );
 			$hide_text = esc_js( __( 'Hide hidden updates', 'dashboard-summary' ) );
-			?>
+		?>
 		<script type="text/javascript">
-			jQuery(function( $ ) {
+			jQuery( function($) {
 				$( 'dismissed-updates' ).show();
-				$( '#show-dismissed' ).toggle( function() { $( this ).text( '<?php echo $hide_text; ?>' ).attr( 'aria-expanded', 'true' ); }, function() { $( this ).text( '<?php echo $show_text; ?>' ).attr( 'aria-expanded', 'false' ); } );
+				$( '#show-dismissed' ).toggle( function() { $(this).text( '<?php echo $hide_text; ?>' ).attr( 'aria-expanded', 'true' ); }, function() { $(this).text( '<?php echo $show_text; ?>' ).attr( 'aria-expanded', 'false' ); } );
 				$( '#show-dismissed' ).click( function() { $( '#dismissed-updates' ).toggle( 'fast' ); } );
 			});
 		</script>
-			<?php
-			echo '<p class="hide-if-no-js"><button type="button" class="button" id="show-dismissed" aria-expanded="false">' . __( 'Show hidden updates', 'dashboard-summary' ) . '</button></p>';
-			echo '<ul id="dismissed-updates" class="core-updates dismissed">';
-			foreach ( (array) $dismissed as $update ) {
-				echo '<li>';
-				available_system_updates( $update );
-				echo '</li>';
-			}
-			echo '</ul>';
+		<?php
+
+		// Show hidden updates message.
+		echo '<p class="hide-if-no-js"><button type="button" class="button" id="show-dismissed" aria-expanded="false">' . __( 'Show hidden updates', 'dashboard-summary' ) . '</button></p>';
+
+		// Begin list of dismissed updates.
+		echo '<ul id="dismissed-updates" class="core-updates dismissed">';
+		foreach ( (array) $dismissed as $update ) {
+			echo '<li>';
+			available_system_updates( $update );
+			echo '</li>';
+		}
+
+		// End list of dismissed updates.
+		echo '</ul>';
+
+		// End dismissed updates.
 		}
 	}
 
@@ -1136,26 +1178,33 @@ class Summary {
 		// Get update data.
 		$data = wp_get_update_data();
 
+		// Switch method cases.
 		switch ( $updates ) {
+
+			// Count plugin updates.
 			case 'plugins' :
 				$output = $data['counts']['plugins'];
 				break;
+
+			// Count theme updates.
 			case 'themes' :
 				$output = $data['counts']['themes'];
 				break;
+
+			// Count total updates.
 			case 'count' :
 				$output = $data['counts']['total'];
 				break;
 
+			// Get the updates title, use as default.
 			case 'title' :
 			default      :
 				$output = $data['title'];
 				break;
 		}
 
-		$output = apply_filters( 'ds_updates', $output, $updates );
-
-		return $output;
+		// Apply a filter for customization.
+		return apply_filters( 'ds_updates', $output, $updates );
 	}
 
 	/**
@@ -1219,8 +1268,8 @@ class Summary {
 			foreach ( $update_plugins->response as $update ) {
 
 				// Define the name of the plugin.
-				$data    = get_plugin_data( ABSPATH . 'wp-content/plugins/' . $update->plugin );
-				$name    = $data['Name'];
+				$data = get_plugin_data( ABSPATH . 'wp-content/plugins/' . $update->plugin );
+				$name = $data['Name'];
 
 				// Plugin details URL.
 				$details = self_admin_url( 'plugin-install.php?tab=plugin-information&plugin=' . $update->slug . '&section=changelog&TB_iframe=true&width=600&height=800' );
@@ -1250,7 +1299,7 @@ class Summary {
 			}
 			$output .= '</ul>';
 
-		// No updates message.
+		// No updates notice.
 		} else {
 			$output = sprintf(
 				'<p>%s</p>',
@@ -1293,14 +1342,13 @@ class Summary {
 			}
 			$output .= '</ul>';
 
-		// No updates message.
+		// No updates notice.
 		} else {
 			$output = sprintf(
 				'<p>%s</p>',
 				__( 'There are no theme updates available.', 'dashboard-summary' )
 			);
 		}
-
 		return $output;
 	}
 
@@ -1381,6 +1429,7 @@ class Summary {
 				);
 
 			} else {
+
 				$html = sprintf(
 					'<li><strong>' . __( 'There is a new version of %1$s available. <a href="%2$s" %3$s>View version %4$s details</a> or <a href="%5$s" %6$s>update now</a>.', 'dashboard-summary' ) . '</strong></li>',
 					$theme_name,
@@ -1399,7 +1448,6 @@ class Summary {
 				);
 			}
 		}
-
 		return $html;
 	}
 
