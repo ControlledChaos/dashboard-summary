@@ -124,8 +124,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<?php _e( 'Filters the text of the database version notice.', 'dashboard-summary' ); ?></p>
 			</li>
 			<li>
+				<p><code>ds_system</code><br />
+				<?php _e( 'Filters the code name of the content/website management system (e.g. wordpress).', 'dashboard-summary' ); ?></p>
+			</li>
+			<li>
 				<p><code>ds_system_name</code><br />
-				<?php _e( 'Filters the name of the content/website management system.', 'dashboard-summary' ); ?></p>
+				<?php _e( 'Filters the display name of the content/website management system (e.g. WordPress).', 'dashboard-summary' ); ?></p>
 			</li>
 			<li>
 				<p><code>ds_system_notice</code><br />
