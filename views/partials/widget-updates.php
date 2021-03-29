@@ -65,7 +65,7 @@ $tools_description = apply_filters( 'ds_widget_updates_tools_description', $tool
 
 	<h4><?php _e( 'System', 'dashboard-summary' ); ?></h4>
 
-	<?php echo $summary->core_updates(); ?>
+	<?php echo $summary->update_system_list(); ?>
 </div>
 <?php endif; ?>
 

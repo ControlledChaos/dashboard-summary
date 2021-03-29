@@ -82,10 +82,8 @@ class Network_Widget {
 		 */
 		$title = apply_filters( 'ds_network_widget_title', DS_NETWORK_WIDGET_TITLE );
 
-		// Check the network summary setting.
+		// Add the widget if the setting is true.
 		if ( true == settings()->sanitize_network_summary() ) {
-
-			// Add the network summary widget.
 			wp_add_dashboard_widget( 'dashboard_summary', $title, [ $this, 'output' ] );
 		}
 	}

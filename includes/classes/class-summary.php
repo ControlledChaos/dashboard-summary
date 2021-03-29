@@ -48,7 +48,7 @@ class Summary {
 	 */
 	public function custom_types_query() {
 
-		// Post type query arguments.
+		// Array of post type query arguments.
 		$query = [
 			'public'   => true,
 			'_builtin' => false
@@ -70,13 +70,13 @@ class Summary {
 	 */
 	public function public_post_types() {
 
-		// Built-in post types.
+		// Array of built-in post types.
 		$builtin = [ 'post', 'page', 'attachment' ];
 
 		// Custom post types query.
 		$query = $this->custom_types_query();
 
-		// Merge the post types.
+		// Merge the post type arrays.
 		$types = array_merge( $builtin, $query );
 
 		// Return the public post types.
@@ -98,8 +98,10 @@ class Summary {
 			'show_ui' => true
 		];
 
-		// Return taxonomies according to above.
+		// Get taxonomies according to above array.
 		$query = get_taxonomies( $query, 'object', 'and' );
+
+		// Return the array of taxonomies. Apply filter for customization.
 		return apply_filters( 'ds_taxonomies_query', $query );
 	}
 
@@ -115,7 +117,8 @@ class Summary {
 		// Get all public post types.
 		$post_types = $this->public_post_types();
 
-		echo '<ul class="ds-content-list ds-post-types-list">';
+		// Begin the post types list.
+		$html = '<ul class="ds-content-list ds-post-types-list">';
 
 		// Conditional list items.
 		foreach ( $post_types as $post_type ) {
@@ -151,13 +154,14 @@ class Summary {
 			} elseif( 0 === strpos( $type->menu_icon, 'http' ) ) {
 				$menu_icon = '<icon class="ds-cpt-icons"><img src="' . esc_url( $type->menu_icon ) . '" /></icon>';
 
+			// Fall back to the default post icon.
 			} else {
 				$menu_icon = '<icon class="dashicons dashicons-admin-post dashicons-admin-' . $type->menu_icon . '"></icon>';
 			}
 
 			// Supply an edit link if the user can edit posts.
 			if ( current_user_can( $type->cap->edit_posts ) ) {
-				printf(
+				$html .= sprintf(
 					'<li class="post-count %s-count"><a href="edit.php?post_type=%s">%s %s %s</a></li>',
 					$type->name,
 					$type->name,
@@ -168,7 +172,7 @@ class Summary {
 
 			// Otherwise just the count and post type name.
 			} else {
-				printf(
+				$html .= sprintf(
 					'<li class="post-count %s-count">%s %s %s</li>',
 					$type->name,
 					$menu_icon,
@@ -178,7 +182,12 @@ class Summary {
 
 			}
 		}
-		echo '</ul>';
+
+		// End the post types list.
+		$html .= '</ul>';
+
+		// Print the list markup.
+		echo $html;
 	}
 
 	/**
@@ -199,7 +208,8 @@ class Summary {
 		// Prepare an entry for each taxonomy matching the query.
 		if ( $taxonomies ) {
 
-			echo '<ul class="ds-content-list ds-taxonomies-list">';
+			// Begin the taxonomies list.
+			$html = '<ul class="ds-content-list ds-taxonomies-list">';
 
 			foreach ( $taxonomies as $taxonomy ) {
 
@@ -230,7 +240,7 @@ class Summary {
 				if ( current_user_can( $edit->cap->edit_posts ) ) {
 
 					// Print a list item for the taxonomy.
-					echo sprintf(
+					$html .= sprintf(
 						'<li class="at-glance-taxonomy %s"><a href="%s">%s %s</a></li>',
 						$taxonomy->name,
 						esc_url( admin_url( 'edit-tags.php?taxonomy=' . $taxonomy->name . $type ) ),
@@ -242,7 +252,7 @@ class Summary {
 				} else {
 
 					// Print a list item for the taxonomy.
-					echo sprintf(
+					$html .= sprintf(
 						'<li class="at-glance-taxonomy %s"><a href="%s">%s %s</a></li>',
 						$taxonomy->name,
 						$count,
@@ -251,7 +261,11 @@ class Summary {
 				}
 			}
 
-			echo '</ul>';
+			// End the taxonomies list.
+			$html .= '</ul>';
+
+			// Print the list markup.
+			echo $html;
 		}
 	}
 
@@ -273,7 +287,8 @@ class Summary {
 		// Prepare an entry for each taxonomy matching the query.
 		if ( $taxonomies ) {
 
-			echo '<ul class="ds-content-list ds-taxonomies-list">';
+			// Begin the taxonomies icons list.
+			$html = '<ul class="ds-content-list ds-taxonomies-list">';
 
 			foreach ( $taxonomies as $taxonomy ) {
 
@@ -317,7 +332,7 @@ class Summary {
 				if ( current_user_can( $edit->cap->edit_posts ) ) {
 
 					// Print a list item for the taxonomy.
-					echo sprintf(
+					$html .= sprintf(
 						'<li class="at-glance-taxonomy %s"><a href="%s">%s %s %s</a></li>',
 						$taxonomy->name,
 						esc_url( admin_url( 'edit-tags.php?taxonomy=' . $taxonomy->name . $type ) ),
@@ -329,7 +344,7 @@ class Summary {
 				// List item without link.
 				} else {
 					// Print a list item for the taxonomy.
-					echo sprintf(
+					$html .= sprintf(
 						'<li class="at-glance-taxonomy %s">%s %s %s</li>',
 						$taxonomy->name,
 						$icon,
@@ -339,7 +354,11 @@ class Summary {
 				}
 			}
 
-			echo '</ul>';
+			// End the taxonomies icons list.
+			$html .= '</ul>';
+
+			// Print the list markup.
+			echo $html;
 		}
 	}
 
@@ -351,7 +370,11 @@ class Summary {
 	 * @return integer Returns the number of registered users.
 	 */
 	public static function total_users() {
+
+		// Count the registered users.
 		$count = count_users();
+
+		// Return the number of total registered users.
 		return intval( $count['total_users'] );
 	}
 
@@ -363,12 +386,17 @@ class Summary {
 	 * @return integer Returns the number of comments for the user.
 	 */
 	public function get_user_comments_count() {
+
+		// Array of comment arguments.
 		$args = [
 			'user_id' => get_current_user_id(),
 			'count'   => true // Return only the count.
 		];
+
+		// Get comments according to the above array.
 		$count = get_comments( $args );
 
+		// Return the number of comments.
 		return intval( $count );
 	}
 
@@ -384,6 +412,7 @@ class Summary {
 	 */
 	public function php_version() {
 
+		// Markup of the notice.
 		$output = sprintf(
 			'%s <a href="%s">%s</a>',
 			__( 'The web server is running', 'dashboard-summary' ),
@@ -391,6 +420,7 @@ class Summary {
 			'PHP ' . phpversion()
 		);
 
+		// Return the notice. Apply filter for customization.
 		return apply_filters( 'ds_php_version_notice', $output );
 	}
 
@@ -399,22 +429,30 @@ class Summary {
 	 *
 	 * @since  1.0.0
 	 * @access public
-	 * @global object $wpdb
-	 * @return array
+	 * @global object $wpdb Database access abstraction class.
+	 * @return array Returns an array of database results.
 	 */
 	public function get_database_vars() {
 
+		// Access the wpdb class.
 		global $wpdb;
 
+		// Return false if no database results.
 		if ( ! $results = $wpdb->get_results( 'SHOW GLOBAL VARIABLES' ) ) {
 			return false;
 		}
 
+		// Set up an array of database results.
 		$mysql_vars = [];
+
+		// For each database result.
 		foreach ( $results as $result ) {
+
+			// Result name.
 			$mysql_vars[ $result->Variable_name ] = $result->Value;
 		}
 
+		// Return an array of database results.
 		return $mysql_vars;
 	}
 
@@ -428,19 +466,24 @@ class Summary {
 	 */
 	public function get_database_version() {
 
+		// Get database variables.
 		$vars = $this->get_database_vars();
 
+		// If the database version is found.
 		if ( isset( $vars['version'] ) && ! empty( $vars['version'] ) ) {
 			$version = sanitize_text_field( $vars['version'] );
+
+		// If no database version is found.
 		} else {
 			$version = __( 'not available', 'dashboard-summary' );
 		}
 
+		// Return the applicable string.
 		return $version;
 	}
 
 	/**
-	 * Database version
+	 * Database version notice
 	 *
 	 * @since  1.0.0
 	 * @access public
@@ -448,12 +491,14 @@ class Summary {
 	 */
 	public function database_version() {
 
+		// Markup of the notice.
 		$output = sprintf(
 			'%s %s',
 			__( 'The database version is', 'dashboard-summary' ),
 			$this->get_database_version()
 		);
 
+		// Return the notice. Apply filter for customization.
 		return apply_filters( 'ds_database_version_notice', $output );
 	}
 
@@ -471,10 +516,13 @@ class Summary {
 		// Check for ClassicPress.
 		if ( function_exists( 'classicpress_version' ) ) {
 			$output = __( 'ClassicPress', 'dashboard-summary' );
+
+		// Default to WordPress.
 		} else {
 			$output = __( 'WordPress', 'dashboard-summary' );
 		}
 
+		// Return the system name. Apply filter for customization.
 		return apply_filters( 'ds_system_name', $output );
 	}
 
@@ -501,13 +549,19 @@ class Summary {
 
 		// Check for ClassicPress.
 		if ( function_exists( 'classicpress_version' ) ) {
+
+			// Markup of the notice.
 			$output = sprintf(
 				'%s <a href="%s">%s</a>',
 				$text,
 				esc_url( 'https://github.com/ClassicPress/ClassicPress-release/releases' ),
 				$system . ' ' . get_bloginfo( 'version', 'display' )
 			);
+
+		// Default to WordPress.
 		} else {
+
+			// Markup of the notice.
 			$output = sprintf(
 				'%s <a href="%s">%s</a>',
 				$text,
@@ -516,11 +570,12 @@ class Summary {
 			);
 		}
 
+		// Return the notice. Apply filter for customization.
 		return apply_filters( 'ds_system_notice', $output );
 	}
 
 	/**
-	 * Search engine statement
+	 * Search engine notice
 	 *
 	 * @since  1.0.0
 	 * @access public
@@ -529,28 +584,34 @@ class Summary {
 	 */
 	public function search_engines() {
 
-		// Conditional link text.
+		// Text for network dashboards.
 		if ( is_multisite() && is_network_admin() ) {
 			$text = __( 'Search engines are discouraged for the primary site', 'dashboard-summary' );
+
+		// Text for site dashboards.
 		} else {
 			$text = __( 'Search engines are discouraged', 'dashboard-summary' );
 		}
 
-		// Check if search engines are asked not to index this site.
+		// Check if search engines are asked not to index the site.
 		if (
 			! is_user_admin() &&
 			current_user_can( 'manage_options' ) &&
 			'0' == get_option( 'blog_public' )
 		) {
+			// Markup of the notice.
 			$output = sprintf(
 				'<a class="ds-search-engines" href="%s">%s</a>',
 				esc_url( admin_url( 'options-reading.php' ) ),
 				$text
 			);
+
+		// Print nothing if search engines are not discouraged.
 		} else {
 			$output = null;
 		}
 
+		// Return the notice. Apply filter for customization.
 		return apply_filters( 'ds_search_engines', $output );
 	}
 
@@ -578,21 +639,30 @@ class Summary {
 		} else {
 			$theme_uri = null;
 		}
+
+		// Return the URI string ot null.
 		return $theme_uri;
 	}
 
 	/**
-	 * Active theme statement
+	 * Active theme notice
 	 *
 	 * @since  1.0.0
 	 * @access public
-	 * @return string Returns the text of the active theme statement.
+	 * @return string Returns the text of the active theme notice.
 	 */
 	public function active_theme() {
 
+		// Get the active theme name.
 		$theme_name = wp_get_theme();
+
+		/**
+		 * If the theme header has the URI tag then
+		 * print the link in the header.
+		 */
 		if ( ! is_null( $this->active_theme_uri() ) ) {
 
+			// Markup of the notice for network dashboards.
 			if ( is_network_admin() ) {
 				$theme_name = sprintf(
 					'%s <a href="%s" target="_blank" rel="nofollow noreferrer noopener">%s</a>',
@@ -600,6 +670,8 @@ class Summary {
 					$this->active_theme_uri(),
 					$theme_name
 				);
+
+			// Markup of the notice for site dashboards.
 			} else {
 				$theme_name = sprintf(
 					'%s <a href="%s" target="_blank" rel="nofollow noreferrer noopener">%s</a>',
@@ -609,8 +681,14 @@ class Summary {
 				);
 			}
 
+		/**
+		 * If the theme header does not have the URI tag and
+		 * the current user can switch themes then print a
+		 * link to the themes management screen.
+		 */
 		} elseif ( current_user_can( 'switch_themes' ) ) {
 
+			// Markup of the notice for network dashboards.
 			if ( is_network_admin() ) {
 				$theme_name = sprintf(
 					'%s <a href="%s">%s</a>',
@@ -618,6 +696,8 @@ class Summary {
 					esc_url( self_admin_url( 'themes.php' ) ),
 					$theme_name
 				);
+
+			// Markup of the notice for site dashboards.
 			} else {
 				$theme_name = sprintf(
 					'%s <a href="%s">%s</a>',
@@ -627,6 +707,7 @@ class Summary {
 				);
 			}
 
+		// Default to the theme name with no link.
 		} else {
 			$theme_name = sprintf(
 				'%s %s',
@@ -635,11 +716,12 @@ class Summary {
 			);
 		}
 
+		// Return the notice. Apply filter for customization.
 		return apply_filters( 'ds_active_theme', $theme_name );
 	}
 
 	/**
-	 * Display upgrade WordPress for downloading latest or upgrading automatically form.
+	 * System updates user interface
 	 *
 	 * @since  1.0.0
 	 * @access public
@@ -647,16 +729,21 @@ class Summary {
 	 * @global string $required_mysql_version The required MySQL version string.
 	 * @return void
 	 */
-	public function core_updates() {
+	public function update_system_list() {
 
 		// Access global variables.
 		global $required_php_version, $required_mysql_version;
 
+		// Get core updates.
 		$updates = get_core_updates();
 
-		// Stop here if updates have been disabled.
+		// // Get core updates data.
 		$update_data = wp_get_update_data();
+
+		// Stop here if updates have been disabled.
 		if ( 0 == $update_data['counts']['wordpress'] ) {
+
+			// Print the markup for no system updates.
 			printf(
 				'<p class="response">%s</p>',
 				__( 'There are no system updates available.', 'dashboard-summary' )
@@ -668,16 +755,15 @@ class Summary {
 		require ABSPATH . WPINC . '/version.php';
 
 		// System name.
-		if ( function_exists( 'classicpress_version' ) ) {
-			$system = __( 'ClassicPress', 'dashboard-summary' );
-		} else {
-			$system = __( 'WordPress', 'dashboard-summary' );
-		}
+		$system = $this->management_system();
 
+		// Check for a development version.
 		$is_development_version = preg_match( '/alpha|beta|RC/', $wp_version );
 
+		// If an update is available.
 		if ( isset( $updates[0]->version ) && version_compare( $updates[0]->version, $wp_version, '>' ) ) {
 
+			// Update notice.
 			printf(
 				'<p class="response">%s %s %s</p>',
 				__( 'An updated version of', 'dashboard-summary' ),
@@ -685,20 +771,27 @@ class Summary {
 				__( 'is available.', 'dashboard-summary' )
 			);
 
+			// Backup warning.
 			printf(
 				'<p><strong>%s</strong> %s</p>',
 				__( 'Important:', 'dashboard-summary' ),
 				__( 'Before updating, please back up your database and files.', 'dashboard-summary' ),
 			);
 
+		// If the site or network is running a development version.
 		} elseif ( $is_development_version ) {
+
+			// Development notice.
 			printf(
 				'<p class="response">%s %s</p>',
 				__( 'You are using a development version of', 'dashboard-summary' ),
 				$system
 			);
 
+		// If the system is up to date.
 		} else {
+
+			// Latest version notice.
 			printf(
 				'<p class="response">%s %s</p>',
 				__( 'You have the latest version of', 'dashboard-summary' ),
@@ -706,13 +799,15 @@ class Summary {
 			);
 		}
 
-		// Don't show the maintenance mode notice when we are only showing a single re-install option.
+		// Don't show the maintenance mode notice when only showing a single re-install option.
 		if ( $updates && ( count( $updates ) > 1 || 'latest' !== $updates[0]->response ) ) {
 
 			echo '<p>' . __( 'While your site is being updated, it will be in maintenance mode. As soon as your updates are complete, this mode will be deactivated.', 'dashboard-summary' ) . '</p>';
 
+		// If no updates available.
 		} elseif ( ! $updates ) {
 
+			// Link to the About page.
 			list( $normalized_version ) = explode( '-', $wp_version );
 			echo '<p>' . sprintf(
 				__( '<a href="%1$s">Learn more about WordPress %2$s</a>.', 'dashboard-summary' ),
@@ -721,19 +816,25 @@ class Summary {
 			) . '</p>';
 		}
 
+		// Begin updates list.
 		echo '<ul class="core-updates">';
+
+		// List entry for each update.
 		foreach ( (array) $updates as $update ) {
 			echo '<li>';
-			$this->list_core_update( $update );
+			$this->available_system_updates( $update );
 			echo '</li>';
 		}
+
+		// End updates list.
 		echo '</ul>';
 
+		// Display dismissed updates.
 		$this->dismissed_updates();
 	}
 
 	/**
-	 * Lists available core updates.
+	 * Available system updates
 	 *
 	 * @since  1.0.0
 	 * @access public
@@ -742,7 +843,7 @@ class Summary {
 	 * @param  object $update
 	 * @return void
 	 */
-	public function list_core_update( $update ) {
+	public function available_system_updates( $update ) {
 
 		// Access global variables.
 		global $wp_local_package, $wpdb;
@@ -754,34 +855,40 @@ class Summary {
 			return;
 		}
 
+		// Get system version.
 		$wp_version     = get_bloginfo( 'version' );
+
+		// Defualt version string.
 		$version_string = sprintf( '%s&ndash;<strong>%s</strong>', $update->current, $update->locale );
 
+		// If the language option is set to en_US.
 		if ( 'en_US' === $update->locale && 'en_US' === get_locale() ) {
 			$version_string = $update->current;
 
+		// Get a language-specific version string if the language option is not set to en_US.
 		} elseif ( 'en_US' === $update->locale && $update->packages->partial && $wp_version == $update->partial_version ) {
 
 			$updates = get_core_updates();
 
+			// If the only available update is a partial build it doesn't need a language-specific version string.
 			if ( $updates && 1 === count( $updates ) ) {
-
-				// If the only available update is a partial builds, it doesn't need a language-specific version string.
 				$version_string = $update->current;
 			}
 		}
 
+		// Variable to check for the current version.
 		$current = false;
 		if ( ! isset( $update->response ) || 'latest' === $update->response ) {
 			$current = true;
 		}
 
+		// Variables for update messages.
 		$submit        = __( 'Update System', 'dashboard-summary' );
 		$form_action   = 'update-core.php?action=do-core-upgrade';
 		$php_version   = phpversion();
 		$mysql_version = $wpdb->db_version();
-		$show_buttons  = true;
 
+		// Update manually if a development version is installed.
 		if ( 'development' === $update->response ) {
 			$message = __( 'You can update to the latest nightly build manually:', 'dashboard-summary' );
 
@@ -820,7 +927,6 @@ class Summary {
 
 				if ( ! $mysql_compat && ! $php_compat ) {
 					$message = sprintf(
-						/* translators: 1: URL to WordPress release notes, 2: WordPress version number, 3: Minimum required PHP version number, 4: Minimum required MySQL version number, 5: Current PHP version number, 6: Current MySQL version number. */
 						__( 'You cannot update because <a href="%1$s">WordPress %2$s</a> requires PHP version %3$s or higher and MySQL version %4$s or higher. You are running PHP version %5$s and MySQL version %6$s.', 'dashboard-summary' ),
 						$version_url,
 						$update->current,
@@ -829,27 +935,27 @@ class Summary {
 						$php_version,
 						$mysql_version
 					) . $php_update_message;
+
 				} elseif ( ! $php_compat ) {
 					$message = sprintf(
-						/* translators: 1: URL to WordPress release notes, 2: WordPress version number, 3: Minimum required PHP version number, 4: Current PHP version number. */
 						__( 'You cannot update because <a href="%1$s">WordPress %2$s</a> requires PHP version %3$s or higher. You are running version %4$s.', 'dashboard-summary' ),
 						$version_url,
 						$update->current,
 						$update->php_version,
 						$php_version
 					) . $php_update_message;
+
 				} elseif ( ! $mysql_compat ) {
 					$message = sprintf(
-						/* translators: 1: URL to WordPress release notes, 2: WordPress version number, 3: Minimum required MySQL version number, 4: Current MySQL version number. */
 						__( 'You cannot update because <a href="%1$s">WordPress %2$s</a> requires MySQL version %3$s or higher. You are running version %4$s.', 'dashboard-summary' ),
 						$version_url,
 						$update->current,
 						$update->mysql_version,
 						$mysql_version
 					);
+
 				} else {
 					$message = sprintf(
-						/* translators: 1: Installed WordPress version number, 2: URL to WordPress release notes, 3: New WordPress version number, including locale if necessary. */
 						__( 'You can update from WordPress %1$s to <a href="%2$s">WordPress %3$s</a> manually:', 'dashboard-summary' ),
 						$wp_version,
 						$version_url,
@@ -857,6 +963,8 @@ class Summary {
 					);
 				}
 
+				// Variable to show update buttons.
+				$show_buttons = true;
 				if ( ! $mysql_compat || ! $php_compat ) {
 					$show_buttons = false;
 				}
@@ -907,7 +1015,7 @@ class Summary {
 	}
 
 	/**
-	 * Display dismissed updates.
+	 * Display dismissed updates
 	 *
 	 * @since  1.0.0
 	 * @access public
@@ -939,7 +1047,7 @@ class Summary {
 			echo '<ul id="dismissed-updates" class="core-updates dismissed">';
 			foreach ( (array) $dismissed as $update ) {
 				echo '<li>';
-				list_core_update( $update );
+				available_system_updates( $update );
 				echo '</li>';
 			}
 			echo '</ul>';

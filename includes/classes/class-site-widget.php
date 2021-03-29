@@ -41,7 +41,7 @@ class Site_Widget {
 	}
 
 	/**
-	 * Add the summary widget
+	 * Add the Website Summary widget
 	 *
 	 * @since  1.0.0
 	 * @access public
@@ -49,8 +49,17 @@ class Site_Widget {
 	 */
 	public function add_widget() {
 
+		/**
+		 * Widget title
+		 *
+		 * The title is set as a constant in the plugin config file.
+		 * The title can be modified by defining the `DS_SITE_WIDGET_TITLE`
+		 * constant in the system config file or by accessing the
+		 * `ds_site_widget_title` filter applied here.
+		 */
 		$title = apply_filters( 'ds_site_widget_title', DS_SITE_WIDGET_TITLE );
 
+		// Add the widget if the setting is true.
 		if ( true == settings()->sanitize_summary() ) {
 			wp_add_dashboard_widget( 'dashboard_summary', $title, [ $this, 'output' ] );
 		}
@@ -59,8 +68,9 @@ class Site_Widget {
 	/**
 	 * Dashboard widget output
 	 *
-	 * Add widget content as an action to facilitate
-	 * the use of another template.
+	 * Add widget content as an action to facilitate the use
+	 * of another template via the `remove_action` and the
+	 * `add_action` hooks.
 	 *
 	 * @since  1.0.0
 	 * @access public
@@ -72,6 +82,8 @@ class Site_Widget {
 
 	/**
 	 * Get dashboard widget output
+	 *
+	 * Includes the widget markup from files in the views directory.
 	 *
 	 * @since  1.0.0
 	 * @access public
