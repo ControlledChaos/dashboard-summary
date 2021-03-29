@@ -42,8 +42,10 @@ class User_Options {
 	 */
 	public function user_login() {
 
+		// Get current user data.
 		$user_data = get_userdata( get_current_user_id() );
 
+		// Return the username.
 		return esc_html( $user_data->user_login );
 	}
 
@@ -102,8 +104,10 @@ class User_Options {
 	 */
 	public function nickname() {
 
+		// Get current user data.
 		$user_data = get_userdata( get_current_user_id() );
 
+		// Return the nickname.
 		return esc_html( $user_data->nickname );
 	}
 
@@ -116,13 +120,17 @@ class User_Options {
 	 */
 	public function display_name() {
 
+		// Get current user data.
 		$user_data = get_userdata( get_current_user_id() );
 
+		// Return the display name.
 		return esc_html( $user_data->display_name );
 	}
 
 	/**
 	 * User email
+	 *
+	 * Current user email with mailto link.
 	 *
 	 * @since  1.0.0
 	 * @access public
@@ -130,8 +138,10 @@ class User_Options {
 	 */
 	public function email() {
 
+		// Get current user data.
 		$user_data = get_userdata( get_current_user_id() );
 
+		// Return the linked email address.
 		return sprintf(
 			'<a href="mailto:%s">%s</a>',
 			sanitize_email( $user_data->user_email ),
@@ -142,9 +152,11 @@ class User_Options {
 	/**
 	 * User website
 	 *
+	 * Current user website URL with link, if available.
+	 *
 	 * @since  1.0.0
 	 * @access public
-	 * @return srting Returns the website URL.
+	 * @return srting Returns the website URL or no website notice.
 	 */
 	public function website() {
 
@@ -164,10 +176,11 @@ class User_Options {
 	 *
 	 * @since  1.0.0
 	 * @access public
-	 * @return srting Returns Yes/No text based on boolean.
+	 * @return srting Returns Yes/No text based on user option.
 	 */
 	public function toolbar() {
 
+		// Check the toolbar user option.
 		if ( true == get_user_option( 'show_admin_bar_front' ) ) {
 			return __( 'Yes', 'dashboard-summary' );
 		} else {
