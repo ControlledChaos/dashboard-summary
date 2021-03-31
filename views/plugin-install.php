@@ -2,6 +2,9 @@
 /**
  * Plugin innformation modal content
  *
+ * @todo Current screen notice in debug mode:
+ * Undefined offset 1 in wp-includes\vars.php
+ *
  * @package    Dashboard_Summary
  * @subpackage Views
  * @category   Updates
@@ -12,6 +15,8 @@ namespace Dashboard_Summary\Views;
 
 // Alias namespaces.
 use Dashboard_Summary\Classes as Classes;
+
+define( 'IFRAME_REQUEST', true );
 
 /**
  * Absolute path to the system directory
