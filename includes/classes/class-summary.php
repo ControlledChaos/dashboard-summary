@@ -137,7 +137,7 @@ class Summary {
 			$number = number_format_i18n( $count );
 
 			// Get the plural or single name based on the count.
-			$name = _n( $type->labels->singular_name, $type->labels->name, intval( $count ) );
+			$name = _n( $type->labels->singular_name, $type->labels->name, intval( $count ), 'dashboard-summary' );
 
 			// If the icon is data:image/svg+xml.
 			if ( 0 === strpos( $type->menu_icon, 'data:image/svg+xml;base64,' ) ) {
@@ -233,7 +233,7 @@ class Summary {
 				$count = wp_count_terms( $taxonomy->name );
 
 				// Get the plural or singlular name based on the count.
-				$name = _n( $taxonomy->labels->singular_name, $taxonomy->labels->name, intval( $count ) );
+				$name = _n( $taxonomy->labels->singular_name, $taxonomy->labels->name, intval( $count ), 'dashboard-summary' );
 
 				// Supply an edit link if the user can edit associated post types.
 				$edit = get_post_type_object( $types );
@@ -312,7 +312,7 @@ class Summary {
 				$count = wp_count_terms( $taxonomy->name );
 
 				// Get the plural or singlular name based on the count.
-				$name = _n( $taxonomy->labels->singular_name, $taxonomy->labels->name, intval( $count ) );
+				$name = _n( $taxonomy->labels->singular_name, $taxonomy->labels->name, intval( $count ), 'dashboard-summary' );
 
 				// Conditional icon markup.
 				if ( 'post_tag' == $taxonomy->name ) {
@@ -1272,7 +1272,7 @@ class Summary {
 				$name = $data['Name'];
 
 				// Plugin details URL.
-				$details = self_admin_url( 'plugin-install.php?tab=plugin-information&plugin=' . $update->slug . '&section=changelog&TB_iframe=true&width=600&height=800' );
+				$details = DS_URL . '/views/plugin-install.php?tab=plugin-information&plugin=' . $update->slug . '&section=changelog&TB_iframe=true&width=600&height=800';
 
 				// List item for each available update.
 				$output .= '<li>';
@@ -1585,6 +1585,474 @@ class Summary {
 
 		// Return false by default.
 		return false;
+	}
+
+	/**
+	 * Plugin information modal
+	 *
+	 * Displays plugin information content in the
+	 * modal window opened by updates links.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function plugin_info_modal() {
+
+		// Stop here if no plugin request.
+		if ( empty( $_REQUEST['plugin'] ) ) {
+			return;
+		}
+
+		// Access the plugins API.
+		if ( function_exists( 'plugins_api' ) ) {
+			$api = plugins_api(
+				'plugin_information',
+				[
+					'slug' => wp_unslash( $_REQUEST['plugin'] ),
+				]
+			);
+		} else {
+
+			// Die message.
+			$die = sprintf(
+				'<h1>%s</h1><p>%s</p>',
+				'File Error',
+				'Plugin information could not be loaded. Files required to display the information could not be accessed.'
+			);
+			die( $die );
+		}
+
+		// Die message if any error getting data.
+		if ( is_wp_error( $api ) ) {
+			wp_die( $api );
+		}
+
+		/**
+		 * HTML elements allowed in the content
+		 *
+		 * This white list helps to prevent malicious
+		 * code (e.g. not allowing the `<script>` tag).
+		 */
+		$allowed_html = [
+			'a' => [
+				'href'   => [],
+				'title'  => [],
+				'target' => [],
+			],
+			'abbr'    => [
+				'title' => []
+			],
+			'acronym' => [
+				'title' => []
+			],
+			'code'    => [],
+			'pre'     => [],
+			'em'      => [],
+			'strong'  => [],
+			'div'     => [
+				'class' => []
+			],
+			'span'    => [
+				'class' => []
+			],
+			'p'       => [],
+			'br'      => [],
+			'ul'      => [],
+			'ol'      => [],
+			'li'      => [],
+			'h1'      => [],
+			'h2'      => [],
+			'h3'      => [],
+			'h4'      => [],
+			'h5'      => [],
+			'h6'      => [],
+			'img'     => [
+				'src'   => [],
+				'class' => [],
+				'alt'   => [],
+			],
+			'blockquote' => [
+				'cite' => true
+			],
+		];
+
+		// Array of tabbed section headings.
+		$section_heading = [
+			'description'  => _x( 'Description', 'Plugin installer section title', 'dashboard-summary' ),
+			'installation' => _x( 'Installation', 'Plugin installer section title', 'dashboard-summary' ),
+			'faq'          => _x( 'FAQ', 'Plugin installer section title', 'dashboard-summary' ),
+			'screenshots'  => _x( 'Screenshots', 'Plugin installer section title', 'dashboard-summary' ),
+			'changelog'    => _x( 'Changelog', 'Plugin installer section title', 'dashboard-summary' ),
+			'reviews'      => _x( 'Reviews', 'Plugin installer section title', 'dashboard-summary' ),
+			'other_notes'  => _x( 'Other Notes', 'Plugin installer section title', 'dashboard-summary' ),
+		];
+
+		// Sanitize the allowed HTML.
+		foreach ( (array) $api->sections as $section_name => $content ) {
+			$api->sections[ $section_name ] = wp_kses( $content, $allowed_html );
+		}
+
+		// Entries in the plugin details list.
+		foreach ( [ 'version', 'author', 'requires', 'tested', 'homepage', 'downloaded', 'slug' ] as $key ) {
+
+			// Filter text content and strips out disallowed HTML.
+			if ( isset( $api->$key ) ) {
+				$api->$key = wp_kses( $api->$key, $allowed_html );
+			}
+		}
+
+		// Default to the Description tab. Do not translate, API returns English.
+		$section = isset( $_REQUEST['section'] ) ? wp_unslash( $_REQUEST['section'] ) : 'description';
+
+		if ( empty( $section ) || ! isset( $api->sections[ $section ] ) ) {
+			$section_heading = array_keys( (array) $api->sections );
+			$section         = reset( $section_heading );
+		}
+
+		// Print the iframe header with document title.
+		iframe_header( __( 'Plugin Information', 'dashboard-summary' ) );
+
+		// Wrapper class if no plugin banner is available.
+		$banner_class = 'no-banner';
+
+		// If a plugin banner is available.
+		if ( ! empty( $api->banners ) && ( ! empty( $api->banners['low'] ) || ! empty( $api->banners['high'] ) ) ) {
+
+			// Wrapper class if a plugin banner is available.
+			$banner_class = 'with-banner';
+
+			// Get low-definition banner.
+			if ( empty( $api->banners['low'] ) ) {
+				$low = $api->banners['high'];
+			} else {
+				$low = $api->banners['low'];
+			}
+
+			// Get high-definition banner.
+			if ( empty( $api->banners['high'] ) ) {
+				$high = $api->banners['low'];
+			} else {
+				$high = $api->banners['high'];
+			}
+			?>
+			<style type="text/css">
+				#plugin-information-title.with-banner {
+					background-image: url( <?php echo esc_url( $low ); ?> );
+				}
+				@media only screen and ( -webkit-min-device-pixel-ratio: 1.5 ) {
+					#plugin-information-title.with-banner {
+						background-image: url( <?php echo esc_url( $high ); ?> );
+					}
+				}
+			</style>
+			<?php
+		}
+
+		?>
+		<div id="plugin-information-scrollable">
+
+			<div id="plugin-information-title" class="<?php echo esc_attr( $banner_class ); ?>">
+				<div class='vignette'></div>
+				<h2><?php echo $api->name; ?></h2>
+			</div>
+
+			<div id="plugin-information-tabs" class="<?php echo esc_attr( $banner_class ); ?>">
+
+				<?php
+				foreach ( (array) $api->sections as $section_name => $content ) :
+
+					if ( 'reviews' === $section_name && ( empty( $api->ratings ) || 0 === array_sum( (array) $api->ratings ) ) ) {
+						continue;
+					}
+
+					if ( isset( $section_heading[ $section_name ] ) ) {
+						$title = $section_heading[ $section_name ];
+					} else {
+						$title = ucwords( str_replace( '_', ' ', $section_name ) );
+					}
+
+					$class = ( $section_name === $section ) ? 'current' : 'not-current';
+					$href  = add_query_arg(
+						[
+							'tab'     => 'plugin-information',
+							'section' => $section_name,
+						]
+					);
+
+				?>
+
+				<a href="<?php echo esc_url( $href ); ?>" name="<?php echo esc_attr( $section_name ); ?>" class="<?php echo $class; ?>"><?php echo $title; ?></a>
+
+				<?php endforeach; ?>
+			</div>
+
+			<div id="plugin-information-content" class='<?php echo $banner_class; ?>'>
+				<div class="fyi">
+
+					<ul>
+						<?php if ( ! empty( $api->version ) ) : ?>
+							<li><strong><?php _e( 'Version:', 'dashboard-summary' ); ?></strong> <?php echo $api->version; ?></li>
+						<?php endif; ?>
+
+						<?php if ( ! empty( $api->author ) ) : ?>
+							<li><strong><?php _e( 'Author:', 'dashboard-summary' ); ?></strong> <?php echo links_add_target( $api->author, '_blank' ); ?></li>
+						<?php endif; ?>
+
+						<?php if ( ! empty( $api->last_updated ) ) : ?>
+							<li><strong><?php _e( 'Last Updated:', 'dashboard-summary' ); ?></strong>
+								<?php
+								printf(
+									__( '%s ago', 'dashboard-summary' ),
+									human_time_diff( strtotime( $api->last_updated ) )
+								); ?>
+							</li>
+						<?php endif; ?>
+
+						<?php if ( ! empty( $api->requires ) ) : ?>
+							<li>
+								<strong><?php _e( 'Requires WordPress Version:', 'dashboard-summary' ); ?></strong>
+								<?php
+								printf(
+									__( '%s or higher', 'dashboard-summary' ),
+									$api->requires
+								);
+								?>
+							</li>
+						<?php endif; ?>
+
+						<?php if ( ! empty( $api->tested ) ) : ?>
+							<li><strong><?php _e( 'Compatible up to:', 'dashboard-summary' ); ?></strong> <?php echo $api->tested; ?></li>
+						<?php endif; ?>
+
+						<?php if ( ! empty( $api->requires_php ) ) : ?>
+							<li>
+								<strong><?php _e( 'Requires PHP Version:', 'dashboard-summary' ); ?></strong>
+								<?php
+								printf(
+									__( '%s or higher', 'dashboard-summary' ),
+									$api->requires_php
+								);
+								?>
+							</li>
+						<?php endif; ?>
+
+						<?php if ( isset( $api->active_installs ) ) : ?>
+							<li><strong><?php _e( 'Active Installations:', 'dashboard-summary' ); ?></strong>
+							<?php
+
+							if ( $api->active_installs >= 1000000 ) {
+
+								$active_installs_millions = floor( $api->active_installs / 1000000 );
+								printf(
+									_nx( '%s+ Million', '%s+ Million', $active_installs_millions, 'Active plugin installations', 'dashboard-summary' ),
+									number_format_i18n( $active_installs_millions )
+								);
+
+							} elseif ( 0 == $api->active_installs ) {
+								_ex( 'Less Than 10', 'Active plugin installations', 'dashboard-summary' );
+							} else {
+								echo number_format_i18n( $api->active_installs ) . '+';
+							} ?>
+							</li>
+						<?php endif; ?>
+
+						<?php if ( ! empty( $api->slug ) && empty( $api->external ) ) : ?>
+							<li><a target="_blank" href="<?php echo __( 'https://wordpress.org/plugins/' ) . $api->slug; ?>/"><?php _e( 'WordPress.org Plugin Page &#187;', 'dashboard-summary' ); ?></a></li>
+						<?php endif; ?>
+
+						<?php if ( ! empty( $api->homepage ) ) : ?>
+							<li><a target="_blank" href="<?php echo esc_url( $api->homepage ); ?>"><?php _e( 'Plugin Homepage &#187;', 'dashboard-summary' ); ?></a></li>
+						<?php endif; ?>
+
+						<?php if ( ! empty( $api->donate_link ) && empty( $api->contributors ) ) : ?>
+							<li><a target="_blank" href="<?php echo esc_url( $api->donate_link ); ?>"><?php _e( 'Donate to this plugin &#187;', 'dashboard-summary' ); ?></a></li>
+						<?php endif; ?>
+					</ul>
+
+					<?php if ( ! empty( $api->rating ) ) : ?>
+
+						<h3><?php _e( 'Average Rating', 'dashboard-summary' ); ?></h3>
+						<?php
+						wp_star_rating(
+							array(
+								'rating' => $api->rating,
+								'type'   => 'percent',
+								'number' => $api->num_ratings,
+							)
+						);
+						?>
+						<p aria-hidden="true" class="fyi-description">
+							<?php
+							printf(
+								_n( '(based on %s rating)', '(based on %s ratings)', $api->num_ratings, 'dashboard-summary' ),
+								number_format_i18n( $api->num_ratings )
+							);
+							?>
+						</p>
+						<?php
+					endif;
+
+					if ( ! empty( $api->ratings ) && array_sum( (array) $api->ratings ) > 0 ) :
+
+					?>
+						<h3><?php _e( 'Reviews', 'dashboard-summary' ); ?></h3>
+
+						<p class="fyi-description"><?php _e( 'Read all reviews on WordPress.org or write your own!', 'dashboard-summary' ); ?></p>
+
+						<?php
+						foreach ( $api->ratings as $key => $ratecount ) :
+
+							// Avoid div-by-zero.
+							$_rating    = $api->num_ratings ? ( $ratecount / $api->num_ratings ) : 0;
+							$aria_label = esc_attr(
+								sprintf(
+									_n(
+										'Reviews with %1$d star: %2$s. Opens in a new tab.',
+										'Reviews with %1$d stars: %2$s. Opens in a new tab.',
+										$key,
+										'dashboard-summary'
+									),
+									$key,
+									number_format_i18n( $ratecount )
+								)
+							);
+							?>
+							<div class="counter-container">
+									<span class="counter-label">
+										<?php
+										printf(
+											'<a href="%s" target="_blank" aria-label="%s">%s</a>',
+											"https://wordpress.org/support/plugin/{$api->slug}/reviews/?filter={$key}",
+											$aria_label,
+											sprintf( _n( '%d star', '%d stars', $key, 'dashboard-summary' ), $key )
+										);
+										?>
+									</span>
+									<span class="counter-back">
+										<span class="counter-bar" style="width: <?php echo 92 * $_rating; ?>px;"></span>
+									</span>
+								<span class="counter-count" aria-hidden="true"><?php echo number_format_i18n( $ratecount ); ?></span>
+							</div>
+							<?php
+						endforeach;
+					endif;
+
+					if ( ! empty( $api->contributors ) ) :
+						?>
+						<h3><?php _e( 'Contributors', 'dashboard-summary' ); ?></h3>
+
+						<ul class="contributors">
+							<?php
+							foreach ( (array) $api->contributors as $contributor_username => $contributor_details ) :
+
+								$contributor_name = $contributor_details['display_name'];
+
+								if ( ! $contributor_name ) {
+									$contributor_name = $contributor_username;
+								}
+								$contributor_name    = esc_html( $contributor_name );
+								$contributor_profile = esc_url( $contributor_details['profile'] );
+								$contributor_avatar  = esc_url( add_query_arg( 's', '36', $contributor_details['avatar'] ) );
+
+								?>
+								<li><a href="<?php echo $contributor_profile; ?>" target="_blank" rel="nofollow noreferrer noopener"><img src="<?php echo $contributor_avatar; ?>" alt="<?php echo $contributor_name; ?>-avatar" width="18" height="18"><?php echo $contributor_name; ?></a></li>
+							<?php endforeach; ?>
+						</ul>
+
+						<?php if ( ! empty( $api->donate_link ) ) : ?>
+						<a target="_blank" href="<?php echo esc_url( $api->donate_link ); ?>"><?php _e( 'Donate to this plugin &#187;', 'dashboard-summary' ); ?></a>
+						<?php endif; ?>
+
+					<?php endif; ?>
+				</div>
+
+				<div id="section-holder">
+					<?php
+
+					// Variables for printing notices.
+					$requires_php   = isset( $api->requires_php ) ? $api->requires_php : null;
+					$requires_app   = isset( $api->requires ) ? $api->requires : null;
+					$compatible_php = is_php_version_compatible( $requires_php );
+					$compatible_app = is_wp_version_compatible( $requires_app );
+					$tested_app     = ( empty( $api->tested ) || version_compare( get_bloginfo( 'version' ), $api->tested, '<=' ) );
+
+					// Notice if the required PHP verion is not met.
+					if ( ! $compatible_php ) :
+					?>
+						<div class="notice notice-error notice-alt">
+
+							<?php printf(
+								__( '<p>This plugin requires PHP version %s and your server is running PHP version %s.</p>', 'dashboard-summary' ),
+								$requires_php,
+								phpversion()
+							); ?>
+
+							<?php if ( current_user_can( 'update_php' ) ) {
+								printf(
+									' ' . __( '<p><a href="%s" target="_blank">Click here to learn more about updating PHP</a>.</p>', 'dashboard-summary' ),
+									$this->update_php_url()
+								);
+							} ?>
+						</div>
+					<?php endif;
+
+					// Notice if the plugin has not been tested with the current system version.
+					if ( ! $tested_app ) :
+					?>
+						<div class="notice notice-warning notice-alt">
+							<?php printf(
+								__( '<p>This plugin has not been tested with your current version of %s.</p>', 'dashboard-summary' ),
+								$this->system_name()
+							); ?>
+						</div>
+					<?php
+
+					// Notice if the plugin is not compatible with the current system version.
+					elseif ( ! $compatible_app ) :
+					?>
+						<div class="notice notice-error notice-alt">
+
+							<?php printf(
+								__( '<p>This plugin requires a newer version of %s.</p>', 'dashboard-summary' ),
+								$this->system_name()
+							); ?>
+
+							<?php if ( current_user_can( 'update_core' ) ) {
+								printf(
+									' ' . __( '<a href="%s" target="_parent">Click here to update %s</a>.', 'dashboard-summary' ),
+									self_admin_url( 'update-core.php' ),
+									$this->system_name()
+								);
+							} ?>
+						</div>
+					<?php endif;
+
+					foreach ( (array) $api->sections as $section_name => $content ) :
+
+						$content = links_add_base_url( $content, 'https://wordpress.org/plugins/' . $api->slug . '/' );
+						$content = links_add_target( $content, '_blank' );
+						$display = ( $section_name === $section ) ? 'block' : 'none';
+
+						?>
+						<div id="<?php echo 'section-' . esc_attr( $section_name ); ?>" class='section' style="display: <?php echo $display; ?>">
+							<?php
+							// Print the content of the tabbed section.
+							echo $content; ?>
+						</div>
+					<?php endforeach; ?>
+				</div><!-- #section-holder -->
+			</div><!-- #plugin-information-content -->
+		</div><!-- #plugin-information-scrollable -->
+
+		<?php
+		iframe_footer();
+
+		/**
+		 * Exit to prevent loading extra markup,
+		 * such as the admin toolbar.
+		 */
+		exit;
 	}
 }
 

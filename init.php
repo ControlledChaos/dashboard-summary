@@ -99,9 +99,4 @@ function admin_init() {
 	if ( is_network_admin() && 'index.php' === $pagenow ) {
 		new Classes\Network_Widget;
 	}
-
-	// Plugin install iframe modal.
-	if ( ( is_admin() || is_network_admin() ) && 'plugin-install.php' === $pagenow ) {
-		new Classes\Plugin_Install;
-	}
 }
