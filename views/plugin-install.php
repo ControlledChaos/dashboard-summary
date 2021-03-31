@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin install panel
+ * Plugin innformation modal content
  *
  * @package    Dashboard_Summary
  * @subpackage Views
