@@ -1604,12 +1604,26 @@ class Summary {
 			return;
 		}
 
+		// Check for alternative management systems.
+		$classicpress = false;
+		if ( 'classicpress' === $this->management_system() ) {
+			$classicpress = true;
+		}
+
 		// Access the plugins API.
+		$api = [];
 		if ( function_exists( 'plugins_api' ) ) {
 			$api = plugins_api(
 				'plugin_information',
 				[
-					'slug' => wp_unslash( $_REQUEST['plugin'] ),
+					'slug'   => wp_unslash( $_REQUEST['plugin'] ),
+					'is_ssl' => is_ssl(),
+					'fields' => [
+						'banners'         => true,
+						'reviews'         => true,
+						'downloaded'      => false,
+						'active_installs' => true
+					]
 				]
 			);
 		} else {
@@ -1970,34 +1984,46 @@ class Summary {
 				<div id="section-holder">
 					<?php
 
-					// Variables for printing notices.
-					$requires_php   = isset( $api->requires_php ) ? $api->requires_php : null;
-					$requires_app   = isset( $api->requires ) ? $api->requires : null;
-					$compatible_php = is_php_version_compatible( $requires_php );
-					$compatible_app = is_wp_version_compatible( $requires_app );
-					$tested_app     = ( empty( $api->tested ) || version_compare( get_bloginfo( 'version' ), $api->tested, '<=' ) );
+					// Do not check for PHP version in ClassicPress or WordPress less than 5.2.0.
+					if ( ! $classicpress || version_compare( get_bloginfo( 'version' ),'5.2.0', '>=' ) ) :
 
-					// Notice if the required PHP verion is not met.
-					if ( ! $compatible_php ) :
-					?>
-						<div class="notice notice-error notice-alt">
+						// Variables for printing notices.
+						$requires_php   = isset( $api->requires_php ) ? $api->requires_php : null;
+						$compatible_php = is_php_version_compatible( $requires_php );
 
-							<?php printf(
-								__( '<p>This plugin requires PHP version %s and your server is running PHP version %s.</p>', 'dashboard-summary' ),
-								$requires_php,
-								phpversion()
-							); ?>
+						// Notice if the required PHP verion is not met.
+						if ( ! $compatible_php ) :
+						?>
+							<div class="notice notice-error notice-alt">
 
-							<?php if ( current_user_can( 'update_php' ) ) {
-								printf(
-									' ' . __( '<p><a href="%s" target="_blank">Click here to learn more about updating PHP</a>.</p>', 'dashboard-summary' ),
-									$this->update_php_url()
-								);
-							} ?>
-						</div>
-					<?php endif;
+								<?php printf(
+									__( '<p>This plugin requires PHP version %s and your server is running PHP version %s.</p>', 'dashboard-summary' ),
+									$requires_php,
+									phpversion()
+								); ?>
+
+								<?php if ( current_user_can( 'update_php' ) ) {
+									printf(
+										' ' . __( '<p><a href="%s" target="_blank">Click here to learn more about updating PHP</a>.</p>', 'dashboard-summary' ),
+										$this->update_php_url()
+									);
+								} ?>
+							</div>
+						<?php endif; // if ( ! $compatible_php )
+					endif; // if ( ! $classicpress )
 
 					// Notice if the plugin has not been tested with the current system version.
+					$requires_app = isset( $api->requires ) ? $api->requires : null;
+
+					$compatible_app = true;
+					if ( function_exists( 'is_wp_version_compatible' ) ) {
+						$compatible_app = is_wp_version_compatible( $requires_app );
+					} elseif ( ! empty( $requires_app ) && version_compare( substr( get_bloginfo( 'version' ), 0, strlen( $requires_app ) ), $requires_app, '<' ) ) {
+						$compatible_app = false;
+					}
+
+					$tested_app = ( empty( $api->tested ) || version_compare( get_bloginfo( 'version' ), $api->tested, '<=' ) );
+
 					if ( ! $tested_app ) :
 					?>
 						<div class="notice notice-warning notice-alt">
