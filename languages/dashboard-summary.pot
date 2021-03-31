@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dashboard Summary\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-29 22:31+0000\n"
+"POT-Creation-Date: 2021-03-31 00:19+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -16,9 +16,63 @@ msgstr ""
 "X-Loco-Version: 2.5.2; wp-5.7\n"
 "X-Domain: dashboard-summary"
 
+#: includes/classes/class-summary.php:1928
+#, php-format
+msgid "%d star"
+msgid_plural "%d stars"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/classes/class-summary.php:1806
+#, php-format
+msgid "%s ago"
+msgstr ""
+
+#: includes/classes/class-summary.php:1817
+#: includes/classes/class-summary.php:1833
+#, php-format
+msgid "%s or higher"
+msgstr ""
+
+#: includes/classes/class-summary.php:1888
+#, php-format
+msgid "(based on %s rating)"
+msgid_plural "(based on %s ratings)"
+msgstr[0] ""
+msgstr[1] ""
+
 #: includes/classes/class-summary.php:859
 #, php-format
 msgid "<a href=\"%1$s\">Learn more about %2$s %3$s</a>."
+msgstr ""
+
+#: includes/classes/class-summary.php:2023
+#, php-format
+msgid "<a href=\"%s\" target=\"_parent\">Click here to update %s</a>."
+msgstr ""
+
+#: includes/classes/class-summary.php:1993
+#, php-format
+msgid ""
+"<p><a href=\"%s\" target=\"_blank\">Click here to learn more about updating "
+"PHP</a>.</p>"
+msgstr ""
+
+#: includes/classes/class-summary.php:2005
+#, php-format
+msgid "<p>This plugin has not been tested with your current version of %s.</p>"
+msgstr ""
+
+#: includes/classes/class-summary.php:2017
+#, php-format
+msgid "<p>This plugin requires a newer version of %s.</p>"
+msgstr ""
+
+#: includes/classes/class-summary.php:1986
+#, php-format
+msgid ""
+"<p>This plugin requires PHP version %s and your server is running PHP "
+"version %s.</p>"
 msgstr ""
 
 #: includes/classes/class-summary.php:1034
@@ -79,6 +133,23 @@ msgstr ""
 msgid "Account Tools"
 msgstr ""
 
+#: includes/classes/class-summary.php:1841
+msgid "Active Installations:"
+msgstr ""
+
+#: includes/classes/class-summary.php:1848
+#, php-format
+msgctxt "Active plugin installations"
+msgid "%s+ Million"
+msgid_plural "%s+ Million"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/classes/class-summary.php:1853
+msgctxt "Active plugin installations"
+msgid "Less Than 10"
+msgstr ""
+
 #: views/partials/network-widget-sites.php:62
 msgid "Add a site or manage sites from the sites list screen."
 msgstr ""
@@ -110,6 +181,14 @@ msgstr ""
 
 #: includes/classes/class-settings.php:120
 msgid "At a Glance"
+msgstr ""
+
+#: includes/classes/class-summary.php:1799
+msgid "Author:"
+msgstr ""
+
+#: includes/classes/class-summary.php:1875
+msgid "Average Rating"
 msgstr ""
 
 #: includes/classes/class-summary.php:814
@@ -145,7 +224,11 @@ msgid_plural "Comments in Total"
 msgstr[0] ""
 msgstr[1] ""
 
-#: views/default-site-widget.php:47
+#: includes/classes/class-summary.php:1825
+msgid "Compatible up to:"
+msgstr ""
+
+#: views/default-site-widget.php:54
 msgid "Content"
 msgstr ""
 
@@ -159,6 +242,10 @@ msgstr ""
 
 #: views/partials/site-widget-content.php:48
 msgid "Content Types"
+msgstr ""
+
+#: includes/classes/class-summary.php:1943
+msgid "Contributors"
 msgstr ""
 
 #. Author of the plugin
@@ -194,6 +281,11 @@ msgstr ""
 
 #: views/partials/widget-profile.php:110
 msgid "Display name:"
+msgstr ""
+
+#: includes/classes/class-summary.php:1869
+#: includes/classes/class-summary.php:1964
+msgid "Donate to this plugin &#187;"
 msgstr ""
 
 #: views/partials/widget-profile.php:164
@@ -702,6 +794,10 @@ msgstr ""
 msgid "is available."
 msgstr ""
 
+#: includes/classes/class-summary.php:1803
+msgid "Last Updated:"
+msgstr ""
+
 #: views/partials/network-widget-users.php:37
 msgid "Manage network users."
 msgstr ""
@@ -812,11 +908,54 @@ msgstr ""
 msgid "Personal Options"
 msgstr ""
 
+#: includes/classes/class-summary.php:1865
+msgid "Plugin Homepage &#187;"
+msgstr ""
+
+#: includes/classes/class-summary.php:1714
+msgid "Plugin Information"
+msgstr ""
+
+#: includes/classes/class-summary.php:1686
+msgctxt "Plugin installer section title"
+msgid "Changelog"
+msgstr ""
+
+#: includes/classes/class-summary.php:1682
+msgctxt "Plugin installer section title"
+msgid "Description"
+msgstr ""
+
+#: includes/classes/class-summary.php:1684
+msgctxt "Plugin installer section title"
+msgid "FAQ"
+msgstr ""
+
+#: includes/classes/class-summary.php:1683
+msgctxt "Plugin installer section title"
+msgid "Installation"
+msgstr ""
+
+#: includes/classes/class-summary.php:1688
+msgctxt "Plugin installer section title"
+msgid "Other Notes"
+msgstr ""
+
+#: includes/classes/class-summary.php:1687
+msgctxt "Plugin installer section title"
+msgid "Reviews"
+msgstr ""
+
+#: includes/classes/class-summary.php:1685
+msgctxt "Plugin installer section title"
+msgid "Screenshots"
+msgstr ""
+
 #: views/partials/widget-updates.php:75
 msgid "Plugins"
 msgstr ""
 
-#: views/default-network-widget.php:49 views/default-site-widget.php:45
+#: views/default-network-widget.php:56 views/default-site-widget.php:52
 msgid "Profile"
 msgstr ""
 
@@ -828,9 +967,32 @@ msgstr ""
 msgid "Re-install System"
 msgstr ""
 
+#: includes/classes/class-summary.php:1901
+msgid "Read all reviews on WordPress.org or write your own!"
+msgstr ""
+
 #: views/partials/site-widget-users.php:60
 msgid "Registered Users"
 msgstr ""
+
+#: includes/classes/class-summary.php:1830
+msgid "Requires PHP Version:"
+msgstr ""
+
+#: includes/classes/class-summary.php:1814
+msgid "Requires WordPress Version:"
+msgstr ""
+
+#: includes/classes/class-summary.php:1899
+msgid "Reviews"
+msgstr ""
+
+#: includes/classes/class-summary.php:1910
+#, php-format
+msgid "Reviews with %1$d star: %2$s. Opens in a new tab."
+msgid_plural "Reviews with %1$d stars: %2$s. Opens in a new tab."
+msgstr[0] ""
+msgstr[1] ""
 
 #: views/partials/form-network-settings.php:44
 msgid "Right Now"
@@ -902,7 +1064,7 @@ msgstr ""
 msgid "Site Users Tab"
 msgstr ""
 
-#: views/default-network-widget.php:45
+#: views/default-network-widget.php:52
 msgid "Sites"
 msgstr ""
 
@@ -914,7 +1076,7 @@ msgstr ""
 msgid "Summary Content Methods"
 msgstr ""
 
-#: views/default-network-widget.php:55 views/default-site-widget.php:55
+#: views/default-network-widget.php:62 views/default-site-widget.php:62
 #: views/partials/widget-updates.php:66
 msgid "System"
 msgstr ""
@@ -1069,7 +1231,7 @@ msgstr ""
 msgid "Update Tools"
 msgstr ""
 
-#: views/default-network-widget.php:52 views/default-site-widget.php:52
+#: views/default-network-widget.php:59 views/default-site-widget.php:59
 msgid "Updates"
 msgstr ""
 
@@ -1106,7 +1268,7 @@ msgstr ""
 msgid "User Tools"
 msgstr ""
 
-#: views/default-network-widget.php:47 views/default-site-widget.php:49
+#: views/default-network-widget.php:54 views/default-site-widget.php:56
 msgid "Users"
 msgstr ""
 
@@ -1116,6 +1278,10 @@ msgstr ""
 
 #: views/partials/network-widget-users.php:28
 msgid "Users Overview"
+msgstr ""
+
+#: includes/classes/class-summary.php:1795
+msgid "Version:"
 msgstr ""
 
 #: includes/classes/class-summary.php:1286
@@ -1171,6 +1337,10 @@ msgstr ""
 
 #: includes/classes/class-summary.php:549
 msgid "WordPress"
+msgstr ""
+
+#: includes/classes/class-summary.php:1861
+msgid "WordPress.org Plugin Page &#187;"
 msgstr ""
 
 #: includes/classes/class-user-options.php:185
