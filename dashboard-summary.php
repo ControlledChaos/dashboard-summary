@@ -20,7 +20,7 @@
  * Text Domain:  dashboard-summary
  * Domain Path:  /languages
  * Requires PHP: 5.3
- * Requires at least: 5.2
+ * Requires at least: 3.8
  * Tested up to: 5.7
  */
 
