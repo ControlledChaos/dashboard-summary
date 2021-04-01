@@ -1,6 +1,6 @@
 <?php
 /**
- * Default network widget content
+ * Network widget template
  *
  * Each list item in the `.ds-tabs-nav` list corresponds to
  * a `<section>` element. Sections are displayed and hidden

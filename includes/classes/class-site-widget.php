@@ -90,7 +90,7 @@ class Site_Widget {
 	 * @return void
 	 */
 	public function get_output() {
-		include DS_PATH . 'views/default-site-widget.php';
+		include DS_PATH . 'views/site-widget-template.php';
 	}
 
 	/**

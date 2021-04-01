@@ -89,7 +89,7 @@ class Network_Widget {
 	 * @return void
 	 */
 	public function get_output() {
-		include DS_PATH . 'views/default-network-widget.php';
+		include DS_PATH . 'views/network-widget-template.php';
 	}
 
 	/**

@@ -1,6 +1,6 @@
 <?php
 /**
- * Default site widget content
+ * Site widget template
  *
  * Each list item in the `.ds-tabs-nav` list corresponds to
  * a `<section>` element. Sections are displayed and hidden
