@@ -92,6 +92,9 @@ $tools_description = apply_filters( 'ds_widget_system_tools_description', $tools
 		<li><icon class="ds-cpt-icons dashicons dashicons-editor-code"></icon> <?php echo $summary->php_version(); ?></li>
 		<li><icon class="ds-cpt-icons dashicons dashicons-database"></icon> <?php echo $summary->database_version(); ?></li>
 		<li><icon class="ds-cpt-icons dashicons dashicons-dashboard"></icon> <?php echo $summary->system_notice(); ?></li>
+		<?php if ( current_user_can( 'install_themes' ) || current_user_can( 'customize' ) ) : ?>
+		<li><icon class="ds-cpt-icons dashicons dashicons-art"></icon> <?php echo $summary->available_themes(); ?></li>
+		<?php endif; ?>
 		<li><icon class="ds-cpt-icons dashicons dashicons-admin-appearance"></icon> <?php echo $summary->active_theme(); ?></li>
 		<?php
 		if ( ! empty( $summary->search_engines() ) ) {

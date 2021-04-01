@@ -661,6 +661,65 @@ class Summary {
 	}
 
 	/**
+	 * Available themes
+	 *
+	 * The available & allowed themes notice.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return string Returns the markup of the notice.
+	 */
+	public function available_themes() {
+
+		// Count available & allowed themes.
+		$themes = count( wp_get_themes( [ 'allowed' => true ] ) );
+
+		// Begin the markup of the notice.
+		$html = '';
+		if ( ! empty( $themes ) ) {
+
+			// Conditional text by theme count.
+			$before = _n( 'There is', 'There are', intval( $themes ), 'dashboard-summary' );
+
+			if ( is_network_admin() ) {
+				$after = _n( 'network enabled theme.', 'network enabled themes.', intval( $themes ), 'dashboard-summary' );
+			} else {
+				$after = _n( 'available theme.', 'available themes.', intval( $themes ), 'dashboard-summary' );
+			}
+
+			// Link to the themes page if the current user can manage themes.
+			if ( current_user_can( 'install_themes' ) || current_user_can( 'customize' ) ) {
+				$html = sprintf(
+					'%s <a href="%s">%s %s</a>',
+					$before,
+					esc_url( self_admin_url( 'themes.php' ) ),
+					$themes,
+					$after
+				);
+
+			// Otherwise text with no link.
+			} else {
+				$html = sprintf(
+					'%s %s %s',
+					$before,
+					$themes,
+					$after
+				);
+			}
+
+		// If no allowed themes are found.
+		} else {
+			$html = sprintf(
+				'%s',
+				__( 'There are no themes available.', 'dashboard-summary' )
+			);
+		}
+
+		// Return the markup of the notice.
+		return $html;
+	}
+
+	/**
 	 * Active theme URI
 	 *
 	 * Use `is_null()` to check for a return value.
