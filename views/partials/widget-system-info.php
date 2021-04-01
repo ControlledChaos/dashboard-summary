@@ -126,27 +126,29 @@ if ( current_user_can( 'manage_options' ) ) :
 </div>
 
 <?php
+endif; // End current_user_can.
+if ( current_user_can( 'install_plugins' ) ) :
 
-// Do not display on network site dashboards, except the main site.
-if (
-	! is_multisite() ||
-	( is_multisite() && is_network_admin() ) ||
-	( is_main_site() )
-) :
-?>
-<div class="ds-widget-divided-section ds-widget-plugin-development hide-if-no-js">
+	// Do not display on network site dashboards, except the main site.
+	if (
+		! is_multisite() ||
+		( is_multisite() && is_network_admin() ) ||
+		( is_main_site() )
+	) :
+	?>
+	<div class="ds-widget-divided-section ds-widget-plugin-development hide-if-no-js">
 
-	<h4><?php _e( 'Widget Development', 'dashboard-summary' ); ?></h4>
-	<p class="description"><?php _e( 'Development hooks & filters of the dashboard summary widgets for adding content or modifying text.', 'dashboard-summary' ); ?></p>
+		<h4><?php _e( 'Widget Development', 'dashboard-summary' ); ?></h4>
+		<p class="description"><?php _e( 'Development hooks & filters of the dashboard summary widgets for adding content or modifying text.', 'dashboard-summary' ); ?></p>
 
-	<p><a href="#dev-reference" data-ds-modal><?php _e( 'View reference in modal window.', 'dashboard-summary' ); ?></a></p>
-	<div id="dev-reference" class="ds-modal" role="dialog">
-		<?php include( DS_PATH . '/views/partials/dev-reference.php' ); ?>
+		<p><a href="#dev-reference" data-ds-modal><?php _e( 'View reference in modal window.', 'dashboard-summary' ); ?></a></p>
+		<div id="dev-reference" class="ds-modal" role="dialog">
+			<?php include( DS_PATH . '/views/partials/dev-reference.php' ); ?>
+		</div>
+
 	</div>
-
-</div>
-<?php
-endif; // End if not network site dashboard.
+	<?php
+	endif; // End if not network site dashboard.
 endif; // End current_user_can.
 
 // Development hook.
