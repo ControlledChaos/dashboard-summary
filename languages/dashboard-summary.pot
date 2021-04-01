@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dashboard Summary\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-31 00:19+0000\n"
+"POT-Creation-Date: 2021-04-01 21:50+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -16,80 +16,80 @@ msgstr ""
 "X-Loco-Version: 2.5.2; wp-5.7\n"
 "X-Domain: dashboard-summary"
 
-#: includes/classes/class-summary.php:1928
+#: includes/classes/class-summary.php:2012
 #, php-format
 msgid "%d star"
 msgid_plural "%d stars"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/classes/class-summary.php:1806
+#: includes/classes/class-summary.php:1890
 #, php-format
 msgid "%s ago"
 msgstr ""
 
-#: includes/classes/class-summary.php:1817
-#: includes/classes/class-summary.php:1833
+#: includes/classes/class-summary.php:1901
+#: includes/classes/class-summary.php:1917
 #, php-format
 msgid "%s or higher"
 msgstr ""
 
-#: includes/classes/class-summary.php:1888
+#: includes/classes/class-summary.php:1972
 #, php-format
 msgid "(based on %s rating)"
 msgid_plural "(based on %s ratings)"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/classes/class-summary.php:859
+#: includes/classes/class-summary.php:929
 #, php-format
 msgid "<a href=\"%1$s\">Learn more about %2$s %3$s</a>."
 msgstr ""
 
-#: includes/classes/class-summary.php:2023
+#: includes/classes/class-summary.php:2119
 #, php-format
 msgid "<a href=\"%s\" target=\"_parent\">Click here to update %s</a>."
 msgstr ""
 
-#: includes/classes/class-summary.php:1993
+#: includes/classes/class-summary.php:2077
 #, php-format
 msgid ""
 "<p><a href=\"%s\" target=\"_blank\">Click here to learn more about updating "
 "PHP</a>.</p>"
 msgstr ""
 
-#: includes/classes/class-summary.php:2005
+#: includes/classes/class-summary.php:2101
 #, php-format
 msgid "<p>This plugin has not been tested with your current version of %s.</p>"
 msgstr ""
 
-#: includes/classes/class-summary.php:2017
+#: includes/classes/class-summary.php:2113
 #, php-format
 msgid "<p>This plugin requires a newer version of %s.</p>"
 msgstr ""
 
-#: includes/classes/class-summary.php:1986
+#: includes/classes/class-summary.php:2070
 #, php-format
 msgid ""
 "<p>This plugin requires PHP version %s and your server is running PHP "
 "version %s.</p>"
 msgstr ""
 
-#: includes/classes/class-summary.php:1034
+#: includes/classes/class-summary.php:1104
 #, php-format
 msgid ""
 "<p>You can update from  %1$s %2$s to <a href=\"%3$s\">%4$s %5$s</a> manually:"
 "</p>"
 msgstr ""
 
-#: includes/classes/class-summary.php:1023
+#: includes/classes/class-summary.php:1093
 #, php-format
 msgid ""
 "<p>You cannot update because <a href=\"%1$s\">%2$s %3$s</a> requires MySQL "
 "version %4$s or higher. You are running version %5$s.</p>"
 msgstr ""
 
-#: includes/classes/class-summary.php:997
+#: includes/classes/class-summary.php:1067
 #, php-format
 msgid ""
 "<p>You cannot update because <a href=\"%1$s\">%2$s %3$s</a> requires PHP "
@@ -97,7 +97,7 @@ msgid ""
 "version %6$s and MySQL version %7$s.</p>"
 msgstr ""
 
-#: includes/classes/class-summary.php:1011
+#: includes/classes/class-summary.php:1081
 #, php-format
 msgid ""
 "<p>You cannot update because <a href=\"%1$s\">%2$s %3$s</a> requires PHP "
@@ -110,7 +110,7 @@ msgid ""
 "text inside the element so carefully read the filter description."
 msgstr ""
 
-#: includes/classes/class-summary.php:1280
+#: includes/classes/class-summary.php:1350
 #, php-format
 msgid ""
 "<strong>There is a new version of %1$s available. <a href=\"%2$s\" %3$s>View "
@@ -133,11 +133,11 @@ msgstr ""
 msgid "Account Tools"
 msgstr ""
 
-#: includes/classes/class-summary.php:1841
+#: includes/classes/class-summary.php:1925
 msgid "Active Installations:"
 msgstr ""
 
-#: includes/classes/class-summary.php:1848
+#: includes/classes/class-summary.php:1932
 #, php-format
 msgctxt "Active plugin installations"
 msgid "%s+ Million"
@@ -145,7 +145,7 @@ msgid_plural "%s+ Million"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/classes/class-summary.php:1853
+#: includes/classes/class-summary.php:1937
 msgctxt "Active plugin installations"
 msgid "Less Than 10"
 msgstr ""
@@ -167,11 +167,19 @@ msgstr ""
 msgid "An overview of network operations."
 msgstr ""
 
+#: views/partials/site-widget-content.php:41
+msgid "An overview of of the content of this site."
+msgstr ""
+
+#: views/partials/site-widget-users.php:41
+msgid "An overview of users and comments for this site."
+msgstr ""
+
 #: views/partials/widget-system-info.php:39
 msgid "An overview of website operations."
 msgstr ""
 
-#: includes/classes/class-summary.php:805
+#: includes/classes/class-summary.php:875
 msgid "An updated version of"
 msgstr ""
 
@@ -183,19 +191,25 @@ msgstr ""
 msgid "At a Glance"
 msgstr ""
 
-#: includes/classes/class-summary.php:1799
+#: includes/classes/class-summary.php:1883
 msgid "Author:"
 msgstr ""
 
-#: includes/classes/class-summary.php:1875
+#: includes/classes/class-summary.php:687
+msgid "available theme."
+msgid_plural "available themes."
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/classes/class-summary.php:1959
 msgid "Average Rating"
 msgstr ""
 
-#: includes/classes/class-summary.php:814
+#: includes/classes/class-summary.php:884
 msgid "Before updating, please back up your database and files."
 msgstr ""
 
-#: includes/classes/class-summary.php:1080
+#: includes/classes/class-summary.php:1150
 msgid "Bring back this update"
 msgstr ""
 
@@ -203,7 +217,7 @@ msgstr ""
 msgid "Choose which website summary widgets to display on the dashboard."
 msgstr ""
 
-#: includes/classes/class-summary.php:545
+#: includes/classes/class-summary.php:556
 msgid "ClassicPress"
 msgstr ""
 
@@ -224,11 +238,11 @@ msgid_plural "Comments in Total"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/classes/class-summary.php:1825
+#: includes/classes/class-summary.php:1909
 msgid "Compatible up to:"
 msgstr ""
 
-#: views/default-site-widget.php:54
+#: views/site-widget-template.php:54
 msgid "Content"
 msgstr ""
 
@@ -244,7 +258,7 @@ msgstr ""
 msgid "Content Types"
 msgstr ""
 
-#: includes/classes/class-summary.php:1943
+#: includes/classes/class-summary.php:2027
 msgid "Contributors"
 msgstr ""
 
@@ -273,7 +287,7 @@ msgstr ""
 msgid "Development Hooks & Filters"
 msgstr ""
 
-#: views/partials/widget-system-info.php:140
+#: views/partials/widget-system-info.php:145
 msgid ""
 "Development hooks & filters of the dashboard summary widgets for adding "
 "content or modifying text."
@@ -283,8 +297,8 @@ msgstr ""
 msgid "Display name:"
 msgstr ""
 
-#: includes/classes/class-summary.php:1869
-#: includes/classes/class-summary.php:1964
+#: includes/classes/class-summary.php:1953
+#: includes/classes/class-summary.php:2048
 msgid "Donate to this plugin &#187;"
 msgstr ""
 
@@ -309,21 +323,21 @@ msgstr ""
 msgid "Enter content search terms"
 msgstr ""
 
-#: views/partials/site-widget-content.php:128
+#: views/partials/site-widget-content.php:129
 msgid "Enter media title or filename"
 msgstr ""
 
-#: views/partials/network-widget-sites.php:93
+#: views/partials/network-widget-sites.php:113
 msgid "Enter whole or partial site name"
 msgstr ""
 
-#: views/partials/network-widget-users.php:95
-#: views/partials/site-widget-users.php:209
-#: views/partials/site-widget-users.php:209
+#: views/partials/network-widget-users.php:114
+#: views/partials/site-widget-users.php:230
+#: views/partials/site-widget-users.php:230
 msgid "Enter whole or partial user name"
 msgstr ""
 
-#: views/partials/site-widget-content.php:141
+#: views/partials/site-widget-content.php:143
 msgid "Export"
 msgstr ""
 
@@ -692,14 +706,6 @@ msgstr ""
 msgid "Fires at the end of the updates tab."
 msgstr ""
 
-#: views/partials/site-widget-users.php:41
-msgid "Follow the links to manage users and comments."
-msgstr ""
-
-#: views/partials/site-widget-content.php:41
-msgid "Follow the links to manage website content."
-msgstr ""
-
 #: views/partials/dev-reference.php:72
 msgid ""
 "Following is a list of filters that can be used to change text in the "
@@ -734,15 +740,15 @@ msgstr ""
 msgid "Go to the updates page."
 msgstr ""
 
-#: includes/classes/class-summary.php:1531
+#: includes/classes/class-summary.php:1601
 msgid "Hello,"
 msgstr ""
 
-#: includes/classes/class-summary.php:1140
+#: includes/classes/class-summary.php:1210
 msgid "Hide hidden updates"
 msgstr ""
 
-#: includes/classes/class-summary.php:1078
+#: includes/classes/class-summary.php:1148
 msgid "Hide this update"
 msgstr ""
 
@@ -758,16 +764,16 @@ msgstr ""
 msgid "https://github.com/ControlledChaos/dashboard-summary"
 msgstr ""
 
-#: includes/classes/class-summary.php:957
+#: includes/classes/class-summary.php:1027
 #, php-format
 msgid "If you need to re-install version %s, you can do so here:"
 msgstr ""
 
-#: views/partials/site-widget-content.php:136
+#: views/partials/site-widget-content.php:138
 msgid "Import"
 msgstr ""
 
-#: includes/classes/class-summary.php:813
+#: includes/classes/class-summary.php:883
 msgid "Important:"
 msgstr ""
 
@@ -790,11 +796,11 @@ msgstr ""
 msgid "Information"
 msgstr ""
 
-#: includes/classes/class-summary.php:807
+#: includes/classes/class-summary.php:877
 msgid "is available."
 msgstr ""
 
-#: includes/classes/class-summary.php:1803
+#: includes/classes/class-summary.php:1887
 msgid "Last Updated:"
 msgstr ""
 
@@ -802,7 +808,7 @@ msgstr ""
 msgid "Manage network users."
 msgstr ""
 
-#: views/partials/network-widget-sites.php:106
+#: views/partials/network-widget-sites.php:126
 msgid "Manage Sites"
 msgstr ""
 
@@ -818,8 +824,8 @@ msgstr ""
 msgid "Manage the websites of this network."
 msgstr ""
 
-#: views/partials/network-widget-users.php:108
-#: views/partials/site-widget-users.php:222
+#: views/partials/network-widget-users.php:127
+#: views/partials/site-widget-users.php:243
 msgid "Manage Users"
 msgstr ""
 
@@ -831,13 +837,25 @@ msgstr ""
 msgid "Marked Spam"
 msgstr ""
 
+#: includes/classes/class-summary.php:685
+msgid "network enabled theme."
+msgid_plural "network enabled themes."
+msgstr[0] ""
+msgstr[1] ""
+
 #: views/partials/network-widget-sites.php:26
 msgid "Network Management"
 msgstr ""
 
-#: views/partials/widget-system-info.php:119
+#: views/partials/widget-system-info.php:122
 msgid "Network Settings"
 msgstr ""
+
+#: views/partials/network-widget-sites.php:95
+msgid "Network Site"
+msgid_plural "Network Sites"
+msgstr[0] ""
+msgstr[1] ""
 
 #: views/partials/network-widget-sites.php:42
 msgid "Network Sites"
@@ -859,12 +877,12 @@ msgstr ""
 msgid "Network Users Tab"
 msgstr ""
 
-#: views/partials/network-widget-sites.php:109
+#: views/partials/network-widget-sites.php:129
 msgid "New Site"
 msgstr ""
 
-#: views/partials/network-widget-users.php:111
-#: views/partials/site-widget-users.php:225
+#: views/partials/network-widget-users.php:130
+#: views/partials/site-widget-users.php:246
 msgid "New User"
 msgstr ""
 
@@ -880,19 +898,15 @@ msgstr ""
 msgid "No website provided."
 msgstr ""
 
-#: includes/classes/class-summary.php:478
+#: includes/classes/class-summary.php:489
 msgid "not available"
-msgstr ""
-
-#: views/partials/site-widget-users.php:197
-msgid "Number of registered users for this site:"
 msgstr ""
 
 #: views/partials/widget-profile.php:95
 msgid "Options"
 msgstr ""
 
-#: views/partials/widget-system-info.php:123
+#: views/partials/widget-system-info.php:126
 msgid "Options Page"
 msgstr ""
 
@@ -908,45 +922,45 @@ msgstr ""
 msgid "Personal Options"
 msgstr ""
 
-#: includes/classes/class-summary.php:1865
+#: includes/classes/class-summary.php:1949
 msgid "Plugin Homepage &#187;"
 msgstr ""
 
-#: includes/classes/class-summary.php:1714
+#: includes/classes/class-summary.php:1798
 msgid "Plugin Information"
 msgstr ""
 
-#: includes/classes/class-summary.php:1686
+#: includes/classes/class-summary.php:1770
 msgctxt "Plugin installer section title"
 msgid "Changelog"
 msgstr ""
 
-#: includes/classes/class-summary.php:1682
+#: includes/classes/class-summary.php:1766
 msgctxt "Plugin installer section title"
 msgid "Description"
 msgstr ""
 
-#: includes/classes/class-summary.php:1684
+#: includes/classes/class-summary.php:1768
 msgctxt "Plugin installer section title"
 msgid "FAQ"
 msgstr ""
 
-#: includes/classes/class-summary.php:1683
+#: includes/classes/class-summary.php:1767
 msgctxt "Plugin installer section title"
 msgid "Installation"
 msgstr ""
 
-#: includes/classes/class-summary.php:1688
+#: includes/classes/class-summary.php:1772
 msgctxt "Plugin installer section title"
 msgid "Other Notes"
 msgstr ""
 
-#: includes/classes/class-summary.php:1687
+#: includes/classes/class-summary.php:1771
 msgctxt "Plugin installer section title"
 msgid "Reviews"
 msgstr ""
 
-#: includes/classes/class-summary.php:1685
+#: includes/classes/class-summary.php:1769
 msgctxt "Plugin installer section title"
 msgid "Screenshots"
 msgstr ""
@@ -955,7 +969,7 @@ msgstr ""
 msgid "Plugins"
 msgstr ""
 
-#: views/default-network-widget.php:56 views/default-site-widget.php:52
+#: views/network-widget-template.php:56 views/site-widget-template.php:52
 msgid "Profile"
 msgstr ""
 
@@ -963,31 +977,38 @@ msgstr ""
 msgid "Profile Tab"
 msgstr ""
 
-#: includes/classes/class-summary.php:958
+#: includes/classes/class-summary.php:1028
 msgid "Re-install System"
 msgstr ""
 
-#: includes/classes/class-summary.php:1901
+#: includes/classes/class-summary.php:1985
 msgid "Read all reviews on WordPress.org or write your own!"
 msgstr ""
+
+#: views/partials/network-widget-users.php:96
+#: views/partials/site-widget-users.php:212
+msgid "Registered User"
+msgid_plural "Registered Users"
+msgstr[0] ""
+msgstr[1] ""
 
 #: views/partials/site-widget-users.php:60
 msgid "Registered Users"
 msgstr ""
 
-#: includes/classes/class-summary.php:1830
+#: includes/classes/class-summary.php:1914
 msgid "Requires PHP Version:"
 msgstr ""
 
-#: includes/classes/class-summary.php:1814
+#: includes/classes/class-summary.php:1898
 msgid "Requires WordPress Version:"
 msgstr ""
 
-#: includes/classes/class-summary.php:1899
+#: includes/classes/class-summary.php:1983
 msgid "Reviews"
 msgstr ""
 
-#: includes/classes/class-summary.php:1910
+#: includes/classes/class-summary.php:1994
 #, php-format
 msgid "Reviews with %1$d star: %2$s. Opens in a new tab."
 msgid_plural "Reviews with %1$d stars: %2$s. Opens in a new tab."
@@ -1004,33 +1025,33 @@ msgstr ""
 msgid "Search Content"
 msgstr ""
 
-#: includes/classes/class-summary.php:627
+#: includes/classes/class-summary.php:638
 msgid "Search engines are discouraged"
 msgstr ""
 
-#: includes/classes/class-summary.php:623
+#: includes/classes/class-summary.php:634
 msgid "Search engines are discouraged for the primary site"
 msgstr ""
 
-#: views/partials/site-widget-content.php:126
-#: views/partials/site-widget-content.php:128
+#: views/partials/site-widget-content.php:127
 #: views/partials/site-widget-content.php:129
+#: views/partials/site-widget-content.php:130
 msgid "Search Media"
 msgstr ""
 
-#: views/partials/network-widget-sites.php:91
-#: views/partials/network-widget-sites.php:93
-#: views/partials/network-widget-sites.php:94
+#: views/partials/network-widget-sites.php:111
+#: views/partials/network-widget-sites.php:113
+#: views/partials/network-widget-sites.php:114
 msgid "Search Sites"
 msgstr ""
 
-#: views/partials/network-widget-users.php:93
-#: views/partials/network-widget-users.php:95
-#: views/partials/network-widget-users.php:96
-#: views/partials/site-widget-users.php:207
-#: views/partials/site-widget-users.php:207
-#: views/partials/site-widget-users.php:209
-#: views/partials/site-widget-users.php:210
+#: views/partials/network-widget-users.php:112
+#: views/partials/network-widget-users.php:114
+#: views/partials/network-widget-users.php:115
+#: views/partials/site-widget-users.php:228
+#: views/partials/site-widget-users.php:228
+#: views/partials/site-widget-users.php:230
+#: views/partials/site-widget-users.php:231
 msgid "Search Users"
 msgstr ""
 
@@ -1051,8 +1072,8 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: includes/classes/class-summary.php:1139
-#: includes/classes/class-summary.php:1152
+#: includes/classes/class-summary.php:1209
+#: includes/classes/class-summary.php:1222
 msgid "Show hidden updates"
 msgstr ""
 
@@ -1064,7 +1085,7 @@ msgstr ""
 msgid "Site Users Tab"
 msgstr ""
 
-#: views/default-network-widget.php:52
+#: views/network-widget-template.php:52
 msgid "Sites"
 msgstr ""
 
@@ -1076,12 +1097,12 @@ msgstr ""
 msgid "Summary Content Methods"
 msgstr ""
 
-#: views/default-network-widget.php:62 views/default-site-widget.php:62
+#: views/network-widget-template.php:62 views/site-widget-template.php:62
 #: views/partials/widget-updates.php:66
 msgid "System"
 msgstr ""
 
-#: includes/classes/class-summary.php:553
+#: includes/classes/class-summary.php:564
 msgid "system"
 msgstr ""
 
@@ -1105,22 +1126,22 @@ msgstr ""
 msgid "System Updates"
 msgstr ""
 
-#: includes/classes/class-summary.php:712
-#: includes/classes/class-summary.php:738
-#: includes/classes/class-summary.php:748
+#: includes/classes/class-summary.php:782
+#: includes/classes/class-summary.php:808
+#: includes/classes/class-summary.php:818
 msgid "The active theme is"
 msgstr ""
 
-#: includes/classes/class-summary.php:703
-#: includes/classes/class-summary.php:729
+#: includes/classes/class-summary.php:773
+#: includes/classes/class-summary.php:799
 msgid "The active theme of the primary site is"
 msgstr ""
 
-#: includes/classes/class-summary.php:497
+#: includes/classes/class-summary.php:508
 msgid "The database version is"
 msgstr ""
 
-#: includes/classes/class-summary.php:418
+#: includes/classes/class-summary.php:429
 msgid "The web server is running"
 msgstr ""
 
@@ -1128,40 +1149,45 @@ msgstr ""
 msgid "Themes"
 msgstr ""
 
-#: views/partials/network-widget-users.php:88
-#, php-format
-msgid "There %1$s registered in the network."
-msgstr ""
-
-#: includes/classes/class-summary.php:786
+#: includes/classes/class-summary.php:856
 msgid "There are no"
 msgstr ""
 
-#: includes/classes/class-summary.php:1260
-#: includes/classes/class-summary.php:1306
+#: includes/classes/class-summary.php:1330
+#: includes/classes/class-summary.php:1376
 msgid "There are no plugin updates available."
 msgstr ""
 
-#: includes/classes/class-summary.php:1330
-#: includes/classes/class-summary.php:1349
+#: includes/classes/class-summary.php:1400
+#: includes/classes/class-summary.php:1419
 msgid "There are no theme updates available."
 msgstr ""
 
-#: includes/classes/class-summary.php:1434
+#: includes/classes/class-summary.php:714
+msgid "There are no themes available."
+msgstr ""
+
+#: includes/classes/class-summary.php:682
+msgid "There is"
+msgid_plural "There are"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/classes/class-summary.php:1504
 #, php-format
 msgid ""
 "There is a new version of %1$s available. <a href=\"%2$s\" %3$s>View version "
 "%4$s details</a> or <a href=\"%5$s\" %6$s>update now</a>."
 msgstr ""
 
-#: includes/classes/class-summary.php:1408
+#: includes/classes/class-summary.php:1478
 #, php-format
 msgid ""
 "There is a new version of %1$s available. <a href=\"%2$s\" %3$s>View version "
 "%4$s details</a>."
 msgstr ""
 
-#: includes/classes/class-summary.php:1421
+#: includes/classes/class-summary.php:1491
 #, php-format
 msgid ""
 "There is a new version of %1$s available. <a href=\"%2$s\" %3$s>View version "
@@ -1180,7 +1206,7 @@ msgid ""
 "content or modifying text."
 msgstr ""
 
-#: includes/classes/class-summary.php:1088
+#: includes/classes/class-summary.php:1158
 msgid ""
 "This localized version contains both the translation and various other "
 "localization fixes."
@@ -1192,16 +1218,11 @@ msgid ""
 "theme or members plugins."
 msgstr ""
 
-#: views/partials/network-widget-sites.php:86
-#, php-format
-msgid "This network consists of %1$s."
-msgstr ""
-
-#: includes/classes/class-summary.php:579
+#: includes/classes/class-summary.php:590
 msgid "This network is running"
 msgstr ""
 
-#: includes/classes/class-summary.php:1550
+#: includes/classes/class-summary.php:1620
 msgid "This section provides details about your account."
 msgstr ""
 
@@ -1209,7 +1230,7 @@ msgstr ""
 msgid "This website contains the following post and content types."
 msgstr ""
 
-#: includes/classes/class-summary.php:581
+#: includes/classes/class-summary.php:592
 msgid "This website is running"
 msgstr ""
 
@@ -1217,13 +1238,13 @@ msgstr ""
 msgid "This website&#8217;s content is organized by the following taxonomies."
 msgstr ""
 
-#: includes/classes/class-summary.php:1295
-#: includes/classes/class-summary.php:1445
+#: includes/classes/class-summary.php:1365
+#: includes/classes/class-summary.php:1515
 #, php-format
 msgid "Update %s now"
 msgstr ""
 
-#: includes/classes/class-summary.php:944
+#: includes/classes/class-summary.php:1014
 msgid "Update System"
 msgstr ""
 
@@ -1231,11 +1252,11 @@ msgstr ""
 msgid "Update Tools"
 msgstr ""
 
-#: views/default-network-widget.php:59 views/default-site-widget.php:59
+#: views/network-widget-template.php:59 views/site-widget-template.php:59
 msgid "Updates"
 msgstr ""
 
-#: includes/classes/class-summary.php:788
+#: includes/classes/class-summary.php:858
 msgid "updates available."
 msgstr ""
 
@@ -1250,6 +1271,12 @@ msgstr ""
 #: views/partials/widget-updates.php:101
 msgid "Upgrade Network"
 msgstr ""
+
+#: includes/classes/class-site-default-widget.php:363
+msgid "User"
+msgid_plural "Users"
+msgstr[0] ""
+msgstr[1] ""
 
 #: views/partials/site-widget-users.php:48
 msgid "User Discussion"
@@ -1268,7 +1295,7 @@ msgstr ""
 msgid "User Tools"
 msgstr ""
 
-#: views/default-network-widget.php:54 views/default-site-widget.php:56
+#: views/network-widget-template.php:54 views/site-widget-template.php:56
 msgid "Users"
 msgstr ""
 
@@ -1280,14 +1307,14 @@ msgstr ""
 msgid "Users Overview"
 msgstr ""
 
-#: includes/classes/class-summary.php:1795
+#: includes/classes/class-summary.php:1879
 msgid "Version:"
 msgstr ""
 
-#: includes/classes/class-summary.php:1286
-#: includes/classes/class-summary.php:1413
-#: includes/classes/class-summary.php:1426
-#: includes/classes/class-summary.php:1439
+#: includes/classes/class-summary.php:1356
+#: includes/classes/class-summary.php:1483
+#: includes/classes/class-summary.php:1496
+#: includes/classes/class-summary.php:1509
 #, php-format
 msgid "View %1$s version %2$s details"
 msgstr ""
@@ -1296,7 +1323,7 @@ msgstr ""
 msgid "View in popup window"
 msgstr ""
 
-#: views/partials/widget-system-info.php:142
+#: views/partials/widget-system-info.php:147
 msgid "View reference in modal window."
 msgstr ""
 
@@ -1316,13 +1343,13 @@ msgstr ""
 msgid "website."
 msgstr ""
 
-#: includes/classes/class-summary.php:851
+#: includes/classes/class-summary.php:921
 msgid ""
 "While your site is being updated, it will be in maintenance mode. As soon as "
 "your updates are complete, this mode will be deactivated."
 msgstr ""
 
-#: views/partials/widget-system-info.php:139
+#: views/partials/widget-system-info.php:144
 msgid "Widget Development"
 msgstr ""
 
@@ -1335,11 +1362,11 @@ msgstr ""
 msgid "widget."
 msgstr ""
 
-#: includes/classes/class-summary.php:549
+#: includes/classes/class-summary.php:560
 msgid "WordPress"
 msgstr ""
 
-#: includes/classes/class-summary.php:1861
+#: includes/classes/class-summary.php:1945
 msgid "WordPress.org Plugin Page &#187;"
 msgstr ""
 
@@ -1347,7 +1374,7 @@ msgstr ""
 msgid "Yes"
 msgstr ""
 
-#: includes/classes/class-summary.php:1094
+#: includes/classes/class-summary.php:1164
 #, php-format
 msgid ""
 "You are about to install %s %s <strong>in English (US).</strong> There is a "
@@ -1355,16 +1382,16 @@ msgid ""
 "the localized version to be released."
 msgstr ""
 
-#: includes/classes/class-summary.php:823
-#: includes/classes/class-summary.php:833
+#: includes/classes/class-summary.php:893
+#: includes/classes/class-summary.php:903
 msgid "You are using a development version of"
 msgstr ""
 
-#: includes/classes/class-summary.php:951
+#: includes/classes/class-summary.php:1021
 msgid "You can update to the latest nightly build manually:"
 msgstr ""
 
-#: includes/classes/class-summary.php:843
+#: includes/classes/class-summary.php:913
 msgid "You have the latest version of"
 msgstr ""
 
