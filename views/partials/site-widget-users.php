@@ -38,7 +38,7 @@ $tab_description = apply_filters(
 	'ds_site_widget_users_description',
 	sprintf(
 		'<p class="description">%s</p>',
-		__( 'Follow the links to manage users and comments.', 'dashboard-summary' )
+		__( 'An overview of users and comments for this site.', 'dashboard-summary' )
 	)
 );
 
@@ -100,8 +100,8 @@ $comment_total = $comment_count['total_comments'] + $comment_count['trash'];
 
 		<?php
 
-		// Complete list if the current user can moderate comments.
-		if ( current_user_can( 'moderate_comments' ) ) :
+		// Complete list if the current user can edit posts.
+		if ( current_user_can( 'edit_posts' ) ) :
 
 		// Total comments.
 		echo sprintf(
@@ -162,10 +162,10 @@ $comment_total = $comment_count['total_comments'] + $comment_count['trash'];
 			)
 		);
 
-		// If the current user cannot moderate comments.
+		// If the current user cannot manage comments.
 		else :
 
-			// Comments by current user.
+		// Comments by current user.
 		echo sprintf(
 			'<li><icon class="dashicons dashicons-nametag"></icon> %s %s</li>',
 			$summary->get_user_comments_count(),
@@ -192,11 +192,32 @@ if ( current_user_can( 'list_users' ) ) :
 
 	<ul class="ds-widget-details-list">
 		<li>
-			<?php echo sprintf(
-				'%s <a href="%s"><strong>%s</strong></a>',
-				__( 'Number of registered users for this site:', 'dashboard-summary' ),
+			<?php
+
+			// Count the registered users.
+			$users_count = number_format_i18n( $summary->total_users() );
+
+			/**
+			 * Icon based on the count.
+			 * Used to display single person icon for one user or
+			 * group icon for multiple users.
+			 */
+			if ( 1 == $summary->total_users() ) {
+				$users_icon = 'dashicons-admin-users';
+			} else {
+				$users_icon = 'dashicons-groups';
+			}
+
+			// Plural or single user text based on the count.
+			$users = _n( 'Registered User', 'Registered Users', intval( $users_count ), 'dashboard-summary' );
+
+			// User count with link to the users list screen.
+			echo sprintf(
+				'<a href="%s"><icon class="dashicons %s"></icon> %s %s</a>',
 				esc_url( admin_url( 'users.php' ) ),
-				$summary->total_users()
+				$users_icon,
+				$summary->total_users(),
+				$users
 			); ?>
 		</li>
 	</ul>

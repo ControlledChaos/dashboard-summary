@@ -38,7 +38,7 @@ $tab_description = apply_filters(
 	'ds_site_widget_content_description',
 	sprintf(
 		'<p class="description">%s</p>',
-		__( 'Follow the links to manage website content.', 'dashboard-summary' )
+		__( 'An overview of of the content of this site.', 'dashboard-summary' )
 	)
 );
 
@@ -120,6 +120,7 @@ $tools_description = apply_filters(
 		</p>
 	</form>
 
+	<?php if ( current_user_can( 'upload_files' ) ) : ?>
 	<form role="search" action="<?php echo self_admin_url( 'upload.php' ); ?>" method="get">
 		<?php $media_id = 'site-' . get_current_blog_id() . '-dashboard-search-media'; ?>
 		<p class="ds-widget-search-fields">
@@ -129,6 +130,7 @@ $tools_description = apply_filters(
 			<?php submit_button( __( 'Search Media', 'dashboard-summary' ), '', false, false, [ 'id' => 'submit-' . $media_id ] ); ?>
 		</p>
 	</form>
+	<?php endif; ?>
 
 	<p class="ds-widget-link-button">
 		<?php if ( current_user_can( 'import' ) ) : ?>

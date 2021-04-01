@@ -65,17 +65,6 @@ $tools_description = apply_filters(
 	)
 );
 
-// Users count text.
-$users_count = get_user_count();
-$users_text  = sprintf(
-	_n(
-		'is <strong>%s</strong> user',
-		'are <strong>%s</strong> users',
-		$users_count
-	),
-	number_format_i18n( $users_count )
-);
-
 ?>
 <?php echo $tab_heading; ?>
 <?php echo $tab_description; ?>
@@ -85,7 +74,37 @@ $users_text  = sprintf(
 	<h4><?php echo $manage_heading; ?></h4>
 	<?php echo $manage_description; ?>
 
-	<p><?php printf( __( 'There %1$s registered in the network.', 'dashboard-summary' ), $users_text ); ?></p>
+	<ul class="ds-widget-details-list">
+		<li>
+			<?php
+
+			// Count the registered users.
+			$users_count = number_format_i18n( $summary->total_users() );
+
+			/**
+			 * Icon based on the count.
+			 * Used to display single person icon for one user or
+			 * group icon for multiple users.
+			 */
+			if ( 1 == $summary->total_users() ) {
+				$users_icon = 'dashicons-admin-users';
+			} else {
+				$users_icon = 'dashicons-groups';
+			}
+
+			// Plural or single user text based on the count.
+			$users = _n( 'Registered User', 'Registered Users', intval( $users_count ), 'dashboard-summary' );
+
+			// User count with link to the users list screen.
+			echo sprintf(
+				'<a href="%s"><icon class="dashicons %s"></icon> %s %s</a>',
+				esc_url( network_admin_url( 'users.php' ) ),
+				$users_icon,
+				$summary->total_users(),
+				$users
+			); ?>
+		</li>
+	</ul>
 
 	<form role="search" action="<?php echo network_admin_url( 'users.php' ); ?>" method="get">
 		<?php $field_id = 'network-' . get_current_network_id() . '-dashboard-search-users'; ?>

@@ -70,7 +70,7 @@ class Summary {
 	 */
 	public function public_post_types() {
 
-		// Array of built-in post types.
+		// Add attachment post type.
 		$builtin = [ 'post', 'page', 'attachment' ];
 
 		// Custom post types query.
@@ -127,7 +127,7 @@ class Summary {
 
 			// Count the number of posts.
 			$get_count = wp_count_posts( $type->name );
-			if ( 'attachment' == $post_type ) {
+			if ( 'attachment' === $post_type ) {
 				$count = $get_count->inherit;
 			} else {
 				$count = $get_count->publish;
@@ -159,8 +159,19 @@ class Summary {
 				$menu_icon = '<icon class="dashicons dashicons-admin-post dashicons-admin-' . $type->menu_icon . '"></icon>';
 			}
 
-			// Supply an edit link if the user can edit posts.
-			if ( current_user_can( $type->cap->edit_posts ) ) {
+			// Supply an edit link if media & the user can access the media library.
+			if ( 'attachment' === $post_type && current_user_can( 'upload_files' ) ) {
+				$html .= sprintf(
+					'<li class="post-count %s-count"><a href="edit.php?post_type=%s">%s %s %s</a></li>',
+					$type->name,
+					$type->name,
+					$menu_icon,
+					$number,
+					$name
+				);
+
+			// Supply an edit link if not media & the user can edit posts.
+			} elseif ( 'attachment' != $post_type && current_user_can( $type->cap->edit_posts ) ) {
 				$html .= sprintf(
 					'<li class="post-count %s-count"><a href="edit.php?post_type=%s">%s %s %s</a></li>',
 					$type->name,
@@ -327,9 +338,9 @@ class Summary {
 					);
 				}
 
-				// Supply an edit link if the user can edit associated post types.
-				$edit = get_post_type_object( $types );
-				if ( current_user_can( $edit->cap->edit_posts ) ) {
+				// Supply an edit link if the user can edit the taxonomy.
+				$edit = get_taxonomy( $taxonomy->name );
+				if ( current_user_can( $edit->cap->edit_terms ) ) {
 
 					// Print a list item for the taxonomy.
 					$html .= sprintf(

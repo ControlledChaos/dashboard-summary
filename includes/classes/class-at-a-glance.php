@@ -40,6 +40,9 @@ class At_A_Glance {
 		// If the At a Glance widget setting is true/checked.
 		if ( true == settings()->sanitize_glance() ) {
 
+			// Print admin scripts to head.
+			add_action( 'admin_print_scripts', [ $this, 'print_scripts' ], 20 );
+
 			// Enqueue assets.
 			add_action( 'admin_enqueue_scripts', [ $this, 'assets' ] );
 
@@ -49,8 +52,8 @@ class At_A_Glance {
 			// Add custom post types & taxonomies.
 			add_action( 'dashboard_glance_items', [ $this, 'at_glance' ] );
 
-			// Add PHP notice and/or other info.
-			add_action( 'rightnow_end', [ $this, 'at_glance_end' ] );
+			// System information section.
+			add_filter( 'update_right_now_text', [ $this, 'system_info' ], 10, 1 );
 		}
 	}
 
@@ -76,6 +79,19 @@ class At_A_Glance {
 			// Unset the At a Glance widget.
 			unset( $wp_meta_boxes['dashboard']['normal']['core']['dashboard_right_now'] );
 		}
+	}
+
+	/**
+	 * Print admin scripts
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return string
+	 */
+	public function print_scripts() {
+
+		// Remove the unused <p id="wp-version-message">.
+		echo '<script>jQuery( document ).ready( function($) { $( "#dashboard_right_now #wp-version-message" ).remove(); });</script>';
 	}
 
 	/**
@@ -133,9 +149,18 @@ class At_A_Glance {
 		$style .= '.at-glance-cpt-icons { display: inline-block; width: 20px; height: 20px; vertical-align: middle; background-repeat: no-repeat; background-position: center; background-size: 20px auto; } ';
 		$style .= '.at-glance-cpt-icons img { display: inline-block; max-width: 20px; } ';
 		$style .= $type_count;
-		$style .= '#dashboard_right_now li.at-glance-taxonomy a:before, #dashboard_right_now li.at-glance-taxonomy > span:before { content: "\f318"; }';
-		$style .= '#dashboard_right_now li.at-glance-taxonomy.post_tag a:before, #dashboard_right_now li.at-glance-taxonomy.post_tag > span:before { content: "\f323"; }';
+		$style .= '#dashboard_right_now li.at-glance-taxonomy a:before, #dashboard_right_now li.at-glance-taxonomy > span:before { display: none; }';
 		$style .= '#dashboard_right_now .post-count.attachment-count a::before, #dashboard_right_now .post-count.attachment-count span::before { display: none; }';
+		$style .= '#dashboard_right_now li.at-glance-user-count a:before, #dashboard_right_now li.at-glance-user-count span:before { content: "\f110"; }';
+		$style .= '#dashboard_right_now li.at-glance-users-count a:before, #dashboard_right_now li.at-glance-users-count span:before { content: "\f307"; }';
+		$style .= '.at-glance-system-info { margin-top: 1em; padding-top: 0.5em; border-top: solid 1px #ccd0d4; }';
+		$style .= '#dashboard_right_now #wp-version-message { display: none; }';
+		$style .= '#dashboard-widgets .at-glance-system-info h3 { margin: 0.75em 0 0; font-size: 1em; font-weight: bold; font-weight: 600; }';
+		$style .= '#dashboard-widgets .at-glance-system-info p.description { margin: 0.75em 0 0; font-style: italic; line-height: 1.3; }';
+		$style .= '#dashboard-widgets .at-glance-system-info a { text-decoration: none; }';
+		$style .= '#dashboard_right_now ul.at-glance-system-list { display: block; margin: 0.75em 0 0; }';
+		$style .= '#dashboard_right_now .at-glance-system-list li { margin: 0.325em 0 0; }';
+		$style .= '#dashboard_right_now .at-glance-system-list li a:before { display: none; }';
 		$style .= '</style>' . '<!-- End At a Glance icon styles -->';
 
 		// Print the style block.
@@ -152,6 +177,9 @@ class At_A_Glance {
 	 * @return void
 	 */
 	public function at_glance() {
+
+		// Development hook.
+		do_action( 'ds_glance_items_one' );
 
 		// Add attachment post type.
 		$builtin = [ 'attachment' ];
@@ -201,8 +229,19 @@ class At_A_Glance {
 				$menu_icon = '<icon class="dashicons dashicons-admin-post dashicons-admin-' . $type->menu_icon . '"></icon>';
 			}
 
-			// Supply an edit link if the user can edit post type.
-			if ( current_user_can( $type->cap->edit_posts ) ) {
+			// Supply an edit link if media & the user can access the media library.
+			if ( 'attachment' === $post_type && current_user_can( 'upload_files' ) ) {
+				printf(
+					'<li class="post-count %s-count"><a href="edit.php?post_type=%s">%s %s %s</a></li>',
+					$type->name,
+					$type->name,
+					$menu_icon,
+					$number,
+					$name
+				);
+
+			// Supply an edit link if not media & the user can edit posts.
+			} elseif ( 'attachment' != $post_type && current_user_can( $type->cap->edit_posts ) ) {
 				printf(
 					'<li class="post-count %s-count"><a href="edit.php?post_type=%s">%s %s %s</a></li>',
 					$type->name,
@@ -224,6 +263,9 @@ class At_A_Glance {
 
 			}
 		}
+
+		// Development hook.
+		do_action( 'ds_glance_items_two' );
 
 		// Get taxonomies.
 		$taxonomies = summary()->taxonomies_query();
@@ -254,34 +296,144 @@ class At_A_Glance {
 				// Get the plural or singlular name based on the count.
 				$name = _n( $taxonomy->labels->singular_name, $taxonomy->labels->name, intval( $count ) );
 
-				// Print a list item for the taxonomy.
-				echo sprintf(
-					'<li class="at-glance-taxonomy %s"><a href="%s">%s %s</a></li>',
-					$taxonomy->name,
-					admin_url( 'edit-tags.php?taxonomy=' . $taxonomy->name . $type ),
-					$count,
-					$name
-				);
+				// Conditional icon markup.
+				if ( 'post_tag' == $taxonomy->name ) {
+					$icon = sprintf(
+						'<icon class="dashicons dashicons-tag ds-icon-%s"></icon>',
+						$taxonomy->name
+					);
+				} else {
+					$icon = sprintf(
+						'<icon class="dashicons dashicons-category ds-icon-%s"></icon>',
+						$taxonomy->name
+					);
+				}
+
+				// Supply an edit link if the user can edit the taxonomy.
+				$edit = get_taxonomy( $taxonomy->name );
+				if ( current_user_can( $edit->cap->edit_terms ) ) {
+
+					// Print a list item for the taxonomy.
+					printf(
+						'<li class="at-glance-taxonomy %s"><a href="%s">%s %s %s</a></li>',
+						$taxonomy->name,
+						esc_url( admin_url( 'edit-tags.php?taxonomy=' . $taxonomy->name . $type ) ),
+						$icon,
+						$count,
+						$name
+					);
+
+				// List item without link.
+				} else {
+
+					// Print a list item for the taxonomy.
+					printf(
+						'<li class="at-glance-taxonomy %s">%s %s %s</li>',
+						$taxonomy->name,
+						$icon,
+						$count,
+						$name
+					);
+				}
 			}
 		}
+
+		// Development hook.
+		do_action( 'ds_glance_items_three' );
+
+		// Show total users if the current user can manage users.
+		if ( current_user_can( 'manage_users' ) ) {
+
+			// Count the registered users.
+			$users_count = number_format_i18n( summary()->total_users() );
+
+			/**
+			 * List item class based on the count.
+			 * Used to display single person icon for one user or
+			 * group icon for multiple users.
+			 */
+			if ( 1 == summary()->total_users() ) {
+				$users_class = 'at-glance-user-count';
+			} else {
+				$users_class = 'at-glance-users-count';
+			}
+
+			// Plural or single text based on the count.
+			$users = _n( 'User', 'Users', intval( $users_count ), 'dashboard-summary' );
+
+			// User list item.
+			printf(
+				'<li class="%s"><a href="%s">%s %s</a></li>',
+				$users_class,
+				self_admin_url( 'users.php' ),
+				summary()->total_users(),
+				$users
+			);
+		}
+
+		// Development hook.
+		do_action( 'ds_glance_items_four' );
 	}
 
 	/**
-	 * At a Glance end
-	 *
-	 * Adds content to the end of the
-	 * At a Glance dashboard widget.
+	 * System information
 	 *
 	 * @since  1.0.0
 	 * @access public
-	 * @return void
+	 * @return string Returns the markup of the system information.
 	 */
-	public function at_glance_end() {
+	public function system_info( $content ) {
 
-		// PHP version notice.
-		echo sprintf(
-			'<p>%s</p>',
+		// Information section heading.
+		$info_heading = apply_filters(
+			'ds_widget_system_info_heading',
+			__( 'System Information', 'dashboard-summary' )
+		);
+
+		// Information description.
+		$info_description = apply_filters(
+			'ds_widget_system_info_description',
+			sprintf(
+				'<p class="description">%s <a href="%s">%s</a> %s</p>',
+				__( 'Some technical details about the', 'dashboard-summary' ),
+				esc_url( get_site_url( get_current_blog_id() ) ),
+				get_bloginfo( 'name' ),
+				__( 'website.', 'dashboard-summary' )
+			)
+		);
+
+		// System information markup.
+		$html = '<section class="at-glance-system-info">';
+
+		// Heading & description.
+		$html .= sprintf(
+			'<h3>%s</h3>',
+			$info_heading
+		);
+		$html .= $info_description;
+
+		// System information list.
+		$html .= '<ul class="at-glance-system-list">';
+		$html .= sprintf(
+			'<li><icon class="ds-cpt-icons dashicons dashicons-editor-code"></icon> %s</li>',
 			summary()->php_version()
 		);
+		$html .= sprintf(
+			'<li><icon class="ds-cpt-icons dashicons dashicons-database"></icon> %s</li>',
+			summary()->database_version()
+		);
+		$html .= sprintf(
+			'<li><icon class="ds-cpt-icons dashicons dashicons-dashboard"></icon> %s</li>',
+			summary()->system_notice()
+		);
+		$html .= sprintf(
+			'<li><icon class="ds-cpt-icons dashicons dashicons-admin-appearance"></icon> %s</li>',
+			summary()->active_theme()
+		);
+		$html .= '</ul>';
+		$html .= '</section>';
+
+		// Print the system information markup.
+		echo $html;
 	}
 }
