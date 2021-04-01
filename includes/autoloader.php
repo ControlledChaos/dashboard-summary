@@ -34,15 +34,16 @@ define( 'DS_CLASS', DS_PATH . 'includes/classes/class-' );
  * @var   array Defines an array of class files to register.
  */
 define( 'DS_CLASSES', [
-	__NAMESPACE__ . '\Classes\Assets'         => DS_CLASS . 'assets.php',
-	__NAMESPACE__ . '\Classes\At_A_Glance'    => DS_CLASS . 'at-a-glance.php',
-	__NAMESPACE__ . '\Classes\Dashboard'      => DS_CLASS . 'dashboard.php',
-	__NAMESPACE__ . '\Classes\Settings'       => DS_CLASS . 'settings.php',
-	__NAMESPACE__ . '\Classes\Summary'        => DS_CLASS . 'summary.php',
-	__NAMESPACE__ . '\Classes\Site_Widget'    => DS_CLASS . 'site-widget.php',
-	__NAMESPACE__ . '\Classes\Network_Widget' => DS_CLASS . 'network-widget.php',
-	__NAMESPACE__ . '\Classes\User_Colors'    => DS_CLASS . 'user-colors.php',
-	__NAMESPACE__ . '\Classes\User_Options'   => DS_CLASS . 'user-options.php'
+	__NAMESPACE__ . '\Classes\Assets'                 => DS_CLASS . 'assets.php',
+	__NAMESPACE__ . '\Classes\Site_Default_Widget'    => DS_CLASS . 'site-default-widget.php',
+	__NAMESPACE__ . '\Classes\Network_Default_Widget' => DS_CLASS . 'network-default-widget.php',
+	__NAMESPACE__ . '\Classes\Dashboard'              => DS_CLASS . 'dashboard.php',
+	__NAMESPACE__ . '\Classes\Settings'               => DS_CLASS . 'settings.php',
+	__NAMESPACE__ . '\Classes\Summary'                => DS_CLASS . 'summary.php',
+	__NAMESPACE__ . '\Classes\Site_Widget'            => DS_CLASS . 'site-widget.php',
+	__NAMESPACE__ . '\Classes\Network_Widget'         => DS_CLASS . 'network-widget.php',
+	__NAMESPACE__ . '\Classes\User_Colors'            => DS_CLASS . 'user-colors.php',
+	__NAMESPACE__ . '\Classes\User_Options'           => DS_CLASS . 'user-options.php'
 ] );
 
 /**

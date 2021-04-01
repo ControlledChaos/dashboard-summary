@@ -37,30 +37,6 @@ class Network_Widget {
 
 		// Print admin styles to head.
 		add_action( 'admin_print_styles', [ $this, 'admin_print_styles' ], 20 );
-
-		// Maybe remove the Right Now widget.
-		add_action( 'wp_network_dashboard_setup', [ $this, 'remove_widget' ] );
-	}
-
-	/**
-	 * Remove Right Now widget
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @global array wp_meta_boxes The metaboxes array holds all the widgets for wp-admin.
-	 * @return void
-	 */
-	public function remove_widget() {
-
-		// Access metaboxes.
-		global $wp_meta_boxes;
-
-		// Check the Right Now setting.
-		if ( false == settings()->sanitize_network_right_now() ) {
-
-			// Unset the Right Now widget.
-			unset( $wp_meta_boxes['dashboard-network']['normal']['core']['network_dashboard_right_now'] );
-		}
 	}
 
 	/**

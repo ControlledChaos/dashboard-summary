@@ -90,13 +90,14 @@ function admin_init() {
 	}
 
 	// Site dashboard.
-	if ( is_admin() && 'index.php' === $pagenow ) {
+	if ( is_admin() && ! is_network_admin() && 'index.php' === $pagenow ) {
 		new Classes\Site_Widget;
-		new Classes\At_A_Glance;
+		new Classes\Site_Default_Widget;
 	}
 
 	// Network dashboard.
 	if ( is_network_admin() && 'index.php' === $pagenow ) {
 		new Classes\Network_Widget;
+		new Classes\Network_Default_Widget;
 	}
 }

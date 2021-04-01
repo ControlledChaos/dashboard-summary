@@ -1,13 +1,13 @@
 <?php
 /**
- * At a Glance widget
+ * Site default widget
  *
  * The "At a Glance" widget, formerly "Right Now",
  * is the default WordPress & ClassicPress summary
  * widget on site dashboards, not network dashboards.
  *
  * Methods in this class add custom post types with
- * icons, taxonomies with icons, and a PHP notice
+ * icons, taxonomies with icons, and a system summary
  * to the default widget content.
  *
  * @package    Dashboard_Summary
@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die;
 }
 
-class At_A_Glance {
+class Site_Default_Widget {
 
 	/**
 	 * Constructor method
@@ -34,8 +34,12 @@ class At_A_Glance {
 	 */
 	public function __construct() {
 
-		// Maybe remove the At a Glance widget.
-		add_action( 'wp_dashboard_setup', [ $this, 'remove_widget' ] );
+		// If the At a Glance widget setting is false/unchecked.
+		if ( false == settings()->sanitize_glance() ) {
+
+			// Remove At a Glance widget.
+			add_action( 'wp_dashboard_setup', [ $this, 'remove_widget' ] );
+		}
 
 		// If the At a Glance widget setting is true/checked.
 		if ( true == settings()->sanitize_glance() ) {
@@ -73,12 +77,8 @@ class At_A_Glance {
 		// Access metaboxes.
 		global $wp_meta_boxes;
 
-		// Check the At a Glance setting.
-		if ( false == settings()->sanitize_glance() ) {
-
-			// Unset the At a Glance widget.
-			unset( $wp_meta_boxes['dashboard']['normal']['core']['dashboard_right_now'] );
-		}
+		// Unset the At a Glance widget.
+		unset( $wp_meta_boxes['dashboard']['normal']['core']['dashboard_right_now'] );
 	}
 
 	/**
@@ -143,7 +143,7 @@ class At_A_Glance {
 			);
 		}
 
-		// At a Glance icons style block.
+		// At a Glance widget style block.
 		$style  = '<!-- Begin At a Glance icon styles -->' . '<style>';
 		$style .= '#dashboard_right_now li a:before, #dashboard_right_now li span:before { color: currentColor; } ';
 		$style .= '.at-glance-cpt-icons { display: inline-block; width: 20px; height: 20px; vertical-align: middle; background-repeat: no-repeat; background-position: center; background-size: 20px auto; } ';
