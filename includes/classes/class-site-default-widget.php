@@ -144,7 +144,7 @@ class Site_Default_Widget {
 		}
 
 		// At a Glance widget style block.
-		$style  = '<!-- Begin At a Glance icon styles -->' . '<style>';
+		$style  = '<!-- Begin At a Glance widget styles -->' . '<style>';
 		$style .= '#dashboard_right_now li a:before, #dashboard_right_now li span:before { color: currentColor; } ';
 		$style .= '.at-glance-cpt-icons { display: inline-block; width: 20px; height: 20px; vertical-align: middle; background-repeat: no-repeat; background-position: center; background-size: 20px auto; } ';
 		$style .= '.at-glance-cpt-icons img { display: inline-block; max-width: 20px; } ';
@@ -153,15 +153,16 @@ class Site_Default_Widget {
 		$style .= '#dashboard_right_now .post-count.attachment-count a::before, #dashboard_right_now .post-count.attachment-count span::before { display: none; }';
 		$style .= '#dashboard_right_now li.at-glance-user-count a:before, #dashboard_right_now li.at-glance-user-count span:before { content: "\f110"; }';
 		$style .= '#dashboard_right_now li.at-glance-users-count a:before, #dashboard_right_now li.at-glance-users-count span:before { content: "\f307"; }';
-		$style .= '.at-glance-system-info { margin-top: 1em; padding-top: 0.5em; border-top: solid 1px #ccd0d4; }';
+		$style .= '#dashboard_right_now .ds-widget-divided-section { margin-top: 1em; padding-top: 0.5em; border-top: solid 1px #ccd0d4; }';
 		$style .= '#dashboard_right_now #wp-version-message { display: none; }';
-		$style .= '#dashboard-widgets .at-glance-system-info h3 { margin: 0.75em 0 0; font-size: 1em; font-weight: bold; font-weight: 600; }';
-		$style .= '#dashboard-widgets .at-glance-system-info p.description { margin: 0.75em 0 0; font-style: italic; line-height: 1.3; }';
-		$style .= '#dashboard-widgets .at-glance-system-info a { text-decoration: none; }';
-		$style .= '#dashboard_right_now ul.at-glance-system-list { display: block; margin: 0.75em 0 0; }';
-		$style .= '#dashboard_right_now .at-glance-system-list li { margin: 0.325em 0 0; }';
-		$style .= '#dashboard_right_now .at-glance-system-list li a:before { display: none; }';
-		$style .= '</style>' . '<!-- End At a Glance icon styles -->';
+		$style .= '#dashboard-widgets #dashboard_right_now .ds-widget-divided-section h4 { margin: 0.75em 0 0; font-size: 1em; font-weight: bold; font-weight: 600; }';
+		$style .= '#dashboard-widgets #dashboard_right_now .ds-widget-divided-section p.description { margin: 0.75em 0 0; font-style: italic; line-height: 1.3; }';
+		$style .= '#dashboard-widgets #dashboard_right_now .ds-widget-divided-section a { text-decoration: none; }';
+		$style .= '#dashboard_right_now ul.ds-widget-system-list { display: block; margin: 0.75em 0 0; }';
+		$style .= '#dashboard_right_now .ds-widget-system-list li { margin: 0.325em 0 0; }';
+		$style .= '#dashboard_right_now .ds-widget-system-list li a:before { display: none; }';
+		$style .= '#dashboard_right_now .main p.ds-widget-link-button { margin-top: 1.5em; }';
+		$style .= '</style>' . '<!-- End At a Glance widget styles -->';
 
 		// Print the style block.
 		echo $style;
@@ -384,56 +385,13 @@ class Site_Default_Widget {
 	 */
 	public function system_info( $content ) {
 
-		// Information section heading.
-		$info_heading = apply_filters(
-			'ds_widget_system_info_heading',
-			__( 'System Information', 'dashboard-summary' )
-		);
+		// Instance of the Summary class.
+		$summary = summary();
 
-		// Information description.
-		$info_description = apply_filters(
-			'ds_widget_system_info_description',
-			sprintf(
-				'<p class="description">%s <a href="%s">%s</a> %s</p>',
-				__( 'Some technical details about the', 'dashboard-summary' ),
-				esc_url( get_site_url( get_current_blog_id() ) ),
-				get_bloginfo( 'name' ),
-				__( 'website.', 'dashboard-summary' )
-			)
-		);
+		// This content is for a native widget.
+		$native_widget = true;
 
-		// System information markup.
-		$html = '<section class="at-glance-system-info">';
-
-		// Heading & description.
-		$html .= sprintf(
-			'<h3>%s</h3>',
-			$info_heading
-		);
-		$html .= $info_description;
-
-		// System information list.
-		$html .= '<ul class="at-glance-system-list">';
-		$html .= sprintf(
-			'<li><icon class="ds-cpt-icons dashicons dashicons-editor-code"></icon> %s</li>',
-			summary()->php_version()
-		);
-		$html .= sprintf(
-			'<li><icon class="ds-cpt-icons dashicons dashicons-database"></icon> %s</li>',
-			summary()->database_version()
-		);
-		$html .= sprintf(
-			'<li><icon class="ds-cpt-icons dashicons dashicons-dashboard"></icon> %s</li>',
-			summary()->system_notice()
-		);
-		$html .= sprintf(
-			'<li><icon class="ds-cpt-icons dashicons dashicons-admin-appearance"></icon> %s</li>',
-			summary()->active_theme()
-		);
-		$html .= '</ul>';
-		$html .= '</section>';
-
-		// Print the system information markup.
-		echo $html;
+		// Get the system information content.
+		include( DS_PATH . '/views/partials/widget-system-info.php' );
 	}
 }

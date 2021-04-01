@@ -108,7 +108,7 @@ $tools_description = apply_filters( 'ds_widget_system_tools_description', $tools
 
 <?php
 
-if ( current_user_can( 'manage_options' ) ) :
+if ( current_user_can( 'manage_options' ) && $native_widget == false ) :
 
 ?>
 <div class="ds-widget-divided-section ds-widget-system-links">
@@ -130,7 +130,7 @@ if ( current_user_can( 'manage_options' ) ) :
 
 <?php
 endif; // End current_user_can.
-if ( current_user_can( 'install_plugins' ) ) :
+if ( current_user_can( 'install_plugins' ) && $native_widget == false ) :
 
 	// Do not display on network site dashboards, except the main site.
 	if (

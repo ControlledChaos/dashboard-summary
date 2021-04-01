@@ -99,6 +99,10 @@ do_action( 'ds_default_network_widget_before' );
 	<section id="ds-default-network-widget-system-info" class="ds-widget-section ds-tabs-panel">
 		<?php
 
+		// This content is not for a native widget.
+		$native_widget = false;
+
+		// Get the system information content.
 		include( DS_PATH . '/views/partials/widget-system-info.php' );
 
 		?>

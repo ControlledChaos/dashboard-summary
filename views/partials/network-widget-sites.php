@@ -63,17 +63,6 @@ $tools_description = apply_filters(
 	)
 );
 
-// Sites count text.
-$sites_count = get_blog_count();
-$sites_text  = sprintf(
-	_n(
-		'<strong>%s</strong> website',
-		'<strong>%s</strong> websites',
-		$sites_count
-	),
-	number_format_i18n( $sites_count )
-);
-
 ?>
 <?php echo $tab_heading; ?>
 <?php echo $tab_description; ?>
@@ -83,7 +72,38 @@ $sites_text  = sprintf(
 	<h4><?php echo $manage_heading; ?></h4>
 	<?php echo $manage_description; ?>
 
-	<p><?php printf( __( 'This network consists of %1$s.', 'dashboard-summary' ), $sites_text ); ?></p>
+	<ul class="ds-widget-details-list">
+		<li>
+			<?php
+
+			// Count the registered sites.
+			$count       = get_blog_count();
+			$sites_count = number_format_i18n( $count );
+
+			/**
+			 * Icon based on the count.
+			 * Used to display single person icon for one user or
+			 * group icon for multiple sites.
+			 */
+			if ( 1 == $count ) {
+				$sites_icon = 'dashicons-admin-home';
+			} else {
+				$sites_icon = 'dashicons-admin-multisite';
+			}
+
+			// Plural or single user text based on the count.
+			$sites = _n( 'Network Site', 'Network Sites', intval( $sites_count ), 'dashboard-summary' );
+
+			// User count with link to the sites list screen.
+			echo sprintf(
+				'<a href="%s"><icon class="dashicons %s"></icon> %s %s</a>',
+				esc_url( network_admin_url( 'sites.php' ) ),
+				$sites_icon,
+				$count,
+				$sites
+			); ?>
+		</li>
+	</ul>
 
 	<form role="search" action="<?php echo network_admin_url( 'sites.php' ); ?>" method="get">
 		<?php $field_id = 'network-' . get_current_network_id() . '-dashboard-search-sites'; ?>
