@@ -121,7 +121,7 @@ $tools_description = apply_filters(
 
 				<p class="description"><?php _e( 'This may be displayed to website users or visitors, depending on the active theme or members plugins.', 'dashboard-summary' ); ?></p>
 
-				<p class="hide-if-no-js"><a href="#ds-user-bio" data-ds-modal><?php _e( 'View in popup window', 'dashboard-summary' ); ?></a></p>
+				<p class="hide-if-no-js"><a href="#ds-user-bio" data-ds-modal><span class="dashicons dashicons-id-alt"></span> <?php _e( 'View in popup window', 'dashboard-summary' ); ?></a></p>
 
 				<div id="ds-user-bio" class="ds-modal" role="dialog" aria-labelledby="ds-modal-bio-heading-text" aria-describedby="ds-user-bio-content">
 					<div class="ds-modal-bio-heading hide-if-no-js">
