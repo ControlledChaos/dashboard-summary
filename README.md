@@ -8,7 +8,43 @@ Improves the At a Glance dashboard widget and offers replacement widgets with mo
 
 ## Website Summary Widget
 
-The Website Summary dashboard widget by default replaces the native At a Glance dashboard widget, however both widgets can be displayed.
+The Website Summary dashboard widget by default replaces the native At a Glance dashboard widget, however both widgets can be displayed. The content of the widget is organized as follows by a responsive tabbed/accordion interface.
+
+### Account Tab
+
+The user account tab, or profile tab, is displayed to all registered users. It provides details of the current user, including the following.
+
+* User Name
+* Display Name
+* Avatar
+* User Roles
+* Bio/Description
+* Email & Website
+* Interface Options
+
+### Content Tab
+
+The content tab provides a more comprehensive summary of website content than the native At a Glance widget. Display varies by user capabilities.
+
+* Posts & pages counts with edit links.
+* Media (attachment post type) counts with edit links.
+* Custom post type counts with edit links & the associated menu icons.
+* Category & tag counts with edit links.
+* Custom taxonomy counts with edit links.
+
+Content tools are available by user capability.
+
+* Content search, same as frontend search, is displayed to all users.
+* Media search is displayed to users who can manage the media library.
+* Import & export links are displayed to users who can conduct these operations.
+
+### Users Tab
+
+Content coming.
+
+### System Tab
+
+Content coming.
 
 ### User Roles for the Website Summary Widget
 
