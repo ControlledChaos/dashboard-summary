@@ -69,12 +69,12 @@ $tools_heading = apply_filters(
 if ( is_multisite() && is_network_admin() ) {
 	$tools_description = sprintf(
 		'<p class="description">%s</p>',
-		__( 'Manage the network settings and the options for the primary website.', 'dashboard-summary' )
+		__( 'Tools to help manage this network.', 'dashboard-summary' )
 	);
 } else {
 	$tools_description = sprintf(
 		'<p class="description">%s</p>',
-		__( 'Manage the options for this website.', 'dashboard-summary' )
+		__( 'Tools to help manage this website.', 'dashboard-summary' )
 	);
 }
 $tools_description = apply_filters( 'ds_widget_system_tools_description', $tools_description );
@@ -122,8 +122,9 @@ if ( current_user_can( 'manage_options' ) && $native_widget == false ) :
 		<a class="button button-primary" href="<?php echo admin_url( 'site-health.php' ); ?>">
 			<?php _e( 'Website Health', 'dashboard-summary' ); ?>
 		</a>
+		<?php endif; ?>
 
-		<?php elseif ( is_multisite() && is_network_admin() ) : ?>
+		<?php if ( is_multisite() && is_network_admin() ) : ?>
 		<a class="button button-primary" href="<?php echo network_admin_url( 'settings.php' ); ?>">
 			<?php _e( 'Network Settings', 'dashboard-summary' ); ?>
 		</a>
