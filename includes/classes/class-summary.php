@@ -246,9 +246,9 @@ class Summary {
 				// Get the plural or singlular name based on the count.
 				$name = _n( $taxonomy->labels->singular_name, $taxonomy->labels->name, intval( $count ), 'dashboard-summary' );
 
-				// Supply an edit link if the user can edit associated post types.
-				$edit = get_post_type_object( $types );
-				if ( current_user_can( $edit->cap->edit_posts ) ) {
+				// Supply an edit link if the user can edit the taxonomy.
+				$edit = get_taxonomy( $taxonomy->name );
+				if ( current_user_can( $edit->cap->edit_terms ) ) {
 
 					// Print a list item for the taxonomy.
 					$html .= sprintf(
