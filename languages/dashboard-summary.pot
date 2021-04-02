@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dashboard Summary\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-01 21:50+0000\n"
+"POT-Creation-Date: 2021-04-02 07:39+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -104,7 +104,7 @@ msgid ""
 "version %4$s or higher. You are running version %5$s.</p>"
 msgstr ""
 
-#: views/partials/dev-reference.php:74
+#: views/partials/dev-reference.php:90
 msgid ""
 "<strong>Note:</strong> Many of these also filter the markup as well as the "
 "text inside the element so carefully read the filter description."
@@ -221,7 +221,7 @@ msgstr ""
 msgid "ClassicPress"
 msgstr ""
 
-#: views/partials/dev-reference.php:88
+#: views/partials/dev-reference.php:104
 msgid "Colors"
 msgstr ""
 
@@ -275,7 +275,7 @@ msgstr ""
 msgid "Dashboard Summary"
 msgstr ""
 
-#: views/partials/dev-reference.php:70
+#: views/partials/dev-reference.php:86
 msgid "Development Filters"
 msgstr ""
 
@@ -287,7 +287,7 @@ msgstr ""
 msgid "Development Hooks & Filters"
 msgstr ""
 
-#: views/partials/widget-system-info.php:145
+#: views/partials/widget-system-info.php:152
 msgid ""
 "Development hooks & filters of the dashboard summary widgets for adding "
 "content or modifying text."
@@ -345,337 +345,345 @@ msgstr ""
 msgid "Filters"
 msgstr ""
 
-#: views/partials/dev-reference.php:148
+#: views/partials/dev-reference.php:164
 msgid "Filters a number of updates."
 msgstr ""
 
-#: views/partials/dev-reference.php:94
+#: views/partials/dev-reference.php:110
 msgid "Filters an array of color scheme CSS hex codes."
 msgstr ""
 
-#: views/partials/dev-reference.php:98
+#: views/partials/dev-reference.php:114
 msgid "Filters an array of color scheme notification CSS hex codes."
 msgstr ""
 
-#: views/partials/dev-reference.php:112
+#: views/partials/dev-reference.php:128
 msgid ""
 "Filters an array of merged built-in post types and custom post types used in "
 "the site widget content tab and in the At a Glance widget."
 msgstr ""
 
-#: views/partials/dev-reference.php:116
+#: views/partials/dev-reference.php:132
 msgid ""
 "Filters an array of queried taxonomies used in the site widget content tab "
 "and in the At a Glance widget."
 msgstr ""
 
-#: views/partials/dev-reference.php:144
+#: views/partials/dev-reference.php:160
 msgid "Filters the <code>&lt;a&gt;</code> markup & text of the active theme."
 msgstr ""
 
-#: views/partials/dev-reference.php:136
+#: views/partials/dev-reference.php:152
 msgid ""
 "Filters the <code>&lt;a&gt;</code> markup & text of the content/website "
 "management system notice."
 msgstr ""
 
-#: views/partials/dev-reference.php:120
+#: views/partials/dev-reference.php:136
 msgid ""
 "Filters the <code>&lt;a&gt;</code> markup & text of the PHP version notice."
 msgstr ""
 
-#: views/partials/dev-reference.php:140
+#: views/partials/dev-reference.php:156
 msgid ""
 "Filters the <code>&lt;a&gt;</code> markup & text of the search engines "
 "notice, if discouraged."
 msgstr ""
 
-#: views/partials/dev-reference.php:324
+#: views/partials/dev-reference.php:340
 msgid ""
 "Filters the <code>&lt;h3&gt;</code> markup & text of the network sites tab "
 "heading."
 msgstr ""
 
-#: views/partials/dev-reference.php:353
+#: views/partials/dev-reference.php:369
 msgid ""
 "Filters the <code>&lt;h3&gt;</code> markup & text of the network users tab "
 "heading."
 msgstr ""
 
-#: views/partials/dev-reference.php:164
+#: views/partials/dev-reference.php:180
 msgid ""
 "Filters the <code>&lt;h3&gt;</code> markup & text of the profile tab heading."
 msgstr ""
 
-#: views/partials/dev-reference.php:252
+#: views/partials/dev-reference.php:268
 msgid ""
 "Filters the <code>&lt;h3&gt;</code> markup & text of the site content tab "
 "heading."
 msgstr ""
 
-#: views/partials/dev-reference.php:288
+#: views/partials/dev-reference.php:304
 msgid ""
 "Filters the <code>&lt;h3&gt;</code> markup & text of the site users tab "
 "heading."
 msgstr ""
 
-#: views/partials/dev-reference.php:200
+#: views/partials/dev-reference.php:216
 msgid ""
 "Filters the <code>&lt;h3&gt;</code> markup & text of the system tab heading."
 msgstr ""
 
-#: views/partials/dev-reference.php:228
+#: views/partials/dev-reference.php:244
 msgid ""
 "Filters the <code>&lt;h3&gt;</code> markup & text of the updates tab heading."
 msgstr ""
 
-#: views/partials/dev-reference.php:172
+#: views/partials/dev-reference.php:188
 msgid ""
 "Filters the <code>&lt;h4&gt;</code> markup & text of the profile tab account "
 "section heading."
 msgstr ""
 
-#: views/partials/dev-reference.php:152
+#: views/partials/dev-reference.php:168
 msgid ""
 "Filters the <code>&lt;h4&gt;</code> markup & text of the user greeting in "
 "the profile tab."
 msgstr ""
 
-#: views/partials/dev-reference.php:328
-msgid ""
-"Filters the <code>&lt;p&gt;</code> markup & text of the network sites tab "
-"description."
-msgstr ""
-
-#: views/partials/dev-reference.php:336
-msgid ""
-"Filters the <code>&lt;p&gt;</code> markup & text of the network sites tab "
-"manage section description."
-msgstr ""
-
 #: views/partials/dev-reference.php:344
 msgid ""
 "Filters the <code>&lt;p&gt;</code> markup & text of the network sites tab "
-"tools section description."
-msgstr ""
-
-#: views/partials/dev-reference.php:357
-msgid ""
-"Filters the <code>&lt;p&gt;</code> markup & text of the network users tab "
 "description."
 msgstr ""
 
-#: views/partials/dev-reference.php:365
+#: views/partials/dev-reference.php:352
 msgid ""
-"Filters the <code>&lt;p&gt;</code> markup & text of the network users tab "
+"Filters the <code>&lt;p&gt;</code> markup & text of the network sites tab "
 "manage section description."
+msgstr ""
+
+#: views/partials/dev-reference.php:360
+msgid ""
+"Filters the <code>&lt;p&gt;</code> markup & text of the network sites tab "
+"tools section description."
 msgstr ""
 
 #: views/partials/dev-reference.php:373
 msgid ""
 "Filters the <code>&lt;p&gt;</code> markup & text of the network users tab "
+"description."
+msgstr ""
+
+#: views/partials/dev-reference.php:381
+msgid ""
+"Filters the <code>&lt;p&gt;</code> markup & text of the network users tab "
+"manage section description."
+msgstr ""
+
+#: views/partials/dev-reference.php:389
+msgid ""
+"Filters the <code>&lt;p&gt;</code> markup & text of the network users tab "
 "tools section description."
 msgstr ""
 
-#: views/partials/dev-reference.php:176
+#: views/partials/dev-reference.php:192
 msgid ""
 "Filters the <code>&lt;p&gt;</code> markup & text of the profile tab account "
 "section description."
 msgstr ""
 
-#: views/partials/dev-reference.php:168
+#: views/partials/dev-reference.php:184
 msgid ""
 "Filters the <code>&lt;p&gt;</code> markup & text of the profile tab "
 "description."
 msgstr ""
 
-#: views/partials/dev-reference.php:184
+#: views/partials/dev-reference.php:200
 msgid ""
 "Filters the <code>&lt;p&gt;</code> markup & text of the profile tab options "
 "section description."
 msgstr ""
 
-#: views/partials/dev-reference.php:192
+#: views/partials/dev-reference.php:208
 msgid ""
 "Filters the <code>&lt;p&gt;</code> markup & text of the profile tab tools "
 "section description."
 msgstr ""
 
-#: views/partials/dev-reference.php:256
-msgid ""
-"Filters the <code>&lt;p&gt;</code> markup & text of the site content tab "
-"description."
-msgstr ""
-
-#: views/partials/dev-reference.php:264
-msgid ""
-"Filters the <code>&lt;p&gt;</code> markup & text of the site content tab "
-"post types section description."
-msgstr ""
-
 #: views/partials/dev-reference.php:272
 msgid ""
 "Filters the <code>&lt;p&gt;</code> markup & text of the site content tab "
-"taxonomies section description."
+"description."
 msgstr ""
 
 #: views/partials/dev-reference.php:280
 msgid ""
 "Filters the <code>&lt;p&gt;</code> markup & text of the site content tab "
+"post types section description."
+msgstr ""
+
+#: views/partials/dev-reference.php:288
+msgid ""
+"Filters the <code>&lt;p&gt;</code> markup & text of the site content tab "
+"taxonomies section description."
+msgstr ""
+
+#: views/partials/dev-reference.php:296
+msgid ""
+"Filters the <code>&lt;p&gt;</code> markup & text of the site content tab "
 "tools section description."
 msgstr ""
 
-#: views/partials/dev-reference.php:300
+#: views/partials/dev-reference.php:316
 msgid ""
 "Filters the <code>&lt;p&gt;</code> markup & text of the site users tab "
 "comments section description."
 msgstr ""
 
-#: views/partials/dev-reference.php:292
+#: views/partials/dev-reference.php:308
 msgid ""
 "Filters the <code>&lt;p&gt;</code> markup & text of the site users tab "
 "description."
 msgstr ""
 
-#: views/partials/dev-reference.php:308
+#: views/partials/dev-reference.php:324
 msgid ""
 "Filters the <code>&lt;p&gt;</code> markup & text of the site users tab "
 "registered users section description."
 msgstr ""
 
-#: views/partials/dev-reference.php:316
+#: views/partials/dev-reference.php:332
 msgid ""
 "Filters the <code>&lt;p&gt;</code> markup & text of the site users tab tools "
 "section description."
 msgstr ""
 
-#: views/partials/dev-reference.php:204
+#: views/partials/dev-reference.php:220
 msgid ""
 "Filters the <code>&lt;p&gt;</code> markup & text of the system tab "
 "description."
 msgstr ""
 
-#: views/partials/dev-reference.php:212
+#: views/partials/dev-reference.php:228
 msgid ""
 "Filters the <code>&lt;p&gt;</code> markup & text of the system tab "
 "information section description."
 msgstr ""
 
-#: views/partials/dev-reference.php:220
+#: views/partials/dev-reference.php:236
 msgid ""
 "Filters the <code>&lt;p&gt;</code> markup & text of the system tab tools "
 "section description."
 msgstr ""
 
-#: views/partials/dev-reference.php:232
+#: views/partials/dev-reference.php:248
 msgid ""
 "Filters the <code>&lt;p&gt;</code> markup & text of the updates tab "
 "description."
 msgstr ""
 
-#: views/partials/dev-reference.php:156
+#: views/partials/dev-reference.php:172
 msgid ""
 "Filters the <code>&lt;p&gt;</code> markup & text of the user greeting "
 "description in the profile tab."
 msgstr ""
 
-#: views/partials/dev-reference.php:128
+#: views/partials/dev-reference.php:144
 msgid ""
 "Filters the code name of the content/website management system (e.g. "
 "wordpress)."
 msgstr ""
 
-#: views/partials/dev-reference.php:132
+#: views/partials/dev-reference.php:148
 msgid ""
 "Filters the display name of the content/website management system (e.g. "
 "WordPress)."
 msgstr ""
 
-#: views/partials/dev-reference.php:108
+#: views/partials/dev-reference.php:124
 msgid ""
 "Filters the query array of custom post types used in the site widget content "
 "tab and in the At a Glance widget."
 msgstr ""
 
-#: views/partials/dev-reference.php:124
+#: views/partials/dev-reference.php:140
 msgid "Filters the text of the database version notice."
 msgstr ""
 
-#: views/partials/dev-reference.php:84
+#: views/partials/dev-reference.php:100
 msgid "Filters the text of the network dashboard widget title."
 msgstr ""
 
-#: views/partials/dev-reference.php:332
+#: views/partials/dev-reference.php:348
 msgid "Filters the text of the network sites tab manage section heading."
 msgstr ""
 
-#: views/partials/dev-reference.php:340
+#: views/partials/dev-reference.php:356
 msgid "Filters the text of the network sites tab tools section heading."
 msgstr ""
 
-#: views/partials/dev-reference.php:361
+#: views/partials/dev-reference.php:377
 msgid "Filters the text of the network users tab manage section heading."
 msgstr ""
 
-#: views/partials/dev-reference.php:369
+#: views/partials/dev-reference.php:385
 msgid "Filters the text of the network users tab tools section heading."
 msgstr ""
 
-#: views/partials/dev-reference.php:180
+#: views/partials/dev-reference.php:196
 msgid "Filters the text of the profile tab options section heading."
 msgstr ""
 
-#: views/partials/dev-reference.php:188
+#: views/partials/dev-reference.php:204
 msgid "Filters the text of the profile tab tools section heading."
 msgstr ""
 
-#: views/partials/dev-reference.php:260
+#: views/partials/dev-reference.php:276
 msgid "Filters the text of the site content tab post types section heading."
 msgstr ""
 
-#: views/partials/dev-reference.php:268
+#: views/partials/dev-reference.php:284
 msgid "Filters the text of the site content tab taxonomies section heading."
 msgstr ""
 
-#: views/partials/dev-reference.php:276
+#: views/partials/dev-reference.php:292
 msgid "Filters the text of the site content tab tools section heading."
 msgstr ""
 
-#: views/partials/dev-reference.php:80
+#: views/partials/dev-reference.php:96
 msgid "Filters the text of the site dashboard widget title."
 msgstr ""
 
-#: views/partials/dev-reference.php:296
+#: views/partials/dev-reference.php:312
 msgid "Filters the text of the site users tab comments section heading."
 msgstr ""
 
-#: views/partials/dev-reference.php:304
+#: views/partials/dev-reference.php:320
 msgid ""
 "Filters the text of the site users tab registered users section heading."
 msgstr ""
 
-#: views/partials/dev-reference.php:312
+#: views/partials/dev-reference.php:328
 msgid "Filters the text of the site users tab tools section heading."
 msgstr ""
 
-#: views/partials/dev-reference.php:208
+#: views/partials/dev-reference.php:224
 msgid "Filters the text of the system tab information section heading."
 msgstr ""
 
-#: views/partials/dev-reference.php:216
+#: views/partials/dev-reference.php:232
 msgid "Filters the text of the system tab tools section heading."
 msgstr ""
 
-#: views/partials/dev-reference.php:240
+#: views/partials/dev-reference.php:256
 msgid "Filters the text of the updates tab tools section description."
 msgstr ""
 
-#: views/partials/dev-reference.php:236
+#: views/partials/dev-reference.php:252
 msgid "Filters the text of the updates tab tools section heading."
 msgstr ""
 
-#: views/partials/dev-reference.php:244
+#: views/partials/dev-reference.php:260
 msgid "Filters the URL of information on updating a server&#39;s PHP version."
+msgstr ""
+
+#: views/partials/dev-reference.php:67
+msgid "Fires at the beginning of the custom At a Glance items list."
+msgstr ""
+
+#: views/partials/dev-reference.php:79
+msgid "Fires at the end of the custom At a Glance items list."
 msgstr ""
 
 #: views/partials/dev-reference.php:59
@@ -706,7 +714,17 @@ msgstr ""
 msgid "Fires at the end of the updates tab."
 msgstr ""
 
-#: views/partials/dev-reference.php:72
+#: views/partials/dev-reference.php:71
+msgid ""
+"Fires in the custom At a Glance items list between post types and taxonomies."
+msgstr ""
+
+#: views/partials/dev-reference.php:75
+msgid ""
+"Fires in the custom At a Glance items list between taxonomies and users."
+msgstr ""
+
+#: views/partials/dev-reference.php:88
 msgid ""
 "Following is a list of filters that can be used to change text in the "
 "various widget tabs."
@@ -847,7 +865,7 @@ msgstr[1] ""
 msgid "Network Management"
 msgstr ""
 
-#: views/partials/widget-system-info.php:122
+#: views/partials/widget-system-info.php:128
 msgid "Network Settings"
 msgstr ""
 
@@ -861,7 +879,7 @@ msgstr[1] ""
 msgid "Network Sites"
 msgstr ""
 
-#: views/partials/dev-reference.php:320
+#: views/partials/dev-reference.php:336
 msgid "Network Sites Tab"
 msgstr ""
 
@@ -873,7 +891,7 @@ msgstr ""
 msgid "Network Users"
 msgstr ""
 
-#: views/partials/dev-reference.php:349
+#: views/partials/dev-reference.php:365
 msgid "Network Users Tab"
 msgstr ""
 
@@ -906,7 +924,7 @@ msgstr ""
 msgid "Options"
 msgstr ""
 
-#: views/partials/widget-system-info.php:126
+#: views/partials/widget-system-info.php:133
 msgid "Options Page"
 msgstr ""
 
@@ -973,7 +991,7 @@ msgstr ""
 msgid "Profile"
 msgstr ""
 
-#: views/partials/dev-reference.php:160
+#: views/partials/dev-reference.php:176
 msgid "Profile Tab"
 msgstr ""
 
@@ -1059,11 +1077,11 @@ msgstr ""
 msgid "Search, import, and export content of this website, if allowed."
 msgstr ""
 
-#: views/partials/dev-reference.php:103
+#: views/partials/dev-reference.php:119
 msgid "See includes/classes/class-summary.php."
 msgstr ""
 
-#: views/partials/dev-reference.php:89
+#: views/partials/dev-reference.php:105
 msgid "See includes/classes/class-user-colors.php."
 msgstr ""
 
@@ -1077,11 +1095,11 @@ msgstr ""
 msgid "Show hidden updates"
 msgstr ""
 
-#: views/partials/dev-reference.php:248
+#: views/partials/dev-reference.php:264
 msgid "Site Content Tab"
 msgstr ""
 
-#: views/partials/dev-reference.php:284
+#: views/partials/dev-reference.php:300
 msgid "Site Users Tab"
 msgstr ""
 
@@ -1093,7 +1111,7 @@ msgstr ""
 msgid "Some technical details about the"
 msgstr ""
 
-#: views/partials/dev-reference.php:102
+#: views/partials/dev-reference.php:118
 msgid "Summary Content Methods"
 msgstr ""
 
@@ -1114,7 +1132,7 @@ msgstr ""
 msgid "System Overview"
 msgstr ""
 
-#: views/partials/dev-reference.php:196
+#: views/partials/dev-reference.php:212
 msgid "System Tab"
 msgstr ""
 
@@ -1264,7 +1282,7 @@ msgstr ""
 msgid "Updates Page"
 msgstr ""
 
-#: views/partials/dev-reference.php:224
+#: views/partials/dev-reference.php:240
 msgid "Updates Tab"
 msgstr ""
 
@@ -1323,12 +1341,16 @@ msgstr ""
 msgid "View in popup window"
 msgstr ""
 
-#: views/partials/widget-system-info.php:147
+#: views/partials/widget-system-info.php:154
 msgid "View reference in modal window."
 msgstr ""
 
 #: views/partials/site-widget-content.php:32
 msgid "Website Content"
+msgstr ""
+
+#: views/partials/widget-system-info.php:123
+msgid "Website Health"
 msgstr ""
 
 #: config.php:53
@@ -1349,11 +1371,11 @@ msgid ""
 "your updates are complete, this mode will be deactivated."
 msgstr ""
 
-#: views/partials/widget-system-info.php:144
+#: views/partials/widget-system-info.php:151
 msgid "Widget Development"
 msgstr ""
 
-#: views/partials/dev-reference.php:76
+#: views/partials/dev-reference.php:92
 msgid "Widget Titles"
 msgstr ""
 
