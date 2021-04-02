@@ -118,11 +118,20 @@ if ( current_user_can( 'manage_options' ) && $native_widget == false ) :
 
 	<p class="ds-widget-link-button">
 
-		<?php if ( class_exists( 'WP_Site_Health' ) && current_user_can( 'view_site_health_checks' ) ) : ?>
-		<a class="button button-primary" href="<?php echo admin_url( 'site-health.php' ); ?>">
-			<?php _e( 'Website Health', 'dashboard-summary' ); ?>
-		</a>
-		<?php endif; ?>
+		<?php
+		// Link to the Site Health page, if available.
+		if ( class_exists( 'WP_Site_Health' ) && current_user_can( 'view_site_health_checks' ) ) :
+
+		// Add the link with filter applied for removal of the link.
+		echo apply_filters(
+			'ds_site_health_link',
+			sprintf(
+				'<a class="button button-primary" href="%s">%s</a>',
+				admin_url( 'site-health.php' ),
+				__( 'Website Health', 'dashboard-summary' )
+			)
+		);
+		endif; ?>
 
 		<?php if ( is_multisite() && is_network_admin() ) : ?>
 		<a class="button button-primary" href="<?php echo network_admin_url( 'settings.php' ); ?>">

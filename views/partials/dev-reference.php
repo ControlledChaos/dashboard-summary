@@ -235,6 +235,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<p><code>ds_widget_system_tools_description</code><br />
 				<?php _e( 'Filters the <code>&lt;p&gt;</code> markup & text of the system tab tools section description.', 'dashboard-summary' ); ?></p>
 			</li>
+			<li>
+				<p><code>ds_site_health_link</code><br />
+				<?php _e( 'Filters the button-style link to the Site Health page. Folks may wish to hide this link. Use __return_false to remove.', 'dashboard-summary' ); ?></p>
+			</li>
 		</ul>
 
 		<h5><?php _e( 'Updates Tab', 'dashboard-summary' ); ?></h5>
