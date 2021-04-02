@@ -62,6 +62,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<p><code>ds_network_widget_users_tab</code><br />
 				<?php _e( 'Fires at the end of the network users tab.', 'dashboard-summary' ); ?></p>
 			</li>
+			<li>
+				<p><code>ds_glance_items_one</code><br />
+				<?php _e( 'Fires at the beginning of the custom At a Glance items list.', 'dashboard-summary' ); ?></p>
+			</li>
+			<li>
+				<p><code>ds_glance_items_two</code><br />
+				<?php _e( 'Fires in the custom At a Glance items list between post types and taxonomies.', 'dashboard-summary' ); ?></p>
+			</li>
+			<li>
+				<p><code>ds_glance_items_three</code><br />
+				<?php _e( 'Fires in the custom At a Glance items list between taxonomies and users.', 'dashboard-summary' ); ?></p>
+			</li>
+			<li>
+				<p><code>ds_glance_items_four</code><br />
+				<?php _e( 'Fires at the end of the custom At a Glance items list.', 'dashboard-summary' ); ?></p>
+			</li>
 		</ul>
 	</section>
 
