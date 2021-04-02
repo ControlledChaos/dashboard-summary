@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dashboard Summary\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-02 07:39+0000\n"
+"POT-Creation-Date: 2021-04-02 07:45+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -287,7 +287,7 @@ msgstr ""
 msgid "Development Hooks & Filters"
 msgstr ""
 
-#: views/partials/widget-system-info.php:152
+#: views/partials/widget-system-info.php:153
 msgid ""
 "Development hooks & filters of the dashboard summary widgets for adding "
 "content or modifying text."
@@ -830,14 +830,6 @@ msgstr ""
 msgid "Manage Sites"
 msgstr ""
 
-#: views/partials/widget-system-info.php:72
-msgid "Manage the network settings and the options for the primary website."
-msgstr ""
-
-#: views/partials/widget-system-info.php:77
-msgid "Manage the options for this website."
-msgstr ""
-
 #: views/partials/network-widget-sites.php:35
 msgid "Manage the websites of this network."
 msgstr ""
@@ -865,7 +857,7 @@ msgstr[1] ""
 msgid "Network Management"
 msgstr ""
 
-#: views/partials/widget-system-info.php:128
+#: views/partials/widget-system-info.php:129
 msgid "Network Settings"
 msgstr ""
 
@@ -924,7 +916,7 @@ msgstr ""
 msgid "Options"
 msgstr ""
 
-#: views/partials/widget-system-info.php:133
+#: views/partials/widget-system-info.php:134
 msgid "Options Page"
 msgstr ""
 
@@ -1256,6 +1248,14 @@ msgstr ""
 msgid "This website&#8217;s content is organized by the following taxonomies."
 msgstr ""
 
+#: views/partials/widget-system-info.php:72
+msgid "Tools to help manage this network."
+msgstr ""
+
+#: views/partials/widget-system-info.php:77
+msgid "Tools to help manage this website."
+msgstr ""
+
 #: includes/classes/class-summary.php:1365
 #: includes/classes/class-summary.php:1515
 #, php-format
@@ -1341,7 +1341,7 @@ msgstr ""
 msgid "View in popup window"
 msgstr ""
 
-#: views/partials/widget-system-info.php:154
+#: views/partials/widget-system-info.php:155
 msgid "View reference in modal window."
 msgstr ""
 
@@ -1371,7 +1371,7 @@ msgid ""
 "your updates are complete, this mode will be deactivated."
 msgstr ""
 
-#: views/partials/widget-system-info.php:151
+#: views/partials/widget-system-info.php:152
 msgid "Widget Development"
 msgstr ""
 
