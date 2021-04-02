@@ -402,7 +402,7 @@ final class Settings {
 			$settings = [
 				sprintf(
 					'<a href="%s">%s</a>',
-					esc_url( admin_url( 'options-general.php#dashboard-summary-description' ) ),
+					esc_url( admin_url( 'options-general.php#website-summary-description' ) ),
 					esc_html__( 'Settings', 'dashboard-summary' )
 				)
 			];
