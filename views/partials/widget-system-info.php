@@ -117,11 +117,18 @@ if ( current_user_can( 'manage_options' ) && $native_widget == false ) :
 	<?php echo $tools_description; ?>
 
 	<p class="ds-widget-link-button">
-		<?php if ( is_multisite() && is_network_admin() ) : ?>
+
+		<?php if ( class_exists( 'WP_Site_Health' ) && current_user_can( 'view_site_health_checks' ) ) : ?>
+		<a class="button button-primary" href="<?php echo admin_url( 'site-health.php' ); ?>">
+			<?php _e( 'Website Health', 'dashboard-summary' ); ?>
+		</a>
+
+		<?php elseif ( is_multisite() && is_network_admin() ) : ?>
 		<a class="button button-primary" href="<?php echo network_admin_url( 'settings.php' ); ?>">
 			<?php _e( 'Network Settings', 'dashboard-summary' ); ?>
 		</a>
 		<?php endif; ?>
+
 		<a class="button button-primary" href="<?php echo admin_url( 'options.php' ); ?>">
 			<?php _e( 'Options Page', 'dashboard-summary' ); ?>
 		</a>
