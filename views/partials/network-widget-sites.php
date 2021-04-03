@@ -51,7 +51,7 @@ $manage_description = apply_filters(
 // Tools section heading.
 $tools_heading = apply_filters(
 	'ds_network_widget_sites_tools_heading',
-	__( 'Website Tools', 'dashboard-summary' )
+	__( 'Network Tools', 'dashboard-summary' )
 );
 
 // Tools description.
