@@ -9,20 +9,35 @@
 .blocker {
   position: fixed;
   top: 0;
-  bottom: 0;
   left: 0;
-  right: 0;
   width: 100%;
   height: 100%;
-  overflow: auto;
+  overflow: hidden;
   z-index: 9998;
-  display: block;
-  padding: 12vw 3rem 3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 3rem;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   background-color: #000000;
   background-color: rgba(0, 0, 0, 0.75);
   text-align: center;
+}
+
+.blocker * {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .blocker.behind {
@@ -33,31 +48,32 @@
   display: none;
   position: relative;
   z-index: 9999;
+  width: 100%;
   min-width: 480px;
   max-width: 768px;
+  max-height: 100%;
+  overflow: visible;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   background: #ffffff;
-  padding: 1em 2em;
   text-align: left;
+}
+
+.ds-modal .ds-modal-content {
+  overflow: auto;
+  padding: 2em;
+  height: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .ds-modal a.close-modal {
   position: absolute;
-  top: -12px;
-  right: -12px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 5px;
+  top: 24px;
+  right: 24px;
+  width: 24px;
+  height: 24px;
   background-color: #ffffff;
-  border-radius: 50%;
 }
 
 .ds-modal a.close-modal svg {

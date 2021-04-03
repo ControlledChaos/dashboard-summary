@@ -124,12 +124,14 @@ $tools_description = apply_filters(
 				<p class="hide-if-no-js"><a href="#ds-user-bio" data-ds-modal><span class="dashicons dashicons-id-alt"></span> <?php _e( 'View in popup window', 'dashboard-summary' ); ?></a></p>
 
 				<div id="ds-user-bio" class="ds-modal" role="dialog" aria-labelledby="ds-modal-bio-heading-text" aria-describedby="ds-user-bio-content">
-					<div class="ds-modal-bio-heading hide-if-no-js">
-						<?php $summary->user_avatar(); ?>
-						<p id="ds-modal-bio-heading-text"><strong><?php echo __( 'About', 'dashboard-summary' ) . ' ' . $user_options->display_name(); ?></strong></p>
-					</div>
-					<div id="ds-user-bio-content">
-						<?php echo wpautop( get_user_option( 'description' ) ); ?>
+					<div class="ds-modal-content">
+						<div class="ds-modal-bio-heading hide-if-no-js">
+							<?php $summary->user_avatar(); ?>
+							<p id="ds-modal-bio-heading-text"><strong><?php echo __( 'About', 'dashboard-summary' ) . ' ' . $user_options->display_name(); ?></strong></p>
+						</div>
+						<div id="ds-user-bio-content">
+							<?php echo wpautop( get_user_option( 'description' ) ); ?>
+						</div>
 					</div>
 				</div>
 			</div>

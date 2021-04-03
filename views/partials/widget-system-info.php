@@ -163,7 +163,9 @@ if ( current_user_can( 'install_plugins' ) && $native_widget == false ) :
 
 		<p><a href="#dev-reference" data-ds-modal><?php _e( 'View reference in modal window.', 'dashboard-summary' ); ?></a></p>
 		<div id="dev-reference" class="ds-modal" role="dialog">
-			<?php include( DS_PATH . '/views/partials/dev-reference.php' ); ?>
+			<div class="ds-modal-content">
+				<?php include( DS_PATH . '/views/partials/dev-reference.php' ); ?>
+			</div>
 		</div>
 
 	</div>
