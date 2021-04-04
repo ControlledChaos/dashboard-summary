@@ -65,7 +65,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * is well documented then it will be clear when the brackets (`[]`)
  * represent an array. And someday you too will be writing many
  * arrays in your code and you will find the short syntax to be
- * a time saver. Let's not unecessarily dumb-down code; y'all
+ * a time saver. Let's not unnecessarily dumb-down code; y'all
  * are smart folk if you are reading this and you'll figure it out
  * like I did.
  *
@@ -103,10 +103,10 @@ include_once DS_PATH . 'activate/classes/class-activate.php';
 include_once DS_PATH . 'activate/classes/class-deactivate.php';
 
 /**
- * Register the activaction & deactivation hooks
+ * Register the activation & deactivation hooks
  *
  * The namspace of this file must remain escaped by use of the
- * backslash (`\`) prepending the acivation hooks and corresponding
+ * backslash (`\`) prepending the activation hooks and corresponding
  * functions.
  *
  * @since  1.0.0
@@ -152,7 +152,7 @@ function deactivate_plugin() {}
  * Prevents breaking sites running older PHP versions.
  *
  * A notice is added to the plugin row on the Plugins
- * screen as a more elegant and more imformative way
+ * screen as a more elegant and more informative way
  * of disabling the plugin than putting the PHP minimum
  * in the plugin header, which activates a die() message.
  * However, the Requires PHP tag is included in the
