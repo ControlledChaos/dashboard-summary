@@ -243,7 +243,7 @@ class Summary {
 				// Count the terms in the taxonomy.
 				$count = wp_count_terms( $taxonomy->name );
 
-				// Get the plural or singlular name based on the count.
+				// Get the plural or singular name based on the count.
 				$name = _n( $taxonomy->labels->singular_name, $taxonomy->labels->name, intval( $count ), 'dashboard-summary' );
 
 				// Supply an edit link if the user can edit the taxonomy.
@@ -322,7 +322,7 @@ class Summary {
 				// Count the terms in the taxonomy.
 				$count = wp_count_terms( $taxonomy->name );
 
-				// Get the plural or singlular name based on the count.
+				// Get the plural or singular name based on the count.
 				$name = _n( $taxonomy->labels->singular_name, $taxonomy->labels->name, intval( $count ), 'dashboard-summary' );
 
 				// Conditional icon markup.
@@ -986,7 +986,7 @@ class Summary {
 			$current_version = $wp_version;
 		}
 
-		// Defualt version string.
+		// Default version string.
 		$version_string = sprintf( '%s&ndash;<strong>%s</strong>', $update->current, $update->locale );
 
 		// If the language option is set to en_US.
@@ -1427,7 +1427,7 @@ class Summary {
 	 *
 	 * Returns a list item with links if there is an update available.
 	 * This is a copy of `get_theme_update_available()`
-	 * with the exeption removed for multisite.
+	 * with the exception removed for multisite.
 	 *
 	 * @see wp-admin/includes/theme.php
 	 *
@@ -1985,10 +1985,10 @@ class Summary {
 						<p class="fyi-description"><?php _e( 'Read all reviews on WordPress.org or write your own!', 'dashboard-summary' ); ?></p>
 
 						<?php
-						foreach ( $api->ratings as $key => $ratecount ) :
+						foreach ( $api->ratings as $key => $rate_count ) :
 
 							// Avoid div-by-zero.
-							$_rating    = $api->num_ratings ? ( $ratecount / $api->num_ratings ) : 0;
+							$_rating    = $api->num_ratings ? ( $rate_count / $api->num_ratings ) : 0;
 							$aria_label = esc_attr(
 								sprintf(
 									_n(
@@ -1998,7 +1998,7 @@ class Summary {
 										'dashboard-summary'
 									),
 									$key,
-									number_format_i18n( $ratecount )
+									number_format_i18n( $rate_count )
 								)
 							);
 							?>
@@ -2016,7 +2016,7 @@ class Summary {
 									<span class="counter-back">
 										<span class="counter-bar" style="width: <?php echo 92 * $_rating; ?>px;"></span>
 									</span>
-								<span class="counter-count" aria-hidden="true"><?php echo number_format_i18n( $ratecount ); ?></span>
+								<span class="counter-count" aria-hidden="true"><?php echo number_format_i18n( $rate_count ); ?></span>
 							</div>
 							<?php
 						endforeach;
@@ -2061,7 +2061,7 @@ class Summary {
 						$requires_php   = isset( $api->requires_php ) ? $api->requires_php : null;
 						$compatible_php = is_php_version_compatible( $requires_php );
 
-						// Notice if the required PHP verion is not met.
+						// Notice if the required PHP version is not met.
 						if ( ! $compatible_php ) :
 						?>
 							<div class="notice notice-error notice-alt">
