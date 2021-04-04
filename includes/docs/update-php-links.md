@@ -2,6 +2,8 @@
 
 This is a list of links to tutorials on how to upgrade the PHP version of a specific host.
 
+This file is referred by the system information section of the Dashboard Summary widget.
+
 * [1&1](https://help.1and1.com/hosting-c37630/scripts-and-programming-languages-c85099/php-c37728/change-the-default-version-of-php-in-the-control-panel-a792330.html)
 * [1&1 (Cloud Server)](https://www.1and1.com/cloud-community/learn/application/php/upgrade-php-from-54-to-70-on-a-centos-7-11-cloud-server/)
 * [A2 Hosting](https://www.a2hosting.com/kb/developer-corner/php/changing-php-settings-and-versions)
