@@ -161,7 +161,7 @@ if ( current_user_can( 'install_plugins' ) && $native_widget == false ) :
 		<h4><?php _e( 'Widget Development', 'dashboard-summary' ); ?></h4>
 		<p class="description"><?php _e( 'Development hooks & filters of the dashboard summary widgets for adding content or modifying text.', 'dashboard-summary' ); ?></p>
 
-		<p><a href="#dev-reference" data-ds-modal><?php _e( 'View reference in modal window.', 'dashboard-summary' ); ?></a></p>
+		<p><a href="#dev-reference" data-ds-modal><span class="dashicons dashicons-book"></span> <?php _e( 'View reference in modal window.', 'dashboard-summary' ); ?></a></p>
 		<div id="dev-reference" class="ds-modal" role="dialog">
 			<div class="ds-modal-content">
 				<?php include( DS_PATH . '/views/partials/dev-reference.php' ); ?>
