@@ -38,7 +38,7 @@ class User_Options {
 	 *
 	 * @since  1.0.0
 	 * @access public
-	 * @return srting Returns the username.
+	 * @return string Returns the username.
 	 */
 	public function user_login() {
 
@@ -79,7 +79,7 @@ class User_Options {
 	 *
 	 * @since  1.0.0
 	 * @access public
-	 * @return srting Returns the list.
+	 * @return string Returns the list.
 	 */
 	function user_roles() {
 
@@ -100,7 +100,7 @@ class User_Options {
 	 *
 	 * @since  1.0.0
 	 * @access public
-	 * @return srting Returns the nickname.
+	 * @return string Returns the nickname.
 	 */
 	public function nickname() {
 
@@ -116,7 +116,7 @@ class User_Options {
 	 *
 	 * @since  1.0.0
 	 * @access public
-	 * @return srting Returns the display name.
+	 * @return string Returns the display name.
 	 */
 	public function display_name() {
 
@@ -134,7 +134,7 @@ class User_Options {
 	 *
 	 * @since  1.0.0
 	 * @access public
-	 * @return srting Returns the email address.
+	 * @return string Returns the email address.
 	 */
 	public function email() {
 
@@ -156,7 +156,7 @@ class User_Options {
 	 *
 	 * @since  1.0.0
 	 * @access public
-	 * @return srting Returns the website URL or no website notice.
+	 * @return string Returns the website URL or no website notice.
 	 */
 	public function website() {
 
@@ -176,7 +176,7 @@ class User_Options {
 	 *
 	 * @since  1.0.0
 	 * @access public
-	 * @return srting Returns Yes/No text based on user option.
+	 * @return string Returns Yes/No text based on user option.
 	 */
 	public function toolbar() {
 

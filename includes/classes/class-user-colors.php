@@ -132,7 +132,7 @@ class User_Colors {
 	 * User notification colors
 	 *
 	 * Used to print a style block for update count
-	 * colors in the default wdget, depending on the
+	 * colors in the default widget, depending on the
 	 * user's color scheme preference. The color
 	 * likely does not match any in the color scheme
 	 * array so it is defined here by the color scheme

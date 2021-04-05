@@ -294,7 +294,7 @@ class Site_Default_Widget {
 				// Count the terms in the taxonomy.
 				$count = wp_count_terms( $taxonomy->name );
 
-				// Get the plural or singlular name based on the count.
+				// Get the plural or singular name based on the count.
 				$name = _n( $taxonomy->labels->singular_name, $taxonomy->labels->name, intval( $count ) );
 
 				// Conditional icon markup.

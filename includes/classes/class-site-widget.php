@@ -66,7 +66,7 @@ class Site_Widget {
 	}
 
 	/**
-	 * Site ashboard widget output
+	 * Site dashboard widget output
 	 *
 	 * Add widget content as an action to facilitate the use
 	 * of another template via the `remove_action` and the

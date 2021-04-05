@@ -6,7 +6,7 @@
  * a `<section>` element. Sections are displayed and hidden
  * by JavaScript enqueued in the Dashboard class.
  *
- * If JavaScript is diabled by the browser then the tabs
+ * If JavaScript is disabled by the browser then the tabs
  * navigation list is hidden and all sections are displayed.
  *
  * @package    Dashboard_Summary
