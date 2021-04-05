@@ -35,6 +35,30 @@ class Summary {
 	}
 
 	/**
+	 * Dashboard type
+	 *
+	 * Returns the word "website" or "network".
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return string Returns the text of the dashboard type.
+	 */
+	public function dashboard_type() {
+
+		// If a network dashboard.
+		if ( is_network_admin() ) {
+			$dash_type = __( 'network', 'dashboard-summary' );
+
+		// If a site dashboard.
+		} else {
+			$dash_type = __( 'website', 'dashboard-summary' );
+		}
+
+		// Return the filtered word/string.
+		return apply_filters( 'ds_dashboard_type', $dash_type );
+	}
+
+	/**
 	 * Custom post types query
 	 *
 	 * The custom post types are here as a separate query

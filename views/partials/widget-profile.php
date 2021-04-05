@@ -61,8 +61,9 @@ $user_options_heading = apply_filters(
 $user_options_description = apply_filters(
 	'ds_widget_user_options_description',
 	sprintf(
-		'<p class="description">%s</p>',
-		__( 'A quick review of your options for using this website.', 'dashboard-summary' )
+		'<p class="description">%s %s.</p>',
+		__( 'A quick review of your options for using this', 'dashboard-summary' ),
+		$summary->dashboard_type()
 	)
 );
 
