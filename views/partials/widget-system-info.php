@@ -79,6 +79,20 @@ if ( is_multisite() && is_network_admin() ) {
 }
 $tools_description = apply_filters( 'ds_widget_system_tools_description', $tools_description );
 
+/**
+ * Permission to access the security page.
+ *
+ * Checks for ClassicPress and its permissions.
+ * Also a filter is applied to the variable for
+ * custom roles and for alternative management
+ * systems.
+ */
+if ( 'classicpress' === $summary->management_system() ) {
+	$security_access = true;
+} else {
+	$security_access = true;
+}
+$security_access = apply_filters( 'ds_security_access', $security_access );
 ?>
 <?php echo $tab_heading; ?>
 <?php echo $tab_description; ?>
@@ -119,8 +133,11 @@ if ( current_user_can( 'manage_options' ) && $native_widget == false ) :
 	<p class="ds-widget-link-button">
 
 		<?php
+
 		// Link to the Site Health page, if available.
-		if ( class_exists( 'WP_Site_Health' ) && current_user_can( 'view_site_health_checks' ) ) :
+		if ( class_exists( 'WP_Site_Health' ) && current_user_can( 'view_site_health_checks' ) ) : ?>
+
+		<?php
 
 		// Add the link with filter applied for removal of the link.
 		echo apply_filters(
@@ -130,8 +147,26 @@ if ( current_user_can( 'manage_options' ) && $native_widget == false ) :
 				admin_url( 'site-health.php' ),
 				__( 'Website Health', 'dashboard-summary' )
 			)
-		);
-		endif; ?>
+		); ?>
+		<?php endif; ?>
+
+		<?php
+
+		// Link to the security page, if available.
+		if ( $security_access && file_exists( ABSPATH . 'wp-admin/security.php' ) ) : ?>
+
+		<?php
+
+		// Add the link with filter applied for removal of the link.
+		echo apply_filters(
+			'ds_security_link',
+			sprintf(
+				'<a class="button button-primary" href="%s">%s</a>',
+				admin_url( 'security.php' ),
+				__( 'Security Page', 'dashboard-summary' )
+			)
+		); ?>
+		<?php endif; ?>
 
 		<?php if ( is_multisite() && is_network_admin() ) : ?>
 		<a class="button button-primary" href="<?php echo network_admin_url( 'settings.php' ); ?>">

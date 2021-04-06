@@ -237,7 +237,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</li>
 			<li>
 				<p><code>ds_site_health_link</code><br />
-				<?php _e( 'Filters the button-style link to the Site Health page. Folks may wish to hide this link. Use __return_false to remove.', 'dashboard-summary' ); ?></p>
+				<?php _e( 'Filters the button-style link to the Site Health page. Use __return_false to remove the link.', 'dashboard-summary' ); ?></p>
+			</li>
+			<li>
+				<p><code>ds_security_access</code><br />
+				<?php _e( 'Filters the button-style link to the Security page. Use __return_false to remove the link.', 'dashboard-summary' ); ?></p>
 			</li>
 		</ul>
 
