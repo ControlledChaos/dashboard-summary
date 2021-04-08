@@ -124,7 +124,7 @@ class Site_Widget {
 	 * @param  string $style Default empty string.
 	 * @return string Returns the style blocks.
 	 */
-	public function admin_print_styles() {
+	public function admin_print_styles( $style = '' ) {
 
 		// Instantiate the User_Colors class.
 		$user_colors = new User_Colors;
