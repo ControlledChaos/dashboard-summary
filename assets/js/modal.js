@@ -1,5 +1,5 @@
 /**
- * jQuery moadl content
+ * jQuery modal content
  */
 
 (function (factory) {
