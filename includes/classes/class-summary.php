@@ -638,7 +638,7 @@ class Summary {
 
 			// Markup of the notice.
 			$output = sprintf(
-				'%s <a href="%s">%s</a>',
+				'%s <a href="%s" target="_blank" rel="nofollow noreferrer noopener">%s</a>',
 				$text,
 				esc_url( 'https://github.com/ClassicPress/ClassicPress-release/releases' ),
 				$name . ' ' . get_bloginfo( 'version', 'display' )
@@ -649,7 +649,7 @@ class Summary {
 
 			// Markup of the notice.
 			$output = sprintf(
-				'%s <a href="%s">%s</a>',
+				'%s <a href="%s" target="_blank" rel="nofollow noreferrer noopener">%s</a>',
 				$text,
 				esc_url( 'https://wordpress.org/download/releases/' ),
 				$name . ' ' . get_bloginfo( 'version', 'display' )
@@ -1098,14 +1098,14 @@ class Summary {
 
 				// Link to information on updating a server's PHP version.
 				$php_update_notice = sprintf(
-					__( '<p><a href="%s">Learn more about updating PHP</a>.</p>' ),
+					__( '<p><a href="%s" target="_blank" rel="nofollow noreferrer noopener">Learn more about updating PHP</a>.</p>' ),
 					$this->update_php_url()
 				);
 
 				// PHP & database compatibility notice.
 				if ( ! $mysql_compat && ! $php_compat ) {
 					$notice = sprintf(
-						__( '<p>You cannot update because <a href="%1$s">%2$s %3$s</a> requires PHP version %4$s or higher and MySQL version %5$s or higher. You are running PHP version %6$s and MySQL version %7$s.</p>', 'dashboard-summary' ),
+						__( '<p>You cannot update because <a href="%1$s" target="_blank" rel="nofollow noreferrer noopener">%2$s %3$s</a> requires PHP version %4$s or higher and MySQL version %5$s or higher. You are running PHP version %6$s and MySQL version %7$s.</p>', 'dashboard-summary' ),
 						$version_url,
 						$name,
 						$update->current,
@@ -1119,7 +1119,7 @@ class Summary {
 				// PHP compatibility notice.
 				} elseif ( ! $php_compat ) {
 					$notice = sprintf(
-						__( '<p>You cannot update because <a href="%1$s">%2$s %3$s</a> requires PHP version %4$s or higher. You are running version %5$s.</p>', 'dashboard-summary' ),
+						__( '<p>You cannot update because <a href="%1$s" target="_blank" rel="nofollow noreferrer noopener">%2$s %3$s</a> requires PHP version %4$s or higher. You are running version %5$s.</p>', 'dashboard-summary' ),
 						$version_url,
 						$name,
 						$update->current,
@@ -1131,7 +1131,7 @@ class Summary {
 				// Database compatibility notice.
 				} elseif ( ! $mysql_compat ) {
 					$notice = sprintf(
-						__( '<p>You cannot update because <a href="%1$s">%2$s %3$s</a> requires MySQL version %4$s or higher. You are running version %5$s.</p>', 'dashboard-summary' ),
+						__( '<p>You cannot update because <a href="%1$s" target="_blank" rel="nofollow noreferrer noopener">%2$s %3$s</a> requires MySQL version %4$s or higher. You are running version %5$s.</p>', 'dashboard-summary' ),
 						$version_url,
 						$name,
 						$update->current,
@@ -1142,7 +1142,7 @@ class Summary {
 				// Manual update notice.
 				} else {
 					$notice = sprintf(
-						__( '<p>You can update from  %1$s %2$s to <a href="%3$s">%4$s %5$s</a> manually:</p>', 'dashboard-summary' ),
+						__( '<p>You can update from  %1$s %2$s to <a href="%3$s" target="_blank" rel="nofollow noreferrer noopener">%4$s %5$s</a> manually:</p>', 'dashboard-summary' ),
 						$name,
 						$current_version,
 						$version_url,
@@ -1388,7 +1388,7 @@ class Summary {
 				// List item for each available update.
 				$output .= '<li>';
 				$output .= sprintf(
-					__( '<strong>There is a new version of %1$s available. <a href="%2$s" %3$s>View version %4$s details</a> or <a href="%5$s" %6$s>update now</a>.</strong>', 'dashboard-summary' ),
+					__( '<strong>There is a new version of %1$s available. <a href="%2$s" target="_blank" rel="nofollow noreferrer noopener" %3$s>View version %4$s details</a> or <a href="%5$s" %6$s>update now</a>.</strong>', 'dashboard-summary' ),
 					$name,
 					esc_url( $details ),
 					sprintf(
@@ -1516,7 +1516,7 @@ class Summary {
 			if ( ! current_user_can( 'update_themes' ) ) {
 
 				$html = sprintf(
-					'<li><strong>' . __( 'There is a new version of %1$s available. <a href="%2$s" %3$s>View version %4$s details</a>.', 'dashboard-summary' ) . '</strong></li>',
+					'<li><strong>' . __( 'There is a new version of %1$s available. <a href="%2$s" target="_blank" rel="nofollow noreferrer noopener" %3$s>View version %4$s details</a>.', 'dashboard-summary' ) . '</strong></li>',
 					$theme_name,
 					esc_url( $details_url ),
 					sprintf(
@@ -1529,7 +1529,7 @@ class Summary {
 			} elseif ( empty( $update['package'] ) ) {
 
 				$html = sprintf(
-					'<li><strong>' . __( 'There is a new version of %1$s available. <a href="%2$s" %3$s>View version %4$s details</a>. <em>Automatic update is unavailable for this theme.</em>', 'dashboard-summary' ) . '</strong></li>',
+					'<li><strong>' . __( 'There is a new version of %1$s available. <a href="%2$s" target="_blank" rel="nofollow noreferrer noopener" %3$s>View version %4$s details</a>. <em>Automatic update is unavailable for this theme.</em>', 'dashboard-summary' ) . '</strong></li>',
 					$theme_name,
 					esc_url( $details_url ),
 					sprintf(
@@ -1542,7 +1542,7 @@ class Summary {
 			} else {
 
 				$html = sprintf(
-					'<li><strong>' . __( 'There is a new version of %1$s available. <a href="%2$s" %3$s>View version %4$s details</a> or <a href="%5$s" %6$s>update now</a>.', 'dashboard-summary' ) . '</strong></li>',
+					'<li><strong>' . __( 'There is a new version of %1$s available. <a href="%2$s" target="_blank" rel="nofollow noreferrer noopener" %3$s>View version %4$s details</a> or <a href="%5$s" %6$s>update now</a>.', 'dashboard-summary' ) . '</strong></li>',
 					$theme_name,
 					esc_url( $details_url ),
 					sprintf(
@@ -2047,7 +2047,7 @@ class Summary {
 									<span class="counter-label">
 										<?php
 										printf(
-											'<a href="%s" target="_blank" aria-label="%s">%s</a>',
+											'<a href="%s" target="_blank" rel="nofollow noreferrer noopener" aria-label="%s">%s</a>',
 											"https://wordpress.org/support/plugin/{$api->slug}/reviews/?filter={$key}",
 											$aria_label,
 											sprintf( _n( '%d star', '%d stars', $key, 'dashboard-summary' ), $key )
@@ -2115,7 +2115,7 @@ class Summary {
 
 								<?php if ( current_user_can( 'update_php' ) ) {
 									printf(
-										' ' . __( '<p><a href="%s" target="_blank">Click here to learn more about updating PHP</a>.</p>', 'dashboard-summary' ),
+										' ' . __( '<p><a href="%s" target="_blank" rel="nofollow noreferrer noopener">Click here to learn more about updating PHP</a>.</p>', 'dashboard-summary' ),
 										$this->update_php_url()
 									);
 								} ?>
