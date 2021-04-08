@@ -34,7 +34,7 @@ final class Assets {
 	 *
 	 * @since  1.0.0
 	 * @access public
-	 * @return self
+	 * @return string Returns the version number.
 	 */
 	public function version() {
 		return $this->version;
@@ -48,9 +48,11 @@ final class Assets {
 	 *
 	 * @since  1.0.0
 	 * @access public
-	 * @return self
+	 * @param  string $suffix The string returned
+	 * @return string Returns the `.min` suffix or
+	 *                an empty string.
 	 */
-	public function suffix() {
+	public function suffix( $suffix = '' ) {
 
 		// If in one of the debug modes do not minify.
 		if (

@@ -115,7 +115,8 @@ class Site_Default_Widget {
 	 *
 	 * @since  1.0.0
 	 * @access public
-	 * @return string
+	 * @param  string $style Default empty string.
+	 * @return string Returns the style blocks.
 	 */
 	public function admin_print_styles() {
 

@@ -40,7 +40,7 @@ class User_Colors {
 	 * @access public
 	 * @return string Returns the name of the color scheme.
 	 */
-	public function get_user_color_scheme() {
+	public function get_user_color_scheme( $name = 'Fresh' ) {
 
 		// Access global variables.
 		global $_wp_admin_css_colors;
@@ -143,156 +143,157 @@ class User_Colors {
 	 *
 	 * @since  1.0.0
 	 * @access public
+	 * @param  array $colors Array of CSS hex codes.
 	 * @return array Returns the array of CSS hex codes.
 	 */
-	public function user_notify_colors() {
+	public function user_notify_colors( $colors = [] ) {
 
 		// Get the name of the user's color scheme.
 		$scheme = get_user_option( 'admin_color' );
 
 		// Modern scheme.
 		if ( 'modern' == $scheme ) {
-			$color = [
+			$colors = [
 				'background' => '#3858e9',
 				'text'       => '#ffffff'
 			];
 
 		// Light scheme.
 		} elseif ( 'light' == $scheme ) {
-			$color = [
+			$colors = [
 				'background' => '#d64e07',
 				'text'       => '#ffffff'
 			];
 
 		// 80's Kid scheme.
 		} elseif ( '80s-kid' == $scheme ) {
-			$color = [
+			$colors = [
 				'background' => '#43db2a',
 				'text'       => '#ffffff'
 			];
 
 		// Adderley scheme.
 		} elseif ( 'adderley' == $scheme ) {
-			$color = [
+			$colors = [
 				'background' => '#bde7f0',
 				'text'       => '#216bce'
 			];
 
 		// Aubergine scheme.
 		} elseif ( 'aubergine' == $scheme ) {
-			$color = [
+			$colors = [
 				'background' => '#d97042',
 				'text'       => '#ffffff'
 			];
 
 		// Blue scheme.
 		} elseif ( 'blue' == $scheme ) {
-			$color = [
+			$colors = [
 				'background' => '#e1a948',
 				'text'       => '#ffffff'
 			];
 
 		// Coffee scheme.
 		} elseif ( 'coffee' == $scheme ) {
-			$color = [
+			$colors = [
 				'background' => '#9ea476',
 				'text'       => '#ffffff'
 			];
 
 		// High Contrast Blue scheme.
 		} elseif ( 'contrast-blue' == $scheme ) {
-			$color = [
+			$colors = [
 				'background' => '#9d2f4d',
 				'text'       => '#ffffff'
 			];
 
 		// Cruise scheme.
 		} elseif ( 'cruise' == $scheme ) {
-			$color = [
+			$colors = [
 				'background' => '#d2ac1f',
 				'text'       => '#ffffff'
 			];
 
 		// Ectoplasm scheme.
 		} elseif ( 'ectoplasm' == $scheme ) {
-			$color = [
+			$colors = [
 				'background' => '#d46f15',
 				'text'       => '#ffffff'
 			];
 
 		// Flat scheme.
 		} elseif ( 'flat' == $scheme ) {
-			$color = [
+			$colors = [
 				'background' => '#d35401',
 				'text'       => '#ffffff'
 			];
 
 		// Kirk scheme.
 		} elseif ( 'kirk' == $scheme ) {
-			$color = [
+			$colors = [
 				'background' => '#bd3854',
 				'text'       => '#fefcf7'
 			];
 
 		// Lawn scheme.
 		} elseif ( 'lawn' == $scheme ) {
-			$color = [
+			$colors = [
 				'background' => '#456a7f',
 				'text'       => '#ffffff'
 			];
 
 		// Midnight scheme.
 		} elseif ( 'midnight' == $scheme ) {
-			$color = [
+			$colors = [
 				'background' => '#69a8bb',
 				'text'       => '#ffffff'
 			];
 
 		// Ocean scheme.
 		} elseif ( 'ocean' == $scheme ) {
-			$color = [
+			$colors = [
 				'background' => '#aa9d88',
 				'text'       => '#ffffff'
 			];
 
 		// Primary scheme.
 		} elseif ( 'primary' == $scheme ) {
-			$color = [
+			$colors = [
 				'background' => '#f48236',
 				'text'       => '#ffffff'
 			];
 
 		// Seashore scheme.
 		} elseif ( 'seashore' == $scheme ) {
-			$color = [
+			$colors = [
 				'background' => '#73340f',
 				'text'       => '#f8f6f1'
 			];
 
 		// Sunrise scheme.
 		} elseif ( 'sunrise' == $scheme ) {
-			$color = [
+			$colors = [
 				'background' => '#ccaf0b',
 				'text'       => '#ffffff'
 			];
 
 		// Vinyard scheme.
 		} elseif ( 'vinyard' == $scheme ) {
-			$color = [
+			$colors = [
 				'background' => '#ba8752',
 				'text'       => '#ffffff'
 			];
 
 		// The default and remaining native schemes.
 		} else {
-			$color = [
+			$colors = [
 				'background' => '#f56e28',
 				'text'       => '#ffffff'
 			];
 		}
 
 		// The array of colors.
-		return apply_filters( 'ds_user_notify_colors', $color );
+		return apply_filters( 'ds_user_notify_colors', $colors );
 	}
 }
 

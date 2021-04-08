@@ -60,20 +60,27 @@ class Dashboard {
 	 *
 	 * @since  1.0.0
 	 * @access public
-	 * @return string
+	 * @param  string $scripts Default empty string.
+	 * @return string Returns script blocks.
 	 */
-	public function print_scripts() {
+	public function print_scripts( $scripts = '' ) {
 
 		// Instantiate classes.
 		$colors = new User_Colors;
 		$assets = new Assets;
 
 		// Script to fill base64 background images with current link colors.
-		echo '<script type="text/javascript">var _dashboard_svg_icons = ' . wp_json_encode( $colors->user_colors() ) . ";</script>\n";
+		$scripts  = '<script>';
+		$scripts .= 'var _dashboard_svg_icons = ' . wp_json_encode( $colors->user_colors() ) . ';';
+		$scripts .= '</script>';
 
 		// Modal window script.
-		$modal = file_get_contents( DS_URL . 'assets/js/modal' . $assets->suffix() . '.js' );
-		echo '<script>' . $modal . '</script>';
+		$scripts .= '<script>';
+		$scripts .= file_get_contents( DS_URL . 'assets/js/modal' . $assets->suffix() . '.js' );
+		$scripts .= '</script>';
+
+		// Apply filter and print the script blocks.
+		echo apply_filters( 'ds_dashboard_print_scripts', $scripts );
 	}
 
 	/**
@@ -81,7 +88,8 @@ class Dashboard {
 	 *
 	 * @since  1.0.0
 	 * @access public
-	 * @return string
+	 * @param  string $style Default empty string.
+	 * @return string Returns the style blocks.
 	 */
 	public function print_styles( $style = '' ) {
 
@@ -103,7 +111,7 @@ class Dashboard {
 		$modal  = file_get_contents( DS_URL . 'assets/css/modal' . $assets->suffix() . '.css' );
 		$style .= '<style>' . $modal . '</style>';
 
-		// Apply filter and print the style block.
+		// Apply filter and print the style blocks.
 		echo apply_filters( 'ds_dashboard_print_styles', $style );
 	}
 }

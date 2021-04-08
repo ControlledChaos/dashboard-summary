@@ -101,6 +101,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</li>
 		</ul>
 
+		<h5><?php _e( 'Script Blocks', 'dashboard-summary' ); ?></h5>
+		<p class="description"><?php _e( 'Script block methods include the <code>&lt;script&gt;</code> element tags so include these when replacing JavaScript.', 'dashboard-summary' ); ?></p>
+
+		<ul class="dev-reference-list">
+			<li>
+				<p><code>ds_dashboard_print_scripts</code><br />
+				<?php _e( 'Filters the general dashboard script block, including modal content and colors for base64 icons.', 'dashboard-summary' ); ?></p>
+			</li>
+		</ul>
+
 		<h5><?php _e( 'Style Blocks', 'dashboard-summary' ); ?></h5>
 		<p class="description"><?php _e( 'Style block methods include the <code>&lt;style&gt;</code> element tags so include these when replacing CSS.', 'dashboard-summary' ); ?></p>
 

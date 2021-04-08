@@ -38,15 +38,22 @@ class User_Options {
 	 *
 	 * @since  1.0.0
 	 * @access public
+	 * @param  string $username Default empty string.
 	 * @return string Returns the username.
 	 */
-	public function user_login() {
+	public function user_login( $username = '' ) {
 
 		// Get current user data.
 		$user_data = get_userdata( get_current_user_id() );
 
+		if ( isset( $user_data->user_login ) ) {
+			$username = esc_html( $user_data->user_login );
+		} else {
+			$username = __( 'Not available', 'dashboard-summary' );
+		}
+
 		// Return the username.
-		return esc_html( $user_data->user_login );
+		return $username;
 	}
 
 	/**
@@ -54,9 +61,10 @@ class User_Options {
 	 *
 	 * @since  1.0.0
 	 * @access public
+	 * @param  array $roles Default empty array.
 	 * @return array Returns an array of user roles.
 	 */
-	function get_user_roles() {
+	function get_user_roles( $roles = [] ) {
 
 		// Get current user roles as a variable.
 		$user  = wp_get_current_user();
@@ -64,7 +72,7 @@ class User_Options {
 
 		// Add Super Admin if applicable to current user.
 		if ( is_multisite() && is_super_admin( get_current_user_id() ) ) {
-			$super = [ 'Super Admin' ];
+			$super = [ __( 'Super Admin', 'dashboard-summary' ) ];
 			$roles = array_merge( $super, $roles );
 		}
 
@@ -79,16 +87,23 @@ class User_Options {
 	 *
 	 * @since  1.0.0
 	 * @access public
+	 * @param  array $role_i18n Default empty array.
 	 * @return string Returns the list.
 	 */
-	function user_roles() {
+	function user_roles( $role_i18n = [] ) {
 
 		// Get the array of user roles.
 		$roles = $this->get_user_roles();
 
 		// Translate and capitalize each role.
-		foreach( $roles as $role ) {
-			$role_i18n[] = ucwords( __( $role, 'dashboard-summary' ) );
+		if ( is_array( $roles ) ) {
+			foreach( $roles as $role ) {
+				$role_i18n[] = ucwords( __( $role, 'dashboard-summary' ) );
+			}
+		} else {
+
+			// Default array.
+			$role_i18n = [ __( 'Undetermined', 'dashboard-summary' ) ];
 		}
 
 		// Return a comma-separated list of user roles.
@@ -100,15 +115,22 @@ class User_Options {
 	 *
 	 * @since  1.0.0
 	 * @access public
+	 * @param  string $nickname Default empty string.
 	 * @return string Returns the nickname.
 	 */
-	public function nickname() {
+	public function nickname( $nickname = '' ) {
 
 		// Get current user data.
 		$user_data = get_userdata( get_current_user_id() );
 
+		if ( isset( $user_data->nickname ) ) {
+			$nickname = esc_html( $user_data->user_login );
+		} else {
+			$nickname = __( 'Not available', 'dashboard-summary' );
+		}
+
 		// Return the nickname.
-		return esc_html( $user_data->nickname );
+		return $nickname;
 	}
 
 	/**
@@ -116,15 +138,22 @@ class User_Options {
 	 *
 	 * @since  1.0.0
 	 * @access public
+	 * @param  string $display_name Default empty string.
 	 * @return string Returns the display name.
 	 */
-	public function display_name() {
+	public function display_name( $display_name = '' ) {
 
 		// Get current user data.
 		$user_data = get_userdata( get_current_user_id() );
 
+		if ( isset( $user_data->display_name ) ) {
+			$display_name = esc_html( $user_data->user_login );
+		} else {
+			$display_name = __( 'Not available', 'dashboard-summary' );
+		}
+
 		// Return the display name.
-		return esc_html( $user_data->display_name );
+		return $display_name;
 	}
 
 	/**
@@ -134,19 +163,26 @@ class User_Options {
 	 *
 	 * @since  1.0.0
 	 * @access public
+	 * @param  string $user_email Default empty string.
 	 * @return string Returns the email address.
 	 */
-	public function email() {
+	public function email( $user_email = '' ) {
 
 		// Get current user data.
 		$user_data = get_userdata( get_current_user_id() );
 
+		if ( isset( $user_data->user_email ) ) {
+			$user_email = sprintf(
+				'<a href="mailto:%s">%s</a>',
+				sanitize_email( $user_data->user_email ),
+				sanitize_email( $user_data->user_email )
+			);
+		} else {
+			$user_email = __( 'Not available', 'dashboard-summary' );
+		}
+
 		// Return the linked email address.
-		return sprintf(
-			'<a href="mailto:%s">%s</a>',
-			sanitize_email( $user_data->user_email ),
-			sanitize_email( $user_data->user_email )
-		);
+		return $user_email;
 	}
 
 	/**
@@ -156,19 +192,23 @@ class User_Options {
 	 *
 	 * @since  1.0.0
 	 * @access public
+	 * @param  string $website Default empty string.
 	 * @return string Returns the website URL or no website notice.
 	 */
-	public function website() {
+	public function website( $website = '' ) {
 
 		if ( ! empty( get_user_option( 'user_url' ) ) ) {
-			return sprintf(
+			$website = sprintf(
 				'<a href="%s" target="_blank" rel="nofollow noreferrer noopener">%s</a>',
 				esc_url( get_user_option( 'user_url' ) ),
 				esc_url( get_user_option( 'user_url' ) )
 			);
 		} else {
-			return __( 'No website provided.', 'dashboard-summary' );
+			$website = __( 'No website provided.', 'dashboard-summary' );
 		}
+
+		// Return the linked website URL or notice.
+		return $website;
 	}
 
 	/**
@@ -176,16 +216,20 @@ class User_Options {
 	 *
 	 * @since  1.0.0
 	 * @access public
+	 * @param  string $enabled Default empty string.
 	 * @return string Returns Yes/No text based on user option.
 	 */
-	public function toolbar() {
+	public function toolbar( $enabled = '' ) {
 
 		// Check the toolbar user option.
 		if ( true == get_user_option( 'show_admin_bar_front' ) ) {
-			return __( 'Yes', 'dashboard-summary' );
+			$enabled = __( 'Yes', 'dashboard-summary' );
 		} else {
-			return __( 'No', 'dashboard-summary' );
+			$enabled = __( 'No', 'dashboard-summary' );
 		}
+
+		// Return the string.
+		return $enabled;
 	}
 }
 

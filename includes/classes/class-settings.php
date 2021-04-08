@@ -151,7 +151,7 @@ final class Settings {
 	 * @access public
 	 * @return string
 	 */
-	public function enable_summary( $args ) {
+	public function enable_summary( $args, $html = '' ) {
 
 		// Get site option sanitization method.
 		$option = $this->sanitize_summary();
@@ -174,7 +174,7 @@ final class Settings {
 	 * @access public
 	 * @return string
 	 */
-	public function enable_glance( $args ) {
+	public function enable_glance( $args, $html = '' ) {
 
 		// Get site option sanitization method.
 		$option = $this->sanitize_glance();
@@ -380,7 +380,7 @@ final class Settings {
 	 * @access public
 	 * @return string Returns the new set of plugin links.
 	 */
-	public static function settings_link( $links ) {
+	public static function settings_link( $links, $settings = [] ) {
 
 		// Stop if not in the admin.
 		if ( ! is_admin() ) {
