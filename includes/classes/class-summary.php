@@ -449,7 +449,7 @@ class Summary {
 
 		// Markup of the notice.
 		$output = sprintf(
-			'%s <a href="%s">%s</a>',
+			'%s <a href="%s" target="_blank" rel="nofollow noreferrer noopener">%s</a>',
 			__( 'The web server is running', 'dashboard-summary' ),
 			esc_url( 'https://www.php.net/releases/index.php' ),
 			'PHP ' . phpversion()
@@ -518,18 +518,35 @@ class Summary {
 	}
 
 	/**
+	 * Database reference URL
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return string Returns the escaped, filtered URL.
+	 */
+	public function database_reference( $url = '' ) {
+
+		// Default Wikipedia page.
+		$url = esc_url( 'https://en.wikipedia.org/wiki/List_of_relational_database_management_systems' );
+
+		// Return the URL.
+		return apply_filters( 'ds_database_reference', $url );
+	}
+
+	/**
 	 * Database version notice
 	 *
 	 * @since  1.0.0
 	 * @access public
 	 * @return string Returns the text of database version notice.
 	 */
-	public function database_version() {
+	public function database_version( $output = '' ) {
 
 		// Markup of the notice.
 		$output = sprintf(
-			'%s %s',
+			'%s <a href="%s" target="_blank" rel="nofollow noreferrer noopener">%s</a>',
 			__( 'The database version is', 'dashboard-summary' ),
+			$this->database_reference(),
 			$this->get_database_version()
 		);
 

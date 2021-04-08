@@ -136,6 +136,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<?php _e( 'Filters the <code>&lt;a&gt;</code> markup & text of the PHP version notice.', 'dashboard-summary' ); ?></p>
 			</li>
 			<li>
+				<p><code>ds_database_reference</code><br />
+				<?php _e( 'Filters the URL of the database reference.', 'dashboard-summary' ); ?></p>
+			</li>
+			<li>
 				<p><code>ds_database_version_notice</code><br />
 				<?php _e( 'Filters the text of the database version notice.', 'dashboard-summary' ); ?></p>
 			</li>
