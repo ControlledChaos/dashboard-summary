@@ -134,10 +134,29 @@ if ( current_user_can( 'manage_options' ) && $native_widget == false ) :
 
 		<?php
 
-		// Link to the Site Health page, if available.
+		// Link to network pages.
+		if ( is_multisite() && is_network_admin() ) : ?>
+		<a class="button button-primary" href="<?php echo network_admin_url( 'settings.php' ); ?>">
+			<?php _e( 'Network Settings', 'dashboard-summary' ); ?>
+		</a>
+		<a class="button button-primary" href="<?php echo network_admin_url( 'setup.php' ); ?>">
+			<?php _e( 'Network Setup', 'dashboard-summary' ); ?>
+		</a>
+		<?php endif; ?>
+
+		<?php
+
+		// Link to the Site Health page if available.
 		if ( class_exists( 'WP_Site_Health' ) && current_user_can( 'view_site_health_checks' ) ) : ?>
 
 		<?php
+
+		// Link text.
+		if ( is_multisite() && is_network_admin() ) {
+			$health = __( 'Network Health', 'dashboard-summary' );
+		} else {
+			$health = __( 'Website Health', 'dashboard-summary' );
+		}
 
 		// Add the link with filter applied for removal of the link.
 		echo apply_filters(
@@ -145,14 +164,14 @@ if ( current_user_can( 'manage_options' ) && $native_widget == false ) :
 			sprintf(
 				'<a class="button button-primary" href="%s">%s</a>',
 				admin_url( 'site-health.php' ),
-				__( 'Website Health', 'dashboard-summary' )
+				$health
 			)
 		); ?>
 		<?php endif; ?>
 
 		<?php
 
-		// Link to the security page, if available.
+		// Link to the security page if available.
 		if ( $security_access && file_exists( ABSPATH . 'wp-admin/security.php' ) ) : ?>
 
 		<?php
@@ -168,15 +187,14 @@ if ( current_user_can( 'manage_options' ) && $native_widget == false ) :
 		); ?>
 		<?php endif; ?>
 
-		<?php if ( is_multisite() && is_network_admin() ) : ?>
-		<a class="button button-primary" href="<?php echo network_admin_url( 'settings.php' ); ?>">
-			<?php _e( 'Network Settings', 'dashboard-summary' ); ?>
-		</a>
-		<?php endif; ?>
+		<?php
 
+		// Link to the options page if not network dashboard.
+		if ( ! is_network_admin() ) : ?>
 		<a class="button button-primary" href="<?php echo admin_url( 'options.php' ); ?>">
 			<?php _e( 'Options Page', 'dashboard-summary' ); ?>
 		</a>
+		<?php endif; ?>
 	</p>
 </div>
 
