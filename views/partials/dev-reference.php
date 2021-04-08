@@ -101,6 +101,32 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</li>
 		</ul>
 
+		<h5><?php _e( 'Style Blocks', 'dashboard-summary' ); ?></h5>
+		<p class="description"><?php _e( 'Style block methods include the <code>&lt;style&gt;</code> element tags so include these when replacing CSS.', 'dashboard-summary' ); ?></p>
+
+		<ul class="dev-reference-list">
+			<li>
+				<p><code>ds_dashboard_print_styles</code><br />
+				<?php _e( 'Filters the general dashboard style block.', 'dashboard-summary' ); ?></p>
+			</li>
+			<li>
+				<p><code>ds_website_print_styles</code><br />
+				<?php _e( 'Filters the Website Summary style block.', 'dashboard-summary' ); ?></p>
+			</li>
+			<li>
+				<p><code>ds_website_default_print_styles</code><br />
+				<?php _e( 'Filters the At a Glance style block.', 'dashboard-summary' ); ?></p>
+			</li>
+			<li>
+				<p><code>ds_network_print_styles</code><br />
+				<?php _e( 'Filters the Network Summary style block.', 'dashboard-summary' ); ?></p>
+			</li>
+			<li>
+				<p><code>ds_network_default_print_styles</code><br />
+				<?php _e( 'Filters the Right Now style block.', 'dashboard-summary' ); ?></p>
+			</li>
+		</ul>
+
 		<h5><?php _e( 'Colors', 'dashboard-summary' ); ?></h5>
 		<p class="description"><?php _e( 'See includes/classes/class-user-colors.php.', 'dashboard-summary' ); ?></p>
 

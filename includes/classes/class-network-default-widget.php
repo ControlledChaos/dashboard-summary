@@ -75,7 +75,7 @@ class Network_Default_Widget {
 	 * @access public
 	 * @return string
 	 */
-	public function admin_print_styles() {
+	public function admin_print_styles( $style = '' ) {
 
 		// Right Now widget style block.
 		$style  = '<!-- Begin Right Now widget styles -->' . '<style>';
@@ -89,8 +89,8 @@ class Network_Default_Widget {
 		$style .= '#network_dashboard_right_now .right-now-system-list li a:before { display: none; }';
 		$style .= '</style>' . '<!-- End Right Now widget styles -->';
 
-		// Print the style block.
-		echo $style;
+		// Apply filter and print the style block.
+		echo apply_filters( 'ds_network_default_print_styles', $style );
 	}
 
 	/**
@@ -100,7 +100,7 @@ class Network_Default_Widget {
 	 * @access public
 	 * @return string Returns the markup of the system information.
 	 */
-	public function system_info( $content ) {
+	public function system_info() {
 
 		// Instance of the Summary class.
 		$summary = summary();

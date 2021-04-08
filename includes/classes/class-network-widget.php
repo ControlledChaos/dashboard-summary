@@ -122,7 +122,7 @@ class Network_Widget {
 	 * @access public
 	 * @return string
 	 */
-	public function admin_print_styles() {
+	public function admin_print_styles( $style = '' ) {
 
 		// Instantiate the User_Colors class.
 		$user_colors = new User_Colors;
@@ -142,7 +142,7 @@ class Network_Widget {
 		$style .= '.ds-tabs-nav li.ds-tabs-state-active { border-bottom-color: ' . $colors['colors']['background'] . '; }';
 		$style .= '</style>' . '<!-- End Dashboard Summary icon styles -->';
 
-		// Print the style block.
-		echo $style;
+		// Apply filter and print the style block.
+		echo apply_filters( 'ds_network_print_styles', $style );
 	}
 }

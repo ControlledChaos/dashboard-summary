@@ -143,7 +143,7 @@ class Site_Widget {
 		$style .= '.ds-tabs-nav li.ds-tabs-state-active { border-bottom-color: ' . $colors['colors']['background'] . '; }';
 		$style .= '</style>' . '<!-- End Dashboard Summary icon styles -->';
 
-		// Print the style block.
-		echo $style;
+		// Apply filter and print the style block.
+		echo apply_filters( 'ds_website_print_styles', $style );
 	}
 }

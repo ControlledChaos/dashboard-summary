@@ -37,9 +37,6 @@ class Dashboard {
 
 		// Print admin styles to head.
 		add_action( 'admin_print_styles', [ $this, 'print_styles' ], 20 );
-
-		// Print admin styles to plugin install iframe.
-		add_action( 'install_plugins_pre_plugin-information', [ $this, 'install_plugins' ] );
 	}
 
 	/**
@@ -86,7 +83,7 @@ class Dashboard {
 	 * @access public
 	 * @return string
 	 */
-	public function print_styles() {
+	public function print_styles( $style = '' ) {
 
 		// Instantiate classes.
 		$colors = new User_Colors;
@@ -106,24 +103,7 @@ class Dashboard {
 		$modal  = file_get_contents( DS_URL . 'assets/css/modal' . $assets->suffix() . '.css' );
 		$style .= '<style>' . $modal . '</style>';
 
-		// Print the style block.
-		echo $style;
-	}
-
-	/**
-	 * Print plugin install styles
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @return string
-	 */
-	public function install_plugins() {
-
-		$style  = '<style>';
-		$style .= '#plugin-information-footer { display: none; }';
-		$style .= '</style>';
-
-		// Print the style block.
-		echo $style;
+		// Apply filter and print the style block.
+		echo apply_filters( 'ds_dashboard_print_styles', $style );
 	}
 }

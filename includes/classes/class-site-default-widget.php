@@ -164,8 +164,8 @@ class Site_Default_Widget {
 		$style .= '#dashboard_right_now .main p.ds-widget-link-button { margin-top: 1.5em; }';
 		$style .= '</style>' . '<!-- End At a Glance widget styles -->';
 
-		// Print the style block.
-		echo $style;
+		// Apply filter and print the style block.
+		echo apply_filters( 'ds_website_default_print_styles', $style );
 	}
 
 	/**
