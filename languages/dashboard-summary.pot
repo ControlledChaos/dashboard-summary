@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dashboard Summary\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-08 03:30+0000\n"
+"POT-Creation-Date: 2021-04-08 14:11+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -16,73 +16,73 @@ msgstr ""
 "X-Loco-Version: 2.5.2; wp-5.7\n"
 "X-Domain: dashboard-summary"
 
-#: includes/classes/class-summary.php:2053
+#: includes/classes/class-summary.php:2077
 #, php-format
 msgid "%d star"
 msgid_plural "%d stars"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/classes/class-summary.php:1931
+#: includes/classes/class-summary.php:1955
 #, php-format
 msgid "%s ago"
 msgstr ""
 
-#: includes/classes/class-summary.php:1942
-#: includes/classes/class-summary.php:1958
+#: includes/classes/class-summary.php:1966
+#: includes/classes/class-summary.php:1982
 #, php-format
 msgid "%s or higher"
 msgstr ""
 
-#: includes/classes/class-summary.php:2013
+#: includes/classes/class-summary.php:2037
 #, php-format
 msgid "(based on %s rating)"
 msgid_plural "(based on %s ratings)"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/classes/class-summary.php:970
+#: includes/classes/class-summary.php:991
 #, php-format
 msgid "<a href=\"%1$s\">Learn more about %2$s %3$s</a>."
 msgstr ""
 
-#: includes/classes/class-summary.php:2160
+#: includes/classes/class-summary.php:2184
 #, php-format
 msgid "<a href=\"%s\" target=\"_parent\">Click here to update %s</a>."
 msgstr ""
 
-#: includes/classes/class-summary.php:2118
+#: includes/classes/class-summary.php:2142
 #, php-format
 msgid ""
 "<p><a href=\"%s\" target=\"_blank\" rel=\"nofollow noreferrer noopener\">"
 "Click here to learn more about updating PHP</a>.</p>"
 msgstr ""
 
-#: includes/classes/class-summary.php:2142
+#: includes/classes/class-summary.php:2166
 #, php-format
 msgid "<p>This plugin has not been tested with your current version of %s.</p>"
 msgstr ""
 
-#: includes/classes/class-summary.php:2154
+#: includes/classes/class-summary.php:2178
 #, php-format
 msgid "<p>This plugin requires a newer version of %s.</p>"
 msgstr ""
 
-#: includes/classes/class-summary.php:2111
+#: includes/classes/class-summary.php:2135
 #, php-format
 msgid ""
 "<p>This plugin requires PHP version %s and your server is running PHP "
 "version %s.</p>"
 msgstr ""
 
-#: includes/classes/class-summary.php:1145
+#: includes/classes/class-summary.php:1166
 #, php-format
 msgid ""
 "<p>You can update from  %1$s %2$s to <a href=\"%3$s\" target=\"_blank\" "
 "rel=\"nofollow noreferrer noopener\">%4$s %5$s</a> manually:</p>"
 msgstr ""
 
-#: includes/classes/class-summary.php:1134
+#: includes/classes/class-summary.php:1155
 #, php-format
 msgid ""
 "<p>You cannot update because <a href=\"%1$s\" target=\"_blank\" "
@@ -90,7 +90,7 @@ msgid ""
 "%4$s or higher. You are running version %5$s.</p>"
 msgstr ""
 
-#: includes/classes/class-summary.php:1108
+#: includes/classes/class-summary.php:1129
 #, php-format
 msgid ""
 "<p>You cannot update because <a href=\"%1$s\" target=\"_blank\" "
@@ -99,7 +99,7 @@ msgid ""
 "and MySQL version %7$s.</p>"
 msgstr ""
 
-#: includes/classes/class-summary.php:1122
+#: includes/classes/class-summary.php:1143
 #, php-format
 msgid ""
 "<p>You cannot update because <a href=\"%1$s\" target=\"_blank\" "
@@ -113,7 +113,7 @@ msgid ""
 "text inside the element so carefully read the filter description."
 msgstr ""
 
-#: includes/classes/class-summary.php:1391
+#: includes/classes/class-summary.php:1415
 #, php-format
 msgid ""
 "<strong>There is a new version of %1$s available. <a href=\"%2$s\" "
@@ -137,11 +137,11 @@ msgstr ""
 msgid "Account Tools"
 msgstr ""
 
-#: includes/classes/class-summary.php:1966
+#: includes/classes/class-summary.php:1990
 msgid "Active Installations:"
 msgstr ""
 
-#: includes/classes/class-summary.php:1973
+#: includes/classes/class-summary.php:1997
 #, php-format
 msgctxt "Active plugin installations"
 msgid "%s+ Million"
@@ -149,7 +149,7 @@ msgid_plural "%s+ Million"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/classes/class-summary.php:1978
+#: includes/classes/class-summary.php:2002
 msgctxt "Active plugin installations"
 msgid "Less Than 10"
 msgstr ""
@@ -183,7 +183,7 @@ msgstr ""
 msgid "An overview of website operations."
 msgstr ""
 
-#: includes/classes/class-summary.php:916
+#: includes/classes/class-summary.php:937
 msgid "An updated version of"
 msgstr ""
 
@@ -195,25 +195,25 @@ msgstr ""
 msgid "At a Glance"
 msgstr ""
 
-#: includes/classes/class-summary.php:1924
+#: includes/classes/class-summary.php:1948
 msgid "Author:"
 msgstr ""
 
-#: includes/classes/class-summary.php:728
+#: includes/classes/class-summary.php:747
 msgid "available theme."
 msgid_plural "available themes."
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/classes/class-summary.php:2000
+#: includes/classes/class-summary.php:2024
 msgid "Average Rating"
 msgstr ""
 
-#: includes/classes/class-summary.php:925
+#: includes/classes/class-summary.php:946
 msgid "Before updating, please back up your database and files."
 msgstr ""
 
-#: includes/classes/class-summary.php:1191
+#: includes/classes/class-summary.php:1212
 msgid "Bring back this update"
 msgstr ""
 
@@ -221,11 +221,11 @@ msgstr ""
 msgid "Choose which website summary widgets to display on the dashboard."
 msgstr ""
 
-#: includes/classes/class-summary.php:597
+#: includes/classes/class-summary.php:613
 msgid "ClassicPress"
 msgstr ""
 
-#: views/partials/dev-reference.php:104
+#: views/partials/dev-reference.php:140
 msgid "Colors"
 msgstr ""
 
@@ -242,7 +242,7 @@ msgid_plural "Comments in Total"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/classes/class-summary.php:1950
+#: includes/classes/class-summary.php:1974
 msgid "Compatible up to:"
 msgstr ""
 
@@ -262,7 +262,7 @@ msgstr ""
 msgid "Content Types"
 msgstr ""
 
-#: includes/classes/class-summary.php:2068
+#: includes/classes/class-summary.php:2092
 msgid "Contributors"
 msgstr ""
 
@@ -291,7 +291,7 @@ msgstr ""
 msgid "Development Hooks & Filters"
 msgstr ""
 
-#: views/partials/widget-system-info.php:197
+#: views/partials/widget-system-info.php:215
 msgid ""
 "Development hooks & filters of the dashboard summary widgets for adding "
 "content or modifying text."
@@ -301,8 +301,8 @@ msgstr ""
 msgid "Display name:"
 msgstr ""
 
-#: includes/classes/class-summary.php:1994
-#: includes/classes/class-summary.php:2089
+#: includes/classes/class-summary.php:2018
+#: includes/classes/class-summary.php:2113
 msgid "Donate to this plugin &#187;"
 msgstr ""
 
@@ -349,271 +349,293 @@ msgstr ""
 msgid "Filters"
 msgstr ""
 
-#: views/partials/dev-reference.php:168
+#: views/partials/dev-reference.php:204
 msgid "Filters a number of updates."
 msgstr ""
 
-#: views/partials/dev-reference.php:110
+#: views/partials/dev-reference.php:146
 msgid "Filters an array of color scheme CSS hex codes."
 msgstr ""
 
-#: views/partials/dev-reference.php:114
+#: views/partials/dev-reference.php:150
 msgid "Filters an array of color scheme notification CSS hex codes."
 msgstr ""
 
-#: views/partials/dev-reference.php:128
+#: views/partials/dev-reference.php:164
 msgid ""
 "Filters an array of merged built-in post types and custom post types used in "
 "the site widget content tab and in the At a Glance widget."
 msgstr ""
 
-#: views/partials/dev-reference.php:132
+#: views/partials/dev-reference.php:168
 msgid ""
 "Filters an array of queried taxonomies used in the site widget content tab "
 "and in the At a Glance widget."
 msgstr ""
 
-#: views/partials/dev-reference.php:164
+#: views/partials/dev-reference.php:200
 msgid "Filters the <code>&lt;a&gt;</code> markup & text of the active theme."
 msgstr ""
 
-#: views/partials/dev-reference.php:156
+#: views/partials/dev-reference.php:192
 msgid ""
 "Filters the <code>&lt;a&gt;</code> markup & text of the content/website "
 "management system notice."
 msgstr ""
 
-#: views/partials/dev-reference.php:136
+#: views/partials/dev-reference.php:172
 msgid ""
 "Filters the <code>&lt;a&gt;</code> markup & text of the PHP version notice."
 msgstr ""
 
-#: views/partials/dev-reference.php:160
+#: views/partials/dev-reference.php:196
 msgid ""
 "Filters the <code>&lt;a&gt;</code> markup & text of the search engines "
 "notice, if discouraged."
 msgstr ""
 
-#: views/partials/dev-reference.php:352
+#: views/partials/dev-reference.php:388
 msgid ""
 "Filters the <code>&lt;h3&gt;</code> markup & text of the network sites tab "
 "heading."
 msgstr ""
 
-#: views/partials/dev-reference.php:381
+#: views/partials/dev-reference.php:417
 msgid ""
 "Filters the <code>&lt;h3&gt;</code> markup & text of the network users tab "
 "heading."
 msgstr ""
 
-#: views/partials/dev-reference.php:184
+#: views/partials/dev-reference.php:220
 msgid ""
 "Filters the <code>&lt;h3&gt;</code> markup & text of the profile tab heading."
 msgstr ""
 
-#: views/partials/dev-reference.php:280
+#: views/partials/dev-reference.php:316
 msgid ""
 "Filters the <code>&lt;h3&gt;</code> markup & text of the site content tab "
 "heading."
 msgstr ""
 
-#: views/partials/dev-reference.php:316
+#: views/partials/dev-reference.php:352
 msgid ""
 "Filters the <code>&lt;h3&gt;</code> markup & text of the site users tab "
 "heading."
 msgstr ""
 
-#: views/partials/dev-reference.php:220
+#: views/partials/dev-reference.php:256
 msgid ""
 "Filters the <code>&lt;h3&gt;</code> markup & text of the system tab heading."
 msgstr ""
 
-#: views/partials/dev-reference.php:256
+#: views/partials/dev-reference.php:292
 msgid ""
 "Filters the <code>&lt;h3&gt;</code> markup & text of the updates tab heading."
 msgstr ""
 
-#: views/partials/dev-reference.php:192
+#: views/partials/dev-reference.php:228
 msgid ""
 "Filters the <code>&lt;h4&gt;</code> markup & text of the profile tab account "
 "section heading."
 msgstr ""
 
-#: views/partials/dev-reference.php:172
+#: views/partials/dev-reference.php:208
 msgid ""
 "Filters the <code>&lt;h4&gt;</code> markup & text of the user greeting in "
 "the profile tab."
 msgstr ""
 
-#: views/partials/dev-reference.php:356
+#: views/partials/dev-reference.php:392
 msgid ""
 "Filters the <code>&lt;p&gt;</code> markup & text of the network sites tab "
 "description."
 msgstr ""
 
-#: views/partials/dev-reference.php:364
+#: views/partials/dev-reference.php:400
 msgid ""
 "Filters the <code>&lt;p&gt;</code> markup & text of the network sites tab "
 "manage section description."
 msgstr ""
 
-#: views/partials/dev-reference.php:372
+#: views/partials/dev-reference.php:408
 msgid ""
 "Filters the <code>&lt;p&gt;</code> markup & text of the network sites tab "
 "tools section description."
 msgstr ""
 
-#: views/partials/dev-reference.php:385
+#: views/partials/dev-reference.php:421
 msgid ""
 "Filters the <code>&lt;p&gt;</code> markup & text of the network users tab "
 "description."
 msgstr ""
 
-#: views/partials/dev-reference.php:393
+#: views/partials/dev-reference.php:429
 msgid ""
 "Filters the <code>&lt;p&gt;</code> markup & text of the network users tab "
 "manage section description."
 msgstr ""
 
-#: views/partials/dev-reference.php:401
+#: views/partials/dev-reference.php:437
 msgid ""
 "Filters the <code>&lt;p&gt;</code> markup & text of the network users tab "
 "tools section description."
 msgstr ""
 
-#: views/partials/dev-reference.php:196
+#: views/partials/dev-reference.php:232
 msgid ""
 "Filters the <code>&lt;p&gt;</code> markup & text of the profile tab account "
 "section description."
 msgstr ""
 
-#: views/partials/dev-reference.php:188
+#: views/partials/dev-reference.php:224
 msgid ""
 "Filters the <code>&lt;p&gt;</code> markup & text of the profile tab "
 "description."
 msgstr ""
 
-#: views/partials/dev-reference.php:204
+#: views/partials/dev-reference.php:240
 msgid ""
 "Filters the <code>&lt;p&gt;</code> markup & text of the profile tab options "
 "section description."
 msgstr ""
 
-#: views/partials/dev-reference.php:212
+#: views/partials/dev-reference.php:248
 msgid ""
 "Filters the <code>&lt;p&gt;</code> markup & text of the profile tab tools "
 "section description."
 msgstr ""
 
-#: views/partials/dev-reference.php:284
+#: views/partials/dev-reference.php:320
 msgid ""
 "Filters the <code>&lt;p&gt;</code> markup & text of the site content tab "
 "description."
 msgstr ""
 
-#: views/partials/dev-reference.php:292
+#: views/partials/dev-reference.php:328
 msgid ""
 "Filters the <code>&lt;p&gt;</code> markup & text of the site content tab "
 "post types section description."
 msgstr ""
 
-#: views/partials/dev-reference.php:300
+#: views/partials/dev-reference.php:336
 msgid ""
 "Filters the <code>&lt;p&gt;</code> markup & text of the site content tab "
 "taxonomies section description."
 msgstr ""
 
-#: views/partials/dev-reference.php:308
+#: views/partials/dev-reference.php:344
 msgid ""
 "Filters the <code>&lt;p&gt;</code> markup & text of the site content tab "
 "tools section description."
 msgstr ""
 
-#: views/partials/dev-reference.php:328
+#: views/partials/dev-reference.php:364
 msgid ""
 "Filters the <code>&lt;p&gt;</code> markup & text of the site users tab "
 "comments section description."
 msgstr ""
 
-#: views/partials/dev-reference.php:320
+#: views/partials/dev-reference.php:356
 msgid ""
 "Filters the <code>&lt;p&gt;</code> markup & text of the site users tab "
 "description."
 msgstr ""
 
-#: views/partials/dev-reference.php:336
+#: views/partials/dev-reference.php:372
 msgid ""
 "Filters the <code>&lt;p&gt;</code> markup & text of the site users tab "
 "registered users section description."
 msgstr ""
 
-#: views/partials/dev-reference.php:344
+#: views/partials/dev-reference.php:380
 msgid ""
 "Filters the <code>&lt;p&gt;</code> markup & text of the site users tab tools "
 "section description."
 msgstr ""
 
-#: views/partials/dev-reference.php:224
+#: views/partials/dev-reference.php:260
 msgid ""
 "Filters the <code>&lt;p&gt;</code> markup & text of the system tab "
 "description."
 msgstr ""
 
-#: views/partials/dev-reference.php:232
+#: views/partials/dev-reference.php:268
 msgid ""
 "Filters the <code>&lt;p&gt;</code> markup & text of the system tab "
 "information section description."
 msgstr ""
 
-#: views/partials/dev-reference.php:240
+#: views/partials/dev-reference.php:276
 msgid ""
 "Filters the <code>&lt;p&gt;</code> markup & text of the system tab tools "
 "section description."
 msgstr ""
 
-#: views/partials/dev-reference.php:260
+#: views/partials/dev-reference.php:296
 msgid ""
 "Filters the <code>&lt;p&gt;</code> markup & text of the updates tab "
 "description."
 msgstr ""
 
-#: views/partials/dev-reference.php:176
+#: views/partials/dev-reference.php:212
 msgid ""
 "Filters the <code>&lt;p&gt;</code> markup & text of the user greeting "
 "description in the profile tab."
 msgstr ""
 
-#: views/partials/dev-reference.php:248
+#: views/partials/dev-reference.php:128
+msgid "Filters the At a Glance style block."
+msgstr ""
+
+#: views/partials/dev-reference.php:284
 msgid ""
 "Filters the button-style link to the Security page. Use __return_false to "
 "remove the link."
 msgstr ""
 
-#: views/partials/dev-reference.php:244
+#: views/partials/dev-reference.php:280
 msgid ""
 "Filters the button-style link to the Site Health page. Use __return_false to "
 "remove the link."
 msgstr ""
 
-#: views/partials/dev-reference.php:148
+#: views/partials/dev-reference.php:184
 msgid ""
 "Filters the code name of the content/website management system (e.g. "
 "wordpress)."
 msgstr ""
 
-#: views/partials/dev-reference.php:152
+#: views/partials/dev-reference.php:188
 msgid ""
 "Filters the display name of the content/website management system (e.g. "
 "WordPress)."
 msgstr ""
 
-#: views/partials/dev-reference.php:124
+#: views/partials/dev-reference.php:110
+msgid ""
+"Filters the general dashboard script block, including modal content and "
+"colors for base64 icons."
+msgstr ""
+
+#: views/partials/dev-reference.php:120
+msgid "Filters the general dashboard style block."
+msgstr ""
+
+#: views/partials/dev-reference.php:132
+msgid "Filters the Network Summary style block."
+msgstr ""
+
+#: views/partials/dev-reference.php:160
 msgid ""
 "Filters the query array of custom post types used in the site widget content "
 "tab and in the At a Glance widget."
 msgstr ""
 
-#: views/partials/dev-reference.php:144
+#: views/partials/dev-reference.php:136
+msgid "Filters the Right Now style block."
+msgstr ""
+
+#: views/partials/dev-reference.php:180
 msgid "Filters the text of the database version notice."
 msgstr ""
 
@@ -621,39 +643,39 @@ msgstr ""
 msgid "Filters the text of the network dashboard widget title."
 msgstr ""
 
-#: views/partials/dev-reference.php:360
+#: views/partials/dev-reference.php:396
 msgid "Filters the text of the network sites tab manage section heading."
 msgstr ""
 
-#: views/partials/dev-reference.php:368
+#: views/partials/dev-reference.php:404
 msgid "Filters the text of the network sites tab tools section heading."
 msgstr ""
 
-#: views/partials/dev-reference.php:389
+#: views/partials/dev-reference.php:425
 msgid "Filters the text of the network users tab manage section heading."
 msgstr ""
 
-#: views/partials/dev-reference.php:397
+#: views/partials/dev-reference.php:433
 msgid "Filters the text of the network users tab tools section heading."
 msgstr ""
 
-#: views/partials/dev-reference.php:200
+#: views/partials/dev-reference.php:236
 msgid "Filters the text of the profile tab options section heading."
 msgstr ""
 
-#: views/partials/dev-reference.php:208
+#: views/partials/dev-reference.php:244
 msgid "Filters the text of the profile tab tools section heading."
 msgstr ""
 
-#: views/partials/dev-reference.php:288
+#: views/partials/dev-reference.php:324
 msgid "Filters the text of the site content tab post types section heading."
 msgstr ""
 
-#: views/partials/dev-reference.php:296
+#: views/partials/dev-reference.php:332
 msgid "Filters the text of the site content tab taxonomies section heading."
 msgstr ""
 
-#: views/partials/dev-reference.php:304
+#: views/partials/dev-reference.php:340
 msgid "Filters the text of the site content tab tools section heading."
 msgstr ""
 
@@ -661,41 +683,45 @@ msgstr ""
 msgid "Filters the text of the site dashboard widget title."
 msgstr ""
 
-#: views/partials/dev-reference.php:324
+#: views/partials/dev-reference.php:360
 msgid "Filters the text of the site users tab comments section heading."
 msgstr ""
 
-#: views/partials/dev-reference.php:332
+#: views/partials/dev-reference.php:368
 msgid ""
 "Filters the text of the site users tab registered users section heading."
 msgstr ""
 
-#: views/partials/dev-reference.php:340
+#: views/partials/dev-reference.php:376
 msgid "Filters the text of the site users tab tools section heading."
 msgstr ""
 
-#: views/partials/dev-reference.php:228
+#: views/partials/dev-reference.php:264
 msgid "Filters the text of the system tab information section heading."
 msgstr ""
 
-#: views/partials/dev-reference.php:236
+#: views/partials/dev-reference.php:272
 msgid "Filters the text of the system tab tools section heading."
 msgstr ""
 
-#: views/partials/dev-reference.php:268
+#: views/partials/dev-reference.php:304
 msgid "Filters the text of the updates tab tools section description."
 msgstr ""
 
-#: views/partials/dev-reference.php:264
+#: views/partials/dev-reference.php:300
 msgid "Filters the text of the updates tab tools section heading."
 msgstr ""
 
-#: views/partials/dev-reference.php:272
+#: views/partials/dev-reference.php:308
 msgid "Filters the URL of information on updating a server&#39;s PHP version."
 msgstr ""
 
-#: views/partials/dev-reference.php:140
+#: views/partials/dev-reference.php:176
 msgid "Filters the URL of the database reference."
+msgstr ""
+
+#: views/partials/dev-reference.php:124
+msgid "Filters the Website Summary style block."
 msgstr ""
 
 #: views/partials/dev-reference.php:67
@@ -778,15 +804,15 @@ msgstr ""
 msgid "Go to the updates page."
 msgstr ""
 
-#: includes/classes/class-summary.php:1642
+#: includes/classes/class-summary.php:1666
 msgid "Hello,"
 msgstr ""
 
-#: includes/classes/class-summary.php:1251
+#: includes/classes/class-summary.php:1274
 msgid "Hide hidden updates"
 msgstr ""
 
-#: includes/classes/class-summary.php:1189
+#: includes/classes/class-summary.php:1210
 msgid "Hide this update"
 msgstr ""
 
@@ -802,7 +828,7 @@ msgstr ""
 msgid "https://github.com/ControlledChaos/dashboard-summary"
 msgstr ""
 
-#: includes/classes/class-summary.php:1068
+#: includes/classes/class-summary.php:1089
 #, php-format
 msgid "If you need to re-install version %s, you can do so here:"
 msgstr ""
@@ -811,7 +837,7 @@ msgstr ""
 msgid "Import"
 msgstr ""
 
-#: includes/classes/class-summary.php:924
+#: includes/classes/class-summary.php:945
 msgid "Important:"
 msgstr ""
 
@@ -834,11 +860,11 @@ msgstr ""
 msgid "Information"
 msgstr ""
 
-#: includes/classes/class-summary.php:918
+#: includes/classes/class-summary.php:939
 msgid "is available."
 msgstr ""
 
-#: includes/classes/class-summary.php:1928
+#: includes/classes/class-summary.php:1952
 msgid "Last Updated:"
 msgstr ""
 
@@ -867,22 +893,30 @@ msgstr ""
 msgid "Marked Spam"
 msgstr ""
 
-#: includes/classes/class-summary.php:50
+#: includes/classes/class-summary.php:51
 msgid "network"
 msgstr ""
 
-#: includes/classes/class-summary.php:726
+#: includes/classes/class-summary.php:745
 msgid "network enabled theme."
 msgid_plural "network enabled themes."
 msgstr[0] ""
 msgstr[1] ""
 
+#: views/partials/widget-system-info.php:156
+msgid "Network Health"
+msgstr ""
+
 #: views/partials/network-widget-sites.php:26
 msgid "Network Management"
 msgstr ""
 
-#: views/partials/widget-system-info.php:173
+#: views/partials/widget-system-info.php:140
 msgid "Network Settings"
+msgstr ""
+
+#: views/partials/widget-system-info.php:143
+msgid "Network Setup"
 msgstr ""
 
 #: views/partials/network-widget-sites.php:95
@@ -895,7 +929,7 @@ msgstr[1] ""
 msgid "Network Sites"
 msgstr ""
 
-#: views/partials/dev-reference.php:348
+#: views/partials/dev-reference.php:384
 msgid "Network Sites Tab"
 msgstr ""
 
@@ -911,7 +945,7 @@ msgstr ""
 msgid "Network Users"
 msgstr ""
 
-#: views/partials/dev-reference.php:377
+#: views/partials/dev-reference.php:413
 msgid "Network Users Tab"
 msgstr ""
 
@@ -928,15 +962,22 @@ msgstr ""
 msgid "Nickname:"
 msgstr ""
 
-#: includes/classes/class-user-options.php:187
+#: includes/classes/class-user-options.php:228
 msgid "No"
 msgstr ""
 
-#: includes/classes/class-user-options.php:170
+#: includes/classes/class-user-options.php:207
 msgid "No website provided."
 msgstr ""
 
-#: includes/classes/class-summary.php:513
+#: includes/classes/class-user-options.php:52
+#: includes/classes/class-user-options.php:129
+#: includes/classes/class-user-options.php:152
+#: includes/classes/class-user-options.php:181
+msgid "Not available"
+msgstr ""
+
+#: includes/classes/class-summary.php:525
 msgid "not available"
 msgstr ""
 
@@ -944,7 +985,7 @@ msgstr ""
 msgid "Options"
 msgstr ""
 
-#: views/partials/widget-system-info.php:178
+#: views/partials/widget-system-info.php:195
 msgid "Options Page"
 msgstr ""
 
@@ -960,45 +1001,45 @@ msgstr ""
 msgid "Personal Options"
 msgstr ""
 
-#: includes/classes/class-summary.php:1990
+#: includes/classes/class-summary.php:2014
 msgid "Plugin Homepage &#187;"
 msgstr ""
 
-#: includes/classes/class-summary.php:1839
+#: includes/classes/class-summary.php:1863
 msgid "Plugin Information"
 msgstr ""
 
-#: includes/classes/class-summary.php:1811
+#: includes/classes/class-summary.php:1835
 msgctxt "Plugin installer section title"
 msgid "Changelog"
 msgstr ""
 
-#: includes/classes/class-summary.php:1807
+#: includes/classes/class-summary.php:1831
 msgctxt "Plugin installer section title"
 msgid "Description"
 msgstr ""
 
-#: includes/classes/class-summary.php:1809
+#: includes/classes/class-summary.php:1833
 msgctxt "Plugin installer section title"
 msgid "FAQ"
 msgstr ""
 
-#: includes/classes/class-summary.php:1808
+#: includes/classes/class-summary.php:1832
 msgctxt "Plugin installer section title"
 msgid "Installation"
 msgstr ""
 
-#: includes/classes/class-summary.php:1813
+#: includes/classes/class-summary.php:1837
 msgctxt "Plugin installer section title"
 msgid "Other Notes"
 msgstr ""
 
-#: includes/classes/class-summary.php:1812
+#: includes/classes/class-summary.php:1836
 msgctxt "Plugin installer section title"
 msgid "Reviews"
 msgstr ""
 
-#: includes/classes/class-summary.php:1810
+#: includes/classes/class-summary.php:1834
 msgctxt "Plugin installer section title"
 msgid "Screenshots"
 msgstr ""
@@ -1011,15 +1052,15 @@ msgstr ""
 msgid "Profile"
 msgstr ""
 
-#: views/partials/dev-reference.php:180
+#: views/partials/dev-reference.php:216
 msgid "Profile Tab"
 msgstr ""
 
-#: includes/classes/class-summary.php:1069
+#: includes/classes/class-summary.php:1090
 msgid "Re-install System"
 msgstr ""
 
-#: includes/classes/class-summary.php:2026
+#: includes/classes/class-summary.php:2050
 msgid "Read all reviews on WordPress.org or write your own!"
 msgstr ""
 
@@ -1034,19 +1075,19 @@ msgstr[1] ""
 msgid "Registered Users"
 msgstr ""
 
-#: includes/classes/class-summary.php:1955
+#: includes/classes/class-summary.php:1979
 msgid "Requires PHP Version:"
 msgstr ""
 
-#: includes/classes/class-summary.php:1939
+#: includes/classes/class-summary.php:1963
 msgid "Requires WordPress Version:"
 msgstr ""
 
-#: includes/classes/class-summary.php:2024
+#: includes/classes/class-summary.php:2048
 msgid "Reviews"
 msgstr ""
 
-#: includes/classes/class-summary.php:2035
+#: includes/classes/class-summary.php:2059
 #, php-format
 msgid "Reviews with %1$d star: %2$s. Opens in a new tab."
 msgid_plural "Reviews with %1$d stars: %2$s. Opens in a new tab."
@@ -1057,17 +1098,27 @@ msgstr[1] ""
 msgid "Right Now"
 msgstr ""
 
+#: views/partials/dev-reference.php:105
+msgid ""
+"Script block methods include the <code>&lt;script&gt;</code> element tags so "
+"include these when replacing JavaScript."
+msgstr ""
+
+#: views/partials/dev-reference.php:104
+msgid "Script Blocks"
+msgstr ""
+
 #: views/partials/site-widget-content.php:116
 #: views/partials/site-widget-content.php:118
 #: views/partials/site-widget-content.php:119
 msgid "Search Content"
 msgstr ""
 
-#: includes/classes/class-summary.php:679
+#: includes/classes/class-summary.php:697
 msgid "Search engines are discouraged"
 msgstr ""
 
-#: includes/classes/class-summary.php:675
+#: includes/classes/class-summary.php:693
 msgid "Search engines are discouraged for the primary site"
 msgstr ""
 
@@ -1097,15 +1148,15 @@ msgstr ""
 msgid "Search, import, and export content of this website, if allowed."
 msgstr ""
 
-#: views/partials/widget-system-info.php:166
+#: views/partials/widget-system-info.php:185
 msgid "Security Page"
 msgstr ""
 
-#: views/partials/dev-reference.php:119
+#: views/partials/dev-reference.php:155
 msgid "See includes/classes/class-summary.php."
 msgstr ""
 
-#: views/partials/dev-reference.php:105
+#: views/partials/dev-reference.php:141
 msgid "See includes/classes/class-user-colors.php."
 msgstr ""
 
@@ -1114,16 +1165,16 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: includes/classes/class-summary.php:1250
-#: includes/classes/class-summary.php:1263
+#: includes/classes/class-summary.php:1273
+#: includes/classes/class-summary.php:1286
 msgid "Show hidden updates"
 msgstr ""
 
-#: views/partials/dev-reference.php:276
+#: views/partials/dev-reference.php:312
 msgid "Site Content Tab"
 msgstr ""
 
-#: views/partials/dev-reference.php:312
+#: views/partials/dev-reference.php:348
 msgid "Site Users Tab"
 msgstr ""
 
@@ -1135,8 +1186,22 @@ msgstr ""
 msgid "Some technical details about the"
 msgstr ""
 
-#: views/partials/dev-reference.php:118
+#: views/partials/dev-reference.php:115
+msgid ""
+"Style block methods include the <code>&lt;style&gt;</code> element tags so "
+"include these when replacing CSS."
+msgstr ""
+
+#: views/partials/dev-reference.php:114
+msgid "Style Blocks"
+msgstr ""
+
+#: views/partials/dev-reference.php:154
 msgid "Summary Content Methods"
+msgstr ""
+
+#: includes/classes/class-user-options.php:75
+msgid "Super Admin"
 msgstr ""
 
 #: views/network-widget-template.php:62 views/site-widget-template.php:62
@@ -1144,7 +1209,7 @@ msgstr ""
 msgid "System"
 msgstr ""
 
-#: includes/classes/class-summary.php:605
+#: includes/classes/class-summary.php:621
 msgid "system"
 msgstr ""
 
@@ -1156,7 +1221,7 @@ msgstr ""
 msgid "System Overview"
 msgstr ""
 
-#: views/partials/dev-reference.php:216
+#: views/partials/dev-reference.php:252
 msgid "System Tab"
 msgstr ""
 
@@ -1168,22 +1233,22 @@ msgstr ""
 msgid "System Updates"
 msgstr ""
 
-#: includes/classes/class-summary.php:823
-#: includes/classes/class-summary.php:849
-#: includes/classes/class-summary.php:859
+#: includes/classes/class-summary.php:840
+#: includes/classes/class-summary.php:866
+#: includes/classes/class-summary.php:876
 msgid "The active theme is"
 msgstr ""
 
-#: includes/classes/class-summary.php:814
-#: includes/classes/class-summary.php:840
+#: includes/classes/class-summary.php:831
+#: includes/classes/class-summary.php:857
 msgid "The active theme of the primary site is"
 msgstr ""
 
-#: includes/classes/class-summary.php:548
+#: includes/classes/class-summary.php:562
 msgid "The database version is"
 msgstr ""
 
-#: includes/classes/class-summary.php:453
+#: includes/classes/class-summary.php:464
 msgid "The web server is running"
 msgstr ""
 
@@ -1191,31 +1256,31 @@ msgstr ""
 msgid "Themes"
 msgstr ""
 
-#: includes/classes/class-summary.php:897
+#: includes/classes/class-summary.php:918
 msgid "There are no"
 msgstr ""
 
-#: includes/classes/class-summary.php:1371
-#: includes/classes/class-summary.php:1417
+#: includes/classes/class-summary.php:1395
+#: includes/classes/class-summary.php:1441
 msgid "There are no plugin updates available."
 msgstr ""
 
-#: includes/classes/class-summary.php:1441
-#: includes/classes/class-summary.php:1460
+#: includes/classes/class-summary.php:1465
+#: includes/classes/class-summary.php:1484
 msgid "There are no theme updates available."
 msgstr ""
 
-#: includes/classes/class-summary.php:755
+#: includes/classes/class-summary.php:774
 msgid "There are no themes available."
 msgstr ""
 
-#: includes/classes/class-summary.php:723
+#: includes/classes/class-summary.php:742
 msgid "There is"
 msgid_plural "There are"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/classes/class-summary.php:1545
+#: includes/classes/class-summary.php:1569
 #, php-format
 msgid ""
 "There is a new version of %1$s available. <a href=\"%2$s\" target=\"_blank\" "
@@ -1223,14 +1288,14 @@ msgid ""
 "<a href=\"%5$s\" %6$s>update now</a>."
 msgstr ""
 
-#: includes/classes/class-summary.php:1519
+#: includes/classes/class-summary.php:1543
 #, php-format
 msgid ""
 "There is a new version of %1$s available. <a href=\"%2$s\" target=\"_blank\" "
 "rel=\"nofollow noreferrer noopener\" %3$s>View version %4$s details</a>."
 msgstr ""
 
-#: includes/classes/class-summary.php:1532
+#: includes/classes/class-summary.php:1556
 #, php-format
 msgid ""
 "There is a new version of %1$s available. <a href=\"%2$s\" target=\"_blank\" "
@@ -1250,7 +1315,7 @@ msgid ""
 "content or modifying text."
 msgstr ""
 
-#: includes/classes/class-summary.php:1199
+#: includes/classes/class-summary.php:1220
 msgid ""
 "This localized version contains both the translation and various other "
 "localization fixes."
@@ -1262,11 +1327,11 @@ msgid ""
 "theme or members plugins."
 msgstr ""
 
-#: includes/classes/class-summary.php:631
+#: includes/classes/class-summary.php:648
 msgid "This network is running"
 msgstr ""
 
-#: includes/classes/class-summary.php:1661
+#: includes/classes/class-summary.php:1685
 msgid "This section provides details about your account."
 msgstr ""
 
@@ -1274,7 +1339,7 @@ msgstr ""
 msgid "This website contains the following post and content types."
 msgstr ""
 
-#: includes/classes/class-summary.php:633
+#: includes/classes/class-summary.php:650
 msgid "This website is running"
 msgstr ""
 
@@ -1290,13 +1355,17 @@ msgstr ""
 msgid "Tools to help manage this website."
 msgstr ""
 
-#: includes/classes/class-summary.php:1406
-#: includes/classes/class-summary.php:1556
+#: includes/classes/class-user-options.php:106
+msgid "Undetermined"
+msgstr ""
+
+#: includes/classes/class-summary.php:1430
+#: includes/classes/class-summary.php:1580
 #, php-format
 msgid "Update %s now"
 msgstr ""
 
-#: includes/classes/class-summary.php:1055
+#: includes/classes/class-summary.php:1076
 msgid "Update System"
 msgstr ""
 
@@ -1308,7 +1377,7 @@ msgstr ""
 msgid "Updates"
 msgstr ""
 
-#: includes/classes/class-summary.php:899
+#: includes/classes/class-summary.php:920
 msgid "updates available."
 msgstr ""
 
@@ -1316,7 +1385,7 @@ msgstr ""
 msgid "Updates Page"
 msgstr ""
 
-#: views/partials/dev-reference.php:252
+#: views/partials/dev-reference.php:288
 msgid "Updates Tab"
 msgstr ""
 
@@ -1324,7 +1393,7 @@ msgstr ""
 msgid "Upgrade Network"
 msgstr ""
 
-#: includes/classes/class-site-default-widget.php:363
+#: includes/classes/class-site-default-widget.php:364
 msgid "User"
 msgid_plural "Users"
 msgstr[0] ""
@@ -1359,14 +1428,14 @@ msgstr ""
 msgid "Users Overview"
 msgstr ""
 
-#: includes/classes/class-summary.php:1920
+#: includes/classes/class-summary.php:1944
 msgid "Version:"
 msgstr ""
 
-#: includes/classes/class-summary.php:1397
-#: includes/classes/class-summary.php:1524
-#: includes/classes/class-summary.php:1537
-#: includes/classes/class-summary.php:1550
+#: includes/classes/class-summary.php:1421
+#: includes/classes/class-summary.php:1548
+#: includes/classes/class-summary.php:1561
+#: includes/classes/class-summary.php:1574
 #, php-format
 msgid "View %1$s version %2$s details"
 msgstr ""
@@ -1375,11 +1444,11 @@ msgstr ""
 msgid "View in popup window"
 msgstr ""
 
-#: views/partials/widget-system-info.php:199
+#: views/partials/widget-system-info.php:217
 msgid "View reference in modal window."
 msgstr ""
 
-#: includes/classes/class-summary.php:54
+#: includes/classes/class-summary.php:55
 msgid "website"
 msgstr ""
 
@@ -1387,7 +1456,7 @@ msgstr ""
 msgid "Website Content"
 msgstr ""
 
-#: views/partials/widget-system-info.php:148
+#: views/partials/widget-system-info.php:158
 msgid "Website Health"
 msgstr ""
 
@@ -1399,13 +1468,13 @@ msgstr ""
 msgid "website."
 msgstr ""
 
-#: includes/classes/class-summary.php:962
+#: includes/classes/class-summary.php:983
 msgid ""
 "While your site is being updated, it will be in maintenance mode. As soon as "
 "your updates are complete, this mode will be deactivated."
 msgstr ""
 
-#: views/partials/widget-system-info.php:196
+#: views/partials/widget-system-info.php:214
 msgid "Widget Development"
 msgstr ""
 
@@ -1418,19 +1487,19 @@ msgstr ""
 msgid "widget."
 msgstr ""
 
-#: includes/classes/class-summary.php:601
+#: includes/classes/class-summary.php:617
 msgid "WordPress"
 msgstr ""
 
-#: includes/classes/class-summary.php:1986
+#: includes/classes/class-summary.php:2010
 msgid "WordPress.org Plugin Page &#187;"
 msgstr ""
 
-#: includes/classes/class-user-options.php:185
+#: includes/classes/class-user-options.php:226
 msgid "Yes"
 msgstr ""
 
-#: includes/classes/class-summary.php:1205
+#: includes/classes/class-summary.php:1226
 #, php-format
 msgid ""
 "You are about to install %s %s <strong>in English (US).</strong> There is a "
@@ -1438,16 +1507,16 @@ msgid ""
 "the localized version to be released."
 msgstr ""
 
-#: includes/classes/class-summary.php:934
-#: includes/classes/class-summary.php:944
+#: includes/classes/class-summary.php:955
+#: includes/classes/class-summary.php:965
 msgid "You are using a development version of"
 msgstr ""
 
-#: includes/classes/class-summary.php:1062
+#: includes/classes/class-summary.php:1083
 msgid "You can update to the latest nightly build manually:"
 msgstr ""
 
-#: includes/classes/class-summary.php:954
+#: includes/classes/class-summary.php:975
 msgid "You have the latest version of"
 msgstr ""
 
