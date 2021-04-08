@@ -47,15 +47,15 @@ class Summary {
 
 		// If a network dashboard.
 		if ( is_network_admin() ) {
-			$dash_type = __( 'network', 'dashboard-summary' );
+			$dashboard = __( 'network', 'dashboard-summary' );
 
 		// If a site dashboard.
 		} else {
-			$dash_type = __( 'website', 'dashboard-summary' );
+			$dashboard = __( 'website', 'dashboard-summary' );
 		}
 
 		// Return the filtered word/string.
-		return apply_filters( 'ds_dashboard_type', $dash_type );
+		return apply_filters( 'ds_dashboard_type', $dashboard );
 	}
 
 	/**
@@ -134,7 +134,7 @@ class Summary {
 	 *
 	 * @since  1.0.0
 	 * @access public
-	 * @return mixed Returns unordered list markup.
+	 * @return string Returns unordered list markup.
 	 */
 	public function post_types_list() {
 
@@ -233,7 +233,7 @@ class Summary {
 	 *
 	 * @since  1.0.0
 	 * @access public
-	 * @return mixed Returns unordered list markup.
+	 * @return string Returns unordered list markup.
 	 */
 	public function taxonomies_list() {
 
@@ -312,7 +312,7 @@ class Summary {
 	 *
 	 * @since  1.0.0
 	 * @access public
-	 * @return mixed Returns unordered list markup.
+	 * @return string Returns unordered list markup.
 	 */
 	public function taxonomies_icons_list() {
 
@@ -481,10 +481,12 @@ class Summary {
 		$mysql_vars = [];
 
 		// For each database result.
-		foreach ( $results as $result ) {
+		if ( is_array( $results ) ) {
+			foreach ( $results as $result ) {
 
-			// Result name.
-			$mysql_vars[ $result->Variable_name ] = $result->Value;
+				// Result name.
+				$mysql_vars[ $result->Variable_name ] = $result->Value;
+			}
 		}
 
 		// Return an array of database results.
@@ -524,7 +526,7 @@ class Summary {
 	 * @access public
 	 * @return string Returns the escaped, filtered URL.
 	 */
-	public function database_reference( $url = '' ) {
+	public function database_reference() {
 
 		// Default Wikipedia page.
 		$url = esc_url( 'https://en.wikipedia.org/wiki/List_of_relational_database_management_systems' );
@@ -540,7 +542,7 @@ class Summary {
 	 * @access public
 	 * @return string Returns the text of database version notice.
 	 */
-	public function database_version( $output = '' ) {
+	public function database_version() {
 
 		// Markup of the notice.
 		$output = sprintf(
@@ -778,15 +780,11 @@ class Summary {
 
 		// If the theme header has a URI.
 		if ( $theme_uri ) {
-			$theme_uri = $theme_uri;
-
-		// Otherwise return nothing.
-		} else {
-			$theme_uri = null;
+			$uri = $theme_uri;
 		}
 
 		// Return the URI string ot null.
-		return $theme_uri;
+		return $uri;
 	}
 
 	/**
