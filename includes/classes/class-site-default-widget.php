@@ -165,6 +165,9 @@ class Site_Default_Widget {
 		$style .= '#dashboard_right_now .main p.ds-widget-link-button { margin-top: 1.5em; }';
 		$style .= '</style>' . '<!-- End At a Glance widget styles -->';
 
+		// Remove SEO notice.
+		$style .= $this->remove_seo_notice();
+
 		// Apply filter and print the style block.
 		echo apply_filters( 'ds_website_default_print_styles', $style );
 	}
@@ -394,5 +397,41 @@ class Site_Default_Widget {
 
 		// Get the system information content.
 		include( DS_PATH . '/views/partials/widget-system-info.php' );
+	}
+
+	/**
+	 * Remove SEO notice
+	 *
+	 * The "Search engines are discouraged"
+	 * notice from the management system is
+	 * redundant as the system info content
+	 * provides the same.
+	 *
+	 * This returns a style block to hide the notice.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return string Returns the style block.
+	 */
+	public function remove_seo_notice() {
+
+		// No style block by default.
+		$style = '';
+
+		// Check if search engines are asked not to index a site.
+		if (
+			! is_network_admin() &&
+			! is_user_admin() &&
+			current_user_can( 'manage_options' ) &&
+			'0' == get_option( 'blog_public' )
+		) {
+			$style  = '<style>';
+			$style .= 'p.search-engines-info { display: none; }';
+			$style .= '</style>';
+
+		}
+
+		// Print the style block.
+		echo $style;
 	}
 }
