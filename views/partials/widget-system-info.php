@@ -80,6 +80,25 @@ if ( is_multisite() && is_network_admin() ) {
 $tools_description = apply_filters( 'ds_widget_system_tools_description', $tools_description );
 
 /**
+ * Database icon
+ *
+ * As of April, 10, 2021 ClassicPress has not
+ * updated the Dshicons icon font from the
+ * WordPress 4.9.8 version. An issue has been
+ * opened on GitHub.
+ *
+ * Until the font is updated the generic icon
+ * will be used for ClassicPress.
+ *
+ * @link https://github.com/ClassicPress/ClassicPress/issues/695
+ */
+if ( 'classicpress' === $summary->management_system() ) {
+	$database_icon = 'dashicons-admin-generic';
+} else {
+	$database_icon = 'dashicons-database';
+}
+
+/**
  * Permission to access the security page.
  *
  * Checks for ClassicPress and its permissions.
@@ -104,7 +123,7 @@ $security_access = apply_filters( 'ds_security_access', $security_access );
 
 	<ul class="ds-widget-details-list ds-widget-system-list">
 		<li><icon class="ds-cpt-icons dashicons dashicons-editor-code"></icon> <?php echo $summary->php_version(); ?></li>
-		<li><icon class="ds-cpt-icons dashicons dashicons-database"></icon> <?php echo $summary->database_version(); ?></li>
+		<li><icon class="ds-cpt-icons dashicons <?php echo $database_icon; ?>"></icon> <?php echo $summary->database_version(); ?></li>
 		<li><icon class="ds-cpt-icons dashicons dashicons-dashboard"></icon> <?php echo $summary->system_notice(); ?></li>
 		<?php if ( current_user_can( 'install_themes' ) || current_user_can( 'customize' ) ) : ?>
 		<li><icon class="ds-cpt-icons dashicons dashicons-art"></icon> <?php echo $summary->available_themes(); ?></li>
