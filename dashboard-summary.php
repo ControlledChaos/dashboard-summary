@@ -148,8 +148,9 @@ function deactivate_plugin() {}
 /**
  * Disable plugin for PHP version
  *
- * Stop here if the minimum PHP version is not met.
- * Prevents breaking sites running older PHP versions.
+ * Stop here if the minimum PHP version in the config
+ * file is not met. Prevents breaking sites running
+ * older PHP versions.
  *
  * A notice is added to the plugin row on the Plugins
  * screen as a more elegant and more informative way
