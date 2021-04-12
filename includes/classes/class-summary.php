@@ -1381,7 +1381,7 @@ class Summary {
 				$name = $data['Name'];
 
 				// Plugin details URL.
-				$details = DS_URL . '/views/plugin-install.php?tab=plugin-information&plugin=' . $update->slug . '&section=changelog&TB_iframe=true&width=600&height=800';
+				$details = DS_URL . 'views/plugin-install.php?tab=plugin-information&plugin=' . $update->slug . '&section=changelog&TB_iframe=true&width=600&height=800';
 
 				// List item for each available update.
 				$output .= '<li>';
@@ -1826,7 +1826,11 @@ class Summary {
 		}
 
 		// Default to the Description tab. Do not translate, API returns English.
-		$section = isset( $_REQUEST['section'] ) ? wp_unslash( $_REQUEST['section'] ) : 'description';
+		if ( isset( $_REQUEST['section'] ) ) {
+			$section = wp_unslash( $_REQUEST['section'] );
+		} else {
+			$section = 'description';
+		}
 
 		if ( empty( $section ) || ! isset( $api->sections[ $section ] ) ) {
 			$section_heading = array_keys( (array) $api->sections );
