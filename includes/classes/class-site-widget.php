@@ -113,7 +113,7 @@ class Site_Widget {
 		);
 
 		// Widget styles.
-		wp_enqueue_style( 'ds-default-widget', DS_URL . 'assets/css/widgets' . $assets->suffix() . '.css', [], $assets->version(), 'all' );
+		wp_enqueue_style( 'ds-widget', DS_URL . 'assets/css/widgets' . $assets->suffix() . '.css', [], $assets->version(), 'all' );
 	}
 
 	/**

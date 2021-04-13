@@ -104,7 +104,7 @@ class Dashboard {
 
 		// Notification bubble.
 		$style  = '<style>';
-		$style .= '#dashboard-widgets #ds-default-widget .ds-widget-update-count { background-color: ' . $notify_background . '; color: ' . $notify_text . '; }';
+		$style .= '#dashboard-widgets #ds-widget .ds-widget-update-count { background-color: ' . $notify_background . '; color: ' . $notify_text . '; }';
 		$style .= '</style>';
 
 		// Modal windows.

@@ -118,53 +118,53 @@
   display: block;
 }
 
-#dashboard-widgets #ds-default-widget h3,
-#dashboard-widgets #ds-default-widget h4,
-#dashboard-widgets #ds-default-widget p,
-#dashboard-widgets #ds-default-widget ul,
-#dashboard-widgets #ds-default-widget ol {
+#dashboard-widgets #ds-widget h3,
+#dashboard-widgets #ds-widget h4,
+#dashboard-widgets #ds-widget p,
+#dashboard-widgets #ds-widget ul,
+#dashboard-widgets #ds-widget ol {
   margin: 0.75em 0 0;
 }
 
-#dashboard-widgets #ds-default-widget .button {
+#dashboard-widgets #ds-widget .button {
   vertical-align: middle;
 }
 
-#dashboard-widgets #ds-default-widget p.description {
+#dashboard-widgets #ds-widget p.description {
   font-style: italic;
   line-height: 1.3;
 }
 
-#dashboard-widgets #ds-default-widget li {
+#dashboard-widgets #ds-widget li {
   margin: 0;
   margin-top: 0.325em;
 }
 
-#dashboard-widgets #ds-default-widget .ds-widget-search-fields {
+#dashboard-widgets #ds-widget .ds-widget-search-fields {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   width: 100%;
 }
 
-#dashboard-widgets #ds-default-widget .ds-widget-search-fields input[type="search"] {
+#dashboard-widgets #ds-widget .ds-widget-search-fields input[type="search"] {
   width: 100%;
   max-width: 240px;
   margin-right: 0.35em;
 }
 
-#dashboard-widgets #ds-default-widget .ds-widget-section {
+#dashboard-widgets #ds-widget .ds-widget-section {
   max-width: 420px;
 }
 
-#dashboard-widgets #ds-default-widget .ds-widget-section h3,
-#dashboard-widgets #ds-default-widget .ds-widget-section h4 {
+#dashboard-widgets #ds-widget .ds-widget-section h3,
+#dashboard-widgets #ds-widget .ds-widget-section h4 {
   font-size: 1em;
   font-weight: bold;
   font-weight: 600;
 }
 
-#dashboard-widgets #ds-default-widget .ds-widget-section ul.ds-content-list {
+#dashboard-widgets #ds-widget .ds-widget-section ul.ds-content-list {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (minmax(10px, 1fr))[2];
@@ -172,17 +172,17 @@
   grid-gap: 8px;
 }
 
-#dashboard-widgets #ds-default-widget .ds-widget-section ul.ds-content-list li {
+#dashboard-widgets #ds-widget .ds-widget-section ul.ds-content-list li {
   margin: 0;
 }
 
-#dashboard-widgets #ds-default-widget .ds-widget-section div.ds-widget-divided-section:not(:first-of-type) {
+#dashboard-widgets #ds-widget .ds-widget-section div.ds-widget-divided-section:not(:first-of-type) {
   margin-top: 1em;
   padding-top: 0.5em;
   border-top: solid 1px #ccd0d4;
 }
 
-#dashboard-widgets #ds-default-widget .ds-widget-update-count {
+#dashboard-widgets #ds-widget .ds-widget-update-count {
   display: inline-block;
   vertical-align: top;
   -webkit-box-sizing: border-box;
@@ -199,12 +199,12 @@
   text-align: center;
 }
 
-#dashboard-widgets #ds-default-widget .ds-widget-details-list ul {
+#dashboard-widgets #ds-widget .ds-widget-details-list ul {
   list-style: disc;
   margin-left: 1em;
 }
 
-#dashboard-widgets #ds-default-widget .ds-user-greeting {
+#dashboard-widgets #ds-widget .ds-user-greeting {
   padding-top: 1em;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -214,11 +214,11 @@
           align-items: center;
 }
 
-#dashboard-widgets #ds-default-widget .ds-user-greeting figure {
+#dashboard-widgets #ds-widget .ds-user-greeting figure {
   margin: 0 1em 0 0;
 }
 
-#dashboard-widgets #ds-default-widget .ds-user-greeting figure img {
+#dashboard-widgets #ds-widget .ds-user-greeting figure img {
   display: block;
   width: 100%;
   height: auto;
@@ -226,30 +226,30 @@
   border-radius: 50%;
 }
 
-#dashboard-widgets #ds-default-widget .ds-user-greeting h4,
-#dashboard-widgets #ds-default-widget .ds-user-greeting p {
+#dashboard-widgets #ds-widget .ds-user-greeting h4,
+#dashboard-widgets #ds-widget .ds-user-greeting p {
   margin: 0;
 }
 
-#dashboard-widgets #ds-default-widget .ds-cpt-icons {
+#dashboard-widgets #ds-widget .ds-cpt-icons {
   display: inline-block;
   width: 20px;
   height: 20px;
   vertical-align: middle;
 }
 
-#dashboard-widgets #ds-default-widget .ds-search-engines {
+#dashboard-widgets #ds-widget .ds-search-engines {
   color: #f56e28;
   font-weight: bold;
   font-weight: 600;
   text-decoration: underline;
 }
 
-#dashboard-widgets #ds-default-widget .ds-search-engines:hover {
+#dashboard-widgets #ds-widget .ds-search-engines:hover {
   text-decoration: none;
 }
 
-#dashboard-widgets #ds-default-widget .ds-widget-link-button {
+#dashboard-widgets #ds-widget .ds-widget-link-button {
   margin-top: 1.5em;
 }
 
@@ -304,16 +304,16 @@
 }
 
 /* Right-to-left language styles */
-.rtl #dashboard-widgets #ds-default-widget .ds-widget-details-list ul {
+.rtl #dashboard-widgets #ds-widget .ds-widget-details-list ul {
   margin-left: auto;
   margin-right: 1em;
 }
 
-.rtl #dashboard-widgets #ds-default-widget .ds-user-greeting figure {
+.rtl #dashboard-widgets #ds-widget .ds-user-greeting figure {
   margin: 0 0 0 1em;
 }
 
-.rtl #dashboard-widgets #ds-default-widget .ds-widget-search-fields input[type="search"] {
+.rtl #dashboard-widgets #ds-widget .ds-widget-search-fields input[type="search"] {
   margin-right: auto;
   margin-left: 0.35em;
 }
@@ -330,7 +330,7 @@
 
 /* System queries */
 @media screen and (max-width: 782px) {
-  #dashboard-widgets #ds-default-widget .button {
+  #dashboard-widgets #ds-widget .button {
     margin-bottom: 0;
   }
 }

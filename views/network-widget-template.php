@@ -45,7 +45,7 @@ if ( 0 != $updates ) {
 do_action( 'ds_default_network_widget_before' );
 
 ?>
-<div id="ds-default-widget" class="ds-widget ds-default-widget ds-tabbed-content">
+<div id="ds-widget" class="ds-widget ds-widget ds-tabbed-content">
 
 	<ul class="ds-tabs-nav">
 
@@ -53,10 +53,10 @@ do_action( 'ds_default_network_widget_before' );
 
 		<li><a href="#ds-default-network-widget-users"><?php _e( 'Users', 'dashboard-summary' ); ?></a></li>
 
-		<li><a href="#ds-default-widget-profile"><?php _e( 'Profile', 'dashboard-summary' ); ?></a></li>
+		<li><a href="#ds-widget-profile"><?php _e( 'Profile', 'dashboard-summary' ); ?></a></li>
 
 		<?php if ( $summary->updates_tab() ) : ?>
-		<li><a href="#ds-default-widget-updates"><?php _e( 'Updates', 'dashboard-summary' ); echo $update_count; ?></a></li>
+		<li><a href="#ds-widget-updates"><?php _e( 'Updates', 'dashboard-summary' ); echo $update_count; ?></a></li>
 		<?php endif; ?>
 
 		<li><a href="#ds-default-network-widget-system-info"><?php _e( 'System', 'dashboard-summary' ); ?></a></li>
@@ -78,7 +78,7 @@ do_action( 'ds_default_network_widget_before' );
 		?>
 	</section>
 
-	<section id="ds-default-widget-profile" class="ds-widget-section ds-tabs-panel">
+	<section id="ds-widget-profile" class="ds-widget-section ds-tabs-panel">
 		<?php
 
 		include( DS_PATH . '/views/partials/widget-profile.php' );
@@ -87,7 +87,7 @@ do_action( 'ds_default_network_widget_before' );
 	</section>
 
 	<?php if ( $summary->updates_tab() ) : ?>
-	<section id="ds-default-widget-updates" class="ds-widget-section ds-tabs-panel">
+	<section id="ds-widget-updates" class="ds-widget-section ds-tabs-panel">
 		<?php
 
 		include( DS_PATH . '/views/partials/widget-updates.php' );
