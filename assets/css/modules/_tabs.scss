@@ -75,7 +75,7 @@
     display: none;
 }
 
-/* Accordion responsive breakpoint */
+// Accordion responsive breakpoint.
 @media only screen and (max-width: 782px) {
     .ds-tabs-nav {
         display: none;
@@ -83,6 +83,26 @@
 
     .ds-tabs-accordion-title {
         display: block;
+
+		a {
+			&:before {
+				display: inline-block;
+				vertical-align: middle;
+				margin: 0 0.35em 0 0;
+				font-family: dashicons;
+				font-size: 1.5rem;
+				content: '\f140';
+				line-height: 1em;
+			}
+		}
+
+		&.ds-tabs-state-active {
+			a {
+				&:before {
+					transform: rotate(-90deg);
+				}
+			}
+		}
     }
 }
 
@@ -99,7 +119,7 @@
 /* Accordion anchor */
 .ds-tabs-accordion-title .ds-tabs-anchor {
 	display: block;
-	padding: 10px;
+	padding: 1em 0;
 	font-weight: bold;
 	font-weight: 600;
 	text-decoration: none;
@@ -123,5 +143,30 @@
 
 	.ds-tabs-panel {
 		display: block;
+	}
+}
+
+// RTL styles.
+.rtl {
+
+	// Accordion responsive breakpoint.
+	@media only screen and (max-width: 782px) {
+
+		.ds-tabs-accordion-title {
+			a {
+				&:before {
+					margin: 0 0 0 0.35em;
+				}
+			}
+
+			&.ds-tabs-state-active {
+				a {
+					&:before {
+						transform: rotate(90deg);
+						margin: 0 0 0.35em 0;
+					}
+				}
+			}
+		}
 	}
 }
