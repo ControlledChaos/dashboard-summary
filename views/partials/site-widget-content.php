@@ -115,7 +115,7 @@ $tools_description = apply_filters(
 		<p class="ds-widget-search-fields">
 			<label class="screen-reader-text" for="<?php echo $content_id; ?>" aria-label="<?php _e( 'Search Content', 'dashboard-summary' ); ?>"><?php _e( 'Search Content', 'dashboard-summary' ); ?></label>
 
-			<input type="search" name="s" id="<?php echo $content_id; ?>" aria-labelledby="<?php _e( 'Search Content', 'dashboard-summary' ); ?>" value="<?php echo get_search_query(); ?>" autocomplete="off" placeholder="<?php _e( 'Enter content search terms', 'dashboard-summary' ); ?>" aria-placeholder="<?php _e( 'Enter content search terms', 'dashboard-summary' ); ?>" />
+			<input type="search" name="s" id="<?php echo $content_id; ?>" aria-labelledby="<?php _e( 'Search Content', 'dashboard-summary' ); ?>" value="<?php echo get_search_query(); ?>" autocomplete="off" placeholder="<?php _e( 'Enter title or content search terms', 'dashboard-summary' ); ?>" aria-placeholder="<?php _e( 'Enter content search terms', 'dashboard-summary' ); ?>" />
 			<?php submit_button( __( 'Search Content', 'dashboard-summary' ), '', false, false, [ 'id' => 'submit-' . $content_id ] ); ?>
 		</p>
 	</form>
@@ -126,7 +126,7 @@ $tools_description = apply_filters(
 		<p class="ds-widget-search-fields">
 			<label class="screen-reader-text" for="<?php echo $media_id; ?>" aria-label="<?php _e( 'Search Media', 'dashboard-summary' ); ?>"><?php _e( 'Search Media', 'dashboard-summary' ); ?></label>
 
-			<input type="search" name="search" id="<?php echo $media_id; ?>" aria-labelledby="<?php _e( 'Search Media', 'dashboard-summary' ); ?>" value="<?php echo get_search_query(); ?>" autocomplete="off" placeholder="<?php _e( 'Enter media title or filename', 'dashboard-summary' ); ?>" aria-placeholder="<?php _e( 'Enter media title or filename', 'dashboard-summary' ); ?>" />
+			<input type="search" name="search" id="<?php echo $media_id; ?>" aria-labelledby="<?php _e( 'Search Media', 'dashboard-summary' ); ?>" value="<?php echo get_search_query(); ?>" autocomplete="off" placeholder="<?php _e( 'Enter media title, meta, or filename', 'dashboard-summary' ); ?>" aria-placeholder="<?php _e( 'Enter media title or filename', 'dashboard-summary' ); ?>" />
 			<?php submit_button( __( 'Search Media', 'dashboard-summary' ), '', false, false, [ 'id' => 'submit-' . $media_id ] ); ?>
 		</p>
 	</form>
