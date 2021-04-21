@@ -7,6 +7,9 @@
  * @since      1.0.0
  */
 
+// Import partials.
+@import 'modules/_colors';
+
 #dashboard_right_now {
 
 	ul {
@@ -23,5 +26,12 @@
 
 	#wp-version-message {
 		margin-top: 1em;
+	}
+
+	.ds-search-engines {
+		color: $notify_color;
+		font-weight: bold;
+		font-weight: 600;
+		text-decoration: underline;
 	}
 }

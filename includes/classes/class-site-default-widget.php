@@ -158,7 +158,7 @@ class Site_Default_Widget {
 		$style .= '#dashboard_right_now #wp-version-message { display: none; }';
 		$style .= '#dashboard-widgets #dashboard_right_now .ds-widget-divided-section h4 { margin: 0.75em 0 0; font-size: 1em; font-weight: bold; font-weight: 600; }';
 		$style .= '#dashboard-widgets #dashboard_right_now .ds-widget-divided-section p.description { margin: 0.75em 0 0; font-style: italic; line-height: 1.3; }';
-		$style .= '#dashboard-widgets #dashboard_right_now .ds-widget-divided-section a { text-decoration: none; }';
+		$style .= '#dashboard-widgets #dashboard_right_now .ds-widget-divided-section a:not(.ds-search-engines) { text-decoration: none; }';
 		$style .= '#dashboard_right_now ul.ds-widget-system-list { display: block; margin: 0.75em 0 0; }';
 		$style .= '#dashboard_right_now .ds-widget-system-list li { margin: 0.325em 0 0; }';
 		$style .= '#dashboard_right_now .ds-widget-system-list li a:before { display: none; }';

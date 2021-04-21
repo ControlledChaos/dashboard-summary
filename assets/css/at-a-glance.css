@@ -23,3 +23,10 @@
 #dashboard_right_now #wp-version-message {
   margin-top: 1em;
 }
+
+#dashboard_right_now .ds-search-engines {
+  color: #f56e28;
+  font-weight: bold;
+  font-weight: 600;
+  text-decoration: underline;
+}
