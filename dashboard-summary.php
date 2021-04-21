@@ -21,7 +21,7 @@
  * Domain Path:  /languages
  * Requires PHP: 5.3
  * Requires at least: 3.8
- * Tested up to: 5.7
+ * Tested up to: 5.7.1
  */
 
 namespace Dashboard_Summary;
