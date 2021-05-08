@@ -199,7 +199,7 @@ Widget styles also integrate with use of the [Admin Color Schemes](https://wordp
 
 ## Requirements & Tests
 
-Requires PHP version 5.3 or higher to activate, version 7.4 or higher to be functional.
+Requires PHP version 5.4 or higher to activate, version 7.4 or higher to be functional.
 Requires WordPress version 3.8 or higher, or any version of ClassicPress.
 
 Tested up to WordPress version 5.7, standard and multisite installations.
