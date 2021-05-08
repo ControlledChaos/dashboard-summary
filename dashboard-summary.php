@@ -19,7 +19,7 @@
  * Author URI:   http://ccdzine.com/
  * Text Domain:  dashboard-summary
  * Domain Path:  /languages
- * Requires PHP: 5.3
+ * Requires PHP: 5.4
  * Requires at least: 3.8
  * Tested up to: 5.7.1
  */
@@ -157,7 +157,7 @@ function deactivate_plugin() {}
  * of disabling the plugin than putting the PHP minimum
  * in the plugin header, which activates a die() message.
  * However, the Requires PHP tag is included in the
- * plugin header with a minimum of version 5.3
+ * plugin header with a minimum of version 5.4
  * because of the namespaces.
  *
  * @since  1.0.0
