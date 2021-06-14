@@ -222,7 +222,7 @@ class User_Options {
 	public function toolbar( $enabled = '' ) {
 
 		// Check the toolbar user option.
-		if ( true == get_user_option( 'show_admin_bar_front' ) ) {
+		if ( 'true' == get_user_option( 'show_admin_bar_front' ) ) {
 			$enabled = __( 'Yes', 'dashboard-summary' );
 		} else {
 			$enabled = __( 'No', 'dashboard-summary' );
