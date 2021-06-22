@@ -1381,7 +1381,10 @@ class Summary {
 				$name = $data['Name'];
 
 				// Plugin details URL.
-				$details = DS_URL . 'views/plugin-install.php?tab=plugin-information&plugin=' . $update->slug . '&section=changelog&TB_iframe=true&width=600&height=800';
+				$details = self_admin_url( 'plugin-install.php?tab=plugin-information&plugin=' . $update->slug . '&section=changelog&TB_iframe=true&width=600&height=800' );
+
+				// Internal template.
+				// $details = DS_URL . 'views/plugin-install.php?tab=plugin-information&plugin=' . $update->slug . '&section=changelog&TB_iframe=true&width=600&height=800';
 
 				// List item for each available update.
 				$output .= '<li>';
@@ -1694,6 +1697,26 @@ class Summary {
 
 		// Return false by default.
 		return false;
+	}
+
+	/**
+	 * Plugin information modal button text
+	 *
+	 * Filters the text of the "Install Update Now" button.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public static function plugin_modal_button_text( $translated_text, $text, $domain ) {
+
+		// Access current admin page.
+		global $pagenow;
+
+		if ( $translated_text === 'Install Update Now' ) {
+			$translated_text = __( 'Close to Install', 'dashboard-summary' );
+		}
+		return $translated_text;
 	}
 
 	/**

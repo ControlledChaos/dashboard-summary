@@ -100,4 +100,6 @@ function admin_init() {
 		new Classes\Network_Widget;
 		new Classes\Network_Default_Widget;
 	}
+
+	add_filter( 'gettext', [ 'Dashboard_Summary\Classes\Summary', 'plugin_modal_button_text' ], 20, 3 );
 }
