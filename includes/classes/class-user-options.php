@@ -147,7 +147,7 @@ class User_Options {
 		$user_data = get_userdata( get_current_user_id() );
 
 		if ( isset( $user_data->display_name ) ) {
-			$display_name = esc_html( $user_data->user_login );
+			$display_name = esc_html( $user_data->display_name );
 		} else {
 			$display_name = __( 'Not available', 'dashboard-summary' );
 		}
