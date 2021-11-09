@@ -46,15 +46,31 @@ class User_Colors {
 		global $_wp_admin_css_colors;
 
 		// Get the name of the user's color scheme.
-		$scheme = get_user_option( 'admin_color' );
-		$name   = $_wp_admin_css_colors[$scheme]->name;
+		$option = get_user_option( 'admin_color' );
+		$scheme = array_key_exists( $option, $_wp_admin_css_colors );
 
-		// Rename "Default" as "Fresh".
-		if ( 'fresh' == $scheme ) {
-			return __( 'Fresh', 'dashboard-summary' );
+		/**
+		 * Default or unknown scheme
+		 *
+		 * If `fresh` is the user option then change the label from
+		 * "Default" to "Fresh". If the option is unknown — if the
+		 * user option is from a plugin or theme that has been
+		 * deactivated — then the system uses the default scheme so
+		 * use the "Fresh" label is applied in that instance.
+		 */
+		if ( ! $scheme || 'fresh' == $option ) {
+			$name = __( 'Fresh', 'dashboard-summary' );
+
+		// Use the scheme name if available.
+		} elseif ( $scheme ) {
+			$name = $_wp_admin_css_colors[$option]->name;
+
+		// A fallback that is likely unnecessary.
+		} else {
+			$name = __( 'Not available', 'dashboard-summary' );
 		}
 
-		// The name if not the default scheme.
+		// The name of the color scheme.
 		return $name;
 	}
 
