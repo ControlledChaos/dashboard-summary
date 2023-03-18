@@ -50,8 +50,7 @@ define( 'DS_URL', plugin_dir_url(__FILE__ ) );
  * @var   string The text of the title.
  */
 if ( ! defined( 'DS_SITE_WIDGET_TITLE' ) ) {
-	$title = __( 'Website Summary', 'dashboard-summary' );
-	define( 'DS_SITE_WIDGET_TITLE', $title );
+	define( 'DS_SITE_WIDGET_TITLE', __( 'Website Summary', 'dashboard-summary' ) );
 }
 
 /**
@@ -61,6 +60,5 @@ if ( ! defined( 'DS_SITE_WIDGET_TITLE' ) ) {
  * @var   string The text of the title.
  */
 if ( ! defined( 'DS_NETWORK_WIDGET_TITLE' ) ) {
-	$title = __( 'Network Summary', 'dashboard-summary' );
-	define( 'DS_NETWORK_WIDGET_TITLE', $title );
+	define( 'DS_NETWORK_WIDGET_TITLE', __( 'Network Summary', 'dashboard-summary' ) );
 }
