@@ -157,11 +157,8 @@ final class Settings {
 		$option = $this->sanitize_summary();
 
 		// Field markup.
-		$html  = '<p><input type="hidden" name="ds_enable_summary" value="0"><input type="checkbox" id="ds_enable_summary" name="ds_enable_summary" value="1" ' . checked( 1, $option, false ) . '/>';
-		$html .= sprintf(
-			'<label for="ds_enable_summary">%1s</label></p>',
-			$args[0]
-		);
+		$html = '<input type="hidden" name="ds_enable_summary" value="0">';
+		$html .= '<label for="ds_enable_summary"><input type="checkbox" id="ds_enable_summary" name="ds_enable_summary" value="1" ' . checked( 1, $option, false ) . '/> ' . $args[0] . '</label>';
 
 		// Print the field markup.
 		echo $html;
