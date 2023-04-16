@@ -30,43 +30,6 @@ class Activate {
 	public function __construct() {}
 
 	/**
-	 * Add & update options
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @return self
-	 */
-	public function options() {
-
-		// Add options with default to look for when freshly installed.
-		add_option( 'ds_enable_summary', 'new_install' );
-		add_option( 'ds_enable_glance', 'new_install' );
-
-		// Update options if the installation defaults are set.
-		if ( 'new_install' == get_option( 'ds_enable_summary' ) ) {
-			update_option( 'ds_enable_summary', 1 );
-		}
-
-		if ( 'new_install' == get_option( 'ds_enable_glance' ) ) {
-			update_option( 'ds_enable_glance', 0 );
-		}
-
-		// Network options.
-		if ( is_multisite() ) {
-			add_network_option( get_current_network_id(), 'ds_enable_network_summary', 'new_install' );
-			add_network_option( get_current_network_id(), 'ds_enable_network_right_now', 'new_install' );
-
-			if ( 'new_install' == get_option( 'ds_enable_network_summary' ) ) {
-				update_network_option( 'ds_enable_network_summary', 1 );
-			}
-
-			if ( 'new_install' == get_option( 'ds_enable_network_right_now' ) ) {
-				update_network_option( 'ds_enable_network_right_now', 0 );
-			}
-		}
-	}
-
-	/**
 	 * Get plugin row notice
 	 *
 	 * @since  1.0.0

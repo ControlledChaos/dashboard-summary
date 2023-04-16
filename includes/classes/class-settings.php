@@ -198,22 +198,11 @@ final class Settings {
 	 */
 	public function sanitize_summary() {
 
-		// Get the relevant option.
-		$option = get_option( 'ds_enable_summary' );
+		$option = get_option( 'ds_enable_summary', true );
 
-		/**
-		 * True by default
-		 *
-		 * This returns true if the option is null/empty
-		 * as well as if the option is true (1) so the
-		 * Website Summary widget will be displayed
-		 * unless expressly excluded.
-		 */
-		if ( null == $option || true == $option ) {
+		if ( true == $option ) {
 			return true;
 		}
-
-		// Otherwise return false.
 		return false;
 	}
 
@@ -228,15 +217,11 @@ final class Settings {
 	 */
 	public function sanitize_glance() {
 
-		// Get the relevant option.
-		$option = get_option( 'ds_enable_glance' );
+		$option = get_option( 'ds_enable_glance', false );
 
-		// Return true if set to true.
 		if ( true == $option ) {
 			return true;
 		}
-
-		// Return false by default.
 		return false;
 	}
 
@@ -324,22 +309,11 @@ final class Settings {
 	 */
 	public function sanitize_network_summary() {
 
-		// Get the relevant network option.
-		$option = get_network_option( get_current_network_id(), 'ds_enable_network_summary' );
+		$option = get_network_option( get_current_network_id(), 'ds_enable_network_summary', true );
 
-		/**
-		 * True by default
-		 *
-		 * This returns true if the option is null/empty
-		 * as well as if the option is true (1) so the
-		 * Network Summary widget will be displayed
-		 * unless expressly excluded.
-		 */
-		if ( null == $option || true == $option ) {
+		if ( true == $option ) {
 			return true;
 		}
-
-		// Otherwise return false.
 		return false;
 	}
 
@@ -354,15 +328,11 @@ final class Settings {
 	 */
 	public function sanitize_network_right_now() {
 
-		// Get the relevant network option.
-		$option = get_network_option( get_current_network_id(), 'ds_enable_network_right_now' );
+		$option = get_network_option( get_current_network_id(), 'ds_enable_network_right_now', false );
 
-		// Return true if set to true.
 		if ( true == $option ) {
 			return true;
 		}
-
-		// Return false by default.
 		return false;
 	}
 

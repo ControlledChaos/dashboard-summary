@@ -129,9 +129,6 @@ function activate_plugin() {
 
 	// Instantiate the Activate class.
 	$activate = new Activate\Activate;
-
-	// Update options.
-	$activate->options();
 }
 
 /**
