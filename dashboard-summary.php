@@ -26,9 +26,6 @@
 
 namespace Dashboard_Summary;
 
-// Alias namespaces.
-use Dashboard_Summary\Classes\Activate as Activate;
-
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) {
 	die;
@@ -97,10 +94,10 @@ require plugin_dir_path( __FILE__ ) . 'config.php';
  */
 
 // Get the plugin activation class.
-include_once DS_PATH . 'activate/classes/class-activate.php';
+include_once DS_PATH . 'includes/activate/activate.php';
 
 // Get the plugin deactivation class.
-include_once DS_PATH . 'activate/classes/class-deactivate.php';
+include_once DS_PATH . 'includes/activate/deactivate.php';
 
 /**
  * Register the activation & deactivation hooks
@@ -127,8 +124,7 @@ include_once DS_PATH . 'activate/classes/class-deactivate.php';
  */
 function activate_plugin() {
 
-	// Instantiate the Activate class.
-	$activate = new Activate\Activate;
+	Activate\get_row_notice();
 }
 
 /**
@@ -161,12 +157,6 @@ function deactivate_plugin() {}
  * @return void
  */
 if ( ! Classes\php()->version() ) {
-
-	// First add a notice to the plugin row.
-	$activate = new Activate\Activate;
-	$activate->get_row_notice();
-
-	// Stop here.
 	return;
 }
 

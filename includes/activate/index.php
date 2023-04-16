@@ -1,0 +1,1 @@
+<?php // Security file.
