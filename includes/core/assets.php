@@ -25,6 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Execute functions
  *
  * @since  1.0.0
+ * @global array $pagenow Array of admin screens.
  * @return void
  */
 function setup() {
@@ -33,6 +34,12 @@ function setup() {
 	$ns = function( $function ) {
 		return __NAMESPACE__ . "\\$function";
 	};
+
+	global $pagenow;
+
+	if ( 'index.php' != $pagenow ) {
+		return;
+	}
 
 	// Enqueue assets.
 	add_action( 'admin_enqueue_scripts', $ns( 'assets' ) );
@@ -75,16 +82,9 @@ function suffix( $suffix = '' ) {
  * Enqueue assets
  *
  * @since  1.0.0
- * @global array $pagenow Array of admin screens.
  * @return void
  */
 function assets() {
-
-	global $pagenow;
-
-	if ( 'index.php' != $pagenow ) {
-		return;
-	}
 
 	// Tabbed/accordion content script.
 	wp_enqueue_script( 'ds-tabs', DS_URL . 'assets/js/tabs' . suffix() . '.js', [ 'jquery' ], DS_VERSION, true );
@@ -108,16 +108,9 @@ function assets() {
  *
  * @since  1.0.0
  * @param  string $scripts Default empty string.
- * @global array $pagenow Array of admin screens.
  * @return string Returns script blocks.
  */
 function print_scripts( $scripts = '' ) {
-
-	global $pagenow;
-
-	if ( 'index.php' != $pagenow ) {
-		return;
-	}
 
 	// Script to fill base64 background images with current link colors.
 	$scripts  = '<script>';
@@ -138,16 +131,9 @@ function print_scripts( $scripts = '' ) {
  *
  * @since  1.0.0
  * @param  string $style Default empty string.
- * @global array $pagenow Array of admin screens.
  * @return string Returns the style blocks.
  */
 function print_styles( $style = '' ) {
-
-	global $pagenow;
-
-	if ( 'index.php' != $pagenow ) {
-		return;
-	}
 
 	// Get user notification colors.
 	$notify_color      = user_notify_colors();
