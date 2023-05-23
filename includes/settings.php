@@ -6,7 +6,7 @@
  * plus associated markup.
  *
  * @package    Dashboard_Summary
- * @subpackage Classes
+ * @subpackage Includes
  * @category   Settings
  * @since      1.0.0
  */
