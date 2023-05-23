@@ -13,6 +13,8 @@ namespace Dashboard_Summary\Activate;
 // Alias namespaces.
 use Dashboard_Summary\Classes as Classes;
 
+use function Dashboard_Summary\min_php_version;
+
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) {
 	die;
@@ -27,7 +29,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 function get_row_notice() {
 
 	// Add notice if the PHP version is insufficient.
-	if ( ! Classes\php()->version() ) {
+	if ( ! min_php_version() ) {
 		add_action( 'after_plugin_row_' . DS_BASENAME, __NAMESPACE__ . '\row_notice', 5, 3 );
 	}
 }
