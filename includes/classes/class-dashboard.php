@@ -13,6 +13,7 @@
 
 namespace Dashboard_Summary\Classes;
 
+use function Dashboard_Summary\Assets\suffix;
 use function Dashboard_Summary\User_Colors\user_colors;
 use function Dashboard_Summary\User_Colors\user_notify_colors;
 
@@ -32,30 +33,11 @@ class Dashboard {
 	 */
 	public function __construct() {
 
-		// Enqueue admin assets.
-		add_action( 'admin_enqueue_scripts', [ $this, 'assets' ] );
-
 		// Print admin scripts to head.
 		add_action( 'admin_print_scripts', [ $this, 'print_scripts' ], 20 );
 
 		// Print admin styles to head.
 		add_action( 'admin_print_styles', [ $this, 'print_styles' ], 20 );
-	}
-
-	/**
-	 * Enqueue admin scripts
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @return void
-	 */
-	public function assets() {
-
-		// Instantiate the Assets class.
-		$assets = new Assets;
-
-		// Script to fill base64 background images with current link colors.
-		wp_enqueue_script( 'svg-icon-colors', DS_URL . 'assets/js/svg-icon-colors' . $assets->suffix() . '.js', [ 'jquery' ], $assets->version(), true );
 	}
 
 	/**
@@ -68,9 +50,6 @@ class Dashboard {
 	 */
 	public function print_scripts( $scripts = '' ) {
 
-		// Instantiate classes.
-		$assets = new Assets;
-
 		// Script to fill base64 background images with current link colors.
 		$scripts  = '<script>';
 		$scripts .= 'var _dashboard_svg_icons = ' . wp_json_encode( user_colors() ) . ';';
@@ -78,7 +57,7 @@ class Dashboard {
 
 		// Modal window script.
 		$scripts .= '<script>';
-		$scripts .= file_get_contents( DS_URL . 'assets/js/modal' . $assets->suffix() . '.js' );
+		$scripts .= file_get_contents( DS_URL . 'assets/js/modal' . suffix() . '.js' );
 		$scripts .= '</script>';
 
 		// Apply filter and print the script blocks.
@@ -95,9 +74,6 @@ class Dashboard {
 	 */
 	public function print_styles( $style = '' ) {
 
-		// Instantiate classes.
-		$assets = new Assets;
-
 		// Get user notification colors.
 		$notify_color      = user_notify_colors();
 		$notify_background = $notify_color['background'];
@@ -109,7 +85,7 @@ class Dashboard {
 		$style .= '</style>';
 
 		// Modal windows.
-		$modal  = file_get_contents( DS_URL . 'assets/css/modal' . $assets->suffix() . '.css' );
+		$modal  = file_get_contents( DS_URL . 'assets/css/modal' . suffix() . '.css' );
 		$style .= '<style>' . $modal . '</style>';
 
 		// Apply filter and print the style blocks.

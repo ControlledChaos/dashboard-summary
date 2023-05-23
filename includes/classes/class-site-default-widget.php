@@ -49,9 +49,6 @@ class Site_Default_Widget {
 			// Print admin scripts to head.
 			add_action( 'admin_print_scripts', [ $this, 'print_scripts' ], 20 );
 
-			// Enqueue assets.
-			add_action( 'admin_enqueue_scripts', [ $this, 'assets' ] );
-
 			// Print admin styles to head.
 			add_action( 'admin_print_styles', [ $this, 'admin_print_styles' ], 20 );
 
@@ -94,22 +91,6 @@ class Site_Default_Widget {
 
 		// Remove the unused <p id="wp-version-message">.
 		echo '<script>jQuery( document ).ready( function($) { $( "#dashboard_right_now #wp-version-message" ).remove(); });</script>';
-	}
-
-	/**
-	 * Enqueue assets
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @return void
-	 */
-	public function assets() {
-
-		// Instantiate the Assets class.
-		$assets = new Assets;
-
-		// Widget styles.
-		wp_enqueue_style( 'ds-at-a-glance', DS_URL . 'assets/css/at-a-glance' . $assets->suffix() . '.css', [], $assets->version(), 'all' );
 	}
 
 	/**

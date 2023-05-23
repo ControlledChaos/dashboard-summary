@@ -29,12 +29,14 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 require_once DS_PATH . 'includes/classes/autoload.php';
 
+require_once DS_PATH . 'includes/assets.php';
 require_once DS_PATH . 'includes/settings.php';
 require_once DS_PATH . 'includes/user-colors.php';
 
 add_action( 'admin_init', __NAMESPACE__ . '\admin_init' );
 
 Settings\setup();
+Assets\setup();
 new Classes\Summary;
 new Classes\User_Options;
 

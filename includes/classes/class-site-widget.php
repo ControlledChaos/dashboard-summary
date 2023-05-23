@@ -14,6 +14,7 @@
 namespace Dashboard_Summary\Classes;
 
 use Dashboard_Summary\Settings as Settings;
+
 use function Dashboard_Summary\User_Colors\user_colors;
 
 // Restrict direct access.
@@ -35,9 +36,6 @@ class Site_Widget {
 		// Add the summary widget.
 		add_action( 'wp_dashboard_setup', [ $this, 'add_widget' ] );
 		add_action( 'ds_summary_widget', [ $this, 'get_output' ] );
-
-		// Enqueue assets.
-		add_action( 'admin_enqueue_scripts', [ $this, 'assets' ] );
 
 		// Print admin styles to head.
 		add_action( 'admin_print_styles', [ $this, 'admin_print_styles' ], 20 );
@@ -94,29 +92,6 @@ class Site_Widget {
 	 */
 	public function get_output() {
 		include DS_PATH . 'views/site-widget-template.php';
-	}
-
-	/**
-	 * Enqueue assets
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @return void
-	 */
-	public function assets() {
-
-		// Instantiate the Assets class.
-		$assets = new Assets;
-
-		// Tabbed/accordion content script.
-		wp_enqueue_script( 'ds-tabs', DS_URL . 'assets/js/tabs' . $assets->suffix() . '.js', [ 'jquery' ], $assets->version(), true );
-		wp_add_inline_script(
-			'ds-tabs',
-			'jQuery( document ).ready( function($) { $( ".ds-tabbed-content" ).responsiveTabs(); });'
-		);
-
-		// Widget styles.
-		wp_enqueue_style( 'ds-widget', DS_URL . 'assets/css/widgets' . $assets->suffix() . '.css', [], $assets->version(), 'all' );
 	}
 
 	/**
