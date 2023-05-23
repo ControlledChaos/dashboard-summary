@@ -44,6 +44,31 @@ define( 'DS_PATH', plugin_dir_path( __FILE__ ) );
 define( 'DS_URL', plugin_dir_url(__FILE__ ) );
 
 /**
+ * Constant: Minimum PHP version
+ *
+ * @since 1.0.0
+ * @var   string The minimum required PHP version.
+ */
+define( 'DS_MIN_PHP_VERSION', '7.4' );
+
+/**
+ * Function: Minimum PHP version
+ *
+ * Checks the PHP version sunning on the current host
+ * against the minimum version required by this plugin.
+ *
+ * @since  1.0.0
+ * @return boolean Returns false if the minimum is not met.
+ */
+function min_php_version() {
+
+	if ( version_compare( phpversion(), DS_MIN_PHP_VERSION, '<' ) ) {
+		return false;
+	}
+	return true;
+}
+
+/**
  * Constant: Site widget title
  *
  * @since 1.0.0

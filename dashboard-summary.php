@@ -147,9 +147,6 @@ add_action( 'plugins_loaded', function() {
 	add_filter( 'plugin_action_links_' . DS_BASENAME, __NAMESPACE__ . '\settings_link' );
 } );
 
-// Get the PHP version class.
-require_once plugin_dir_path( __FILE__ ) . 'includes/classes/class-php-version.php';
-
 // Get plugin configuration file.
 require plugin_dir_path( __FILE__ ) . 'config.php';
 
@@ -223,7 +220,7 @@ function deactivate_plugin() {}
  * @since  1.0.0
  * @return void
  */
-if ( ! Classes\php()->version() ) {
+if ( ! min_php_version() ) {
 	return;
 }
 
