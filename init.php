@@ -29,9 +29,13 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 require_once DS_PATH . 'includes/classes/autoload.php';
 
+require_once DS_PATH . 'includes/settings.php';
+
 // Hook initialization functions.
 add_action( 'init', __NAMESPACE__ . '\init' );
 add_action( 'admin_init', __NAMESPACE__ . '\admin_init' );
+
+Settings\setup();
 
 /**
  * Initialization function
@@ -47,7 +51,6 @@ add_action( 'admin_init', __NAMESPACE__ . '\admin_init' );
 function init() {
 
 	// Settings and core methods.
-	new Classes\Settings;
 	new Classes\Summary;
 	new Classes\User_Options;
 }
