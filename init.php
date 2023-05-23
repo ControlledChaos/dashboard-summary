@@ -39,7 +39,6 @@ add_action( 'admin_init', __NAMESPACE__ . '\admin_init' );
 Settings\setup();
 Assets\setup();
 new Classes\Summary;
-new Classes\User_Options;
 
 /**
  * Admin initialization function

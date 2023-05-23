@@ -11,7 +11,8 @@
 namespace Dashboard_Summary\Views;
 
 // Alias namespaces.
-use Dashboard_Summary\Classes as Classes;
+use Dashboard_Summary\Classes      as Classes;
+use Dashboard_Summary\User_Options as Options;
 
 use function Dashboard_Summary\User_Colors\get_user_color_scheme;
 
@@ -108,10 +109,10 @@ $tools_description = apply_filters(
 				<h4><?php _e( 'Your Identity', 'dashboard-summary' ); ?></h4>
 
 				<ul class="ds-widget-details-list ds-widget-options-list">
-					<li><?php _e( 'User name:', 'dashboard-summary' ); ?> <strong><?php echo $user_options->user_login(); ?></strong></li>
-					<li><?php _e( 'Nickname:', 'dashboard-summary' ); ?> <strong><?php echo $user_options->nickname(); ?></strong></li>
-					<li><?php _e( 'Display name:', 'dashboard-summary' ); ?> <strong><?php echo $user_options->display_name(); ?></strong></li>
-					<li><?php _e( 'User roles:', 'dashboard-summary' ); ?> <strong><?php echo $user_options->user_roles(); ?></strong></li>
+					<li><?php _e( 'User name:', 'dashboard-summary' ); ?> <strong><?php echo Options\user_login(); ?></strong></li>
+					<li><?php _e( 'Nickname:', 'dashboard-summary' ); ?> <strong><?php echo Options\nickname(); ?></strong></li>
+					<li><?php _e( 'Display name:', 'dashboard-summary' ); ?> <strong><?php echo Options\display_name(); ?></strong></li>
+					<li><?php _e( 'User roles:', 'dashboard-summary' ); ?> <strong><?php echo Options\user_roles(); ?></strong></li>
 				</ul>
 			</div>
 			<?php
@@ -130,7 +131,7 @@ $tools_description = apply_filters(
 					<div class="ds-modal-content">
 						<div class="ds-modal-bio-heading hide-if-no-js">
 							<?php $summary->user_avatar(); ?>
-							<p id="ds-modal-bio-heading-text"><strong><?php echo __( 'About', 'dashboard-summary' ) . ' ' . $user_options->display_name(); ?></strong></p>
+							<p id="ds-modal-bio-heading-text"><strong><?php echo __( 'About', 'dashboard-summary' ) . ' ' . Options\display_name(); ?></strong></p>
 						</div>
 						<div id="ds-user-bio-content">
 							<?php echo wpautop( get_user_option( 'description' ) ); ?>
@@ -149,10 +150,10 @@ $tools_description = apply_filters(
 				<?php echo $user_options_description; ?>
 
 				<ul class="ds-widget-details-list ds-widget-options-list">
-					<li><?php _e( 'Account email:', 'dashboard-summary' ); ?> <strong><?php echo $user_options->email(); ?></strong></li>
-					<li><?php _e( 'Your website:', 'dashboard-summary' ); ?> <strong><?php echo $user_options->website(); ?></strong></li>
+					<li><?php _e( 'Account email:', 'dashboard-summary' ); ?> <strong><?php echo Options\email(); ?></strong></li>
+					<li><?php _e( 'Your website:', 'dashboard-summary' ); ?> <strong><?php echo Options\website(); ?></strong></li>
 					<li><?php _e( 'Admin color scheme:', 'dashboard-summary' ); ?> <strong><?php echo get_user_color_scheme(); ?></strong></li>
-					<li><?php _e( 'Frontend toolbar:', 'dashboard-summary' ); ?> <strong><?php echo $user_options->toolbar(); ?></strong></li>
+					<li><?php _e( 'Frontend toolbar:', 'dashboard-summary' ); ?> <strong><?php echo Options\toolbar(); ?></strong></li>
 				</ul>
 			</div>
 		</section>

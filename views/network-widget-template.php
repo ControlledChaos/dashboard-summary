@@ -26,8 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Get class instances.
-$summary      = Classes\summary();
-$user_options = Classes\user_options();
+$summary = Classes\summary();
 
 // Updates count.
 $update_data = wp_get_update_data();
