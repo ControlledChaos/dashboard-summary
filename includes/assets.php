@@ -38,7 +38,7 @@ function setup() {
 	add_action( 'admin_enqueue_scripts', $ns( 'assets' ) );
 
 	// Print admin scripts to head.
-	add_action( 'admin_print_scripts', $ns( 'print_scripts' ), 20 );
+	add_action( 'admin_print_footer_scripts', $ns( 'print_scripts' ), 20 );
 
 	// Print admin styles to head.
 	add_action( 'admin_print_styles', $ns( 'print_styles' ), 20 );

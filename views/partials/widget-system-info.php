@@ -11,7 +11,8 @@
 namespace Dashboard_Summary\Views;
 
 // Alias namespaces.
-use Dashboard_Summary\Classes as Classes;
+use Dashboard_Summary\Classes as Classes,
+	Dashboard_Summary\Core    as Core;
 
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -92,7 +93,7 @@ $tools_description = apply_filters( 'ds_widget_system_tools_description', $tools
  *
  * @link https://github.com/ClassicPress/ClassicPress/issues/695
  */
-if ( 'classicpress' === $summary->management_system() ) {
+if ( 'classicpress' === Core\management_system() ) {
 	$database_icon = 'dashicons-admin-generic';
 } else {
 	$database_icon = 'dashicons-database';
@@ -106,7 +107,7 @@ if ( 'classicpress' === $summary->management_system() ) {
  * custom roles and for alternative management
  * systems.
  */
-if ( 'classicpress' === $summary->management_system() ) {
+if ( 'classicpress' === Core\management_system() ) {
 	$security_access = true;
 } else {
 	$security_access = true;
@@ -122,18 +123,18 @@ $security_access = apply_filters( 'ds_security_access', $security_access );
 	<?php echo $info_description; ?>
 
 	<ul class="ds-widget-details-list ds-widget-system-list">
-		<li><icon class="ds-cpt-icons dashicons dashicons-editor-code"></icon> <?php echo $summary->php_version(); ?></li>
-		<li><icon class="ds-cpt-icons dashicons <?php echo $database_icon; ?>"></icon> <?php echo $summary->database_version(); ?></li>
-		<li><icon class="ds-cpt-icons dashicons dashicons-dashboard"></icon> <?php echo $summary->system_notice(); ?></li>
+		<li><icon class="ds-cpt-icons dashicons dashicons-editor-code"></icon> <?php echo Core\php_version(); ?></li>
+		<li><icon class="ds-cpt-icons dashicons <?php echo $database_icon; ?>"></icon> <?php echo Core\database_version(); ?></li>
+		<li><icon class="ds-cpt-icons dashicons dashicons-dashboard"></icon> <?php echo Core\system_notice(); ?></li>
 		<?php if ( current_user_can( 'install_themes' ) || current_user_can( 'customize' ) ) : ?>
-		<li><icon class="ds-cpt-icons dashicons dashicons-art"></icon> <?php echo $summary->available_themes(); ?></li>
+		<li><icon class="ds-cpt-icons dashicons dashicons-art"></icon> <?php echo Core\available_themes(); ?></li>
 		<?php endif; ?>
-		<li><icon class="ds-cpt-icons dashicons dashicons-admin-appearance"></icon> <?php echo $summary->active_theme(); ?></li>
+		<li><icon class="ds-cpt-icons dashicons dashicons-admin-appearance"></icon> <?php echo Core\active_theme(); ?></li>
 		<?php
-		if ( ! empty( $summary->search_engines() ) ) {
+		if ( ! empty( Core\search_engines() ) ) {
 			echo sprintf(
 				'<li><icon class="ds-cpt-icons dashicons dashicons-search"></icon> %s</li>',
-				$summary->search_engines()
+				Core\search_engines()
 			);
 		} ?>
 	</ul>

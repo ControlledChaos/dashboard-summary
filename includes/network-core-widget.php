@@ -106,9 +106,6 @@ function admin_print_styles( $style = '' ) {
  */
 function system_info() {
 
-	// Instance of the Summary class.
-	$summary = summary();
-
 	// This content is for a native widget.
 	$native_widget = true;
 

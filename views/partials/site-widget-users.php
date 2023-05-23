@@ -11,7 +11,8 @@
 namespace Dashboard_Summary\Views;
 
 // Alias namespaces.
-use Dashboard_Summary\Classes as Classes;
+use Dashboard_Summary\Classes as Classes,
+	Dashboard_Summary\Core    as Core;
 
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -153,11 +154,11 @@ $comment_total = $comment_count['total_comments'] + $comment_count['trash'];
 		echo sprintf(
 			'<li><a href="%s"><icon class="dashicons dashicons-nametag"></icon> %s %s</a></li>',
 			esc_url( admin_url( 'edit-comments.php?comment_status=mine&user_id=' . get_current_user_id() ) ),
-			$summary->get_user_comments_count(),
+			Core\get_user_comments_count(),
 			_n(
 				'Comment By You',
 				'Comments By You',
-				$summary->get_user_comments_count(),
+				Core\get_user_comments_count(),
 				'dashboard-summary'
 			)
 		);
@@ -168,11 +169,11 @@ $comment_total = $comment_count['total_comments'] + $comment_count['trash'];
 		// Comments by current user.
 		echo sprintf(
 			'<li><icon class="dashicons dashicons-nametag"></icon> %s %s</li>',
-			$summary->get_user_comments_count(),
+			Core\get_user_comments_count(),
 			_n(
 				'Comment By You',
 				'Comments By You',
-				$summary->get_user_comments_count(),
+				Core\get_user_comments_count(),
 				'dashboard-summary'
 			)
 		);
@@ -195,14 +196,14 @@ if ( current_user_can( 'list_users' ) ) :
 			<?php
 
 			// Count the registered users.
-			$users_count = number_format_i18n( $summary->total_users() );
+			$users_count = number_format_i18n( Core\total_users() );
 
 			/**
 			 * Icon based on the count.
 			 * Used to display single person icon for one user or
 			 * group icon for multiple users.
 			 */
-			if ( 1 == $summary->total_users() ) {
+			if ( 1 == Core\total_users() ) {
 				$users_icon = 'dashicons-admin-users';
 			} else {
 				$users_icon = 'dashicons-groups';
@@ -216,7 +217,7 @@ if ( current_user_can( 'list_users' ) ) :
 				'<a href="%s"><icon class="dashicons %s"></icon> %s %s</a>',
 				esc_url( admin_url( 'users.php' ) ),
 				$users_icon,
-				$summary->total_users(),
+				Core\total_users(),
 				$users
 			); ?>
 		</li>

@@ -18,7 +18,8 @@
 
 namespace Dashboard_Summary\Core_Widget;
 
-use Dashboard_Summary\Settings as Settings;
+use Dashboard_Summary\Settings as Settings,
+	Dashboard_Summary\Core     as Core;
 
 use function Dashboard_Summary\Classes\summary;
 
@@ -114,7 +115,7 @@ function admin_print_styles( $style = '' ) {
 	 */
 
 	// Get post types.
-	$post_types = summary()->custom_types_query();
+	$post_types = Core\custom_types_query();
 
 	// Prepare styles for each post type matching the query.
 	$type_count = '';
@@ -173,7 +174,7 @@ function at_glance() {
 	$builtin = [ 'attachment' ];
 
 	// Custom post types query.
-	$query = summary()->custom_types_query();
+	$query = Core\custom_types_query();
 
 	// Merge the post types.
 	$post_types = array_merge( $builtin, $query );
@@ -256,7 +257,7 @@ function at_glance() {
 	do_action( 'ds_glance_items_two' );
 
 	// Get taxonomies.
-	$taxonomies = summary()->taxonomies_query();
+	$taxonomies = Core\taxonomies_query();
 
 	// Prepare an entry for each taxonomy matching the query.
 	if ( $taxonomies ) {
@@ -333,14 +334,14 @@ function at_glance() {
 	if ( current_user_can( 'manage_users' ) ) {
 
 		// Count the registered users.
-		$users_count = number_format_i18n( summary()->total_users() );
+		$users_count = number_format_i18n( Core\total_users() );
 
 		/**
 		 * List item class based on the count.
 		 * Used to display single person icon for one user or
 		 * group icon for multiple users.
 		 */
-		if ( 1 == summary()->total_users() ) {
+		if ( 1 == Core\total_users() ) {
 			$users_class = 'at-glance-user-count';
 		} else {
 			$users_class = 'at-glance-users-count';
@@ -354,7 +355,7 @@ function at_glance() {
 			'<li class="%s"><a href="%s">%s %s</a></li>',
 			$users_class,
 			self_admin_url( 'users.php' ),
-			summary()->total_users(),
+			Core\total_users(),
 			$users
 		);
 	}
@@ -370,9 +371,6 @@ function at_glance() {
  * @return string Returns the markup of the system information.
  */
 function system_info( $content ) {
-
-	// Instance of the Summary class.
-	$summary = summary();
 
 	// This content is for a native widget.
 	$native_widget = true;

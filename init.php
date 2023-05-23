@@ -21,24 +21,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die;
 }
 
-/**
- * Class autoloader
- *
- * The autoloader registers plugin classes for later use,
- * such as running new instances below.
- */
-require_once DS_PATH . 'includes/classes/autoload.php';
-
 // Load required files.
 foreach ( glob( DS_PATH . 'includes/*.php' ) as $filename ) {
 	require $filename;
 }
 
-add_action( 'admin_init', __NAMESPACE__ . '\admin_init' );
-
 Settings\setup();
 Assets\setup();
-new Classes\Summary;
 
 /**
  * Admin initialization function
@@ -67,5 +56,6 @@ function admin_init() {
 		Core_Network_Widget\setup();
 	}
 
-	add_filter( 'gettext', [ 'Dashboard_Summary\Classes\Summary', 'plugin_modal_button_text' ], 20, 3 );
+	add_filter( 'gettext', '\Dashboard_Summary\Core\plugin_modal_button_text', 20, 3 );
 }
+add_action( 'admin_init', __NAMESPACE__ . '\admin_init' );

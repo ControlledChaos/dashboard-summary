@@ -18,15 +18,13 @@
 namespace Dashboard_Summary\Views;
 
 // Alias namespaces.
-use Dashboard_Summary\Classes as Classes;
+use Dashboard_Summary\Classes as Classes,
+	Dashboard_Summary\Core    as Core;
 
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) {
 	die;
 }
-
-// Get class instances.
-$summary = Classes\summary();
 
 // Updates count.
 $update_data = wp_get_update_data();
@@ -53,7 +51,7 @@ do_action( 'ds_default_widget_before' );
 
 		<li><a href="#ds-widget-users-discussion"><?php _e( 'Users', 'dashboard-summary' ); ?></a></li>
 
-		<?php if ( $summary->updates_tab() ) : ?>
+		<?php if ( Core\updates_tab() ) : ?>
 		<li><a href="#ds-widget-updates"><?php _e( 'Updates', 'dashboard-summary' ); echo $update_count; ?></a></li>
 		<?php endif; ?>
 
@@ -84,7 +82,7 @@ do_action( 'ds_default_widget_before' );
 		?>
 	</section>
 
-	<?php if ( $summary->updates_tab() ) : ?>
+	<?php if ( Core\updates_tab() ) : ?>
 	<section id="ds-widget-updates" class="ds-widget-section ds-tabs-panel">
 		<?php
 

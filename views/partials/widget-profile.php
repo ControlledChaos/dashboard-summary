@@ -11,8 +11,9 @@
 namespace Dashboard_Summary\Views;
 
 // Alias namespaces.
-use Dashboard_Summary\Classes      as Classes;
-use Dashboard_Summary\User_Options as Options;
+use Dashboard_Summary\Classes      as Classes,
+	Dashboard_Summary\User_Options as Options,
+	Dashboard_Summary\Core         as Core;
 
 use function Dashboard_Summary\User_Colors\get_user_color_scheme;
 
@@ -66,7 +67,7 @@ $user_options_description = apply_filters(
 	sprintf(
 		'<p class="description">%s %s.</p>',
 		__( 'A quick review of your options for using this', 'dashboard-summary' ),
-		$summary->dashboard_type()
+		Core\dashboard_type()
 	)
 );
 
@@ -89,7 +90,7 @@ $tools_description = apply_filters(
 <?php echo $tab_heading; ?>
 <?php echo $tab_description; ?>
 
-<?php $summary->user_intro(); ?>
+<?php Core\user_intro(); ?>
 
 <div class="ds-widget-profile">
 	<div class="ds-tabbed-content">
@@ -130,7 +131,7 @@ $tools_description = apply_filters(
 				<div id="ds-user-bio" class="ds-modal" role="dialog" aria-labelledby="ds-modal-bio-heading-text" aria-describedby="ds-user-bio-content">
 					<div class="ds-modal-content">
 						<div class="ds-modal-bio-heading hide-if-no-js">
-							<?php $summary->user_avatar(); ?>
+							<?php Core\user_avatar(); ?>
 							<p id="ds-modal-bio-heading-text"><strong><?php echo __( 'About', 'dashboard-summary' ) . ' ' . Options\display_name(); ?></strong></p>
 						</div>
 						<div id="ds-user-bio-content">

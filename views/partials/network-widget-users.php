@@ -11,7 +11,8 @@
 namespace Dashboard_Summary\Views;
 
 // Alias namespaces.
-use Dashboard_Summary\Classes as Classes;
+use Dashboard_Summary\Classes as Classes,
+	Dashboard_Summary\Core    as Core;
 
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -79,14 +80,14 @@ $tools_description = apply_filters(
 			<?php
 
 			// Count the registered users.
-			$users_count = number_format_i18n( $summary->total_users() );
+			$users_count = number_format_i18n( Core\total_users() );
 
 			/**
 			 * Icon based on the count.
 			 * Used to display single person icon for one user or
 			 * group icon for multiple users.
 			 */
-			if ( 1 == $summary->total_users() ) {
+			if ( 1 == Core\total_users() ) {
 				$users_icon = 'dashicons-admin-users';
 			} else {
 				$users_icon = 'dashicons-groups';
@@ -100,7 +101,7 @@ $tools_description = apply_filters(
 				'<a href="%s"><icon class="dashicons %s"></icon> %s %s</a>',
 				esc_url( network_admin_url( 'users.php' ) ),
 				$users_icon,
-				$summary->total_users(),
+				Core\total_users(),
 				$users
 			); ?>
 		</li>

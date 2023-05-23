@@ -14,7 +14,8 @@
 namespace Dashboard_Summary\Views;
 
 // Alias namespaces.
-use Dashboard_Summary\Classes as Classes;
+use Dashboard_Summary\Classes as Classes,
+	Dashboard_Summary\Core    as Core;
 
 define( 'IFRAME_REQUEST', true );
 
@@ -44,12 +45,6 @@ if ( file_exists( ABSPATH . 'wp-admin/admin.php' ) ) {
 	die( $die );
 }
 
-// Get the class autoloader.
-require_once dirname( dirname( __FILE__ ) ) . '/includes/autoloader.php';
-
-// New instance of the Summary class.
-$summary = new Classes\Summary;
-
 /**
  * Get the plugin list table
  *
@@ -65,7 +60,7 @@ wp_enqueue_script( 'plugin-install' );
 $body_id = 'plugin-information';
 
 // Display plugin information.
-$summary->plugin_info_modal();
+Core\plugin_info_modal();
 
 // Get the admin screen header.
 require_once ABSPATH . 'wp-admin/admin-header.php';

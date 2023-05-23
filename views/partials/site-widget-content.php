@@ -11,7 +11,8 @@
 namespace Dashboard_Summary\Views;
 
 // Alias namespaces.
-use Dashboard_Summary\Classes as Classes;
+use Dashboard_Summary\Classes as Classes,
+	Dashboard_Summary\Core    as Core;
 
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -95,14 +96,14 @@ $tools_description = apply_filters(
 	<h4><?php echo $types_heading; ?></h4>
 	<?php echo $types_description; ?>
 
-	<?php $summary->post_types_list(); ?>
+	<?php Core\post_types_list(); ?>
 </div>
 
 <div class="ds-widget-divided-section ds-widget-content-taxes">
 	<h4><?php echo $taxes_heading; ?></h4>
 	<?php echo $taxes_description; ?>
 
-	<?php $summary->taxonomies_icons_list(); ?>
+	<?php Core\taxonomies_icons_list(); ?>
 </div>
 
 <div class="ds-widget-divided-section ds-widget-content-links">

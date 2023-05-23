@@ -11,7 +11,8 @@
 namespace Dashboard_Summary\Views;
 
 // Alias namespaces.
-use Dashboard_Summary\Classes as Classes;
+use Dashboard_Summary\Classes as Classes,
+	Dashboard_Summary\Core    as Core;
 
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -65,7 +66,7 @@ $tools_description = apply_filters( 'ds_widget_updates_tools_description', $tool
 
 	<h4><?php _e( 'System', 'dashboard-summary' ); ?></h4>
 
-	<?php echo $summary->update_system_list(); ?>
+	<?php echo Core\update_system_list(); ?>
 </div>
 <?php endif; ?>
 
@@ -74,7 +75,7 @@ $tools_description = apply_filters( 'ds_widget_updates_tools_description', $tool
 
 	<h4><?php _e( 'Plugins', 'dashboard-summary' ); ?></h4>
 
-	<?php echo $summary->update_plugins_list(); ?>
+	<?php echo Core\update_plugins_list(); ?>
 </div>
 <?php endif; ?>
 
@@ -83,7 +84,7 @@ $tools_description = apply_filters( 'ds_widget_updates_tools_description', $tool
 
 	<h4><?php _e( 'Themes', 'dashboard-summary' ); ?></h4>
 
-	<?php echo $summary->update_themes_list(); ?>
+	<?php echo Core\update_themes_list(); ?>
 </div>
 <?php endif; ?>
 
