@@ -64,7 +64,7 @@ function admin_init() {
 	// Network dashboard.
 	if ( is_network_admin() && 'index.php' === $pagenow ) {
 		new Classes\Network_Widget;
-		new Classes\Network_Default_Widget;
+		Core_Network_Widget\setup();
 	}
 
 	add_filter( 'gettext', [ 'Dashboard_Summary\Classes\Summary', 'plugin_modal_button_text' ], 20, 3 );
