@@ -29,9 +29,10 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 require_once DS_PATH . 'includes/classes/autoload.php';
 
-require_once DS_PATH . 'includes/assets.php';
-require_once DS_PATH . 'includes/settings.php';
-require_once DS_PATH . 'includes/user-colors.php';
+// Load required files.
+foreach ( glob( DS_PATH . 'includes/*.php' ) as $filename ) {
+	require $filename;
+}
 
 add_action( 'admin_init', __NAMESPACE__ . '\admin_init' );
 
