@@ -58,7 +58,7 @@ function admin_init() {
 	// Site dashboard.
 	if ( is_admin() && ! is_network_admin() && 'index.php' === $pagenow ) {
 		new Classes\Site_Widget;
-		new Classes\Site_Default_Widget;
+		Core_Widget\setup();
 	}
 
 	// Network dashboard.
