@@ -1653,7 +1653,7 @@ function updates_tab() {
  */
 function plugin_modal_button_text( $translated_text, $text, $domain ) {
 
-	if ( $translated_text === 'Install Update Now' ) {
+	if ( 'Install Update Now' === $translated_text ) {
 		$translated_text = __( 'Close to Install', 'dashboard-summary' );
 	}
 	return $translated_text;
