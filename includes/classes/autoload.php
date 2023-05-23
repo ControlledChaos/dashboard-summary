@@ -34,9 +34,7 @@ define( 'DS_CLASS', DS_PATH . 'includes/classes/class-' );
  * @var   array Defines an array of class files to register.
  */
 define( 'DS_CLASSES', [
-	__NAMESPACE__ . '\Classes\Summary'        => DS_CLASS . 'summary.php',
-	__NAMESPACE__ . '\Classes\Site_Widget'    => DS_CLASS . 'site-widget.php',
-	__NAMESPACE__ . '\Classes\Network_Widget' => DS_CLASS . 'network-widget.php'
+	__NAMESPACE__ . '\Classes\Summary' => DS_CLASS . 'summary.php'
 ] );
 
 /**

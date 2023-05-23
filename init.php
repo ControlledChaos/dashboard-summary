@@ -57,13 +57,13 @@ function admin_init() {
 
 	// Site dashboard.
 	if ( is_admin() && ! is_network_admin() && 'index.php' === $pagenow ) {
-		new Classes\Site_Widget;
+		Site_Widget\setup();
 		Core_Widget\setup();
 	}
 
 	// Network dashboard.
 	if ( is_network_admin() && 'index.php' === $pagenow ) {
-		new Classes\Network_Widget;
+		Network_Widget\setup();
 		Core_Network_Widget\setup();
 	}
 
