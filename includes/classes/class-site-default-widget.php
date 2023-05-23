@@ -423,7 +423,7 @@ class Site_Default_Widget {
 			! is_network_admin() &&
 			! is_user_admin() &&
 			current_user_can( 'manage_options' ) &&
-			'0' == get_option( 'blog_public' )
+			! get_option( 'blog_public' )
 		) {
 			$style  = '<style>';
 			$style .= 'p.search-engines-info { display: none; }';

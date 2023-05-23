@@ -685,7 +685,7 @@ class Summary {
 		if (
 			! is_user_admin() &&
 			current_user_can( 'manage_options' ) &&
-			'0' == get_option( 'blog_public' )
+			! get_option( 'blog_public' )
 		) {
 			// Markup of the notice.
 			$output = sprintf(

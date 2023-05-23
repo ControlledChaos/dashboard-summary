@@ -335,49 +335,6 @@ final class Settings {
 		}
 		return false;
 	}
-
-	/**
-	 * Settings link
-	 *
-	 * Add settings link to plugin row on the Plugins pages
-	 * in site and network admin.
-	 *
-	 * @param  array $links Default plugin links on the Plugins admin page.
-	 * @since  1.0.0
-	 * @access public
-	 * @return string Returns the new set of plugin links.
-	 */
-	public static function settings_link( $links, $settings = [] ) {
-
-		// Stop if not in the admin.
-		if ( ! is_admin() ) {
-			return;
-		}
-
-		// Markup of the network admin link.
-		if ( is_multisite() && is_network_admin() ) {
-			$settings = [
-				sprintf(
-					'<a href="%s">%s</a>',
-					esc_url( network_admin_url( 'settings.php#network-summary-description' ) ),
-					esc_html__( 'Settings', 'dashboard-summary' )
-				)
-			];
-
-		// Markup of the site admin link.
-		} else {
-			$settings = [
-				sprintf(
-					'<a href="%s">%s</a>',
-					esc_url( admin_url( 'options-general.php#website-summary-description' ) ),
-					esc_html__( 'Settings', 'dashboard-summary' )
-				)
-			];
-		}
-
-		// Merge the new link with existing links.
-		return array_merge( $settings, $links );
-	}
 }
 
 /**

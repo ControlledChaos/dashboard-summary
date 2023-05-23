@@ -79,6 +79,74 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 define( 'DS_BASENAME', plugin_basename( __FILE__ ) );
 
+/**
+ * Load text domain
+ *
+ * @since  1.0.0
+ * @return void
+ */
+function load_plugin_textdomain() {
+
+	// Load plugin text domain.
+	\load_plugin_textdomain(
+		'dashboard-summary',
+		false,
+		dirname( DS_BASENAME ) . '/languages'
+	);
+
+	// If this is in the must-use plugins directory.
+	\load_muplugin_textdomain(
+		'dashboard-summary',
+		dirname( DS_BASENAME ) . '/languages'
+	);
+}
+add_action( 'plugins_loaded', __NAMESPACE__ . '\load_plugin_textdomain' );
+
+/**
+ * Settings link
+ *
+ * Add settings link to plugin row on the Plugins pages
+ * in site and network admin.
+ *
+ * @param  array $links Default plugin links on the Plugins admin page.
+ * @since  1.0.0
+ * @return string Returns the new set of plugin links.
+ */
+function settings_link( $links, $settings = [] ) {
+
+	// Stop if not in the admin.
+	if ( ! is_admin() ) {
+		return;
+	}
+
+	// Markup of the network admin link.
+	if ( is_multisite() && is_network_admin() ) {
+		$settings = [
+			sprintf(
+				'<a href="%s">%s</a>',
+				esc_url( network_admin_url( 'settings.php#network-summary-description' ) ),
+				esc_html__( 'Settings', 'dashboard-summary' )
+			)
+		];
+
+	// Markup of the site admin link.
+	} else {
+		$settings = [
+			sprintf(
+				'<a href="%s">%s</a>',
+				esc_url( admin_url( 'options-general.php#website-summary-description' ) ),
+				esc_html__( 'Settings', 'dashboard-summary' )
+			)
+		];
+	}
+
+	// Merge the new link with existing links.
+	return array_merge( $settings, $links );
+}
+add_action( 'plugins_loaded', function() {
+	add_filter( 'plugin_action_links_' . DS_BASENAME, __NAMESPACE__ . '\settings_link' );
+} );
+
 // Get the PHP version class.
 require_once plugin_dir_path( __FILE__ ) . 'includes/classes/class-php-version.php';
 
@@ -123,7 +191,6 @@ include_once DS_PATH . 'includes/activate/deactivate.php';
  * @return void
  */
 function activate_plugin() {
-
 	Activate\get_row_notice();
 }
 

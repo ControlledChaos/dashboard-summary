@@ -21,6 +21,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die;
 }
 
+/**
+ * Class autoloader
+ *
+ * The autoloader registers plugin classes for later use,
+ * such as running new instances below.
+ */
+require_once DS_PATH . 'includes/classes/autoload.php';
+
 // Hook initialization functions.
 add_action( 'init', __NAMESPACE__ . '\init' );
 add_action( 'admin_init', __NAMESPACE__ . '\admin_init' );
@@ -38,35 +46,10 @@ add_action( 'admin_init', __NAMESPACE__ . '\admin_init' );
  */
 function init() {
 
-	// Load plugin text domain.
-	load_plugin_textdomain(
-		'dashboard-summary',
-		false,
-		dirname( DS_BASENAME ) . '/languages'
-	);
-
-	// If this is in the must-use plugins directory.
-	load_muplugin_textdomain(
-		'dashboard-summary',
-		dirname( DS_BASENAME ) . '/languages'
-	);
-
-	/**
-	 * Class autoloader
-	 *
-	 * The autoloader registers plugin classes for later use,
-	 * such as running new instances below.
-	 */
-	require_once DS_PATH . 'includes/autoloader.php';
-
 	// Settings and core methods.
 	new Classes\Settings;
 	new Classes\Summary;
 	new Classes\User_Options;
-
-	// Add settings link to plugin row.
-	add_filter( 'plugin_action_links_' . DS_BASENAME, [ __NAMESPACE__ . '\Classes\Settings', 'settings_link' ], 99 );
-	add_filter( 'network_admin_plugin_action_links_' . DS_BASENAME, [ __NAMESPACE__ . '\Classes\Settings', 'settings_link' ], 99 );
 }
 
 /**
