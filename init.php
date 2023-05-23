@@ -22,7 +22,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Load required files.
-foreach ( glob( DS_PATH . 'includes/*.php' ) as $filename ) {
+foreach ( glob( DS_PATH . 'includes/core/*.php' ) as $filename ) {
+	require $filename;
+}
+foreach ( glob( DS_PATH . 'includes/users/*.php' ) as $filename ) {
+	require $filename;
+}
+foreach ( glob( DS_PATH . 'includes/widgets/*.php' ) as $filename ) {
 	require $filename;
 }
 
