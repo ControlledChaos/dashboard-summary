@@ -12,6 +12,9 @@
 
 namespace Dashboard_Summary\Classes;
 
+use Dashboard_Summary\Settings as Settings;
+use function Dashboard_Summary\User_Colors\user_colors;
+
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) {
 	die;
@@ -59,7 +62,7 @@ class Network_Widget {
 		$title = apply_filters( 'ds_network_widget_title', DS_NETWORK_WIDGET_TITLE );
 
 		// Add the widget if the setting is true.
-		if ( true == settings()->sanitize_network_summary() ) {
+		if ( true == Settings\sanitize_network_summary() ) {
 			wp_add_dashboard_widget( 'dashboard_summary', $title, [ $this, 'output' ] );
 		}
 	}
@@ -125,11 +128,8 @@ class Network_Widget {
 	 */
 	public function admin_print_styles( $style = '' ) {
 
-		// Instantiate the User_Colors class.
-		$user_colors = new User_Colors;
-
 		// Get user colors.
-		$colors = $user_colors->user_colors();
+		$colors =user_colors();
 
 		// Tabs sections: hide while stylesheet loading.
 		$style  = '<style>';

@@ -17,6 +17,8 @@
 
 namespace Dashboard_Summary\Classes;
 
+use Dashboard_Summary\Settings as Settings;
+
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) {
 	die;
@@ -34,14 +36,14 @@ class Network_Default_Widget {
 	public function __construct() {
 
 		// If the Right Now widget setting is false/unchecked.
-		if ( false == settings()->sanitize_network_right_now() ) {
+		if ( false == Settings\sanitize_network_right_now() ) {
 
 			// Remove Right Now widget.
 			add_action( 'wp_network_dashboard_setup', [ $this, 'remove_widget' ] );
 		}
 
 		// If the Right Now widget setting is true/checked.
-		if ( true == settings()->sanitize_network_right_now() ) {
+		if ( true == Settings\sanitize_network_right_now() ) {
 
 			// Print admin styles to head.
 			add_action( 'admin_print_styles', [ $this, 'admin_print_styles' ], 20 );

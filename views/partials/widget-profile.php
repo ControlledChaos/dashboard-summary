@@ -13,6 +13,8 @@ namespace Dashboard_Summary\Views;
 // Alias namespaces.
 use Dashboard_Summary\Classes as Classes;
 
+use function Dashboard_Summary\User_Colors\get_user_color_scheme;
+
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) {
 	die;
@@ -149,7 +151,7 @@ $tools_description = apply_filters(
 				<ul class="ds-widget-details-list ds-widget-options-list">
 					<li><?php _e( 'Account email:', 'dashboard-summary' ); ?> <strong><?php echo $user_options->email(); ?></strong></li>
 					<li><?php _e( 'Your website:', 'dashboard-summary' ); ?> <strong><?php echo $user_options->website(); ?></strong></li>
-					<li><?php _e( 'Admin color scheme:', 'dashboard-summary' ); ?> <strong><?php echo $user_colors->get_user_color_scheme(); ?></strong></li>
+					<li><?php _e( 'Admin color scheme:', 'dashboard-summary' ); ?> <strong><?php echo get_user_color_scheme(); ?></strong></li>
 					<li><?php _e( 'Frontend toolbar:', 'dashboard-summary' ); ?> <strong><?php echo $user_options->toolbar(); ?></strong></li>
 				</ul>
 			</div>

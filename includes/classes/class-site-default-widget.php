@@ -18,6 +18,8 @@
 
 namespace Dashboard_Summary\Classes;
 
+use Dashboard_Summary\Settings as Settings;
+
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) {
 	die;
@@ -35,14 +37,14 @@ class Site_Default_Widget {
 	public function __construct() {
 
 		// If the At a Glance widget setting is false/unchecked.
-		if ( false == settings()->sanitize_glance() ) {
+		if ( false == Settings\sanitize_glance() ) {
 
 			// Remove At a Glance widget.
 			add_action( 'wp_dashboard_setup', [ $this, 'remove_widget' ] );
 		}
 
 		// If the At a Glance widget setting is true/checked.
-		if ( true == settings()->sanitize_glance() ) {
+		if ( true == Settings\sanitize_glance() ) {
 
 			// Print admin scripts to head.
 			add_action( 'admin_print_scripts', [ $this, 'print_scripts' ], 20 );

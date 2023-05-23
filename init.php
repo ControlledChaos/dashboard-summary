@@ -30,30 +30,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 require_once DS_PATH . 'includes/classes/autoload.php';
 
 require_once DS_PATH . 'includes/settings.php';
+require_once DS_PATH . 'includes/user-colors.php';
 
-// Hook initialization functions.
-add_action( 'init', __NAMESPACE__ . '\init' );
 add_action( 'admin_init', __NAMESPACE__ . '\admin_init' );
 
 Settings\setup();
-
-/**
- * Initialization function
- *
- * Loads PHP classes and text domain.
- * Instantiates various classes.
- * Adds settings link in the plugin row.
- *
- * @since  1.0.0
- * @access public
- * @return void
- */
-function init() {
-
-	// Settings and core methods.
-	new Classes\Summary;
-	new Classes\User_Options;
-}
+new Classes\Summary;
+new Classes\User_Options;
 
 /**
  * Admin initialization function

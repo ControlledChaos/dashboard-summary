@@ -41,7 +41,6 @@ define( 'DS_CLASSES', [
 	__NAMESPACE__ . '\Classes\Summary'                => DS_CLASS . 'summary.php',
 	__NAMESPACE__ . '\Classes\Site_Widget'            => DS_CLASS . 'site-widget.php',
 	__NAMESPACE__ . '\Classes\Network_Widget'         => DS_CLASS . 'network-widget.php',
-	__NAMESPACE__ . '\Classes\User_Colors'            => DS_CLASS . 'user-colors.php',
 	__NAMESPACE__ . '\Classes\User_Options'           => DS_CLASS . 'user-options.php'
 ] );
 

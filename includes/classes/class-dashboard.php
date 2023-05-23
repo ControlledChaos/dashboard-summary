@@ -13,6 +13,9 @@
 
 namespace Dashboard_Summary\Classes;
 
+use function Dashboard_Summary\User_Colors\user_colors;
+use function Dashboard_Summary\User_Colors\user_notify_colors;
+
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) {
 	die;
@@ -66,12 +69,11 @@ class Dashboard {
 	public function print_scripts( $scripts = '' ) {
 
 		// Instantiate classes.
-		$colors = new User_Colors;
 		$assets = new Assets;
 
 		// Script to fill base64 background images with current link colors.
 		$scripts  = '<script>';
-		$scripts .= 'var _dashboard_svg_icons = ' . wp_json_encode( $colors->user_colors() ) . ';';
+		$scripts .= 'var _dashboard_svg_icons = ' . wp_json_encode( user_colors() ) . ';';
 		$scripts .= '</script>';
 
 		// Modal window script.
@@ -94,11 +96,10 @@ class Dashboard {
 	public function print_styles( $style = '' ) {
 
 		// Instantiate classes.
-		$colors = new User_Colors;
 		$assets = new Assets;
 
 		// Get user notification colors.
-		$notify_color      = $colors->user_notify_colors();
+		$notify_color      = user_notify_colors();
 		$notify_background = $notify_color['background'];
 		$notify_text       = $notify_color['text'];
 
