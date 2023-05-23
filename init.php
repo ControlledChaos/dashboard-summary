@@ -55,11 +55,6 @@ function admin_init() {
 	// Access current admin page.
 	global $pagenow;
 
-	// Site & network dashboards.
-	if ( ( is_admin() || is_network_admin() ) && 'index.php' === $pagenow ) {
-		new Classes\Dashboard;
-	}
-
 	// Site dashboard.
 	if ( is_admin() && ! is_network_admin() && 'index.php' === $pagenow ) {
 		new Classes\Site_Widget;
