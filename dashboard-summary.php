@@ -189,6 +189,7 @@ include_once DS_PATH . 'includes/activate/deactivate.php';
  */
 function activate_plugin() {
 	Activate\get_row_notice();
+	Activate\update_user_dashboard();
 }
 
 /**

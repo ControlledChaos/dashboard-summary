@@ -88,3 +88,29 @@ function row_notice( $plugin_file, $plugin_data, $status ) {
 	</tr>
 	<?php
 }
+
+/**
+ * Update dashboard layout user option
+ *
+ * @since  1.0.0
+ * @return void
+ */
+function update_user_dashboard() {
+
+	$enable = get_option( 'ds_enable_summary', true );
+
+	if ( $enable ) :
+
+		$users = get_users( [ 'fields' => [ 'id' ] ] );
+		$value = [
+			'normal'  => 'dashboard_summary,dashboard_right_now,dashboard_activity',
+			'side'    => '',
+			'column3' => '',
+			'column4' => ''
+		];
+
+		foreach ( $users as $user ) {
+			update_user_option( $user->id, 'meta-box-order_dashboard', $value, true );
+		}
+	endif;
+}
