@@ -1,11 +1,11 @@
 <?php
 /**
- * Unistall methods
+ * Uninstall methods
  *
  * Runs automatically when the plugin is uninstalled.
  *
  * @package    Dashboard_Summary
- * @subpackage Unistall
+ * @subpackage Uninstall
  * @since      1.0.0
  */
 
