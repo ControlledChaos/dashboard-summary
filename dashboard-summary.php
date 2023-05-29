@@ -167,7 +167,7 @@ include_once DS_PATH . 'includes/activate/deactivate.php';
 /**
  * Register the activation & deactivation hooks
  *
- * The namspace of this file must remain escaped by use of the
+ * The namespace of this file must remain escaped by use of the
  * backslash (`\`) prepending the activation hooks and corresponding
  * functions.
  *
