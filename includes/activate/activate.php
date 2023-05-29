@@ -117,7 +117,9 @@ function update_user_dashboard() {
 	}
 
 	if ( $summary ) {
+
 		$users = get_users( [ 'fields' => [ 'id' ] ] );
+
 		foreach ( $users as $user ) {
 			update_user_option( $user->id, 'meta-box-order_dashboard', $value, true );
 		}
