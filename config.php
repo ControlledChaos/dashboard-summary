@@ -75,7 +75,10 @@ function min_php_version() {
  * @var   string The text of the title.
  */
 if ( ! defined( 'DS_SITE_WIDGET_TITLE' ) ) {
-	define( 'DS_SITE_WIDGET_TITLE', __( 'Website Summary', 'dashboard-summary' ) );
+
+	$title = apply_filters( 'ds_site_widget_title', __( 'Website Summary', 'dashboard-summary' ) );
+
+	define( 'DS_SITE_WIDGET_TITLE', $title );
 }
 
 /**
@@ -85,5 +88,8 @@ if ( ! defined( 'DS_SITE_WIDGET_TITLE' ) ) {
  * @var   string The text of the title.
  */
 if ( ! defined( 'DS_NETWORK_WIDGET_TITLE' ) ) {
-	define( 'DS_NETWORK_WIDGET_TITLE', __( 'Network Summary', 'dashboard-summary' ) );
+
+	$title = apply_filters( 'ds_network_widget_title', __( 'Network Summary', 'dashboard-summary' ) );
+
+	define( 'DS_NETWORK_WIDGET_TITLE', $title );
 }
