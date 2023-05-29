@@ -97,20 +97,29 @@ function row_notice( $plugin_file, $plugin_data, $status ) {
  */
 function update_user_dashboard() {
 
-	$enable = get_option( 'ds_enable_summary', true );
+	$summary = get_option( 'ds_enable_summary', true );
+	$glance  = get_option( 'ds_enable_glance', false );
 
-	if ( $enable ) :
-
-		$users = get_users( [ 'fields' => [ 'id' ] ] );
+	if ( $glance ) {
 		$value = [
 			'normal'  => 'dashboard_summary,dashboard_right_now,dashboard_activity',
-			'side'    => '',
+			'side'    => 'dashboard_quick_press,dashboard_site_health,dashboard_primary',
 			'column3' => '',
 			'column4' => ''
 		];
+	} else {
+		$value = [
+			'normal'  => 'dashboard_summary,dashboard_activity',
+			'side'    => 'dashboard_quick_press,dashboard_site_health,dashboard_primary',
+			'column3' => '',
+			'column4' => ''
+		];
+	}
 
+	if ( $summary ) {
+		$users = get_users( [ 'fields' => [ 'id' ] ] );
 		foreach ( $users as $user ) {
 			update_user_option( $user->id, 'meta-box-order_dashboard', $value, true );
 		}
-	endif;
+	}
 }

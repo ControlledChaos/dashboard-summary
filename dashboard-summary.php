@@ -201,7 +201,9 @@ function activate_plugin() {
  * @access public
  * @return void
  */
-function deactivate_plugin() {}
+function deactivate_plugin() {
+	Deactivate\update_user_dashboard();
+}
 
 /**
  * Disable plugin for PHP version
