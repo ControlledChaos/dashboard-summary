@@ -652,14 +652,18 @@ function search_engines() {
 	) {
 		// Markup of the notice.
 		$output = sprintf(
-			'<a class="ds-search-engines" href="%s">%s</a>',
+			'<a class="ds-search-engines discouraged" href="%s">%s</a>',
 			esc_url( admin_url( 'options-reading.php' ) ),
 			$text
 		);
 
 	// Print nothing if search engines are not discouraged.
 	} else {
-		$output = null;
+		$output = sprintf(
+			'<a class="ds-search-engines allowed" href="%s">%s</a>',
+			esc_url( admin_url( 'options-reading.php' ) ),
+			__( 'Search engines are allowed', 'dashboard-summary' )
+		);
 	}
 
 	// Return the notice. Apply filter for customization.

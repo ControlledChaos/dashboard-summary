@@ -141,10 +141,17 @@ $ds_widget_border_color: $pale_gray;
 		}
 
 		.ds-search-engines {
-			color: $notify_color;
 			font-weight: bold;
 			font-weight: 600;
 			text-decoration: underline;
+
+			&.discouraged {
+				color: $notify_color;
+			}
+
+			&.allowed {
+				color: $success_color;
+			}
 
 			&:hover {
 				text-decoration: none;

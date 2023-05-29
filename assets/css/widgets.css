@@ -262,10 +262,17 @@
 }
 
 #dashboard-widgets #ds-widget .ds-search-engines {
-  color: #f56e28;
   font-weight: bold;
   font-weight: 600;
   text-decoration: underline;
+}
+
+#dashboard-widgets #ds-widget .ds-search-engines.discouraged {
+  color: #f56e28;
+}
+
+#dashboard-widgets #ds-widget .ds-search-engines.allowed {
+  color: #46b450;
 }
 
 #dashboard-widgets #ds-widget .ds-search-engines:hover {
