@@ -49,7 +49,7 @@ define( 'DS_URL', plugin_dir_url(__FILE__ ) );
  * @since 1.0.0
  * @var   string The minimum required PHP version.
  */
-define( 'DS_MIN_PHP_VERSION', '7.4' );
+define( 'DS_MIN_PHP_VERSION', '5.8' );
 
 /**
  * Function: Minimum PHP version

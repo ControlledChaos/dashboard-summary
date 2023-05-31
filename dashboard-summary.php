@@ -19,9 +19,9 @@
  * Author URI:   http://ccdzine.com/
  * Text Domain:  dashboard-summary
  * Domain Path:  /languages
- * Requires PHP: 5.4
+ * Requires PHP: 5.8
  * Requires at least: 3.8
- * Tested up to: 5.7.1
+ * Tested up to: 6.2.2
  */
 
 namespace Dashboard_Summary;
