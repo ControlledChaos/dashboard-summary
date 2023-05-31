@@ -76,9 +76,9 @@ function min_php_version() {
  */
 if ( ! defined( 'DS_SITE_WIDGET_TITLE' ) ) {
 
-	$title = apply_filters( 'ds_site_widget_title', __( 'Website Summary', 'dashboard-summary' ) );
+	$widget_title = apply_filters( 'ds_site_widget_title', __( 'Website Summary', 'dashboard-summary' ) );
 
-	define( 'DS_SITE_WIDGET_TITLE', $title );
+	define( 'DS_SITE_WIDGET_TITLE', $widget_title );
 }
 
 /**
@@ -89,7 +89,7 @@ if ( ! defined( 'DS_SITE_WIDGET_TITLE' ) ) {
  */
 if ( ! defined( 'DS_NETWORK_WIDGET_TITLE' ) ) {
 
-	$title = apply_filters( 'ds_network_widget_title', __( 'Network Summary', 'dashboard-summary' ) );
+	$widget_title = apply_filters( 'ds_network_widget_title', __( 'Network Summary', 'dashboard-summary' ) );
 
-	define( 'DS_NETWORK_WIDGET_TITLE', $title );
+	define( 'DS_NETWORK_WIDGET_TITLE', $widget_title );
 }
