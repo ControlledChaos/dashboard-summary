@@ -741,6 +741,7 @@ function active_theme_uri() {
 
 	// Get theme data.
 	$theme     = wp_get_theme();
+	$uri       = '';
 	$theme_uri = $theme->get( 'ThemeURI' );
 
 	// If the theme header has a URI.
@@ -1528,15 +1529,16 @@ function user_avatar() {
 	$current_user = wp_get_current_user();
 	$user_id      = get_current_user_id();
 	$user_name    = $current_user->display_name;
-	$avatar       = get_avatar(
+
+	$avatar = get_avatar(
 		$user_id,
 		64,
 		'',
 		$current_user->display_name,
 		[
 			'class'         => 'dashboard-panel-avatar alignnone',
-			'force_display' => true
-			]
+			'force_display' => false
+		]
 	);
 
 	?>
