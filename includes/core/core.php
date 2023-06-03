@@ -2161,3 +2161,13 @@ function plugin_info_modal() {
 	 */
 	exit;
 }
+
+/**
+ * Show health link
+ *
+ * @since  1.0.0
+ * @return boolean Returns true by default.
+ */
+function show_health_link() {
+	return apply_filters( 'ds_show_health_link', true );
+}

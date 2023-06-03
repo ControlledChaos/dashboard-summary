@@ -168,7 +168,7 @@ if ( current_user_can( 'manage_options' ) && $native_widget == false ) :
 		<?php
 
 		// Link to the Site Health page if available.
-		if ( class_exists( 'WP_Site_Health' ) && current_user_can( 'view_site_health_checks' ) ) : ?>
+		if (  Core\show_health_link() && class_exists( 'WP_Site_Health' ) && current_user_can( 'view_site_health_checks' ) ) : ?>
 
 		<?php
 
