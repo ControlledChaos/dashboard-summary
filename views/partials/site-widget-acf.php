@@ -107,9 +107,13 @@ $acf_link_tools = apply_filters(
 
 <div class="ds-widget-divided-section ds-widget-acf-links">
 
+	<?php
+
+	if ( ACF\acf_display_types_taxes_links() ) :
+
+	?>
 	<?php echo $acf_heading_types; ?>
 
-	<?php if ( ACF\acf_display_types_taxes_links() ) : ?>
 	<p class="ds-widget-link-button">
 		<a class="button button-primary" href="<?php echo self_admin_url( 'edit.php?post_type=acf-post-type' ); ?>">
 			<?php _e( 'Post Types', 'dashboard-summary' ); ?>
@@ -135,9 +139,9 @@ $acf_link_tools = apply_filters(
 		</a>
 	</p>
 	<?php echo $acfe_description_types; ?>
-	<?php endif; ?>
 
 	<hr />
+	<?php endif; ?>
 
 	<h4><?php echo $acf_heading_fields; ?></h4>
 
