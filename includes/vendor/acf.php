@@ -233,10 +233,10 @@ function acfe_post_types() {
 	}
 
 	$post_types = [
-		'acfe-form',
+		'acfe-dop',
 		'acfe-dpt',
 		'acfe-dt',
-		'acfe-dop',
+		'acfe-form',
 		'acfe-dbt'
 	];
 
@@ -267,6 +267,9 @@ function acfe_post_types() {
 	// Begin the post types list.
 	$html .= '<ul class="ds-content-list ds-post-types-list">';
 
+	// Count field groups category.
+	$html .= acfe_fields_category();
+
 	// Conditional list items.
 	foreach ( $post_types as $post_type ) {
 
@@ -289,11 +292,13 @@ function acfe_post_types() {
 		} elseif ( 'acfe-dt' == $post_type ) {
 			$icon = 'dashicons-category';
 		} elseif ( 'acfe-form' == $post_type ) {
-			$icon = 'dashicons-welcome-widgets-menus';
+			$icon = 'dashicons-edit';
 		} elseif ( 'acfe-dbt' == $post_type ) {
 			$icon = 'dashicons-block-default';
+		} elseif ( 'acfe-dop' == $post_type ) {
+			$icon = 'dashicons-admin-page';
 		} elseif ( 'acfe-template' == $post_type ) {
-			$icon = 'dashicons-screenoptions';
+			$icon = 'dashicons-migrate';
 		}
 
 		$html .= sprintf(
@@ -305,8 +310,6 @@ function acfe_post_types() {
 			$name
 		);
 	}
-
-	$html .= acfe_fields_category();
 
 	// End the post types list.
 	$html .= '</ul>';
