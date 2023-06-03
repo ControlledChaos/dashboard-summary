@@ -2161,3 +2161,42 @@ function plugin_info_modal() {
 	 */
 	exit;
 }
+
+/**
+ * Display ACF content types links
+ *
+ * Whether to display links to ACF custom post
+ * types and custom taxonomies.
+ *
+ * Versions of ACF lower than 6.1.0 do not have
+ * his feature, and forks of ACF prior to this
+ * version may not.
+ */
+function acf_display_types_taxes_links() {
+
+	if ( ! function_exists( 'acf_get_setting' ) ) {
+		return;
+	}
+
+	$links = false;
+	if ( acf_get_setting( 'version' ) >= '6.1.0' ) {
+		$links = true;
+	}
+	return apply_filters( 'ds_acf_display_types_taxes_links', $links );
+}
+
+/**
+ * Display ACFE content types links
+ *
+ * Whether to display the custom post types
+ * and custom taxonomies feature added by
+ * the Advanced Custom Fields: Extended plugin.
+ */
+function acfe_display_types_taxes_links() {
+
+	$links = false;
+	if ( class_exists( 'acfe' ) ) {
+		$links =  true;
+	}
+	return apply_filters( 'ds_acfe_display_types_taxes_links', $links );
+}

@@ -7,7 +7,7 @@
  *
  * @package    Dashboard_Summary
  * @subpackage Includes
- * @category   Settings
+ * @category   Core
  * @since      1.0.0
  */
 
