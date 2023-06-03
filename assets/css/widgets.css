@@ -163,6 +163,10 @@
   margin-top: 0.325em;
 }
 
+#dashboard-widgets #ds-widget li.acf-field-count {
+  cursor: not-allowed;
+}
+
 #dashboard-widgets #ds-widget .ds-widget-search-fields {
   display: -webkit-box;
   display: -ms-flexbox;

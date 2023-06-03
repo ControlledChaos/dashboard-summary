@@ -118,7 +118,8 @@ function acfe_display_types_taxes_links() {
 function acf_post_types() {
 
 	$post_types = [
-		'acf-field-group'
+		'acf-field-group',
+		'acf-field'
 	];
 
 	if ( acf_display_types_taxes_links() ) {
@@ -151,20 +152,33 @@ function acf_post_types() {
 
 		if ( 'acf-field-group' == $post_type ) {
 			$icon = 'dashicons-welcome-widgets-menus';
+		} elseif ( 'acf-field' == $post_type ) {
+			$icon  = 'dashicons-forms';
+			$name .= __( ' (private)', 'dashboard-summary' );
 		} elseif ( 'acf-post-type' == $post_type ) {
 			$icon = 'dashicons-admin-post';
 		} elseif ( 'acf-taxonomy' == $post_type ) {
 			$icon = 'dashicons-category';
 		}
 
-		$html .= sprintf(
-			'<li class="post-count %s-count"><a href="edit.php?post_type=%s"><icon class="dashicons %s"></icon> %s %s</a></li>',
-			$type->name,
-			$type->name,
-			$icon,
-			$number,
-			$name
-		);
+		if ( 'acf-field' == $post_type ) {
+			$html .= sprintf(
+				'<li class="post-count %s-count"><icon class="dashicons %s"></icon> %s %s</li>',
+				$type->name,
+				$icon,
+				$number,
+				$name
+			);
+		} else {
+			$html .= sprintf(
+				'<li class="post-count %s-count"><a href="edit.php?post_type=%s"><icon class="dashicons %s"></icon> %s %s</a></li>',
+				$type->name,
+				$type->name,
+				$icon,
+				$number,
+				$name
+			);
+		}
 	}
 
 	// End the post types list.

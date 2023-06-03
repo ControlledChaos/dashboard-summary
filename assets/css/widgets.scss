@@ -39,6 +39,10 @@ $ds_widget_border_color: $pale_gray;
 		li {
 			margin: 0;
 			margin-top: 0.325em;
+
+			&.acf-field-count {
+				cursor: not-allowed;
+			}
 		}
 
 		.ds-widget-search-fields {
