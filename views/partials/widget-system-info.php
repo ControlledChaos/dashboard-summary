@@ -12,7 +12,8 @@ namespace Dashboard_Summary\Views;
 
 // Alias namespaces.
 use Dashboard_Summary\Classes as Classes,
-	Dashboard_Summary\Core    as Core;
+	Dashboard_Summary\Core    as Core,
+	Dashboard_Summary\ACF     as ACF;
 
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -210,8 +211,23 @@ if ( current_user_can( 'manage_options' ) && $native_widget == false ) :
 		<?php
 
 		// Link to the options page if not network dashboard.
-		if ( ! is_network_admin() ) : ?>
-		<a class="button button-primary" href="<?php echo admin_url( 'options.php' ); ?>">
+		if ( ! is_network_admin() ) :
+
+			/**
+			 * Link to the enhanced options page if the Advanced
+			 * Custom Fields: Extended plugin is active.
+			 */
+			if ( ACF\acfe_active() ) {
+				$options_link = 'options-general.php?page=acfe-options';
+
+			// The core options screen.
+			} else {
+				$options_link = 'options.php';
+			}
+			$options_link = apply_filters( 'ds_options_screen_link', $options_link );
+
+		?>
+		<a class="button button-primary" href="<?php echo admin_url( $options_link ); ?>">
 			<?php _e( 'Options Page', 'dashboard-summary' ); ?>
 		</a>
 		<?php endif; ?>

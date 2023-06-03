@@ -19,7 +19,8 @@ namespace Dashboard_Summary\Views;
 
 // Alias namespaces.
 use Dashboard_Summary\Classes as Classes,
-	Dashboard_Summary\Core    as Core;
+	Dashboard_Summary\Core    as Core,
+	Dashboard_Summary\ACF     as ACF;
 
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -55,6 +56,10 @@ do_action( 'ds_default_widget_before' );
 		<li><a href="#ds-widget-updates"><?php _e( 'Updates', 'dashboard-summary' ); echo $update_count; ?></a></li>
 		<?php endif; ?>
 
+		<?php if ( function_exists( 'acf_get_setting' ) && current_user_can( acf_get_setting( 'capability' ) ) ) : ?>
+		<li><a href="#ds-widget-acf"><?php _e( 'ACF', 'dashboard-summary' ); ?></a></li>
+		<?php endif; ?>
+
 		<li><a href="#ds-widget-system-info"><?php _e( 'System', 'dashboard-summary' ); ?></a></li>
 	</ul>
 
@@ -87,6 +92,17 @@ do_action( 'ds_default_widget_before' );
 		<?php
 
 		include( DS_PATH . '/views/partials/widget-updates.php' );
+
+		?>
+	</section>
+	<?php endif; ?>
+
+	<?php if ( function_exists( 'acf_get_setting' ) && current_user_can( acf_get_setting( 'capability' ) ) ) : ?>
+	<section id="ds-widget-acf" class="ds-widget-section ds-tabs-panel">
+		<?php
+
+		// Get the ACF content.
+		include( DS_PATH . '/views/partials/site-widget-acf.php' );
 
 		?>
 	</section>
