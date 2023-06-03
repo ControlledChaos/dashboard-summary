@@ -25,6 +25,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 foreach ( glob( DS_PATH . 'includes/core/*.php' ) as $filename ) {
 	require $filename;
 }
+foreach ( glob( DS_PATH . 'includes/vendor/*.php' ) as $filename ) {
+	require $filename;
+}
 foreach ( glob( DS_PATH . 'includes/users/*.php' ) as $filename ) {
 	require $filename;
 }
