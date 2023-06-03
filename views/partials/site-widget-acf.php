@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * to be filtered out.
  */
 $tab_heading = apply_filters(
-	'ds_site_widget_acf_heading',
+	'ds_acf_heading',
 	sprintf(
 		'<h3>%s</h3>',
 		__( 'Advanced Custom Fields', 'dashboard-summary' )
@@ -37,7 +37,7 @@ $tab_heading = apply_filters(
 
 // Content section description.
 $tab_description = apply_filters(
-	'ds_site_widget_acf_description',
+	'ds_acf_description',
 	sprintf(
 		'<p class="description">%s</p>',
 		__( 'Custom content types and custom content edit fields.', 'dashboard-summary' )
@@ -46,7 +46,7 @@ $tab_description = apply_filters(
 
 // ACF types & taxes section heading.
 $acf_heading_types = apply_filters(
-	'ds_site_widget_content_acf_heading_types',
+	'ds_acf_types_heading',
 	sprintf(
 		'<h4>%s</h4>',
 		__( 'Manage Custom Content Types', 'dashboard-summary' )
@@ -65,10 +65,10 @@ if ( ACF\acfe_display_types_taxes_links() ) {
 		__( 'Manage custom post types and custom taxonomies.', 'dashboard-summary' )
 	);
 }
-$acf_description_types = apply_filters( 'ds_site_widget_content_acf_description_types', $acf_description_types );
+$acf_description_types = apply_filters( 'ds_acf_types_description', $acf_description_types );
 
 $acfe_description_types = apply_filters(
-	'ds_site_widget_content_acfe_description_types',
+	'ds_acfe_types_description',
 	sprintf(
 		'<p class="description">%s</p>',
 		__( 'Manage via Advanced Custom Fields: Extended.', 'dashboard-summary' )
@@ -76,14 +76,14 @@ $acfe_description_types = apply_filters(
 );
 
 // ACF fields section heading.
-$acf_heading_fields = apply_filters(
-	'ds_site_widget_content_acf_heading_fields',
+$acf_fields_heading = apply_filters(
+	'ds_acf_fields_heading',
 	__( 'Manage Custom Fields', 'dashboard-summary' )
 );
 
 // ACF fields section description.
-$acf_description_fields = apply_filters(
-	'ds_site_widget_content_acf_description_fields',
+$acf_fields_description = apply_filters(
+	'ds_acf_fields_description',
 	sprintf(
 		'<p class="description">%s</p>',
 		__( 'Add, edit, import, and export custom field groups.', 'dashboard-summary' )
@@ -143,7 +143,7 @@ $acf_link_tools = apply_filters(
 	<hr />
 	<?php endif; ?>
 
-	<h4><?php echo $acf_heading_fields; ?></h4>
+	<h4><?php echo $acf_fields_heading; ?></h4>
 
 	<p class="ds-widget-link-button">
 		<a class="button button-primary" href="<?php echo self_admin_url( 'edit.php?post_type=acf-field-group' ); ?>">
@@ -153,7 +153,7 @@ $acf_link_tools = apply_filters(
 			<?php _e( 'Field Tools', 'dashboard-summary' ); ?>
 		</a>
 	</p>
-	<?php echo $acf_description_fields; ?>
+	<?php echo $acf_fields_description; ?>
 </div>
 
 <?php

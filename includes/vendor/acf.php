@@ -249,7 +249,7 @@ function acfe_post_types() {
 
 	$html  = '<hr />';
 	$html .= apply_filters(
-		'ds_acfe_heading_list',
+		'ds_acfe_list_heading',
 		sprintf(
 			'<h4>%s</h4>',
 			__( 'Advanced Custom Fields: Extended', 'dashboard-summary' )
@@ -257,7 +257,7 @@ function acfe_post_types() {
 	);
 
 	$html .= apply_filters(
-		'ds_acfe_description_list',
+		'ds_acfe_list_description',
 		sprintf(
 			'<p class="description">%s</p>',
 			__( 'Enhancements to Advanced Custom Fields.', 'dashboard-summary' )
