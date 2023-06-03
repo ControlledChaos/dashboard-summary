@@ -237,7 +237,6 @@ if ( current_user_can( 'list_users' ) ) :
 <div class="ds-widget-divided-section ds-widget-users-discussion-links">
 
 	<h4><?php echo $tools_heading; ?></h4>
-	<?php echo $tools_description; ?>
 
 	<p class="ds-widget-link-button">
 		<a class="button button-primary" href="<?php echo self_admin_url( 'users.php' ); ?>">
@@ -247,6 +246,7 @@ if ( current_user_can( 'list_users' ) ) :
 			<?php _e( 'New User', 'dashboard-summary' ); ?>
 		</a>
 	</p>
+	<?php echo $tools_description; ?>
 </div>
 
 <?php

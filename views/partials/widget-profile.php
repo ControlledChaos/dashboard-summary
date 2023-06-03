@@ -164,13 +164,13 @@ $tools_description = apply_filters(
 <div class="ds-widget-divided-section ds-widget-profile-links">
 
 	<h4><?php echo $tools_heading; ?></h4>
-	<?php echo $tools_description; ?>
 
 	<p class="ds-widget-link-button">
 		<a class="button button-primary" href="<?php echo self_admin_url( 'profile.php' ); ?>">
 			<?php _e( 'Edit Account', 'dashboard-summary' ); ?>
 		</a>
 	</p>
+	<?php echo $tools_description; ?>
 </div>
 
 <?php
