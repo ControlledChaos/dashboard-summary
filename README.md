@@ -3,6 +3,7 @@
 ![Minimum PHP version 7.4](https://img.shields.io/badge/PHP_minimum-7.4-8892bf.svg?style=flat-square)
 ![WordPress tested on version 5.7](https://img.shields.io/badge/WordPress_tested-5.7-2271b1.svg?style=flat-square)
 ![ClassicPress tested on version 1.2.0](https://img.shields.io/badge/ClassicPress_tested-1.2.0-03768e.svg?style=flat-square)
+![ACF Ready](https://img.shields.io/badge/ACF-Ready-00d3ae.svg?style=flat-square)
 
 Improves the At a Glance dashboard widget and offers replacement widgets with more detailed website and network information. Integrates seamlessly into the native administration design. Compatible with multisite installations and with ClassicPress.
 
@@ -84,6 +85,30 @@ The theme updates section lists available theme updates with modal content links
 #### Update Tools
 
 * Link to the updates page.
+
+### Advanced Custom Fields Tab
+
+Tab included if the Advanced Custom Fields plugin is active. Additional content if the Advanced Custom Fields: Extended plugin is active.
+
+#### ACF Content
+
+* List of content counts with links to manage:
+  * Field groups
+  * Post types
+  * Taxonomies
+* Button links to manage ACF content.
+
+#### ACFE Content
+
+* List of content counts with links to manage:
+  * Post types
+  * Taxonomies
+  * Forms
+  * Options pages
+  * Block types
+  * Templates (ACFE Pro)
+  * Fields categories
+* Button links to manage ACFE content.
 
 ### Website Summary System Tab
 
