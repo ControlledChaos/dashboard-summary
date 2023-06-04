@@ -43,35 +43,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 
 /**
- * Author's Note
- *
- * To all who may read this,
- *
- * I hope you find this code to be easily deciphered. I have
- * learned much by examining the code of well written & well
- * documented products so I have done my best to document this
- * code with comments where necessary, even where not necessary,
- * and by using logical, descriptive names for PHP classes &
- * methods, HTML IDs, CSS classes, etc.
- *
- * Beginners, note that the short array syntax ( `[]` rather than
- * array()` ) is used. Use of the `array()` function is encouraged
- * by some to make the code more easily read by beginners. I argue
- * that beginners will inevitably encounter the short array syntax
- * so they may as well learn to recognize this early. If the code
- * is well documented then it will be clear when the brackets (`[]`)
- * represent an array. And someday you too will be writing many
- * arrays in your code and you will find the short syntax to be
- * a time saver. Let's not unnecessarily dumb-down code; y'all
- * are smart folk if you are reading this and you'll figure it out
- * like I did.
- *
- * Greg Sweet, Controlled Chaos Design, former mule packer, cook,
- * landscaper, & janitor who learned PHP by breaking stuff and by
- * reading code comments.
- */
-
-/**
  * Constant: Plugin basename
  *
  * @since 1.0.0
