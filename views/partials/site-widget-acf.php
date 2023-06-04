@@ -59,7 +59,7 @@ if ( ACF\acfe_display_types_taxes_links() ) {
 } else {
 	$acf_description_types = sprintf(
 		'<p class="description">%s</p>',
-		__( 'Manage custom post types and custom taxonomies.', 'dashboard-summary' )
+		__( 'Add & edit custom post types and custom taxonomies.', 'dashboard-summary' )
 	);
 }
 $acf_description_types = apply_filters( 'ds_acf_types_description', $acf_description_types );
