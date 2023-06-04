@@ -29,10 +29,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 $tab_heading = apply_filters(
 	'ds_acf_heading',
-	sprintf(
-		'<h3>%s</h3>',
-		__( 'Advanced Custom Fields', 'dashboard-summary' )
-	)
+	__( 'Advanced Custom Fields', 'dashboard-summary' )
 );
 
 // Content section description.
@@ -97,7 +94,7 @@ $acf_link_tools = apply_filters(
 );
 
 ?>
-<?php echo $tab_heading; ?>
+<?php echo "<h3>$tab_heading</h3>"; ?>
 <?php echo $tab_description; ?>
 
 <div class="ds-widget-divided-section ds-widget-content-types">
