@@ -20,6 +20,21 @@
   margin: 0;
 }
 
+#dashboard_right_now ul li.post-count.acf-post-count a:before,
+#dashboard_right_now ul li.post-count.acf-post-count span:before,
+#dashboard_right_now ul li.tax-count.acfe-tax-count a:before,
+#dashboard_right_now ul li.tax-count.acfe-tax-count span:before {
+  display: none !important;
+}
+
+#dashboard_right_now ul li.acf-field-count {
+  cursor: not-allowed;
+}
+
+#dashboard_right_now .ds-widget-acf-list {
+  margin: 1.5em 0 0;
+}
+
 #dashboard_right_now #wp-version-message {
   margin-top: 1em;
 }

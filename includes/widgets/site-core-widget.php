@@ -61,7 +61,7 @@ function setup() {
 		add_action( 'dashboard_glance_items', $ns( 'at_glance' ) );
 
 		// System information section.
-		add_filter( 'update_right_now_text', $ns( 'system_info' ), 10, 1 );
+		add_filter( 'update_right_now_text', $ns( 'system_info' ), 11, 1 );
 	}
 }
 

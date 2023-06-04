@@ -57,6 +57,7 @@ function admin_init() {
 	if ( is_admin() && ! is_network_admin() && 'index.php' === $pagenow ) {
 		Site_Widget\setup();
 		Core_Widget\setup();
+		ACF\setup();
 	}
 
 	// Network dashboard.

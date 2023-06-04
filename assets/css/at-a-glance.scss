@@ -21,7 +21,22 @@
 			width: unset;
 			float: none;
 			margin: 0;
+
+			&.post-count.acf-post-count a:before,
+			&.post-count.acf-post-count span:before,
+			&.tax-count.acfe-tax-count a:before,
+			&.tax-count.acfe-tax-count span:before {
+				display: none !important;
+			}
+
+			&.acf-field-count {
+				cursor: not-allowed;
+			}
 		}
+	}
+
+	.ds-widget-acf-list {
+		margin: 1.5em 0 0;
 	}
 
 	#wp-version-message {
