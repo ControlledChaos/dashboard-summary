@@ -97,31 +97,24 @@ function row_notice( $plugin_file, $plugin_data, $status ) {
  */
 function update_user_dashboard() {
 
-	$summary = get_option( 'ds_enable_summary', true );
-	$glance  = get_option( 'ds_enable_glance', false );
+	$summary     = get_option( 'ds_enable_summary', true );
+	$n_summary   = get_network_option( get_current_network_id(), 'ds_enable_network_summary', true );
 
-	if ( $glance ) {
-		$value = [
-			'normal'  => 'dashboard_summary,dashboard_right_now,dashboard_activity',
-			'side'    => 'dashboard_quick_press,dashboard_site_health,dashboard_primary',
-			'column3' => '',
-			'column4' => ''
-		];
-	} else {
-		$value = [
-			'normal'  => 'dashboard_summary,dashboard_activity',
-			'side'    => 'dashboard_quick_press,dashboard_site_health,dashboard_primary',
-			'column3' => '',
-			'column4' => ''
-		];
-	}
+	$value = [
+		'normal'  => 'dashboard_summary,dashboard_right_now,network_dashboard_right_now,dashboard_activity',
+		'side'    => 'dashboard_primary',
+		'column3' => '',
+		'column4' => ''
+	];
 
-	if ( $summary ) {
+	$users = get_users( [ 'fields' => [ 'id' ] ] );
 
-		$users = get_users( [ 'fields' => [ 'id' ] ] );
-
-		foreach ( $users as $user ) {
+	foreach ( $users as $user ) {
+		if ( $summary ) {
 			update_user_option( $user->id, 'meta-box-order_dashboard', $value, true );
+		}
+		if ( $n_summary ) {
+			update_user_option( $user->id, 'meta-box-order_dashboard-network', $value, true );
 		}
 	}
 }
