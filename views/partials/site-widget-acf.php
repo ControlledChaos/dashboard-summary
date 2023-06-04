@@ -112,14 +112,22 @@ $acf_link_tools = apply_filters(
 	<?php echo $acf_heading_types; ?>
 
 	<p class="ds-widget-link-button">
+
+		<?php if ( post_type_exists( 'acf-post-type' ) ) : ?>
 		<a class="button button-primary" href="<?php echo self_admin_url( 'edit.php?post_type=acf-post-type' ); ?>">
 			<?php _e( 'Post Types', 'dashboard-summary' ); ?>
 		</a>
+		<?php endif; ?>
+
+		<?php if ( post_type_exists( 'acf-taxonomy' ) ) : ?>
 		<a class="button button-primary" href="<?php echo self_admin_url( 'edit.php?post_type=acf-taxonomy' ); ?>">
 			<?php _e( 'Taxonomies', 'dashboard-summary' ); ?>
 		</a>
+		<?php endif; ?>
 	</p>
-	<?php echo $acf_description_types; ?>
+	<?php if ( post_type_exists( 'acf-post-type' ) || post_type_exists( 'acf-taxonomy' ) ) {
+		echo $acf_description_types;
+	} ?>
 
 	<?php endif; ?>
 
@@ -128,14 +136,22 @@ $acf_link_tools = apply_filters(
 	<hr />
 
 	<p class="ds-widget-link-button">
+
+		<?php if ( post_type_exists( 'acfe-dpt' ) ) : ?>
 		<a class="button button-primary" href="<?php echo self_admin_url( 'edit.php?post_type=acfe-dpt' ); ?>">
 			<?php _e( 'Post Types', 'dashboard-summary' ); ?>
 		</a>
+		<?php endif; ?>
+
+		<?php if ( post_type_exists( 'acfe-dt' ) ) : ?>
 		<a class="button button-primary" href="<?php echo self_admin_url( 'edit.php?post_type=acfe-dt' ); ?>">
 			<?php _e( 'Taxonomies', 'dashboard-summary' ); ?>
 		</a>
+		<?php endif; ?>
 	</p>
-	<?php echo $acfe_description_types; ?>
+	<?php if ( post_type_exists( 'acfe-dpt' ) || post_type_exists( 'acfe-dt' ) ) {
+		echo $acfe_description_types;
+	} ?>
 
 	<hr />
 	<?php endif; ?>
@@ -143,9 +159,13 @@ $acf_link_tools = apply_filters(
 	<h4><?php echo $acf_fields_heading; ?></h4>
 
 	<p class="ds-widget-link-button">
+
+		<?php if ( post_type_exists( 'acf-field-group' ) ) : ?>
 		<a class="button button-primary" href="<?php echo self_admin_url( 'edit.php?post_type=acf-field-group' ); ?>">
 			<?php _e( 'Field Groups', 'dashboard-summary' ); ?>
 		</a>
+		<?php endif; ?>
+
 		<a class="button button-primary" href="<?php echo self_admin_url( $acf_link_tools ); ?>">
 			<?php _e( 'Field Tools', 'dashboard-summary' ); ?>
 		</a>
