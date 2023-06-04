@@ -116,6 +116,7 @@ function settings_link( $links, $settings = [] ) {
 }
 add_action( 'plugins_loaded', function() {
 	add_filter( 'plugin_action_links_' . DS_BASENAME, __NAMESPACE__ . '\settings_link' );
+	add_filter( 'network_admin_plugin_action_links_' . DS_BASENAME, __NAMESPACE__ . '\settings_link' );
 } );
 
 // Get plugin configuration file.
