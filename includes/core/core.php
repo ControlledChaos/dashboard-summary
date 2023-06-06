@@ -221,6 +221,9 @@ function taxonomies_list() {
 		// Begin the taxonomies icons list.
 		$html = '<ul class="ds-content-list ds-taxonomies-list">';
 
+		// Apply a filter to the taxonomy icon class.
+		$taxonomy_icon = apply_filters( 'ds_taxonomy_icon_class', 'dashicons-category' );
+
 		foreach ( $taxonomies as $taxonomy ) {
 
 			// Get the first supported post type in the array.
@@ -253,7 +256,8 @@ function taxonomies_list() {
 				);
 			} else {
 				$icon = sprintf(
-					'<icon class="dashicons dashicons-category ds-icon-%s"></icon>',
+					'<icon class="dashicons %s ds-icon-%s"></icon>',
+					$taxonomy_icon,
 					$taxonomy->name
 				);
 			}
