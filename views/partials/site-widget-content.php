@@ -39,7 +39,7 @@ $tab_description = apply_filters(
 	'ds_site_widget_content_description',
 	sprintf(
 		'<p class="description">%s</p>',
-		__( 'An overview of of the content of this site.', 'dashboard-summary' )
+		__( 'An overview of the content of this site.', 'dashboard-summary' )
 	)
 );
 
