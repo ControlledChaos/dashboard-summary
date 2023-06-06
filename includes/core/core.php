@@ -202,84 +202,6 @@ function post_types_list() {
 }
 
 /**
- * Taxonomies list
- *
- * @see `taxonomies_icons_list()` for a taxonomies list
- *       that includes icon elements.
- *
- * @since  1.0.0
- * @return string Returns unordered list markup.
- */
-function taxonomies_list() {
-
-	// Get taxonomies.
-	$taxonomies = taxonomies_query();
-
-	// Prepare an entry for each taxonomy matching the query.
-	if ( $taxonomies ) {
-
-		// Begin the taxonomies list.
-		$html = '<ul class="ds-content-list ds-taxonomies-list">';
-
-		foreach ( $taxonomies as $taxonomy ) {
-
-			// Get the first supported post type in the array.
-			if ( ! empty( $taxonomy->object_type ) ) {
-				$types = $taxonomy->object_type[0];
-			} else {
-				$types = null;
-			}
-
-			// Set `post_type` URL parameter for menu highlighting.
-			if ( $types && 'post' === $types ) {
-				$type = '&post_type=post';
-			} elseif ( $types ) {
-				$type = '&post_type=' . $types;
-			} else {
-				$type = '';
-			}
-
-			// Count the terms in the taxonomy.
-			$count = wp_count_terms( $taxonomy->name );
-
-			// Get the plural or singular name based on the count.
-			$name = _n( $taxonomy->labels->singular_name, $taxonomy->labels->name, intval( $count ), 'dashboard-summary' );
-
-			// Supply an edit link if the user can edit the taxonomy.
-			$edit = get_taxonomy( $taxonomy->name );
-			if ( current_user_can( $edit->cap->edit_terms ) ) {
-
-				// Print a list item for the taxonomy.
-				$html .= sprintf(
-					'<li class="at-glance-taxonomy %s"><a href="%s">%s %s</a></li>',
-					$taxonomy->name,
-					esc_url( admin_url( 'edit-tags.php?taxonomy=' . $taxonomy->name . $type ) ),
-					$count,
-					$name
-				);
-
-			// List item without link.
-			} else {
-
-				// Print a list item for the taxonomy.
-				$html .= sprintf(
-					'<li class="at-glance-taxonomy %s"><a href="%s">%s %s</a></li>',
-					$taxonomy->name,
-					$count,
-					$name
-				);
-			}
-		}
-
-		// End the taxonomies list.
-		$html .= '</ul>';
-
-		// Print the list markup.
-		echo $html;
-	}
-}
-
-/**
  * Taxonomies list with icons
  *
  * Includes icon elements rather than adding
@@ -288,7 +210,7 @@ function taxonomies_list() {
  * @since  1.0.0
  * @return string Returns unordered list markup.
  */
-function taxonomies_icons_list() {
+function taxonomies_list() {
 
 	// Get taxonomies.
 	$taxonomies = taxonomies_query();

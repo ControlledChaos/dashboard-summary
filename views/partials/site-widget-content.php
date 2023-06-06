@@ -103,7 +103,7 @@ $tools_description = apply_filters(
 	<h4><?php echo $taxes_heading; ?></h4>
 	<?php echo $taxes_description; ?>
 
-	<?php Core\taxonomies_icons_list(); ?>
+	<?php Core\taxonomies_list(); ?>
 </div>
 
 <div class="ds-widget-divided-section ds-widget-content-links">
