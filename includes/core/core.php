@@ -63,6 +63,19 @@ function custom_types_query() {
 }
 
 /**
+ * Display posts
+ *
+ * Apply a filter in case blog feature
+ * has been disabled.
+ *
+ * @since  1.0.0
+ * @return boolean Returns true by default.
+ */
+function display_posts() {
+	return apply_filters( 'ds_display_posts', true );
+}
+
+/**
  * Public post types
  *
  * Merges built-in post types and custom post types.
@@ -72,8 +85,13 @@ function custom_types_query() {
  */
 function public_post_types() {
 
-	// Add attachment post type.
-	$builtin = [ 'post', 'page', 'attachment' ];
+	// Built-in post types.
+	$builtin = [ 'page', 'attachment' ];
+	$posts   = [];
+	if ( display_posts() ) {
+		$posts   = [ 'post' ];
+		$builtin = array_merge( $posts, $builtin );
+	}
 
 	// Custom post types query.
 	$query = custom_types_query();
