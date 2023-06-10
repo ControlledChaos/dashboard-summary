@@ -347,6 +347,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<p><code>ds_site_widget_content_tools_description</code> | <code>string</code><br />
 				<?php _e( 'Filters the <code>&lt;p&gt;</code> markup & text of the site content tab tools section description.', 'dashboard-summary' ); ?></p>
 			</li>
+			<li>
+				<p><code>ds_display_posts</code> | <code>boolean</code><br />
+				<?php _e( 'Filters whether to display the count of default post type.', 'dashboard-summary' ); ?></p>
+			</li>
 		</ul>
 
 		<h5><?php _e( 'Site Users Tab', 'dashboard-summary' ); ?></h5>
